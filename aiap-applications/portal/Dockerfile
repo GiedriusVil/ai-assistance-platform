@@ -19,14 +19,12 @@ RUN apt-get update && apt-get install -y git
 ARG GIT_REPO_URL_DOCS_BOOK
 RUN if [ ! -z "$GIT_REPO_URL_DOCS_BOOK" ]; then git clone $GIT_REPO_URL_DOCS_BOOK; fi
 
-# List files in the root directory
+# Adding a non-cachable step to force Docker to re-run these commands
+RUN echo "Non-cachable step to force cache bust" && echo "Listing all files:" && find /home/node/app
+RUN echo "Non-cachable step to force cache bust" && echo "Listing files in the working directory:" && ls -R /home/node/app
+
 RUN echo "Listing files in the root directory:" && ls -R /
 
-# List files in the working directory
-RUN echo "Listing files in the working directory:" && ls -R /home/node/app
-
-# Alternatively, use find to list all files
-RUN echo "Listing all files:" && find /home/node/app
 
 COPY --chown=node:node scripts scripts
 COPY --chown=node:node .scripts .scripts
