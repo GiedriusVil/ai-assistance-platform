@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-release-assistant-configuration",
+  "version": "0.0.1",
+  "description": "aiap-release-assistant-configuration",
+  "main": "index.js",
+  "author": "IBM",
+  "private": true,
+  "dependencies": {}
+}

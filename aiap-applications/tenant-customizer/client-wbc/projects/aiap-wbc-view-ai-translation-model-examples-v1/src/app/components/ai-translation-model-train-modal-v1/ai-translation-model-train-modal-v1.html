@@ -1,0 +1,31 @@
+<aiap-modal-v1 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='sm'>
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'ai_translation_model_examples_v1.train_modal_v1.header.title' | translate }}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <div class="confirm-info-div">
+      <p>{{ 'ai_translation_model_examples_v1.train_modal_v1.section.text' | translate }}</p>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.train_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.train_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.train_modal_v1.btn_train.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.train_modal_v1.btn_train.tooltip' | translate"
+      [type]="'danger'"
+      (onClick)="train()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

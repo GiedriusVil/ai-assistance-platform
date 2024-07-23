@@ -1,0 +1,30 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'ai_services_change_request_delete_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <span>{{ 'ai_services_change_request_delete_modal_v1.content.text' | translate }}</span>
+    <div ibmGrid>
+      <div ibmRow *ngFor="let id of ids">
+        <div ibmCol>{{id}}</div>
+      </div>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'ai_services_change_request_delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      [size]="'md'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'ai_services_change_request_delete_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      [size]="'md'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

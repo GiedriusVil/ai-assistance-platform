@@ -1,0 +1,59 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'answers_view_v1.rollback_modal.header' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <ibm-table-container>
+      <aiap-table-v1
+        [size]="'md'"
+        [striped]="true"
+        [skeleton]="false"
+        [sortable]="true"
+        [showSelectionColumn]="true"
+        [stickyHeader]="false"
+        [enableSingleSelect]="true"
+        [model]="model"
+        (onRowClick)="handleRowClick($event)"
+        (onRowSelect)="handleRowSelection($event)"
+        (onRowDeselect)="handleRowDeSelection($event)"
+        (onSort)="handleSortEvent($event)">
+      </aiap-table-v1>
+      <aiap-table-v1-pagination-v1
+        [model]="model"
+        (onPageSelect)="handlePageSelection($event)">
+      </aiap-table-v1-pagination-v1>
+      <ng-template #overflowActionsTemplate let-data="data">
+        <aiap-overflow-menu-v1
+          [onClick]="_allowActionsClick()">
+          <aiap-overflow-menu-option-v1
+            [text]="'answers_view_v1.rollback_modal.fld_compare' | translate"
+            (onClick)="showCompareModal(data)">
+          </aiap-overflow-menu-option-v1>
+        </aiap-overflow-menu-v1>
+      </ng-template>
+    </ibm-table-container>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answers_view_v1.rollback_modal.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="isRollbackDisabled()"
+      [type]="'primary'"
+      [size]="'md'"
+      [text]="'answers_view_v1.rollback_modal.btn_rollback.text' | translate"
+      (click)="rollback()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<ng-template #dateCellTemplate let-data="data">
+    <div>{{data | date:'long' }}</div>
+</ng-template>
+<aiap-answers-compare-modal-v1 #answersCompareModal></aiap-answers-compare-modal-v1>

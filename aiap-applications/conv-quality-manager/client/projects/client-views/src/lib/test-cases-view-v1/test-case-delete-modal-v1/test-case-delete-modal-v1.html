@@ -1,0 +1,27 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='xs'>
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'test_cases_view_v1.delete_modal_v1.header' | translate }}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span>
+      {{ 'test_cases_view_v1.delete_modal_v1.content' | translate }}
+    </span>
+  </section>
+  <ibm-modal-footer>
+    <button 
+      ibmButton="secondary" 
+      (click)="close()">
+      {{ 'test_cases_view_v1.delete_modal_v1.btn_cancel.text' | translate }}
+    </button>
+    <button 
+      ibmButton="danger" 
+      (click)="delete()">
+      {{ 'test_cases_view_v1.delete_modal_v1.btn_delete.text' | translate }}
+    </button>
+  </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,30 @@
+<ibm-modal [open]="isOpen" (overlaySelected)="close()" size='md'>
+  <ibm-modal-header (closeSelect)="close()">
+      <p class="bx--modal-header__heading bx--type-beta">Delete Live metrics configuration?</p>
+  </ibm-modal-header>
+  <form #LiveMetricsConfigurationDeleteModal="ngForm">
+      <div class="bx--modal-content">
+          <p class="mb-3">Please confirm <strong> {{ liveMetricsConfigurationsIds }} </strong> configuration deletion?</p>
+          <div class="bx--form-item mt-8">
+              <textarea
+                  required
+                  id="text-area-5" 
+                  name="comment"
+                  [(ngModel)]="comment" 
+                  class="bx--text-area" 
+                  rows="4"
+                  cols="50" 
+                  placeholder="Please provide the reason of deletion...">
+              </textarea>
+          </div>
+      </div>
+  </form>
+  <ibm-modal-footer>
+      <button class="bx--btn bx--btn--secondary" (click)="close()">Cancel</button>
+      <button 
+          class="bx--btn bx--btn--danger" 
+          modal-primary-focus 
+          [disabled]="LiveMetricsConfigurationDeleteModal.invalid" 
+          (click)="delete()">Delete</button>
+    </ibm-modal-footer>
+</ibm-modal>

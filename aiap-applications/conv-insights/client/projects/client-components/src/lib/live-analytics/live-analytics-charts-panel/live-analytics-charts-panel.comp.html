@@ -1,0 +1,16 @@
+<div ibmGrid>
+  <div ibmRow>
+    <ng-container *ngFor="let chart of configuration?.charts">
+      <div ibmCol [columnNumbers]="chart?.columns? chart.columns: {'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+        <aca-live-analytics-chart 
+          *ngIf="chart.id"
+          class="graph-placeholder"
+          [chart]="chart"
+          [query]="query"
+          [configuration]="configuration"
+          [_cancelMetricsRequests$]="_cancelMetricsRequests$">
+        </aca-live-analytics-chart>
+      </div>
+    </ng-container>
+  </div>
+</div>

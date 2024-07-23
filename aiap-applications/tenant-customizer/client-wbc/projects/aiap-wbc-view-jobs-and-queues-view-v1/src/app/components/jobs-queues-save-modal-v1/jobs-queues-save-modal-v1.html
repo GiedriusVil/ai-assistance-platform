@@ -1,0 +1,94 @@
+<aiap-modal-v1 [open]="isOpen" (overlaySelected)="close()" size='lg'>
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.saveQueue' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #jobsQueuesSaveForm>
+      <div ibmGrid>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'queue_id'"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.id' | translate"
+              [(value)]="queue.id">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'queue_name'"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.queue_name' | translate"
+              [(value)]="queue.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol>
+            <ibm-dropdown
+              required name="type"
+              placeholder="{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.placeholder.type' | translate }}"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.type' | translate"
+              [(ngModel)]="selections.selectedType">
+              <ibm-dropdown-list
+                [items]="selections.types">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'queue_lambda_module'"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.queue_lambda_module' | translate"
+              [(value)]="queue.lambdaModule">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol>
+            <ibm-dropdown
+              required name="client"
+              placeholder="{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.placeholder.client' | translate }}"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.client' | translate"
+              [(ngModel)]="selections.selectedClientType">
+              <ibm-dropdown-list
+                [items]="selections.clientTypes">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'queue_cron'"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.cron' | translate"
+              [(value)]="queue.cron">
+            </aiap-field-input-v1>
+            <aiap-label-v1 [invalid]="isCronExpressionInvalid()" [invalidText]="'Cron expression is invalid!'">
+            </aiap-label-v1>
+          </div>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'queue_remove_on_complete'"
+              [label]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.label.remove_on_complete' | translate"
+              [(value)]="queue.removeOnComplete">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button ibmButton="secondary" (click)="close()">
+      {{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.close' | translate }}
+    </button>
+    <button ibmButton="primary" (click)="save()"
+      [disabled]="!queue.name || !queue.id || !selections.selectedType || !selections.selectedClientType || !queue.lambdaModule || isCronExpressionInvalid()"
+      ibmButton="primary">
+      {{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_save_modal_v1.save' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

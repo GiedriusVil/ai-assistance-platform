@@ -1,0 +1,20 @@
+{
+    "name": "@ibm-aca/aca-rule-actions-service",
+    "version": "0.0.1",
+    "description": "> TODO: description",
+    "license": "IBM",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "author": {
+        "name": "[LEGO] Oleg Lukasonok",
+        "email": "oleg.lukasonok@lt.ibm.com",
+        "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376"
+    },
+    "contributors": [
+        {
+            "name": "Andrius Bertasius",
+            "email": "andrius.bertasius@ibm.com",
+            "url": "https://www.linkedin.com/in/andrius-berta%C5%A1ius-1392321b1"
+        }
+    ]
+}

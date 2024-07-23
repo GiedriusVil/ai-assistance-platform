@@ -1,0 +1,97 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import { NgModule } from '@angular/core';
+
+import {
+  ButtonModule,
+  CheckboxModule,
+  ComboBoxModule,
+  DatePickerInputModule,
+  DatePickerModule,
+  DialogModule,
+  DropdownModule,
+  FileUploaderModule,
+  GridModule,
+  IconModule,
+  InlineLoadingModule,
+  InputModule,
+  ListModule,
+  ModalModule,
+  NotificationModule,
+  PaginationModule,
+  PlaceholderModule,
+  ProgressIndicatorModule,
+  RadioModule,
+  SearchModule,
+  TableModule,
+  TabsModule,
+  TilesModule,
+  ToggleModule,
+  UIShellModule,
+  // services
+  NotificationService,
+} from 'carbon-components-angular';
+
+@NgModule({
+  imports: [
+    ButtonModule,
+    CheckboxModule,
+    ComboBoxModule,
+    DatePickerInputModule,
+    DatePickerModule,
+    DialogModule,
+    DropdownModule,
+    FileUploaderModule,
+    GridModule,
+    IconModule,
+    InlineLoadingModule,
+    InputModule,
+    ListModule,
+    ModalModule,
+    NotificationModule,
+    PaginationModule,
+    PlaceholderModule,
+    ProgressIndicatorModule,
+    RadioModule,
+    SearchModule,
+    TableModule,
+    TabsModule,
+    TilesModule,
+    ToggleModule,
+    UIShellModule,
+  ],
+  exports: [
+    ButtonModule,
+    CheckboxModule,
+    ComboBoxModule,
+    DatePickerInputModule,
+    DatePickerModule,
+    DialogModule,
+    DropdownModule,
+    FileUploaderModule,
+    GridModule,
+    IconModule,
+    InlineLoadingModule,
+    InputModule,
+    ListModule,
+    ModalModule,
+    NotificationModule,
+    PaginationModule,
+    PlaceholderModule,
+    ProgressIndicatorModule,
+    RadioModule,
+    SearchModule,
+    TableModule,
+    TabsModule,
+    TilesModule,
+    ToggleModule,
+    UIShellModule,
+  ],
+  providers: [
+    NotificationService,
+  ]
+})
+export class CarbonFrameworkModule { }

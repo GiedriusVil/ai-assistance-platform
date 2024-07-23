@@ -1,0 +1,12 @@
+<ibm-accordion>
+    <ibm-accordion-item 
+        [title]="'Click for examples'" 
+        [expanded]="selections.instructionsExpanded">
+        <aca-classifier-model-save-classifier-docs></aca-classifier-model-save-classifier-docs>
+    </ibm-accordion-item>
+</ibm-accordion>
+<json-editor   
+    class="aca-override" 
+    [options]="jsonEditorOptions" 
+    [data]="value">
+</json-editor>

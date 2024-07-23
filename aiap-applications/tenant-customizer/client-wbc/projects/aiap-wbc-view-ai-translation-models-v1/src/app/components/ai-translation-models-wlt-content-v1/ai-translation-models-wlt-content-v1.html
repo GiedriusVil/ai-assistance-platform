@@ -1,0 +1,33 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-translation-models-table-v1
+      [aiTranslationServiceId]="aiTranslationServiceId"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)"
+      (onIdentifyLanguagePlace)="handleIdentifyLanguagePlaceEvent($event)">
+    </aiap-ai-translation-models-table-v1>
+  </div>
+</div>
+
+<aiap-ai-translation-model-save-modal-v1
+  [aiTranslationService]="aiTranslationService" 
+  #aiTranslationModelSaveModal>
+</aiap-ai-translation-model-save-modal-v1>
+
+<aiap-ai-translation-model-delete-modal-v1
+  [aiTranslationServiceId]="aiTranslationServiceId"
+  #aiTranslationModelDeleteModal>
+</aiap-ai-translation-model-delete-modal-v1>
+
+<aiap-ai-translation-model-import-modal-v1 
+  [aiTranslationServiceId]="aiTranslationServiceId" 
+  #aiTranslationModelImportModal>
+</aiap-ai-translation-model-import-modal-v1>
+
+<aiap-translation-service-identify-language-modal-v1
+  #aiTranslationServiceIdentifyLanguageModal>
+</aiap-translation-service-identify-language-modal-v1>

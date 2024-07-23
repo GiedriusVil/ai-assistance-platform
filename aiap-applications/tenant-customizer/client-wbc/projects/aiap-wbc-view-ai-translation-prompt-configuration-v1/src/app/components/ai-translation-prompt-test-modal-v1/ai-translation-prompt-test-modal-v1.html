@@ -1,0 +1,70 @@
+<aiap-modal-v1 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='sm'>
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.header.title' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #translationPromptTest="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-textarea-v1
+              [name]="'test_phrase'"
+              [isRequired]="true"
+              [label]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.fld_test_phrase.label' | translate"
+              [labelHelp]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.fld_test_phrase.labelHelp' | translate"
+              [placeholder]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.fld_test_phrase.placeholder' | translate"
+              [isDisabled]="state.testing"
+              [rows]="5"
+              (onKeyDown)="handleKeyCtrlDownEvent($event)"
+              [(value)]="state.phrase">
+            </aiap-field-textarea-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-tile>
+              <ibm-loading
+                *ngIf="state.testing"
+                [isActive]="true" 
+                [size]="'sm'">
+              </ibm-loading>
+              <div *ngIf="!state.testing">
+                <aiap-label-v1
+                  [label]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.fld_response.label' | translate"
+                  [labelHelp]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.fld_response.labelHelp' | translate"></aiap-label-v1>
+                <json-editor 
+                  class="aca-override" 
+                  [options]="jsonEditorOptions" 
+                  [data]="state.response">
+                </json-editor>
+              </div>
+            </ibm-tile>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.btn_test.text' | translate"
+      [tooltip]="'ai_translation_prompt_configuration_v1.prompt_test_modal_v1.btn_test.tooltip' | translate"
+      [skeleton]="isLoading"
+      [disabled]="translationPromptTest.invalid"
+      [type]="'primary'"
+      (onClick)="test()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

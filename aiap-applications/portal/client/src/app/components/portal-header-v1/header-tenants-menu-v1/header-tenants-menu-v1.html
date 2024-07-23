@@ -1,0 +1,8 @@
+<ibm-header-menu 
+  trigger="mouseover"
+  title="[{{ user?.session?.tenant?.environment?.id }}] {{ user?.session?.tenant?.name }}">
+  <ibm-header-item 
+    *ngFor="let tenant of tenants" 
+    (click)="handleTenantAuthorizationEvent(tenant)">[{{tenant?.environment?.id}}] {{tenant?.name}}
+  </ibm-header-item>
+</ibm-header-menu>

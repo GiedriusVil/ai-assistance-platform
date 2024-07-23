@@ -1,0 +1,77 @@
+<fieldset>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == 'day'" 
+      (click)="handleModeChange('day')">Day</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == 'week'"
+      (click)="handleModeChange('week')">Week</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == 'month'"
+      (click)="handleModeChange('month')">Month</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == '3months'"
+      (click)="handleModeChange('3months')">3 Months</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == '6months'"
+      (click)="handleModeChange('6months')">6 Months</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == '1year'"
+      (click)="handleModeChange('1year')">1 Year</button>
+    <button
+      ibmButton="ghost"
+      [size]="'field'"
+      [disabled]="_value.mode == 'custom'"
+      (click)="handleModeChange('custom')">Custom</button>
+    <fieldset class="date-range-inline-flex">
+      <button
+        ibmButton="ghost"
+        [iconOnly]="true"
+        [size]="'field'"
+        [disabled]="_value.mode == 'custom'"
+        (click)="moveRange(-1)">
+        <aiap-icon-svg-v1 
+          class="bx--btn__icon"
+          [src]="'assets/carbon-icons/20/navigation/chevron--left.svg'">
+        </aiap-icon-svg-v1>
+      </button>
+      <ibm-date-picker 
+        dateFormat="Y-m-d" 
+        invalidText="Invalid date format" 
+        placeholder="yyyy-mm-dd"
+        range="true" 
+        theme="light" 
+        [disabled]="_value.mode != 'custom'"
+        [rangeInvalid]="isDateRangeInvalid()"
+        [rangeInvalidText]="'Provide range dates!'"
+        [value]="_range" 
+        (valueChange)="handleValueChange($event)">
+      </ibm-date-picker>
+      <button
+        ibmButton="ghost"
+        [iconOnly]="true"
+        [size]="'field'"
+        [disabled]="_value.mode == 'custom'"
+        (click)="moveRange(1)">
+        <aiap-icon-svg-v1
+          class="bx--btn__icon"
+          [src]="'assets/carbon-icons/20/navigation/chevron--right.svg'">
+        </aiap-icon-svg-v1>
+      </button>
+      <button
+        ibmButton="ghost"
+        [size]="'field'"
+        (click)="handleSetToNow()">Set to now</button>
+      </fieldset>
+  </fieldset>

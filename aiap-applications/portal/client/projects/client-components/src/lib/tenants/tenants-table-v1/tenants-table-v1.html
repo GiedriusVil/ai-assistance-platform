@@ -1,0 +1,76 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'tenants_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="handleEventSearchChange($event)"
+      (onSearchClear)="handleEventSearchClear($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'tenants.view.add'}"
+      [text]="'tenants_table_v1.btn_add.text' | translate"
+      [tooltip]="'tenants_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'tenants.view.import'}"
+      [text]="'tenants_table_v1.btn_import.text' | translate"
+      [tooltip]="'tenants_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'tenants.view.export'}"
+      [text]="('tenants_table_v1.btn_export.text' | translate) + '(' + (this.selectedRows.length > 0 ? this.selectedRows.length: 'all') + ')'"
+      [tooltip]="'tenants_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'tenants.view.delete'}"
+      [text]="('tenants_table_v1.btn_delete.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'tenants_table_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #createdTemplate 
+    let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template 
+    #updatedTemplate 
+    let-data="data">
+    <aiap-table-cell-updated-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

@@ -1,0 +1,26 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-date-range-picker
+            [value]="state.dateRange"
+            (onChange)="handleDateRangeChange($event)"></aca-date-range-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-lambda-modules-changes-table
+      (onSearchChangeEvent)="handleSearchChangeEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent($event)"  
+      (onShowSavePlace)="handleShowTransactionEvent($event)">
+    </aca-lambda-modules-changes-table>
+  </div>
+</div>
+
+<aca-lambda-module-change-view-modal #lambdaModuleChangeView></aca-lambda-module-change-view-modal>

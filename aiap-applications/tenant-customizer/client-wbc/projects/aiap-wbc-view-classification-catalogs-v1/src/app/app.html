@@ -1,0 +1,7 @@
+<div *ngIf="isReady()">
+  <aiap-classification-catalogs-view-v1></aiap-classification-catalogs-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading [state]="'active'" [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

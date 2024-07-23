@@ -1,0 +1,69 @@
+<aiap-modal-v1
+  [size]="'lg'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'audio_voice_services_save_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #audioVoiceServicesSaveForm>
+      <div ibmGrid class="margin-top-20">
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':3, 'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [name]="'refId'"
+              [label]="'audio_voice_services_save_modal_v1.fld_reference_id.label' | translate"
+              [labelHelp]="'audio_voice_services_save_modal_v1.fld_reference_id.labelHelp' | translate"
+              [isRequired]="true"
+              [(value)]="audioVoiceServiceData.refId">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [name]="'name'"
+              [label]="'audio_voice_services_save_modal_v1.fld_reference_name.label' | translate"
+              [labelHelp]="'audio_voice_services_save_modal_v1.fld_reference_name.labelHelp' | translate"
+              [isRequired]="true"
+              [(value)]="audioVoiceServiceData.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+            <aiap-field-dropdown-v1
+              [type]="'single'"
+              [size]="'lg'"
+              [name]="'Select Type'"
+              [label]="'audio_voice_services_save_modal_v1.fld_select_service_type.label' | translate"
+              [placeholder]="'audio_voice_services_save_modal_v1.fld_select_service_type.placeholder' | translate"
+              [items]="state.serviceTypes"
+              [(value)]="state.serviceTypeSelected">
+            </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol class="audio-voice-service-col">
+                <json-editor
+                    [options]="jsonEditorOptions"
+                    [data]="audioVoiceServiceData.configurations">
+                </json-editor>
+            </div>
+        </div>
+    </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'audio_voice_services_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'audio_voice_services_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="isSaveDisabled()"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+

@@ -1,0 +1,65 @@
+<!-- INFO Modal -->
+<div
+  #modalInfo
+  data-modal id="modal-info" 
+  class="bx--modal" 
+  role="dialog" 
+  aria-modal="true" 
+  aria-labelledby="modal-info-label"
+  aria-describedby="modal-info-heading" 
+  tabindex="-1">
+  <div class="bx--modal-container">
+    <div class="bx--modal-header">
+      <p class="bx--modal-header__heading bx--type-beta" id="modal-info-heading">
+        {{ 'conversations_view_v1.conversation_info_modal_v1.header' | translate }}
+      </p>
+      <button class="bx--modal-close" type="button" data-modal-close aria-label="close modal">
+        <svg class="bx--modal-close__icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <title>Close Info</title>
+          <path d="M6.32 5L10 8.68 8.68 10 5 6.32 1.32 10 0 8.68 3.68 5 0 1.32 1.32 0 5 3.68 8.68 0 10 1.32 6.32 5z"
+                fill-rule="nonzero" />
+        </svg>
+      </button>
+    </div>
+    <div class="bx--modal-content">
+      <section class="bx--structured-list mb-0">
+        <div class="bx--structured-list-thead">
+          <div class="bx--structured-list-row bx--structured-list-row--header-row">
+            <div class="bx--structured-list-th">
+              {{ 'conversations_view_v1.conversation_info_modal_v1.property' | translate }}
+            </div>
+            <div class="bx--structured-list-th">
+              {{ 'conversations_view_v1.conversation_info_modal_v1.value' | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="bx--structured-list-tbody">
+          <div class="bx--structured-list-row">
+            <div class="bx--structured-list-td bx--structured-list-content--nowrap">
+              {{ 'conversations_view_v1.conversation_info_modal_v1.conversation_id' | translate }}
+            </div>
+            <div class="bx--structured-list-td">{{ selectedConversation['conversation_id'] }}</div>
+          </div>
+          <div *ngIf="selectedConversation['skill']" class="bx--structured-list-row">
+            <div class="bx--structured-list-td bx--structured-list-content--nowrap">
+              {{ 'conversations_view_v1.conversation_info_modal_v1.skill' | translate }}
+            </div>
+            <div class="bx--structured-list-td">{{ selectedConversation['skill'] }}</div>
+          </div>
+          <div *ngIf="selectedConversation['poc']" class="bx--structured-list-row">
+            <div class="bx--structured-list-td bx--structured-list-content--nowrap">
+              {{ 'conversations_view_v1.conversation_info_modal_v1.point_of_contact' | translate }}
+            </div>
+            <div class="bx--structured-list-td">{{ selectedConversation['poc'] }}</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="bx--modal-footer">
+      <button class="bx--btn bx--btn--primary" type="button" aria-label="OK" data-modal-primary-focus
+        data-modal-close>
+        {{ 'conversations_view_v1.conversation_info_modal_v1.ok' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

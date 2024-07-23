@@ -1,0 +1,42 @@
+
+
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1 
+            [value]="state.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'lg': 6}">
+          <ibm-dropdown
+            [label]="'rule_action_changes_v1.view.action_label_text' | translate"
+            (selected)="onActionSelect($event)">
+            <ibm-dropdown-list 
+              [items]="state.actions">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-rule-actions-changes-table-v1
+      (onShowSavePlace)="handleShowChangeEvent($event)">
+    </aiap-rule-actions-changes-table-v1>
+  </div>
+</div>
+
+<aiap-rule-action-change-modal-v1 
+  #ruleActionsChangesModal>
+</aiap-rule-action-change-modal-v1>
+

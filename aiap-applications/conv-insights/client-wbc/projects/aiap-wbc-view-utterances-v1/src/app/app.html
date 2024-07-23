@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-utterances-view-v1></aiap-wbc-utterances-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'utterances_view_v1.loading_text' | translate">
+  </ibm-inline-loading>
+</div>

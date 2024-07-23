@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aiap/aiap-soe-bot-rest-api",
+  "version": "3.27.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap-soe-bot": "3.27.0",
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "body-parser": "1.19.0",
+    "events": "3.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
+  }
+}

@@ -1,0 +1,28 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-rule-actions-table-v1
+      showSelectionColumn="true"
+      (onShowDeletePlace)="handleShowRuleActionsDeleteModal($event)"
+      (onShowImportPlace)="handleShowRuleActionsImportModal()" 
+      (onShowSavePlace)="handleShowRuleActionsSaveModal($event)">
+    </aiap-rule-actions-table-v1>
+  </div>
+</div>
+
+<aiap-rule-actions-delete-modal-v1 
+  #ruleActionsDeleteModal>
+</aiap-rule-actions-delete-modal-v1>
+
+<aiap-rule-actions-import-modal-v1 
+  #ruleActionsImportModal>
+</aiap-rule-actions-import-modal-v1>
+
+<aiap-rule-actions-save-modal-v1 
+  #ruleActionsSaveModal>
+</aiap-rule-actions-save-modal-v1>

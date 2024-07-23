@@ -1,0 +1,12 @@
+<div ibmGrid [condensed]="true" class="table-cell-updated-grid">
+    <div ibmRow [leftGutter]="false" [rightGutter]="false">
+        <div ibmCol>
+            <ibm-label>{{value?.user?.name}}</ibm-label>
+        </div>
+    </div>
+    <div ibmRow [leftGutter]="false" [rightGutter]="false">
+        <div ibmCol>
+            <ibm-label>{{ value?.date | toUserLocale }}</ibm-label>
+        </div>
+    </div>
+</div>

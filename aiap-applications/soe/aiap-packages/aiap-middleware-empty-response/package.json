@@ -1,0 +1,11 @@
+{
+    "name": "aiap-middleware-empty-response",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {},
+    "author": "IBM",
+    "license": "MIT",
+    "dependencies": {}
+}

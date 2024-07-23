@@ -1,0 +1,79 @@
+
+<aiap-modal-v1
+  [size]="'xs'"
+  [open]="isOpen" 
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p ibmModalHeaderHeading>
+      {{ 'filters_configuration_view_v1.filter_save_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <form #chartSaveModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'filter_ref'"
+              [label]="'filters_configuration_view_v1.filter_save_modal_v1.fld_reference.label' | translate"
+              [labelHelp]="'filters_configuration_view_v1.filter_save_modal_v1.fld_reference.helper_text' | translate"
+              [(value)]="filter.ref">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol>
+            <ibm-dropdown
+              [placeholder]="'filters_configuration_view_v1.filter_save_modal_v1.fld_type.placeholder' | translate"
+              name="filter_type"
+              (selected)="handleTypeSelection($event)"
+              required
+              [size]="'sm'"
+              [label]="'filters_configuration_view_v1.filter_save_modal_v1.fld_type.label' | translate"
+              [(ngModel)]="filter.type">
+              <ibm-dropdown-list 
+                [items]="state.types">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'filter_query_param_name'"
+              [label]="'filters_configuration_view_v1.filter_save_modal_v1.fld_query_param_name.label' | translate"
+              [labelHelp]="'filters_configuration_view_v1.filter_save_modal_v1.fld_query_param_name.helper_text' |translate"
+              [(value)]="filter.queryParamName">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmCol>
+          <ibm-tabs>
+            <ibm-tab 
+              [heading]="'filters_configuration_view_v1.filter_save_modal_v1.fld_filters.tab' | translate">
+              <aca-filters-configuration-filter-tab #filtersTab 
+                [filter]="filter">
+              </aca-filters-configuration-filter-tab>
+            </ibm-tab>
+            <ibm-tab [heading]="'filters_configuration_view_v1.filter_save_modal_v1.fld_configurations.tab' | translate">
+              <aca-filters-configuration-tab #configurationsTab 
+                [filter]="filter">
+              </aca-filters-configuration-tab>
+            </ibm-tab>
+          </ibm-tabs>
+        </div>
+      </div>
+    </form>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'filters_configuration_view_v1.filter_save_modal_v1.btn_cancel' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'filters_configuration_view_v1.filter_save_modal_v1.btn_save' | translate"
+      [type]="'primary'"
+      [disabled]="isInvalid()" 
+      (onClick)="handleEventSave($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+

@@ -1,0 +1,162 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div class="min-width-100">
+      <div class="message-container {{ value?.type }}">
+        <span *ngIf="value.text" class="float-right">
+            <aca-exclamation-button
+              *ngIf="hasError(value.errors)" 
+              [errorMessageData]="value.errors">
+            </aca-exclamation-button>
+            
+          <div [ngClass]="isMessageFromItemSelectedSenderAction(value.sender_action) ? 'button-selected float-left' : 'message float-left'" [innerHTML]="value | safe"
+            (click)="handleMessageTextClickEvent($event)">
+          </div>
+        </span>
+        <p *ngIf="!hasContent(value)" class="message" [innerHTML]="messageText(value)"
+          (click)="handleMessageTextClickEvent($event)">
+        </p>
+        <ul *ngIf="value.attachment && isButtons(value.attachment)" class="buttons">
+          <li *ngFor="let button of value.attachment.attachments">
+            {{button.title}}
+          </li>
+        </ul>
+        <ul *ngIf="value.attachment && isDropdown(value.attachment)" class="buttons">
+          <li *ngFor="let item of value.attachment.attachments">
+            {{item.title}}
+          </li>
+        </ul>
+        <ul *ngIf="value.attachment && isAiServiceSuggestions(value.attachment)" class="buttons">
+          <li *ngFor="let button of value.attachment.aiServices">
+            {{button.displayName}}
+          </li>
+        </ul>
+        <ul *ngIf="value.attachment && isIntentSuggestions(value.attachment)" class="buttons">
+          <li *ngFor="let button of value.attachment.intents">
+            {{button.displayName}}
+          </li>
+        </ul>
+        <img *ngIf="value.attachment && isImage(value.attachment)" alt="{{ value.attachment.attachments[0].message }}"
+          class="image" [src]="value.attachment.attachments[0].url" />
+        <ul *ngIf="value.attachment && isWDS(value.attachment)" class="message wds"
+          (click)="handleMessageTextClickEvent($event)">
+          <li *ngFor="let doc of value.attachment.payload"><span>{{ doc?.title }}</span></li>
+        </ul>
+        <div *ngIf="isWdsResult(value.attachment)" class="message" (click)="handleMessageTextClickEvent($event)">
+          <table>
+            <tbody>
+              <tr *ngFor="let item of value.attachment.attachments">
+                <ms-wds-results-card [title]="item.title" [filename]="item.filename" [documentUrl]="item.url"
+                  [passageText]="item.data[0]">
+                </ms-wds-results-card>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <aca-wbc-attachment *ngIf="isWbcAttachmentVisible(value)" [message]="value">
+        </aca-wbc-attachment>
+
+        <div *ngIf="isSurvey(value.attachment)" (click)="handleMessageTextClickEvent($event)">
+          <br>
+          <ms-survey-questions-card class="message" [language]=value.context.gAcaProps.isoLang>
+          </ms-survey-questions-card>
+        </div>
+        <div *ngIf="isSurvey(value.sender_action)" (click)="handleMessageTextClickEvent($event)">
+          <br>
+          <ms-survey-results-card class="message" [score]="value.sender_action.data.survey.score"
+            [comment]="value.sender_action.data.survey.comment">
+          </ms-survey-results-card>
+        </div>
+        <div *ngIf="isCarousel(value.attachment)" class="message--cards-scroll"
+          [ngStyle]="{ 'max-width': cardsMaxWidth + 'px' }">
+          <table class="message--cards--table">
+            <tr class="card--header">
+              <td *ngFor="let item of value['attachment']['attachments']">
+                <div class="card--background" [ngStyle]="{ 'background-image': 'url(' + item['imageUrl'] + ')' }">
+                  &nbsp;</div>
+              </td>
+            </tr>
+            <tr class="card--body">
+              <td *ngFor="let item of value['attachment']['attachments']; let i = index">
+                <div class="card--background" [ngStyle]="{ 'min-height': 150 + 'px' }">
+                  <h5>{{ item['title'] }}</h5>
+                  <p>{{ item['subtitle'] }}</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="card--footer">
+              <td *ngFor="let item of value['attachment']['attachments']">
+                <div class="card--background">
+                  <p class="card--button" *ngFor="let button of item['buttons']"
+                    [ngClass]="isButtonSelected(i, button.payload)">
+                    {{button['title'] }}</p>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div *ngIf="isTable(value.attachment)" class="message">
+          <table class="table table-striped table-sm mb-0">
+            <tbody>
+              <tr *ngFor="let row of value['attachment']['attachments']">
+                <td class="key-td"><b>{{ row.key }}</b></td>
+                <td class="value-td">{{ row.value | toUserLocale }}</td>
+              </tr>
+              <tr class="card--body">
+                <td *ngFor="let item of value['attachment']['attachments']; let i = index">
+                  <div class="card--background" [ngStyle]="{ 'min-height': 150 + 'px' }">
+                    <h5>{{ item['title'] }}</h5>
+                    <p>{{ item['subtitle'] }}</p>
+                  </div>
+                </td>
+              </tr>
+              <tr class="card--footer">
+                <td *ngFor="let item of value['attachment']['attachments']">
+                  <div class="card--background">
+                    <p class="card--button" *ngFor="let button of item['buttons']"
+                      [ngClass]="isButtonSelected(i, button.payload)">{{ button['title'] }}</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="timestamp">{{ timezoneService.getTimeByUserTimezone(value.timestamp) }}</span>
+        <span>
+          <div 
+              *ngIf="isUserNotMaskedMsg(value.text, value.type)" 
+              (click)="handleConfirmMessageMaskClickEvent(value)">
+              <span class="maskMessage">
+                <ibm-tooltip-icon
+                  placement="left"
+                  content="{{ 'transcript_view_v1.transcript_message_native.confirm_modal.btn_mask_message.text' | translate }}">
+                  <aiap-icon-svg-v1
+                    class="bx--btn__icon button-icon-custom"
+                    [src]="'assets/carbon-icons/16/operations/manage-protection.svg'">
+                  </aiap-icon-svg-v1>
+                </ibm-tooltip-icon>
+              </span>
+            </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div ibmRow>
+    <div ibmCol class="min-width-100">
+      <div class="message-container-json" [ngClass]="value.expanded ? 'expanded' : 'colapsed'">
+        <div class="json-editor-close-btn" (click)="handleMessageTextClickEvent($event)">{{ 'transcript_view_v1.transcript_message_native.confirm_modal.btn_close.text' | translate }}</div>
+        <json-editor [options]="jsonEditorOptions" [data]="value"></json-editor>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aca-confirm-modal #confirmModal (confirmEvent)="handleMessageMaskClickEvent()">
+  <div class="title">
+    {{ 'transcript_view_v1.transcript_message_native.confirm_modal.title' | translate }}
+  </div>
+  <p>
+    {{ 'transcript_view_v1.transcript_message_native.confirm_modal.text' | translate }}<br>
+    {{ 'transcript_view_v1.transcript_message_native.confirm_modal.mask_template' | translate }} <strong>{{MASK_TEMPLATE}}</strong><br>
+    {{ 'transcript_view_v1.transcript_message_native.confirm_modal.message' | translate }} <strong>{{selectedText}}</strong>
+  </p>
+</aca-confirm-modal>

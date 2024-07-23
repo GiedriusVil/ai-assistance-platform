@@ -1,0 +1,42 @@
+<div class="view-header-wrapper">
+    <div class="view-header-content">
+        <h4>
+          {{ 'test_executions_view_v1.header' | translate }}
+        </h4>
+        <br>
+        <ibm-label>
+          {{ 'test_executions_view_v1.description' | translate }}
+        </ibm-label>
+        <div ibmGrid>
+            <div ibmRow>
+                <div ibmCol>
+                    <ibm-toggle 
+                        [size]="'sm'"
+                        [onText]="'test_executions_view_v1.fld_audit_cols_flag.text_on' | translate" 
+                        [offText]="'test_executions_view_v1.fld_audit_cols_flag.text_off' | translate"
+                        [checked]="state.isAuditColumnsVisible"
+                        (checkedChange)="handleAuditColumnsVisibilityChange($event)">
+                    </ibm-toggle>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="view-body-wrapper">
+    <div class="view-body-content">
+        <aiap-test-executions-table-v1
+            (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+            (onShowGenerateManyPlace)="handleShowGenerateManyPlaceEvent($event)"
+            (onShowRemovePlace)="handleShowRemovePlaceEvent($event)" 
+            (onSearchPlace)="handleSearchChangeEvent($event)"
+            (onClearPlace)="handleSearchClearEvent($event)"
+            (onReExecuteEvent)="handleReExecuteEvent($event)"
+            [isAuditColumnsVisible]="state.isAuditColumnsVisible">
+        </aiap-test-executions-table-v1>
+    </div>
+</div>
+
+<aiap-test-execution-save-modal-v1 #testExecutionSaveModal></aiap-test-execution-save-modal-v1>
+<aiap-test-execution-generate-many-modal-v1 #testExecutionGenerateManyModal></aiap-test-execution-generate-many-modal-v1>
+<aiap-test-execution-delete-modal-v1 #testExecutionDeleteModal></aiap-test-execution-delete-modal-v1>

@@ -1,0 +1,25 @@
+<div ibmGrid>
+    <div ibmRow>
+        <div 
+            ibmCol [columnNumbers]="{'lg': 6}">
+            <aiap-button-v1 
+                class="outcome-button" 
+                [type]="ibmButtonRestrict()" 
+                [size]="'normal'"
+                [text]="'catalog_rules.outcome_type_comp.restrict_button_text' | translate"
+                [tooltip]="'catalog_rules.outcome_type_comp.restrict_button_tooltip' | translate"
+                (onClick)="handleRestrictModeClickEvent($event)">
+            </aiap-button-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 6}">
+            <aiap-button-v1 
+                class="outcome-button" 
+                [type]="ibmButtonAllow()" 
+                [size]="'normal'"
+                [text]="'catalog_rules.outcome_type_comp.allow_button_text' | translate"
+                [tooltip]="'catalog_rules.outcome_type_comp.allow_button_tooltip' | translate"
+                (onClick)="handleAllowModeClickEvent($event)">
+            </aiap-button-v1>
+        </div>
+    </div>
+</div>

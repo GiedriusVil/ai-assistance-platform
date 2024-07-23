@@ -1,0 +1,32 @@
+<ibm-table-container>
+  <ibm-table
+    class="cursor-pointer"
+    size="md"
+    [striped]="true"
+    [skeleton]="skeleton"
+    [showSelectionColumn]="false"
+    [sortable]="true"
+    [stickyHeader]="false"
+    [model]="model"
+    (sort)="handleSortEvent($event)">
+</ibm-table>
+<ibm-pagination
+  [model]="model"
+  [showPageInput]="true"
+  (selectPage)="handleSelectPageEvent($event)">
+</ibm-pagination>
+<ng-template #overflowMenuItemTemplate let-data="data">
+  <ibm-overflow-menu
+   [flip]="true"
+   (click)="_allowActionsClick($event,overflowMenu)" >
+      <ibm-overflow-menu-option
+        (click)="downloadTableInExcel()">
+        Download
+      </ibm-overflow-menu-option>
+  </ibm-overflow-menu>
+</ng-template>
+</ibm-table-container>
+
+<ng-template #decimal let-data="data">
+  <span>{{data|number:'0.1-2'}}</span>
+</ng-template>

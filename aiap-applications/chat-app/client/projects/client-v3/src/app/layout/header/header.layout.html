@@ -1,0 +1,17 @@
+<!-- <div aiap-draggable="true">
+  <button
+    (click)="closeChat()">Close chat
+  </button>
+</div>
+TODO: ANBE THIS SHOULD ALSO BECOME WBC LOADER -->
+
+<ng-container
+  #container
+  [ngTemplateOutlet]="wbcTemplate">
+</ng-container>
+
+<ng-template #wbcTemplate>
+  <ax-lazy-element
+    *axLazyElementDynamic="data, url: url;">
+  </ax-lazy-element>
+</ng-template>

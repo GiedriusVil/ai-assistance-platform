@@ -1,0 +1,14 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 4, 'sm': 2}" [ngSwitch]="aiTranslationService.type">
+      <aiap-ai-translation-service-external-watsonx-save-form-v1 *ngSwitchCase="'WATSONX'" [skeleton]="state.isLoading"
+        [(value)]="aiTranslationService.external" [(state)]="state">
+      </aiap-ai-translation-service-external-watsonx-save-form-v1>
+      <aiap-ai-translation-service-external-wlt-save-form-v1 *ngSwitchCase="'WLT'" [skeleton]="state.isLoading"
+        [(value)]="aiTranslationService.external" [(state)]="state">
+      </aiap-ai-translation-service-external-wlt-save-form-v1>
+      <ibm-notification *ngSwitchDefault [notificationObj]="state.notification.missingAiTranslationServiceType">
+      </ibm-notification>
+    </div>
+  </div>
+</div>

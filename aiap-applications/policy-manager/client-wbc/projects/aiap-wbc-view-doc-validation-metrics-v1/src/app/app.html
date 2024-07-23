@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-doc-validation-metrics-view-v1></aiap-wbc-doc-validation-metrics-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'view_doc_validation_metrics_v1.app.loading_text' | translate">
+  </ibm-inline-loading>
+</div>

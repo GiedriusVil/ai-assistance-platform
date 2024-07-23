@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-rules-express-routes-v2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-rules-service-v2": "0.0.1",
+    "@ibm-aiap/aiap-utils-express-routes": "0.0.1"
+  }
+}

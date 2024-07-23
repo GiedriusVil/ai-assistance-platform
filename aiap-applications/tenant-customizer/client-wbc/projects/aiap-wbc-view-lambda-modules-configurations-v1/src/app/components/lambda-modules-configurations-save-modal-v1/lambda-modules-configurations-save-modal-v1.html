@@ -1,0 +1,48 @@
+<aiap-modal-v1
+  [size]="'lg'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'lambda_modules_configurations_save_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <form #configurationSaveModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+            <div ibmCol>
+              <aiap-field-input-v1
+                [label]="'lambda_modules_configurations_save_modal_v1.fld_configuration_key.label' | translate"
+                [labelHelp]="'lambda_modules_configurations_save_modal_v1.fld_configuration_key.helper_text' | translate"
+                [name]="'configurationKey'"
+                [isRequired]="true"
+                [(value)]="lambdaModuleConfig.key">
+              </aiap-field-input-v1>
+            </div>
+        </div>
+        <div class="values-container" ibmRow>
+            <div ibmCol>
+              <label>{{ 'lambda_modules_configurations_save_modal_v1.json_editor.label' | translate }}</label>
+              <json-editor
+              class="aca-override"
+              [options]="jsonEditorOptions"
+              [data]="lambdaModuleConfig.value">
+          </json-editor>
+            </div>
+        </div>
+      </div>
+    </form>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'lambda_modules_configurations_save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'lambda_modules_configurations_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="configurationSaveModal.invalid"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

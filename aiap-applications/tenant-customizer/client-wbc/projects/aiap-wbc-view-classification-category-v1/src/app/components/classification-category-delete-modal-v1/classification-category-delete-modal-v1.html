@@ -1,0 +1,27 @@
+<aiap-modal-v1
+  size='sm'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'classification_category_delete_modal_v1.title' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <div class="classification-category-delete-modal-container">
+      <p>{{ 'classification_category_delete_modal_v1.fld_confirm' | translate }} {{category?.id}}</p>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'classification_category_delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_category_delete_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      (onClick)="handleClassificationCategoryDeleteEvent($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

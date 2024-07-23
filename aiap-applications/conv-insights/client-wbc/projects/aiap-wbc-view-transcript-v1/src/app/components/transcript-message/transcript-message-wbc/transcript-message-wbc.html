@@ -1,0 +1,49 @@
+<div #wrapper>
+  <aca-exclamation-button
+  *ngIf="hasError(value.errors)" 
+  [errorMessageData]="value.errors">
+  </aca-exclamation-button>
+  <ax-lazy-element
+    [message]="value"
+    [configs]="configs"
+    [session]="undefined"
+    *axLazyElementDynamic="'aca-wbc-message', url: configs.host + configs.path">
+  </ax-lazy-element>
+  <span>
+    <div 
+      *ngIf="isUserNotMaskedMsg(value.text, value.type)" 
+      (click)="handleConfirmMessageMaskClickEvent(value)">
+      <span class="maskMessage">
+        <ibm-tooltip-icon
+          placement="left" 
+          content="{{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.btn_mask_message.text' | translate }}">
+          <aiap-icon-svg-v1
+            class="bx--btn__icon button-icon-custom"
+            [src]="'assets/carbon-icons/16/operations/manage-protection.svg'">
+          </aiap-icon-svg-v1>
+        </ibm-tooltip-icon>
+      </span>
+    </div>
+  </span>
+  <div ibmRow>
+    <div ibmCol class="min-width-100">
+      <div class="message-container-json" [ngClass]="value.expanded ? 'expanded' : 'colapsed'">
+        <div class="json-editor-close-btn" (click)="handleMessageTextClickEvent($event)">
+          {{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.btn_close.text' | translate }}
+        </div>
+        <json-editor [options]="jsonEditorOptions" [data]="value"></json-editor>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aca-confirm-modal #confirmModal (confirmEvent)="handleMessageMaskClickEvent()">
+  <div class="title">
+    {{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.title' | translate }}
+  </div>
+  <p>
+    {{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.text' | translate }}<br>
+    {{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.mask_template' | translate }} <strong>{{MASK_TEMPLATE}}</strong><br>
+    {{ 'transcript_view_v1.transcript_message_wbc.confirm_modal.message' | translate }} <strong>{{selectedText}}</strong>
+  </p>
+</aca-confirm-modal>

@@ -1,0 +1,24 @@
+<ng-template #loading>
+  <div class="dashboard-wrapper">
+    <div class="dashboard-content">
+      <aiap-inline-loader-v1
+              [status]="'active'"
+              [textLoading]="applicationLoadingText()">
+      </aiap-inline-loader-v1>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="dashboard-wrapper">
+    <div class="dashboard-content" style="color: red;">
+      Sorry, we are unable to load application {{state?.wbc?.tag}} from {{state?.wbc?.host}}{{state?.wbc?.path}}!
+    </div>
+  </div>
+</ng-template>
+
+<ax-lazy-element
+        [(context)]="state"
+        [(params)]="params"
+        *axLazyElementDynamic="state?.wbc?.tag, url: url(); loadingTemplate: loading; errorTemplate: error;">
+</ax-lazy-element>

@@ -1,0 +1,37 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'sm'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'answer_stores_view_v1.import_modal.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content bx--modal-content--with-form">
+    <aiap-file-uploader-v2
+      #fileUploader
+      [title]="'answer_stores_view_v1.import_modal.fld_title.file-uploader' | translate"
+      [description]="'answer_stores_view_v1.import_modal.fld_description.file-uploader' | translate"
+      [accept]="['.json']"
+      [multiple]="false" 
+      [drop]="true" 
+      [dropText]="'answer_stores_view_v1.import_modal.fld_import_file.file-uploader' | translate"
+      [disabled]="false"
+      [(files)]="files"
+      (filesChange)="onFileAdd($event)">
+    </aiap-file-uploader-v2>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.import_modal.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="uploadButtonDisabled"
+      [type]="'primary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.import_modal.btn_import.text' | translate"
+      (click)="import()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

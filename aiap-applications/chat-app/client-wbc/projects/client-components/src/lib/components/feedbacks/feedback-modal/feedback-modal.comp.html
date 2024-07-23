@@ -1,0 +1,10 @@
+<div>
+  <aca-wbc-base-modal [id]="modalId" [attr.id]="modalId">
+    <ax-lazy-element
+      (onWbcEvent)="handleUserActionEvent($event)"
+      [configs]="state.configs"
+      [parameters]="params"
+      *axLazyElementDynamic="state.component, url: state.configs.host + state.configs.path">
+    </ax-lazy-element>
+  </aca-wbc-base-modal>
+</div>

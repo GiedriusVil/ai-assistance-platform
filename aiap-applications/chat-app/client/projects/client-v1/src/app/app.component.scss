@@ -1,0 +1,87 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./components/components.scss";
+@use "./views/views.scss";
+
+@import "variables";
+
+.default--backdrop {
+  background-color: $primary;
+}
+
+.modal-content .modal-header {
+  color: $headerTextColor;
+}
+
+.modal-content .modal-header .modal-title {
+  color: $headerTextColor;
+  line-height: 35px;
+  font-size: 14px;
+}
+
+.header-icon-box {
+
+  .img--close {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon--close {
+    background: url("/assets/close.svg") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &:hover {
+    background-color: $aca-secondary-blue-color;
+  }
+}
+
+.modal-content {
+  box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.25);
+
+  .modal-header {
+    background-color: $aca-primary-blue-color;
+    padding: 0px;
+
+    .modal-title {
+      color: $aca-primary-white-color;
+      margin-left: 10px;
+    }
+
+    .header-icon-box {
+      &:hover {
+        background-color: $aca-secondary-blue-color;
+      }
+    }
+
+    .close {
+      color: #ffffff;
+      text-shadow: none;
+    }
+  }
+
+  .modal-body {
+    .form-group {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .modal-footer {
+    padding: 0.5rem;
+    button {
+      :hover {
+        background-color: $aca-primary-background !important;
+      }
+    }
+  }
+}

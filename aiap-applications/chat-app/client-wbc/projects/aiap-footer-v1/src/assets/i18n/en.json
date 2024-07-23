@@ -1,0 +1,15 @@
+{
+  "footer.button-alt": "Send a message",
+  "footer.button-send": "Send",
+  "footer.button-title": "Send a message",
+  "footer.button-title-download-transcript": "Download transcript",
+  "footer.button-title-download-transcript-alt": "Download transcript",
+  "footer.input-aria-label": "New message",
+  "footer.input-placeholder": "Type something…",
+  "footer.button-title-end-session-with-agent": "End session with agen",
+  "footer.alt-title-end-session-with-agent": "End session with agent",
+  "footer.icon-volume-up-title": "Sound on",
+  "footer.icon-volume-up-alt": "Sound on",
+  "footer.icon-volume-mute-title": "Sound off",
+  "footer.icon-volume-mute-alt": "Sound off"
+}

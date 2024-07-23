@@ -1,0 +1,87 @@
+<div class="access-group-summary-container">
+  <div ibmGrid class="summary-header">
+    <div ibmRow [leftGutter]="false" [rightGutter]="false">
+      <div ibmCol [columnNumbers]="{'md': 8}">
+        <ibm-label>
+          <label class="summary-header-label">
+            {{ 'access_groups_view_v1.summary_v1.lbl_summary' | translate }}
+          </label>
+        </ibm-label>
+      </div>
+    </div>
+  </div>
+  <div class="summary-scroll-container">
+    <div ibmGrid>
+      <div ibmRow [leftGutter]="false" *ngIf="accessGroup?.views?.length">
+        <div ibmCol [columnNumbers]="{'md': 8}">
+          <ibm-label>
+            <label>
+              {{ 'access_groups_view_v1.summary_v1.lbl_policies_platform' | translate }}
+            </label>
+          </ibm-label>
+        </div>
+      </div>
+      <ng-container *ngFor="let view of accessGroup?.views; let pageIndex = index">
+        <div ibmRow>
+          <div 
+            ibmCol 
+            [offsets]="{'md': 1}" 
+            [columnNumbers]="{'md': 5}" 
+            class="center-title">{{view?.name | translate}}
+          </div>
+          <div ibmCol [columnNumbers]="{'md': 2}">
+            <aiap-button-v1
+              [size]="'sm'"
+              [text]="('access_groups_view_v1.summary_v1.btn_remove_policy.text' | translate)"
+              [tooltip]="'access_groups_view_v1.summary_v1.btn_remove_policy.tooltip' | translate"
+              [type]="'ghost'"
+              (onClick)="emitRemovePlatformPolicyItemEvent({view: view})">
+            </aiap-button-v1>
+          </div>
+        </div>
+        <ng-container *ngFor="let action of view?.actions; let pageIndex = index">
+          <div ibmRow>
+            <div ibmCol [offsets]="{'md': 2}" [columnNumbers]="{'md': 4}" class="center-title">{{action?.name | translate}}</div>
+            <div [columnNumbers]="{'md': 2}" ibmCol>
+              <aiap-button-v1
+                [size]="'sm'"
+                [text]="('access_groups_view_v1.summary_v1.btn_remove_policy.text' | translate)"
+                [tooltip]="'access_groups_view_v1.summary_v1.btn_remove_policy.tooltip' | translate"
+                [type]="'ghost'"
+                (onClick)="emitRemovePlatformPolicyItemEvent({view: view, action: action})">
+              </aiap-button-v1>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      <div ibmRow [leftGutter]="false" *ngIf="accessGroup?.tenants?.length">
+        <div ibmCol [columnNumbers]="{'md': 8}">
+          <ibm-label>
+            <label>
+              {{ 'access_groups_view_v1.summary_v1.lbl_policies_tenant' | translate }}
+            </label>
+          </ibm-label>
+        </div>
+      </div>
+      <ng-container *ngFor="let tenant of accessGroup?.tenants; let tenantIndex = index">
+        <ng-container *ngFor="let application of tenant?.applications; let applicationIndex = index">
+          <aiap-application-policies-v1
+            [tenant]="tenant" 
+            [application]="application"
+            (onRemoveTenant)="emitRemoveTenantPolicyItemEvent($event)"
+            (onRemoveApplicationItem)="emitRemovePlatformPolicyItemEvent($event)">
+          </aiap-application-policies-v1>
+          <ng-container *ngFor="let assistant of application?.assistants; let assistantIndex = index">
+            <aiap-assistant-policies-v1
+              [tenant]="tenant" 
+              [application]="application" 
+              [assistant]="assistant"
+              (onRemoveTenant)="emitRemoveTenantPolicyItemEvent($event)"
+              (onRemoveApplicationItem)="emitRemovePlatformPolicyItemEvent($event)">
+            </aiap-assistant-policies-v1>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<ibm-label 
+  [helperText]="state?.labelHelp">
+  {{ state.label }}
+  <textarea
+    ibmTextArea
+    [attr.aria-label]="state.name"
+    [name]="state?.name"
+    [placeholder]="state?.placeholder"
+    [required]="state?.isRequired"
+    [rows]="state?.rows"
+    [cols]="state?.cols"
+    [disabled]="state?.isDisabled"
+    (keydown)="handleEventKeyDown($event)"
+    (ngModelChange)="handleEventValueChange($event)"
+    [(ngModel)]="state.value">
+  </textarea>
+</ibm-label>

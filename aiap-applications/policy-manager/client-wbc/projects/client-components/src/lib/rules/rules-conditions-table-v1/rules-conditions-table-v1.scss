@@ -1,0 +1,16 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-rules-conditions-table-v1 {
+  ibm-table-container {
+    margin-bottom: 1rem;
+  }
+  .invalid-notification-wrapper {
+    ibm-notification {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

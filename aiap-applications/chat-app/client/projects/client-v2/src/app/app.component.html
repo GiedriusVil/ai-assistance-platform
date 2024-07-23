@@ -1,0 +1,9 @@
+<aca-chat-window-panel
+  *ngIf="chatWidgetService.getWidgetOptions().opened && isReady()"
+  class="chat--window"
+  [width]="chatWidgetService.getWidgetOptions().windowSize.width"
+  [height]="chatWidgetService.getWidgetOptions().windowSize.height"
+  [left]="chatWidgetService.getWidgetOptions().windowPosition.left"
+  [top]="chatWidgetService.getWidgetOptions().windowPosition.top"
+  [zoom]="chatWidgetService.getWidgetOptions().zoom">
+</aca-chat-window-panel>

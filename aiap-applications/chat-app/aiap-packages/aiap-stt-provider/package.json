@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "name": "@ibm-aiap/aiap-stt-provider",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "license": "IBM",
+  "contributors": [
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis/"
+    }
+  ],
+  "dependencies": {
+    "form-data": "4.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+<div>
+    <h4>{{'purchase_rule_outcome.buy_rules_chanel_type.channel_type_title' | translate}}</h4>
+    <div ibmGrid>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{'lg': 4}">
+                <aiap-button-v1 
+                    class="channel_type-button"
+                    [type]="rule.channelType === channelTypes.supplierCatalog ? 'primary' : 'tetriary'"
+                    [size]="'normal'"
+                    [text]="'purchase_rule_outcome.buy_rules_chanel_type.channel_supplier_button_text' | translate"
+                    [tooltip]="'purchase_rule_outcome.buy_rules_chanel_type.channel_supplier_button_tooltip' | translate"
+                    (onClick)="onSelectSupplier()">
+                </aiap-button-v1>
+            </div>
+            <div ibmCol [columnNumbers]="{'lg': 4}">
+                <aiap-button-v1 
+                    class="channel_type-button"
+                    [type]="rule.channelType === channelTypes.freeText ? 'primary' : 'tetriary'"
+                    [size]="'normal'"
+                    [text]="'purchase_rule_outcome.buy_rules_chanel_type.channel_free_text_button_text' | translate"
+                    [tooltip]="'purchase_rule_outcome.buy_rules_chanel_type.channel_free_text_button_tooltip' | translate"
+                    (onClick)="onSelectFree()"
+                    [disabled]="'true'">
+                </aiap-button-v1>
+            </div>
+            <div ibmCol [columnNumbers]="{'lg': 4}">
+                <aiap-button-v1 
+                    class="channel_type-button"
+                    [type]="rule.channelType === channelTypes.punchOut ? 'primary' : 'tetriary'"
+                    [size]="'normal'"
+                    [text]="'purchase_rule_outcome.buy_rules_chanel_type.channel_punch_out_button_text' | translate"
+                    [tooltip]="'purchase_rule_outcome.buy_rules_chanel_type.channel_punch_out_button_tooltip' | translate"
+                    (onClick)="onSelectPunch()"
+                    [disabled]="'true'">
+                </aiap-button-v1>
+            </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+    </div>
+    <ng-container [ngSwitch]="rule.channelType">
+        <aca-buy-rules-suppliers-table 
+            *ngSwitchCase="channelTypes.supplierCatalog"
+            showSelectionColumn="showSelectionColumn"
+            (onShowSavePlace)="handleShowBuyRuleSupplierSaveModal($event)"
+            (onShowDeletePlace)="handleShowBuyRulesSuppliersDeleteModal($event)"
+            [ruleId]="rule.id"
+            ></aca-buy-rules-suppliers-table>
+        <div *ngSwitchCase="channelTypes.freeText">NOT IMPLEMENTED YET</div>
+        <div *ngSwitchCase="channelTypes.punchOut">NOT IMPLEMENTED YET</div>
+    </ng-container>
+</div>

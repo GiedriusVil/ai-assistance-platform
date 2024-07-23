@@ -1,0 +1,16 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+export enum CHANGE_ACTION {
+  CREATE_ONE = 'CREATE_ONE',
+  DELETE_MANY_BY_IDS = 'DELETE_MANY_BY_IDS',
+  DELETE_ONE_BY_ID = 'DELETE_ONE_BY_ID',
+  SAVE_ONE = 'SAVE_ONE',
+  SYNC_ONE = 'SYNC_ONE',
+  IMPORT_ONE = 'IMPORT_ONE',
+  IMPORT_MANY = 'IMPORT_MANY',
+  TRAIN_ONE = 'TRAIN_ONE',
+  UPDATE_ONE = 'UPDATE_ONE',
+}

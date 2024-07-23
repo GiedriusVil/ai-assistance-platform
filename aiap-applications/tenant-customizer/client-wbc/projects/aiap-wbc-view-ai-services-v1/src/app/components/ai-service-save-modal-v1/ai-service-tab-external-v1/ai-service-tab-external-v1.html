@@ -1,0 +1,20 @@
+<div ibmGrid>
+
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 4, 'sm': 2}" [ngSwitch]="aiService.type">
+      <aiap-ai-service-external-wa-v1-save-form-v1 *ngSwitchCase="'WA'" [skeleton]="state.isLoading"
+        [(value)]="aiService.external" [(state)]="state">
+      </aiap-ai-service-external-wa-v1-save-form-v1>
+      <aiap-ai-service-external-wa-v2-save-form-v1 *ngSwitchCase="'WA_V2'" [skeleton]="state.isLoading"
+        [(value)]="aiService.external" [(state)]="state">
+      </aiap-ai-service-external-wa-v2-save-form-v1>
+      <aiap-ai-service-external-chatgpt-v3-save-form-v1 *ngSwitchCase="'CHAT_GPT_V3'" [skeleton]="state.isLoading"
+        [(value)]="aiService.external" [(state)]="state">
+      </aiap-ai-service-external-chatgpt-v3-save-form-v1>
+      <aiap-ai-service-external-aws-lex-v3-save-form-v1 *ngSwitchCase="'AWS_LEX_V2'" [skeleton]="state.isLoading"
+        [(value)]="aiService.external" [(state)]="state"></aiap-ai-service-external-aws-lex-v3-save-form-v1>
+      <ibm-notification *ngSwitchDefault [notificationObj]="state.notification.missingAiServiceType">
+      </ibm-notification>
+    </div>
+  </div>
+</div>

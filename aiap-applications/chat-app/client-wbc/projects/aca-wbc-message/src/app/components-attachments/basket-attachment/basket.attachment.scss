@@ -1,0 +1,109 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-chat-basket-attachment {
+    .basket-message {
+        font-size: 13px;
+        box-shadow: 1px 1px 2px #b8b8b8;
+        border-radius: 10px;
+        background-color: white;
+        .header {
+            height: 50px;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom: 1px solid rgb(223, 223, 223);
+            .quantity {
+                font-weight: 600;
+            }
+            .plus-button {
+                float: right;
+                background-color: transparent;
+                border: none;
+                color: rgb(70, 130, 247);
+            }
+        }
+        .products-body {
+            padding: 5px;
+            width: 100%;
+        }
+        .body {
+            width: 100%;
+            padding: 10px;
+            .title {
+                font-weight: 600;
+            }
+            .request-details-container {
+                padding: 0;
+                .labels-column {
+                    -ms-flex: 0 0 100px;
+                    flex: 0 0 100px;
+                    .request-details-label {
+                        color: rgb(100, 100, 100);
+                    }
+                }
+                .request-details-text {
+                    width: 100%;
+                    text-align: right;
+                    .total-price {
+                        font-weight: 600;
+                    }
+                }
+            }
+    
+            .more-details-box {
+                .details-row-label {
+                    color: rgb(100, 100, 100);
+                    p {
+                        font-size: 12px;
+                        margin-bottom: 5px;
+                    }
+                }
+                .details-row-text {
+                    margin-bottom: 5px;
+                    p,
+                    a {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        .footer {
+            height: 50px;
+            padding: 5px;
+            width: 100%;
+            border-top: 1px solid rgb(223, 223, 223);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            button {
+                background-color: transparent;
+                border: none;
+                color: rgb(70, 130, 247);
+            }
+        }
+    //Override default product-list style    
+        ::ng-deep {
+            .product-box {
+                border-radius: 10px !important;
+                margin-bottom: 5px !important;
+                .image-box {
+                    border-top-left-radius: 10px !important;
+                    border-bottom-left-radius: 10px !important;
+                    img {
+                        border-top-left-radius: 10px !important;
+                        border-bottom-left-radius: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+}

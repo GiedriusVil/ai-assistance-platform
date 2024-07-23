@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aiap/aiap-lambda-modules-datasource-provider",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-runtime-source-registry": "0.0.1"
+  }
+}

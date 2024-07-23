@@ -1,0 +1,68 @@
+<div ibmGrid>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_region'"
+        [label]="'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_region.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_region.labelHelp' | translate"
+        [(value)]="value.region"
+        [skeleton]="state.isLoading"
+        [placeholder]="'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_region.placeholder' | translate">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_access_key_id'"
+        [label]="'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key_id.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key_id.labelHelp' | translate"
+        [(value)]="value.accessKeyId"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-label>{{ 'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key.label' | translate }}
+        <div class="password-field-container">
+          <input 
+            ibmText 
+            data-toggle-password-visibility 
+            required class="bx--password-input"
+            name="ai_service_external_api_key" 
+            placeholder="{{ 'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key.placeholder' | translate }}"
+            type="{{state.isApiKeyVisible ? 'text' : 'password' }}" 
+            [skeleton]="state.isLoading" 
+            [autocomplete]="'off'"
+            [(ngModel)]="value.secretAccessKey" />
+          <button 
+            class="ai--service--external--api--key" 
+            ibmButton="ghost" 
+            [size]="'sm'" 
+            [iconOnly]="true"
+            (click)="handleShowApiKeyClickEvent($event)">
+            <ng-container 
+              *ngIf="state.isApiKeyVisible; else showPasswordIcon">
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view--off.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key.btn_show.text' | translate }}</span>
+            </ng-container>
+            <ng-template 
+              #showPasswordIcon>
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.ai_service_external_lex_v3_save_form.fld_access_key.btn_hide.text' | translate }}</span>
+            </ng-template>
+          </button>
+        </div>
+      </ibm-label>
+    </div>
+  </div>
+</div>

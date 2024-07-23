@@ -1,0 +1,24 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+      <aca-breadcrumb [outlet]="outlet"></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-topic-modeling-table-v1
+    (onShowSavePlace)="handleShowSaveModal($event)"
+    (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+    (onShowExecutePlace)="handleShowExecuteModal($event)"
+    (onSearchPlace)="handleSearchChangeEvent($event)"
+    (onClearPlace)="handleSearchClearEvent($event)"
+    (onShowResultPlace)="handleShowResulteModal($event)">
+  </aiap-topic-modeling-table-v1>
+  </div>
+</div>
+
+ <aiap-topic-modeling-save-modal-v1 #aiapTopicModelingSaveModal></aiap-topic-modeling-save-modal-v1>
+<aiap-topic-modeling-delete-modal-v1 #aiapTopicModelingDeleteModal></aiap-topic-modeling-delete-modal-v1>
+<aiap-topic-modeling-execute-modal-v1 #aiapTopicModelingExecuteModal></aiap-topic-modeling-execute-modal-v1>
+<aiap-topic-modeling-results-modal-v1 #aiapTopicModelingResultModal></aiap-topic-modeling-results-modal-v1>
+

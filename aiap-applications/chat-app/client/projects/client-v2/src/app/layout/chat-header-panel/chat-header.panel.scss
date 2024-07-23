@@ -1,0 +1,101 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-header-panel {
+  $header-height: 50px;
+  $header-font-size: 16px;
+  width: inherit;
+
+  header {
+    background-color: $aca_primary_color_blue;
+    height: $header-height;
+    width: inherit;
+    user-select: none;
+    position: fixed;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    right: 0;
+    top: 0;
+    // padding-left: 15px; TODO LEGO -> Exact reason of having this?
+    // padding-right: 15px; TODO LEGO -> Exact reason of having this?
+    z-index: 1011;
+
+    .header--logo--title--box {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .header--logo {
+        color: $aca_header_text_color;
+        align-items: center;
+        height: $header-height;
+        display: flex;
+      }
+
+      .header--logo--img {
+        height: -webkit-fill-available;
+      }
+
+      img {
+        width: 40px;
+        height: auto;
+        margin-left: 5px;
+      }
+
+      .header--title {
+        line-height: $header-height;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 15px;
+        text-align: left;
+        color: $aca_header_text_color;
+        display: block;
+        margin-left: 15px;
+      }
+    }
+
+    .header--buttons--box {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      .header--icon--box {
+        .img--minimize,
+        .img--survey,
+        .img--transcripts,
+        .img--volume,
+        .img--transform {
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+
+        .img--left--panel--close {
+          width: 30px;
+        }
+
+        .img--close {
+          width: 30px;
+          margin-right: 6px;
+          margin-left: 6px;
+        }
+
+        img {
+          width: 19px;
+          height: 50px;
+          color: #ffffff;
+          display: block;
+        }
+
+        &:hover {
+          background-color: $aca_secondary_color_blue;
+        }
+      }
+    }
+  }
+}

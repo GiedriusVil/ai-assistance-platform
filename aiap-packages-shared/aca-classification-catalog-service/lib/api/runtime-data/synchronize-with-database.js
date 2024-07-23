@@ -1,0 +1,137 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+const MODULE_ID = 'aca-classification-catalogue-service-runtime-data-service-synchronize-with-database';
+const logger = require('@ibm-aca/aca-common-logger')(MODULE_ID);
+
+const lodash = require('@ibm-aca/aca-wrapper-lodash');
+
+const { formatIntoAcaError, appendDataToError, throwAcaError, ACA_ERROR_TYPE } = require('@ibm-aca/aca-utils-errors');
+
+const path = require('path');
+const { fsExtra } = require('@ibm-aca/aca-wrapper-fs-extra');
+
+const { getLibConfiguration } = require('../../configuration');
+
+const { getAppDatasource } = require('../datasource.utils');
+
+const { synchronizeWithDatabaseCatalogsByTenant } = require('./synchronize-with-database-catalogs-by-tenant');
+const { synchronizeWithDatabaseClassesByTenant } = require('./synchronize-with-database-classes-by-tenant');
+const { synchronizeWithDatabaseFamiliesByTenant } = require('./synchronize-with-database-families-by-tenant');
+const { synchronizeWithDatabaseSegmentsByTenant } = require('./synchronize-with-database-segments-by-tenant');
+const { synchronizeWithDatabaseSubClassesByTenant } = require('./synchronize-with-database-sub-classes-by-tenant');
+
+const _synchronizeWithDatabaseByTenant = async (context, params) => {
+  let tenant;
+  try {
+    if (
+      lodash.isEmpty(params?.tenantId)
+    ) {
+      const ERROR_MESSAGE = `Missing required params?.tenantId parameter!`;
+      throwAcaError(MODULE_ID, ACA_ERROR_TYPE.VALIDATION_ERROR, ERROR_MESSAGE);
+    }
+    const APP_DATASOURCE = getAppDatasource(context);
+    const PARAMS = { id: params?.tenantId };
+    tenant = await APP_DATASOURCE.tenants.findOneById(context, PARAMS);
+    if (
+      lodash.isEmpty(tenant)
+    ) {
+      const ERROR_MESSAGE = `Unable to retrieve tenant. Check portal spin-up!`;
+      throwAcaError(MODULE_ID, ACA_ERROR_TYPE.SYSTEM_ERROR, ERROR_MESSAGE);
+    }
+    const CONTEXT = {
+      ...context,
+      user: {
+        session: {
+          tenant: tenant,
+        }
+      }
+    }
+    const CATALOGS = await synchronizeWithDatabaseCatalogsByTenant(CONTEXT, params);
+    const SEGMENTS = await synchronizeWithDatabaseSegmentsByTenant(CONTEXT, params);
+    const FAMILIES = await synchronizeWithDatabaseFamiliesByTenant(CONTEXT, params);
+    const CLASSES = await synchronizeWithDatabaseClassesByTenant(CONTEXT, params);
+    const SUB_CLASSES = await synchronizeWithDatabaseSubClassesByTenant(CONTEXT, params);
+
+    const RET_VAL = {
+      tenantId: params?.tenantId,
+      catalogs: CATALOGS,
+      segments: SEGMENTS,
+      families: FAMILIES,
+      classes: CLASSES,
+      subClasses: SUB_CLASSES,
+    };
+    return RET_VAL;
+  } catch (error) {
+    const ACA_ERROR = formatIntoAcaError(MODULE_ID, error);
+    appendDataToError(ACA_ERROR, {
+      params,
+    });
+    logger.error(_synchronizeWithDatabaseByTenant.name, { ACA_ERROR });
+    throw ACA_ERROR;
+  }
+}
+
+const synchronizeWithDatabase = async (context, params) => {
+  const AIAP_DIR_CONFIG = process?.env?.AIAP_DIR_CONFIG;
+  let configurationLocalSyncEnabled = false;
+  let configAbsolutePath;
+  let configTenantCustomizerAbsolutePath;
+
+  try {
+    configurationLocalSyncEnabled = getLibConfiguration().configurationLocalSyncEnabled;
+    if (
+      !lodash.isEmpty(AIAP_DIR_CONFIG) &&
+      configurationLocalSyncEnabled
+    ) {
+      configAbsolutePath = path.resolve(__dirname, `../../../../../${AIAP_DIR_CONFIG}`);
+      if (
+        !fsExtra.existsSync(configAbsolutePath)
+      ) {
+        const ERROR_MESSAGE = `Missing configuration repository!`;
+        throwAcaError(MODULE_ID, ACA_ERROR_TYPE.SYSTEM_ERROR, ERROR_MESSAGE);
+      }
+      configTenantCustomizerAbsolutePath = `${configAbsolutePath}/runtime-data-local/tenant-customizer`;
+      fsExtra.ensureDirSync(configTenantCustomizerAbsolutePath);
+
+      const TENANT_DIRS = fsExtra.readdirSync(configTenantCustomizerAbsolutePath);
+      const PROMISES = [];
+      for (let tenantId of TENANT_DIRS) {
+        let params = {
+          configTenantCustomizerAbsolutePath,
+          tenantId,
+        };
+        PROMISES.push(_synchronizeWithDatabaseByTenant({}, params));
+      }
+
+      const PROMISES_RESULTS = await Promise.all(PROMISES);
+      if (
+        lodash.isEmpty(PROMISES_RESULTS) &&
+        lodash.isArray(PROMISES_RESULTS)
+      ) {
+        for (let result of PROMISES_RESULTS) {
+          logger.info(`TenantCustomizer ClassificationCatalogs synchronized [TenantId: ${result?.tenantId}, QTY.: ${result?.catalogs?.length}]`);
+          logger.info(`TenantCustomizer ClassificationSegments synchronized [TenantId: ${result?.tenantId}, QTY.: ${result?.segments?.length}]`);
+          logger.info(`TenantCustomizer ClassificationFamilies synchronized [TenantId: ${result?.tenantId}, QTY.: ${result?.families?.length}]`);
+          logger.info(`TenantCustomizer ClassificationClasses synchronized [TenantId: ${result?.tenantId}, QTY.: ${result?.classes?.length}]`);
+          logger.info(`TenantCustomizer ClassificationSubClasses synchronized [TenantId: ${result?.tenantId}, QTY.: ${result?.subClasses?.length}]`);
+        }
+      }
+    }
+  } catch (error) {
+    const ACA_ERROR = formatIntoAcaError(MODULE_ID, error);
+    appendDataToError(ACA_ERROR, {
+      configurationLocalSyncEnabled,
+      AIAP_DIR_CONFIG,
+      configAbsolutePath,
+    });
+    logger.error(synchronizeWithDatabase.name, { ACA_ERROR });
+    throw ACA_ERROR;
+  }
+}
+
+module.exports = {
+  synchronizeWithDatabase,
+}

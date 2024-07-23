@@ -1,0 +1,54 @@
+<div 
+  #box 
+  [id]="innerElementId"
+  [ngClass]="state.showChatBox ? 'chat--window maximized' : 'chat--window minimized'" 
+  [ngStyle]="getChatWindowStyles()"
+>
+  <div
+    *ngFor="let layout of layouts"
+    [ngClass]="{ 'aiap-header': layout.placement === 'header' }"
+    [ngStyle]="{ 'grid-column': layout?.gridColumn, 'grid-row': layout?.gridRow }">
+    <ng-container>
+      <ax-lazy-element
+        [session]="session"
+        [config]="config"
+        [service]="clientService"
+        *axLazyElementDynamic="layout?.component, url: layout?.url;">
+      </ax-lazy-element>
+    </ng-container>
+  </div>
+  <div
+    #chatBody
+    class="chat--body"
+  >
+    <aca-chat-left-panel
+      *ngIf="state.isLeftPanelEnabled"
+      [ngClass]="state.isLeftPanelEnabled && leftPanelService.isLeftPanelVisible() ? 'left--panel--visible' : 'left--panel--hidden'"
+      [ngStyle]="{ 'width': state.isLeftPanelEnabled && leftPanelService.isLeftPanelVisible() ? leftPanelService.leftPanelWidth() + 'px' : '0px' }">
+    </aca-chat-left-panel>
+    <ng-container *ngIf="state.isSessionReady">
+      <aca-chat-header-actions *ngIf="chatHeaderActionsEnabled()"></aca-chat-header-actions>
+      <aca-chat-main-view *ngIf="isViewActive('app-main-view')" [width]="getMainViewWidth()" [style.height]="getMainViewHeight()"></aca-chat-main-view>
+      <aca-chat-basket-view *ngIf="isViewActive('aca-basket-view')" [ngStyle]="{'width': getMainViewWidth()}">
+    </aca-chat-basket-view>
+    </ng-container>
+    <aca-chat-loading-view *ngIf="isLoadingViewVisible()"></aca-chat-loading-view>
+    <aca-chat-authorization-error-view *ngIf="isViewActive('aca-authorization-error-view')">
+    </aca-chat-authorization-error-view>
+    <aiap-left-panel-open-button *ngIf="state.isLeftPanelEnabled && state.showChatBox" ></aiap-left-panel-open-button>
+  </div>
+  <div 
+    *ngIf="state.resizeEnabled && !isMinimized()" 
+    class="resize--action" 
+    [class.active]="status === 1"
+    (mouseup)="setStatus($event, 0)"
+    (mousedown)="setStatus($event, 1)">
+  </div>
+</div>
+
+<aca-chat-close-modal></aca-chat-close-modal>
+<aca-chat-feedback-modal></aca-chat-feedback-modal>
+<aca-chat-survey-modal></aca-chat-survey-modal>
+<app-test-cases-modal></app-test-cases-modal>
+<aca-chat-audio></aca-chat-audio>
+<aiap-content-modal></aiap-content-modal>

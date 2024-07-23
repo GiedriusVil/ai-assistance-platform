@@ -1,0 +1,12 @@
+<ibm-slider
+  [label]="state?.label"
+  [min]="state?.min"
+  [max]="state?.max"
+  [step]="state?.step"
+  [disabled]="state?.isDisabled"
+  [(value)]="state.value"
+  (valueChange)="handleEventValueChange($event)">
+  <span minLabel>{{ state?.minLabel }}</span>
+  <span maxLabel>{{ state?.maxLabel }}</span>
+  <input class="'bx--text-input--light'"/>
+</ibm-slider>

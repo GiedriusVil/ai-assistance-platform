@@ -1,0 +1,15 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+      <aiap-rules-conditions-table-v2
+        #rulesConditionsTableV2
+        [ruleId]="value.id"
+        (onShowSavePlace)="handleShowRulesV2ConditionsSaveModal($event)"
+        (onShowRemovePlace)="handleShowRulesV2ConditionsDeleteModal($event)">
+      </aiap-rules-conditions-table-v2>
+    </div>
+  </div>
+</div>
+
+<aiap-rules-conditions-save-modal-v2 #rulesConditionsSaveModalV2></aiap-rules-conditions-save-modal-v2>
+<aiap-rules-conditions-delete-modal-v2 #rulesConditionsDeleteModalV2></aiap-rules-conditions-delete-modal-v2>

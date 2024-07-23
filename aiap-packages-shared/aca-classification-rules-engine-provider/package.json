@@ -1,0 +1,8 @@
+{
+  "name": "@ibm-aca/aca-classification-rules-engine-provider",
+  "version": "0.0.1",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {}
+}

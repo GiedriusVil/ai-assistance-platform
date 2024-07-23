@@ -1,0 +1,30 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'rules_v1.pull_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span>
+      {{'rules_v1.pull_modal_v1.message' | translate}}
+    </span>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'rules_v1.pull_modal_v1.cancel_button' | translate"
+      [tooltip]="'rules_v1.pull_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'"
+      [text]="'rules_v1.pull_modal_v1.pull_button' | translate"
+      [tooltip]="'rules_v1.pull_modal_v1.pull_button_tooltip' | translate"
+      (onClick)="pull()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

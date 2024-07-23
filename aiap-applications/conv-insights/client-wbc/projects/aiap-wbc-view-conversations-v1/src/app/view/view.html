@@ -1,0 +1,90 @@
+<div class="filters-wrapper">
+  <div class="filters-content"> 
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-conversations-table-v1
+      [config]="tableConfig"
+      (onShowSavePlace)="handleConversationRowClick($event)"
+      (onShowRemovePlace)="showDeleteConversationModal($event)" 
+      (onSearchEvent)="handleSearchConversationEvent($event)"
+      (onSearchClearEvent)="handleSearchConversationClearEvent($event)"
+      (onFilerPanelOpenEvent)="handleFilterPanelOpenEvent()">
+    </aiap-conversations-table-v1>
+  </div>
+</div>
+
+<aiap-conversation-delete-modal-v1 #conversationDeleteModalV1></aiap-conversation-delete-modal-v1>
+<aiap-right-side-filter-panel-v1
+  *ngIf="!filterConfig.isLoading"
+  [config]="filterConfig"
+  [data]="filterData"
+  (onFilterChange)="handleFilterChange()"
+  (onResetFilter)="handleFilterReset()">
+  <aiap-date-range-picker-v1
+    [value]="filterData.dateRange"
+    [flow]="'vertical'"
+    (onChange)="handleDateRangeChange($event)">
+  </aiap-date-range-picker-v1>
+  <hr class="aiap-right-side-filter--divider">
+  <div class="aiap-right-side-filter--content_item">
+    <aiap-field-checkbox-v1
+      *ngFor="let checkbox of filterData.checkboxes"
+      [id]="checkbox.id"
+      [value]="checkbox.value"
+      [text]="checkbox.text"
+      [(checked)]="checkbox.checked"
+    ></aiap-field-checkbox-v1>
+    <aiap-field-checkbox-v1
+      *ngIf="isShowBrowserDataEnabled()"
+      [id]="'browserData'"
+      [value]="'browserData'"
+      [text]="'conversations_view_v1.filter_fld_browser_data.text' | translate"
+      [checked]="tableConfig.showBrowserData"
+      (checkedChange)="handleShowBrowserEvent($event)">
+    </aiap-field-checkbox-v1>
+  </div>
+  <div class="aiap-right-side-filter--content_item">
+    <ibm-combo-box
+      *ngFor="let combobox of filterData.comboboxes"
+      [type]="combobox.type"
+      [autocomplete]="'off'"
+      [appendInline]="false"
+      [placeholder]="combobox.placeholder"
+      [label]="combobox.label" 
+      [items]="combobox.items"
+      [(ngModel)]="combobox.value">
+      <ibm-dropdown-list></ibm-dropdown-list>
+    </ibm-combo-box>
+  </div>
+  <!-- [2023-11-28] jevgenij.golobokin removing unused filtering -->
+  <!-- <div class="aiap-right-side-filter--content_item">
+    <aiap-label-v1 [label]="'conversations_view_v1.filter_fld_total_messages.label' | translate"></aiap-label-v1>
+    <div class="aiap-right-side-filter--content_item_number">
+      <div class="aiap-right-side-filter--content_item_number_range">
+        <aiap-field-number-v1
+          [(value)]="filterData.numberRangeFrom">
+        </aiap-field-number-v1>
+      </div>
+      <div class="aiap-right-side-filter--content_item_number_range">
+        <aiap-field-number-v1
+          [(value)]="filterData.numberRangeTo">
+        </aiap-field-number-v1>
+      </div>
+    </div>
+  </div>
+  <div class="aiap-right-side-filter--content_item">
+    <aiap-slider-v1
+      *ngFor="let slider of filterData.slider"
+      [label]="slider.label"
+      [min]="slider.min"
+      [max]="slider.max"
+      [step]="slider.step"
+      [maxLabel]="slider.maxLabel"
+      [(value)]="slider.value"
+      ></aiap-slider-v1>
+  </div> -->
+</aiap-right-side-filter-panel-v1>

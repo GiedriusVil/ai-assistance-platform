@@ -1,0 +1,12 @@
+{
+    "name": "@ibm-aca/aca-wrapper-html-2-markdown",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {
+        "html-to-mrkdwn": "3.0.0"
+    }
+}

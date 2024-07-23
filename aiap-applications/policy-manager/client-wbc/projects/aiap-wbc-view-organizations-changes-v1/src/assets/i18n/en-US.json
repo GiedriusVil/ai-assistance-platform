@@ -1,0 +1,28 @@
+{
+  "organizations_change_modal_v1.header_title" : "Organization change",
+  "organizations_change_modal_v1.transaction_id_label_text" : "Transaction ID",
+  "organizations_change_modal_v1.action_label_text" : "Action",
+  "organizations_change_modal_v1.initiator_id_label_text" : "Initiator ID",
+  "organizations_change_modal_v1.initiator_name_label_text" : "Initiator name",
+  "organizations_change_modal_v1.document_id_label_text" : "Document ID",
+  "organizations_change_modal_v1.document_type_label_text" : "Document type",
+  "organizations_change_modal_v1.timestamp_label_text" : "Timestamp",
+  "organizations_change_modal_v1.close_button_text" : "Close",
+
+  "organizations.organizations_changes_table_v1.export_button" : "Export",
+  "organizations.organizations_changes_table_v1.refresh_button_tooltip" : "Refresh",
+  "organizations.organizations_changes_table_v1.export_button_tooltip" : "Export",
+
+  "organizations.changes_table_v1.transaction_id_header" : "Transaction ID",
+  "organizations.changes_table_v1.document_id_header" : "Document ID",
+  "organizations.changes_table_v1.document_type_header" : "Document type",
+  "organizations.changes_table_v1.action_header" : "Action",
+  "organizations.changes_table_v1.changed_header" : "Changed",
+  "difference_table_v1.table.field_header" : "Field",
+  "difference_table_v1.table.old_value_header" : "Old value",
+  "difference_table_v1.table.new_value_header" : "New value",
+  "organizations_change_modal_v1.close_button_tooltip" : "Close",
+  "organizations.changes_table_v1.notification.error.title" : "Unable to retrieve organizations changes!",
+  "organizations.changes_table_v1.notification.warning.title" : "Export organization changes",
+  "organizations.changes_table_v1.notification.warning.message" : "Nothing to export!"
+}

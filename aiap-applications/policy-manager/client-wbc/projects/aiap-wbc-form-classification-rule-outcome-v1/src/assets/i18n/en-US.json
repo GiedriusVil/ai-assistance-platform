@@ -1,0 +1,35 @@
+{
+  "rules_classification.delete_modal.header_text" : "Delete Classification Rule Classifications",
+  "rules_classification.delete_modal.delete_confirmation" : "Do you want to delete classification rule classifications?",
+  "rules_classification.delete_modal.cancel_button_text" : "Cancel",
+  "rules_classification.delete_modal.delete_button_text" : "Delete",
+  "rules_classification.delete_modal.cancel_button_tooltip" : "Cancel",
+  "rules_classification.delete_modal.delete_button_tooltip" : "Delete",
+
+  "rules_classification.save_modal.header_text" : "Save Classification",
+  "rules_classification.save_modal.cancel_button_text" : "Cancel",
+  "rules_classification.save_modal.save_button_text" : "Save",
+  "rules_classification.save_modal.cancel_button_tooltip" : "Cancel",
+  "rules_classification.save_modal.save_button_tooltip" : "Save",
+
+  "rules_classification.table.add_button_text" : "Add",
+  "rules_classification.table.search_placeholder" : "Enter search value",
+  "rules_classification.table.refresh_button_tooltip" : "Refresh",
+  "rules_classification.table.add_button_tooltip" : "Add",
+
+  "classification_rules.outcome_type.restrict_button_text" : "Restrict Classifications (Assume all allowed)",
+  "classification_rules.outcome_type.allow_button_text" : "Allow Classifications (Assume all restricted)",
+  "classification_rules.outcome_type.restrict_button_tooltip" : "Restrict Classifications",
+  "classification_rules.outcome_type.allow_button_tooltip" : "Allow Classifications",
+
+  "classification_rules.classification_table.remove_button" : "Remove",
+  "classification_rules.classification_table.segment_header" : "Segment",
+  "classification_rules.classification_table.family_header" : "Family",
+  "classification_rules.classification_table.class_header" : "Class",
+  "classification_rules.classification_table.commodity_header" : "Commodity",
+
+  "rule_actions_table_v1.remove_button_tooltip" : "Remove",
+
+  "classification_rules.delete_modal.notification.success.title" : "Classification rule classifications removed!",
+  "classification_rules.delete_modal.notification.error.title" : "Unable delete classification rule classifications"
+}

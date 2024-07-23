@@ -1,0 +1,14 @@
+{  
+  "surveys_view_v1.surveys_metrics_v1.metrics_tile.header": "Average NPS",
+  
+  "surveys_table_v1.fld_search.placeholder": "Search for survey",
+  "surveys_table_v1.col_timestamp.header": "Timestamp",
+  "surveys_table_v1.col_assistant_id.header": "Assistant ID",
+  "surveys_table_v1.col_conversation_id.header": "Conversation ID",
+  "surveys_table_v1.col_score.header": "Score",
+  "surveys_table_v1.col_status.header": "Status",
+  "surveys_table_v1.col_comment.header": "Comment",
+
+  "surveys_view_v1.fld_assistants.placeholder": "Filter by Assistants",
+  "surveys_view_v1.loading_text": "Loading..."
+}

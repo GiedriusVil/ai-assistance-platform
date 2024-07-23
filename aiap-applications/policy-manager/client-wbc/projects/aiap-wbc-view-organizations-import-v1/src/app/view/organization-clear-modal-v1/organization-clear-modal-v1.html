@@ -1,0 +1,30 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='xs'>
+  <ibm-modal-header (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{'organizations_import_v1.clear_modal_v1.header_title' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span>
+      {{'organizations_import_v1.clear_modal_v1.clear_confirmation' | translate}}
+    </span>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'organizations_import_v1.clear_modal_v1.cancel_button_text' | translate"
+      [tooltip]="'organizations_import_v1.clear_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'" 
+      [text]="'organizations_import_v1.clear_modal_v1.clear_button_text' | translate"
+      [tooltip]="'organizations_import_v1.clear_modal_v1.clear_button_tooltip' | translate"
+      (onClick)="clear()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

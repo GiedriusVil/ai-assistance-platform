@@ -1,0 +1,28 @@
+{
+  "organizations_change_modal_v1.header_title" : "Organisation ändern",
+  "organizations_change_modal_v1.transaction_id_label_text" : "Transaktion-ID",
+  "organizations_change_modal_v1.action_label_text" : "Aktion",
+  "organizations_change_modal_v1.initiator_id_label_text" : "Initiator ID",
+  "organizations_change_modal_v1.initiator_name_label_text" : "Initiator Name",
+  "organizations_change_modal_v1.document_id_label_text" : "Dokumenten-ID",
+  "organizations_change_modal_v1.document_type_label_text" : "Dokumententyp",
+  "organizations_change_modal_v1.timestamp_label_text" : "Zeitstempel",
+  "organizations_change_modal_v1.close_button_text" : "Schließen",
+
+  "organizations.organizations_changes_table_v1.export_button" : "Exportieren",
+  "organizations.organizations_changes_table_v1.refresh_button_tooltip" : "Aktualisieren",
+  "organizations.organizations_changes_table_v1.export_button_tooltip" : "Exportieren",
+
+  "organizations.changes_table_v1.transaction_id_header" : "Transaktion-ID",
+  "organizations.changes_table_v1.document_id_header" : "Dokumenten-ID",
+  "organizations.changes_table_v1.document_type_header" : "Dokumententyp",
+  "organizations.changes_table_v1.action_header" : "Aktion",
+  "organizations.changes_table_v1.changed_header" : "Geändert",
+  "difference_table_v1.table.field_header" : "Feld",
+  "difference_table_v1.table.old_value_header" : "Alter Wert",
+  "difference_table_v1.table.new_value_header" : "Neuer Wert",
+  "organizations_change_modal_v1.close_button_tooltip" : "Schließen",
+  "organizations.changes_table_v1.notification.error.title" : "Änderungen an Organisationen können nicht abgerufen werden!",
+  "organizations.changes_table_v1.notification.warning.title" : "Organisationsänderungen exportieren",
+  "organizations.changes_table_v1.notification.warning.message" : "Nichts zu exportieren!"
+}

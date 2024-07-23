@@ -1,0 +1,16 @@
+<div class="header--zoom--box" #zoomBox>
+  <ul class="header--zoom--box--list">
+    <li class="header--zoom--box--list-item" (click)="handleZoom(true)">
+      <img [src]="zoomInIcon" alt="{{ 'header_zoom.zoom-in' | translate }}" *ngIf="!isFullscreen else zoomIn">
+      <ng-template #zoomIn>{{ 'header_zoom.zoom-in' | translate }}</ng-template>
+    </li>
+    <li class="header--zoom--box--list-item" (click)="handleZoom(false)">
+      <img [src]="zoomOutIcon" alt="{{ 'header_zoom.zoom-out' | translate }}" *ngIf="!isFullscreen else zoomOut">
+      <ng-template #zoomOut>{{ 'header_zoom.zoom-out' | translate }}</ng-template>
+    </li>
+    <li class="header--zoom--box--list-item" (click)="resetZoom()">
+      <img [src]="resetZoomIcon" alt="{{ 'header_zoom.reset-zoom' | translate }}" *ngIf="!isFullscreen else clearZoom">
+      <ng-template #clearZoom>{{ 'header_zoom.reset-zoom' | translate }}</ng-template>
+    </li>
+  </ul>
+</div>

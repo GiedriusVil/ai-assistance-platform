@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "id": "1",
+            "segmentId": "1",
+            "familyId": "1",
+            "code": "10101000",
+            "title": "Clas1"
+        },
+        {
+            "id": "2",
+            "segmentId": "2",
+            "familyId": "2",
+            "code": "11101100",
+            "title": "Clas2"
+        },
+        {
+            "id": "3",
+            "segmentId": "3",
+            "familyId": "3",
+            "code": "20101000",
+            "title": "Clas3"
+        },
+        {
+            "id": "4",
+            "segmentId": "4",
+            "familyId": "4",
+            "code": "21111000",
+            "title": "Clas4"
+        },
+        {
+            "id": "5",
+            "segmentId": "5",
+            "familyId": "5",
+            "code": "30101000",
+            "title": "Clas5"
+        },
+        {
+            "id": "6",
+            "segmentId": "5",
+            "familyId": "6",
+            "code": "30202000",
+            "title": "Clas6"
+        },
+        {
+            "id": "7",
+            "segmentId": "5",
+            "familyId": "6",
+            "code": "30202100",
+            "title": "Clas7"
+        }
+    ],
+    "total": 7
+  }

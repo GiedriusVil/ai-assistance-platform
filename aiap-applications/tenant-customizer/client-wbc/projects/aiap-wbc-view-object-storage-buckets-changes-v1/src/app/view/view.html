@@ -1,0 +1,31 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-date-range-picker
+            [value]="state.query.filter.dateRange"
+            (onChange)="handleEventDateRangeChange($event)">
+          </aca-date-range-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-object-storage-buckets-changes-table-v1
+      (onShowSavePlace)="handleEventShowTransaction($event)"
+      (onSearchChangeEvent)="handleEventSearchChange($event)"
+      (onSearchClearEvent)="handleEventSearchClear($event)">
+    </aiap-object-storage-buckets-changes-table-v1>
+  </div>
+</div>
+
+<aiap-object-storage-buckets-changes-view-modal-v1
+  #objectStorageBucketsChangesViewModal>
+</aiap-object-storage-buckets-changes-view-modal-v1>

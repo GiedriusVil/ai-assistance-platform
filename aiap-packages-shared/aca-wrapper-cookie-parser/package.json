@@ -1,0 +1,18 @@
+{
+  "name": "@ibm-aca/aca-wrapper-cookie-parser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cookie-parser": "1.4.4"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [text]="'tenants_view_v1.assistant_table_v1.btn_add.text' | translate"
+      [tooltip]="'tenants_view_v1.assistant_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'tenants_view_v1.assistant_table_v1.btn_add.text' | translate"
+      [tooltip]="'tenants_view_v1.assistant_table_v1.btn_add.tooltip' | translate"
+      [type]="'danger'"
+      [size]="'sm'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitRemovePlace()">Remove({{this.selectedRows.length}})
+   </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+        class="cursor-pointer"
+        size="md"
+        [striped]="true"
+        [skeleton]="false"
+        [showSelectionColumn]="true"
+        [sortable]="true"
+        [stickyHeader]="false"
+        (onAllDeselect)="deselectAllRows()"
+        (onAllSelect)="selectAllRows($event)"
+        (onRowSelect)="rowSelect($event)"
+        (onRowDeselect)="rowDeselect($event)"
+        (onSort)="handleSortEvent($event)"
+        (onRowClick)="emitShowSavePlace($event)"
+        [model]="model">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+      (onPageSelect)="handleSelectPageEvent($event)"
+      [model]="model">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>

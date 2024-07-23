@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-socket-io-provider",
+  "version": "0.0.1",
+  "description": "Decides which socket IO lib to use based on redis adapter",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@socket.io/redis-adapter": "7.2.0"
+  }
+}

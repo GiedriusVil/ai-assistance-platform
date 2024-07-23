@@ -1,0 +1,50 @@
+<aca-chat-modal id="aca-survey-modal">
+  <div class="aca--modal--header">
+    <h5 class="aca--modal--title">{{'survey.modal-title'| translate}}</h5>
+      <div class="aca--header--icon--box">
+        <img 
+        class="img--close" 
+        [src]="chatAssestsUrl + '/close.svg'" 
+        tabindex="0" 
+        role="button" 
+        title="{{'survey.modal-icon-cross-title'| translate}}"
+        alt="{{'survey.modal-icon-cross-alt'| translate}}"
+        (keydown.enter)="onCloseModal('aca-survey-modal')"
+        (click)="onCloseModal('aca-survey-modal')">
+      </div>
+  </div>
+  <div class="aca--modal--body survey-body">
+    <div class="survey--question">
+      <b>{{'survey.modal-description'| translate}}</b>
+          <!-- <b>How would you rate your satisfaction with the quality of your interaction with the chat?*</b> -->
+    </div>
+    <form [formGroup]="surveyForm">
+      <div class="form--group--box">
+          <div class="form--radio" *ngFor="let score of survey.values;let i = index">
+            <input 
+              tabindex="0" 
+              type="radio" 
+              formControlName="score"
+              title="{{score.title}}"
+              [value]="score.value"/>
+            <div>{{score.title | translate}} {{ score.value }}</div>
+          </div>
+      </div>
+      <div class="form--group--text--box">
+        <textarea id="textArea"
+          class="form-control textareaExpand"
+          formControlName="comment"
+          rows="2"
+          maxlength="1000"
+          placeholder="{{'survey.modal-comment-placeholder'| translate}}"
+          (input)="onInput()">
+        </textarea>
+      </div>
+    </form>
+  </div>
+  <div class="aca--modal--footer">
+    <button type="button" class="btn btn-primary btn-block btn--color" [disabled]="!surveyForm.valid"
+    (keydown.enter)="submit()"
+    (click)="submit()">{{'survey.modal-button-submit'| translate}}</button>
+  </div>
+</aca-chat-modal>

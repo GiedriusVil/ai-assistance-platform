@@ -1,0 +1,1149 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "vba-policy-engine"
+  },
+  "servers": [
+    {
+      "url": "https://vba-policy-engine-test.mybluemix.net/api",
+      "description": "TEST environment."
+    },
+    {
+      "url": "https://vba-policy-engine-dev.mybluemix.net/api",
+      "description": "DEV environment."
+    },{
+      "url": "http://localhost:{port}/api",
+      "variables": {
+        "port": {
+          "default": "3015"
+        }
+      },
+      "description": "LOCAL enviroment."
+    }
+  ],
+  "tags": [
+    {
+      "name": "Health",
+      "description": "API for pinging the engine to check if it is connected to the databases."
+    },
+    {
+      "name": "Rules",
+      "description": "API for performing Create, Retrieve, Update, Delete operations on rules in the database and engine."
+    },
+    {
+      "name": "Purchase Requests",
+      "description": "API for performing validations on singular or multiple purchase requests."
+    }
+  ],
+  "paths": {
+    "/health": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Ping the engine to check if all databases are connected",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "mongo": {
+                      "type": "object",
+                      "properties": {
+                        "clients": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "isConnected": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rules/findMany": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Retrieve many rules by query",
+        "description": "This query retrieves an array of rules based on the provided clientId and the provided query. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried. Also if there are multiple clients in the same datasource based on the clientId only the rules for the specified client will be queried (**Required**). \n\n**query** - Query is used to filter out rules. Format of the query is the same format as used in the 'query' parameter for the mongodb.collection.find() method. (**Optional**)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "query": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/rule"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/findOne": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Retrieve single rule based on clientId and rule id",
+        "description": "This query retrieves a rule based on the provided clientId and the provided rule id. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried. Also if there are multiple clients in the same datasource based on the clientId only the rules for the specified client will be queried (**Required**). \n\n**id** - Id parameter is the id of the rule in the database and it is used to identify if the rule exists in the database and retrieve it. (**Required**)",
+        "operationId": "findRuleById",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "id"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "id": {
+                    "$ref": "#/components/schemas/ruleId"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/removeOne": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Removes rule based on clientId and rule id",
+        "description": "This query removes a rule based on the provided clientId and the provided rule id. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried. Also if there are multiple clients in the same datasource based on the clientId only the rules for the specified client will be queried (**Required**). \n\n**id** - Id parameter is the id of the rule in the database and it is used to identify if the rule exists in the database and delete it. (**Required**)",
+        "operationId": "removeRuleById",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "id"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "id": {
+                    "$ref": "#/components/schemas/ruleId"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/removeMany": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Removes rules based on clientId and rule ids",
+        "description": "This query removes all rules based on the provided clientId and the provided rule ids. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried. Also if there are multiple clients in the same datasource based on the clientId only the rules for the specified client will be queried (**Required**). \n\n**ids** - Ids parameter is an array of rule ids in the database and it is used to identify if the rule exists in the database and delete it. (**Required**)",
+        "operationId": "removeRulesByIds",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "id"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/createOne": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Create single rule",
+        "description": "This query creates a rule based on the provided clientId and the provided rule. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried (**Required**). \n\n**rule** - Is an object with the data for the rule, that needs to be created. (**Required**)",
+        "operationId": "createRule",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "rule"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "rule": {
+                    "$ref": "#/components/schemas/rule"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/createMany": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Create many rules",
+        "description": "This query creates rules based on the provided clientId and the provided array of rules. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is used for creation (**Required**). \n\n**rules** - Is an array of rules, that need to be created. (**Required**)",
+        "operationId": "createManyRules",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "rules"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "rules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/rule"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "$ref": "#/components/schemas/rule"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/rules/updateOne": {
+      "post": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Update single rule",
+        "description": "This query updates a rule based on the identified differences between the existing rule and the provided data and based on the provided clientId. \n\n**clientId** - Based on this parameter the appropriate datasource configured for the client is queried (**Required**). \n\n**rule** - Is an object with the data for the rule, that needs to be updated. (**Required**)",
+        "operationId": "updateRule",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "clientId",
+                  "rule"
+                ],
+                "properties": {
+                  "clientId": {
+                    "$ref": "#/components/schemas/clientId"
+                  },
+                  "rule": {
+                    "$ref": "#/components/schemas/ruleWithId"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "n": {
+                      "type":"string"
+                    },
+                    "nModified": {
+                      "type":"string"
+                    },
+                    "ok": {
+                      "type":"string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/purchase-request/validate-one": {
+      "post": {
+        "tags": [
+          "Purchase Requests"
+        ],
+        "summary": "Validate a purchase request",
+        "description": "Validates the purchase request object provided in the request body based on the client id found in the 'client' object of the purchase request. Rules used for the validation are identified based on the client id in the 'client' object of the purchase request. If the 'client' object is not present in the purchase request the engine will not be able to determine, which engine instance or rules should be used for the validation of the purchase request.",
+        "operationId": "validateOnePurchaseRequest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/purchaseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/validationResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/purchase-request/validate-many": {
+      "post": {
+        "tags": [
+          "Purchase Requests"
+        ],
+        "summary": "Validate many purchase requests",
+        "description": "Validates the purchase request objects provided in the request body based on the client id's found in the 'client' object of the purchase requests. Rules used for the validation are identified based on the client id in the 'client' object of the purchase request. If the 'client' object is not present in the purchase request the engine will not be able to determine, which engine instance or rules should be used for the validation of the purchase request.",
+        "operationId": "validateManyPurchaseRequest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type":"array",
+                "items": {
+                  "$ref": "#/components/schemas/purchaseRequest"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "$ref": "#/components/schemas/validationResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type":"http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "purchaseRequest": {
+        "type":"object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "extId": {
+            "type": "string"
+          },
+          "client": {
+            "type":"object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "default":"IBMClient_0"
+              },
+              "extId": {
+                "type": "string",
+                "default":"IBMClient_0"
+              },
+              "name": {
+                "type": "string",
+                "default":"IBMClient_0"
+              },
+              "country": {
+                "type": "string"
+              }
+            }
+          },
+          "clientEntity": {
+            "type":"object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "extId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "house": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  }
+                }
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type":"object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "reference": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "delivery": {
+            "type":"object",
+            "properties": {
+              "address": {
+                "type":"object",
+                "properties":{
+                  "city": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "house": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  }
+                }
+              },
+              "contacts": {
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "reference": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "items": {
+            "type":"array",
+            "items": {
+              "type":"object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "extId": {
+                  "type": "string"
+                },
+                "extension": {
+                  "type":"object",
+                  "properties": {
+                    "currency": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "price": {
+                  "type":"object",
+                  "properties": {
+                    "base": {
+                      "type":"object",
+                      "properties": {
+                        "unit": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "money": {
+                      "type":"object",
+                      "properties": {
+                        "currency": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                },
+                "quantity": {
+                  "type":"object",
+                  "properties": {
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "seller": {
+                  "type":"object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "extId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type":"object",
+                      "properties": {
+                        "city": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "house": {
+                          "type": "string"
+                        },
+                        "street": {
+                          "type": "string"
+                        },
+                        "zip": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "contacts": {
+                      "type":"array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "phone": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "sellerEntity": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "tax": {
+                  "currency": "EUR",
+                  "value": 0
+                },
+                "isSellerAuthorized": {
+                  "type": "string"
+                },
+                "isFSI": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "totals": {
+            "type":"object",
+            "properties": {
+              "extension": {
+                "type":"object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "exclusiveTax": {
+                "type":"object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "inclusiveTax": {
+                "type":"object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "payable": {
+                "type":"object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "validationResponse": {
+        "type":"object",
+        "properties": {
+          "documentID": {
+            "type": "string"
+          },
+          "headerValidationResults": {
+            "type":"array",
+            "items": {
+              "type":"object",
+              "properties": {
+                "messageCode": {
+                  "type": "integer"
+                },
+                "actions": {
+                  "type":"array",
+                  "items": {
+                    "type":"string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "data": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "$ref": "#/components/schemas/rule",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "groupValidationResults": {
+            "type":"array",
+            "items": {
+              "type":"object",
+              "properties": {
+                "messageCode": {
+                  "type": "integer"
+                },
+                "actions": {
+                  "type":"array",
+                  "items": {
+                    "type":"string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "data": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "$ref": "#/components/schemas/rule",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "itemValidationResults": {
+            "type":"array",
+            "items": {
+              "type":"object",
+              "properties": {
+                "messageCode": {
+                  "type": "integer"
+                },
+                "actions": {
+                  "type":"array",
+                  "items": {
+                    "type":"string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "data": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "$ref": "#/components/schemas/rule",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ruleId": {
+        "type": "string",
+        "format": "byte",
+        "minLength": 24,
+        "maxLength": 24
+      },
+      "clientId": {
+        "type": "string",
+        "default": "IBMClient_0"
+      },
+      "rule": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "default": "IBMClient_0"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the rule.",
+            "default": "default_rule_itemPriceCannotExceed1000"
+          },
+          "type":{
+            "type": "string",
+            "description":"**HEADER** - Rule type if validation is at the root level of the purchase request.\n\n**ITEM** - Rule type if validation is in each line item of the purchase request.\n\n**GROUP** - Rule type if validation is performed on a group level e.g. all items for a specific seller or all items for a specific category.",
+            "enum": [
+              "HEADER",
+              "ITEM",
+              "GROUP"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/filter"
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/condition"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/action"
+            }
+          }
+        },
+        "required": [
+          "clientId",
+          "name",
+          "type",
+          "conditions",
+          "actions"
+        ]
+      },
+      "ruleWithId": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string",
+            "default": "IBMClient_0"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the rule.",
+            "default": "default_rule_itemPriceCannotExceed1000"
+          },
+          "type":{
+            "type": "string",
+            "description":"**HEADER** - Rule type if validation is at the root level of the purchase request.\n\n**ITEM** - Rule type if validation is in each line item of the purchase request.\n\n**GROUP** - Rule type if validation is performed on a group level e.g. all items for a specific seller or all items for a specific category.",
+            "enum": [
+              "HEADER",
+              "ITEM",
+              "GROUP"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/filter"
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/condition"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/action"
+            }
+          }
+        },
+        "required": [
+          "clientId",
+          "name",
+          "type",
+          "conditions",
+          "actions"
+        ]
+      },
+      "filter": {
+        "type": "object",
+        "properties": {
+          "rootElement": {
+            "$ref": "#/components/schemas/rootElement"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/operator"
+          },
+          "path": {
+            "$ref": "#/components/schemas/path"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "condition": {
+        "type": "object",
+        "properties": {
+          "rootElement": {
+            "$ref": "#/components/schemas/rootElement"
+          },
+          "path": {
+            "$ref": "#/components/schemas/path"
+          },
+          "type": {
+            "$ref": "#/components/schemas/operator",
+            "default": "greaterThanInclusive"
+          },
+          "valAsString": {
+            "type": "string",
+            "default": "1000"
+          },
+          "valAsNumber": {
+            "type": "integer",
+            "default": 1000
+          },
+          "valAsArray": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "default": "1000"
+            }
+          }
+        }
+      },
+      "action": {
+        "type": "string",
+        "default": "Procurement Assistance",
+        "description": "Action, that is suppose to be taken, for a violation of a rule."
+      },
+      "operator": {
+        "type": "string",
+        "default": "equal",
+        "enum": [
+          "equal",
+          "notEqual",
+          "lessThan",
+          "lessThanInclusive",
+          "greaterThan",
+          "greaterThanInclusive",
+          "in",
+          "notIn",
+          "contains",
+          "doesNotContain",
+          "singularSellerAmountExceeds",
+          "singularSellerQuantityExceeds",
+          "totalItemAmountExceeds",
+          "totalItemAmountLessThan",
+          "isEmpty",
+          "allItemsAreFSI"
+        ],
+        "description": "**equal** - fact must equal value.\n\n**notEqual** - fact must not equal value.\n\n**lessThan** - fact must be less than value.\n\n**lessThanInclusive** - fact must be less than or equal to value.\n\n**greaterThan** - fact must be greater than value.\n\n**greaterThanInclusive** - fact must be greater than or equal to value.\n\n**in** - fact must be included in value (an array).\n\n**notIn** - fact must not be included in value (an array).\n\n**contains** - fact (an array) must include value.\n\n**doesNotContain** - fact (an array) must not include value.\n\n**totalItemAmountExceeds** - total item amount must be greater than value (only applicable to ITEM type rules). This operator calculates, the total amount based on the base, quantity and price values of an item.\n\n**totalItemAmountLessThan** - total item amount must be less than (only applicable to ITEM type rules). This operator calculates, the total amount based on the base, quantity and price values of an item.\n\n**isEmpty** - field must be empty.\n\n**allItemsAreFSI** - all items in purchase request must be fully specified (only applicable to ITEM or GROUP type rules)."
+      },
+      "rootElement": {
+        "type":"string",
+        "default": "item",
+        "enum":[
+          "header",
+          "item",
+          "group"
+        ],
+        "description":"Value for this field depends on the type of rule, that is created. At the moment there are 3 types of rules: HEADER, ITEM, GROUP and the 'rootElement' for each one is equal to:\n\n**header** - if the rule type is 'HEADER' the value for the 'rootElement' field should be any of the fields in the root path of the purchase request (based on the format in the engine validation request not the gateway).\n\n**item** - if the rule type is 'ITEM' the 'rootElement' value is going to always be equal 'item' as during validation each item is being passed in an object, which contains the filed {'item':{}}.\n\n**group** - if the rule type is 'GROUP' the 'rootElement' value is going to always be equal 'group' as during validation each item is being passed in an object, which contains the filed {'group':{}}."
+      },
+      "path": {
+        "type": "string",
+        "default": "$.price.money.value",
+        "description": "Path from the rootElement to the field, that is suppose to be validated by the operator. The value for this field should be a path based on the json-path syntax - https://goessner.net/articles/JsonPath/. The value for the path field is dependant on the value of the rootElement as follows:\n\n**item** - If the rootElement is 'item' the path value can be any field of the item object (based on the format in the engine validation request not the gateway).\n\ngroup - If the rootElement is 'group', the selection is limited as currently we only have 'groupsBySeller' and the possible path values can only be one of: id, ids, totalAmount, totalQuantity, isSellerAuthorized.\n\nheader - if the rootElement is selected as 'header' then the path value can be any of the fields in the root path of the purchase request (based on the format in the engine validation request not the gateway)."
+      }
+    }
+  }
+}

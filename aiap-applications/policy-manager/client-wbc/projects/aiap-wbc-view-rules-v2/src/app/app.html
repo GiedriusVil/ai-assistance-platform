@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-rules-view-v2></aiap-wbc-rules-view-v2>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

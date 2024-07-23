@@ -1,0 +1,75 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1 
+            [value]="state?.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 7, 'sm':3 }">
+        </div>
+        <div ibmCol [columnNumbers]="{'md': 1, 'sm':1 }">
+          <aiap-button-v1 
+            [size]="'sm'"
+            [type]="'primary'" 
+            [text]="'view_doc_validation_metrics_v2.view.refresh_button_text' | translate"
+            [tooltip]="'view_doc_validation_metrics_v2.view.refresh_button_tooltip' | translate"
+            (onClick)="handleRefreshClick()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-report-chart-v1 
+            class="graph-placeholder" 
+            [type]="'line'" 
+            [name]="ENUMERATIONS_CHART_TYPE.TOTAL_VALIDATION_COUNT"
+            [title]="'view_doc_validation_metrics_v2.view.total_validation_count_title' | translate">
+          </aiap-report-chart-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-report-chart-v1 
+            class="graph-placeholder" 
+            [type]="'horizontalBar'"
+            [name]="ENUMERATIONS_CHART_TYPE.CATALOG_RULES_FREQUENCY" 
+            [title]="'view_doc_validation_metrics_v2.view.catalog_rules_frequency_title' | translate">
+          </aiap-report-chart-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-report-chart-v1 
+            class="graph-placeholder" 
+            [type]="'horizontalBar'"
+            [name]="ENUMERATIONS_CHART_TYPE.CLASSIFICATION_RULES_FREQUENCY" 
+            [title]="'view_doc_validation_metrics_v2.view.classification_rules_frequency_title' | translate">
+          </aiap-report-chart-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-report-chart-v1 
+            class="graph-placeholder" 
+            [type]="'horizontalBar'"
+            [name]="ENUMERATIONS_CHART_TYPE.BUY_RULES_FREQUENCY" 
+            [title]="'view_doc_validation_metrics_v2.view.buy_rules_frequency_title' | translate">
+          </aiap-report-chart-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

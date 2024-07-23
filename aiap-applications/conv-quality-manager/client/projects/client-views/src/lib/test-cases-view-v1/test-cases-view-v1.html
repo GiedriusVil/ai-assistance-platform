@@ -1,0 +1,41 @@
+<div class="view-header-wrapper">
+    <div class="view-header-content">
+        <h4>
+          {{ 'test_cases_view_v1.header' | translate }}
+        </h4>
+        <br>
+        <ibm-label>
+          {{ 'test_cases_view_v1.description' | translate }}
+        </ibm-label>
+        <div ibmGrid>
+            <div ibmRow>
+                <div ibmCol>
+                    <ibm-toggle 
+                        [size]="'sm'"
+                        [onText]="'test_cases_view_v1.fld_audit_cols_flag.text_on' | translate" 
+                        [offText]="'test_cases_view_v1.fld_audit_cols_flag.text_off' | translate"
+                        [checked]="state.isAuditColumnsVisible"
+                        (checkedChange)="handleAuditColumnsVisibilityChange($event)">
+                    </ibm-toggle>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="view-body-wrapper">
+    <div class="view-body-content">
+        <aiap-test-cases-table-v1
+            (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+            (onShowImportPlace)="handleShowImportModal($event)"
+            (onShowRemovePlace)="handleShowDeletePlaceEvent($event)" 
+            (onSearchPlace)="handleSearchChangeEvent($event)"
+            (onClearPlace)="handleSearchClearEvent($event)"
+            [isAuditColumnsVisible]="state.isAuditColumnsVisible">
+        </aiap-test-cases-table-v1>
+    </div>
+</div>
+
+<aiap-test-case-save-modal-v1 #testCaseSaveModal></aiap-test-case-save-modal-v1>
+<aiap-test-case-import-modal-v1 #testCaseImportModal></aiap-test-case-import-modal-v1>
+<aiap-test-case-delete-modal-v1 #testCaseDeleteModal></aiap-test-case-delete-modal-v1>

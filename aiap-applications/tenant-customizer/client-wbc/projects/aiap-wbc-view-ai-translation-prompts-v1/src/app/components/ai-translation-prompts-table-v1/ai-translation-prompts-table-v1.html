@@ -1,0 +1,86 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'ai_translation_prompts_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-translation-prompts.view.add'}"
+      [text]="'ai_translation_prompts_table_v1.btn_add.text' | translate"
+      [tooltip]="'ai_translation_prompts_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-translation-prompts.view.import'}"
+      [text]="'ai_translation_prompts_table_v1.btn_import.text' | translate"
+      [tooltip]="'ai_translation_prompts_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-translation-prompts.view.export'}"
+      [text]="'ai_translation_prompts_table_v1.btn_export.text' | translate"
+      [tooltip]="'ai_translation_prompts_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-translation-prompts.view.delete'}"
+      [text]="('ai_translation_prompts_table_v1.btn_delete.text' | translate) + '(' +(this.selectedRows.length) + ')'"
+      [tooltip]="'ai_translation_prompts_table_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"   
+
+    (onSort)="handleSortEvent($event)"
+    (onRowClick)="emitShowRowClickPlace($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    
+    [model]="model">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1 
+    [model]="model" 
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 [value]="data?.created"></aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aiap-table-cell-updated-v1 [value]="data?.updated"></aiap-table-cell-updated-v1>
+  </ng-template>
+
+  <ng-template #overflowActionsTemplate let-data="data">
+    <aiap-overflow-menu-v1
+      (click)="_allowActionsClick($event)"
+      [tooltip]="'ai_translation_prompts_table_v1.col_actions.tooltip' | translate"
+      [flip]="true">
+      <aiap-overflow-menu-option-v1
+        [text]="'ai_translation_prompts_table_v1.col_actions.btn_configuration.text' | translate"
+        [tooltip]="'ai_translation_prompts_table_v1.col_actions.btn_configuration.tooltip'| translate"
+        *isActionAllowed="{action:'ai-translation-services.view.edit'}"
+        (click)="emitShowSavePlace(data)">
+      </aiap-overflow-menu-option-v1>
+    </aiap-overflow-menu-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

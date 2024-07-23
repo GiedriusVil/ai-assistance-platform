@@ -1,0 +1,20 @@
+{
+  "feedback.icon-negative-alt": "Negative feedback",
+  "feedback.icon-negative-selected-alt": "Negative feedback left",
+  "feedback.icon-negative-selected-title": "Negative feedback left",
+  "feedback.icon-negative-title": "Negative feedback",
+  "feedback.icon-positive-alt": "Positive feedback",
+  "feedback.icon-positive-selected-alt": "Positive feedback left",
+  "feedback.icon-positive-selected-title": "Positive feedback left",
+  "feedback.icon-positive-title": "Positive feedback",
+  "wds.modal-article": "Full article:",
+  "wds.modal-document": "Document:",
+  "wds.modal-button-close": "Close",
+  "chat_app_rocketchat.no-agents-available": "Sorry, No Agents Available.",
+  "chat_app_rocketchat.agent-closed-chat": "Agent Closed Chat.",
+  "chat_app_rocketchat.user-joined-chat": "User Joined Chat.",
+  "chat_app_rocketchat.transfer-to-other-agent": "Transfered To Next Agent.",
+  "chat_app_rocketchat.agent-first-message": "Welcome to customer support. Agent will join shortly.",
+  "chat_app_rocketchat.transfer-back-message": "Welcome back to the chatbot. You can continue asking questions.",
+  "chat_app_session_expiration_notification": "Your session will expire within {{ niceTime }}"
+}

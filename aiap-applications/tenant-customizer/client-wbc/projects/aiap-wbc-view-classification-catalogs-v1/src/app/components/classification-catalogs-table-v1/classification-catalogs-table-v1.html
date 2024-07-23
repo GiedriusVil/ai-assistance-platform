@@ -1,0 +1,88 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      [tooltip]="'classification_catalogs_table_v1.btn_refresh.tooltip' | translate"
+      (click)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      [tooltip]="'classification_catalogs_table_v1.btn_search.tooltip' | translate"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitClearSearchEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [text]="'classification_catalogs_table_v1.btn_add.text' | translate"
+      [tooltip]="'classification_catalogs_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_catalogs_table_v1.btn_import.text' | translate"
+      [tooltip]="'classification_catalogs_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_catalogs_table_v1.btn_export.text' | translate"
+      [tooltip]="'classification_catalogs_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="('classification_catalogs_table_v1.btn_remove.text' | translate) + '(' + (this.selectedRows.length) + ')'"
+      [tooltip]="'classification_catalogs_table_v1.btn_remove.tooltip' | translate"
+      [type]="'danger'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitCatalogsRemoveEvent($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [striped]="true"
+    [skeleton]="false"
+    [showSelectionColumn]="true"
+    [model]="model"
+    [sortable]="true"
+    [stickyHeader]="false"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitCategoriesViewEvent($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [showPageInput]="true"
+    [itemsPerPageOptions]="itemsPerPageOptions"
+    (selectPage)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #overflowMenuItemTemplate let-data="data">
+    <ibm-overflow-menu
+      [flip]="true"
+      (click)="_allowActionsClick($event)">
+      <ibm-overflow-menu-option
+        *isActionAllowed="{action:'classification-catalogs.view.edit'}"
+        (selected)="emitShowSavePlace(data)">{{ 'classification_catalogs_table_v1.field_rename.menu_option' | translate }}
+      </ibm-overflow-menu-option>
+      <ibm-overflow-menu-option
+        (selected)="emitCategoriesViewEvent(data)">{{ 'classification_catalogs_table_v1.field_categories.menu_option' | translate }}
+      </ibm-overflow-menu-option>
+    </ibm-overflow-menu>
+  </ng-template>
+</aiap-table-v1-container-v1>
+
+<ng-template #status let-data="data">
+  <span>{{data.status}}</span><br>
+  <span>{{data.timestamp}}</span>
+</ng-template>
+
+<ng-template #updated let-data="data">
+  <span>{{data}}</span>
+</ng-template>

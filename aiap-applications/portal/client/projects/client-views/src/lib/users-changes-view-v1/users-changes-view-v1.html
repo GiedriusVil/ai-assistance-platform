@@ -1,0 +1,38 @@
+<div *ngIf="_viewEnabled" class="filters-wrapper">
+  <div class="filters-content">
+    <h2>
+      <aca-breadcrumb></aca-breadcrumb>
+    </h2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div 
+          ibmCol 
+          [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-date-range-picker 
+            [value]="state.dateRange"
+            (onChange)="handleDateRangeChange($event)">
+          </aca-date-range-picker>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+<div 
+  *ngIf="_viewEnabled" 
+  class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-users-changes-table-v1
+      (onSearchPlace)="handleSearchEvent($event)"
+      (onClearPlace)="hanleClearSearchEvent($event)"
+      (onShowSavePlace)="handleShowTransactionEvent($event)">
+    </aiap-users-changes-table-v1>
+  </div>
+</div>
+
+<aiap-users-changes-modal-v1 #usersChangesModal></aiap-users-changes-modal-v1>
+
+<aiap-disabled-view-v1 
+  *ngIf="!_viewEnabled">
+</aiap-disabled-view-v1>

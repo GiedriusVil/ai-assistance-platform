@@ -1,0 +1,21 @@
+{
+  "name": "@ibm-aca/aca-live-analytics-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Jevgenij Golobokin",
+      "email": "jevgenij.golobokin@ibm.com",
+      "url": "https://www.linkedin.com/in/jevgenij-golobokin/"
+    }
+  ],
+  "license": "IBM",
+  "dependencies": {
+    "xls-to-json": "2.1.0",
+    "@ibm-aiap/aiap-engagements-service": "0.0.1",
+    "@ibm-aiap/aiap-passport-provider": "0.0.1"
+  }
+}

@@ -1,0 +1,23 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-engagements-table-v1
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowSavePlace)="handleEngagementSaveModal($event)"
+      (onShowRemovePlace)="handleApplicationdeleteModal($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)">
+    </aiap-engagements-table-v1>
+  </div>
+</div>
+
+<aiap-engagement-save-modal-v1 #engagementSaveModal></aiap-engagement-save-modal-v1>
+<aiap-engagement-delete-modal-v1 #engagementDeleteModal></aiap-engagement-delete-modal-v1>
+<aiap-engagement-import-modal-v1 #engagementImportModal></aiap-engagement-import-modal-v1>

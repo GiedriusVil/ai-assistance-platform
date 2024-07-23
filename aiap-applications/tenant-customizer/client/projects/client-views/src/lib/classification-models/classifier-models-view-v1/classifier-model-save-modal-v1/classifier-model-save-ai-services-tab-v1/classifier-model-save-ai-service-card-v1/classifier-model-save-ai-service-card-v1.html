@@ -1,0 +1,108 @@
+<div ibmGrid>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 11, 'lg':11, 'md': 7, 'sm': 1}">
+            <ibm-label>{{value?.content}}</ibm-label>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 1, 'lg':1, 'md': 1, 'sm': 1}">
+            <button
+                ibmButton="tertiary"
+                [size]="'sm'"
+                [iconOnly]="true"
+                (click)="handleRemoveAiServiceClickEvent($event)">
+                <aiap-icon-svg-v1
+                  class="bx--btn__icon"
+                  [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+                </aiap-icon-svg-v1>
+            </button>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+            <ibm-label>AI Service ID*
+                <input 
+                    ibmText 
+                    required 
+                    name="ai_service_id"
+                    [autocomplete]="'off'"
+                    [disabled]="true"
+                    [(ngModel)]="value.value.serviceId">
+            </ibm-label>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+            <ibm-label>AI Skill ID*
+                <input 
+                    ibmText 
+                    required 
+                    name="ai_skill_id"
+                    [autocomplete]="'off'"
+                    [disabled]="true"
+                    [(ngModel)]="value.value.skillId">
+            </ibm-label>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+            <ibm-label>AI Skill External ID*
+                <input 
+                    ibmText 
+                    required 
+                    name="ai_skill_external_id"
+                    [autocomplete]="'off'"
+                    [disabled]="true"
+                    [(ngModel)]="value.value.skillExternalId">
+            </ibm-label>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+            <ibm-label
+                [invalidText]="'Please correct regex expression...'">Route regex
+                <input 
+                    ibmText 
+                    required 
+                    name="ai_skill_regex"
+                    [invalid]="isInvalidRegexPattern()"
+                    [autocomplete]="'off'"
+                    [(ngModel)]="value.value.regex">
+            </ibm-label>
+        </div>
+    </div>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+        <ibm-accordion [align]="'start'">
+          <ibm-accordion-item 
+            title="{{
+              value.value.displayNameValues ?
+              'Display names (' + value.value.displayNameValues.length + ')' :
+              'Display names (0)'
+              }}">
+            <div ibmGrid>
+              <div ibmRow>
+                <div ibmCol>
+                  <button
+                    ibmButton="tertiary"
+                    [size]="'sm'"
+                    (click)="handleAddNewValue()">Display name
+                    <aiap-icon-svg-v1
+                      class="bx--btn__icon"
+                      [src]="'assets/carbon-icons/20/navigation/add.svg'">
+                    </aiap-icon-svg-v1>
+                  </button>
+                </div>
+              </div>
+              <div ibmRow class="border-bottom">&nbsp;</div>
+              <div ibmRow>
+                <ng-container *ngFor="let displayNameValue of value.value.displayNameValues; let i = index">
+                  <div ibmCol [columnNumbers]="{'xlg': 3, 'lg':4, 'md': 8, 'sm': 4}">
+                    <aca-classifier-model-ai-skill-display-name-card
+                      [(value)]="value.value.displayNameValues[i]"
+                      (valueRemove)="handleValueRemoveEvent(i)">
+                    </aca-classifier-model-ai-skill-display-name-card>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </ibm-accordion-item>
+        </ibm-accordion>
+      </div>
+    </div>
+    <div ibmRow>&nbsp;</div>
+</div>

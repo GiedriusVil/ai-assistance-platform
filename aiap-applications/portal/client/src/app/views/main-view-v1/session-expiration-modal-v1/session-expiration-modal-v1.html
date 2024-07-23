@@ -1,0 +1,29 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+    <aiap-modal-v1-header-v1 (closeSelect)="close()">
+        <p class="bx--modal-header__heading bx--type-beta">
+          {{ 'main_view_v1.session_expiration_modal_v1.header' | translate }}
+        </p>
+    </aiap-modal-v1-header-v1>
+    <div 
+      class="bx--modal-content">
+      <p 
+        class="mb-3">
+        {{ 'main_view_v1.session_expiration_modal_v1.content' | translate }}
+      </p>
+    </div>
+    <aiap-modal-v1-footer-v1>
+        <aiap-button-v1
+          [text]="'main_view_v1.session_expiration_modal_v1.btn_cancel.text' | translate"
+          [type]="'secondary'"
+          (onClick)="close()">
+        </aiap-button-v1>
+        <aiap-button-v1
+          [text]="'main_view_v1.session_expiration_modal_v1.btn_extend.title' | translate"
+          [type]="'primary'"
+          (onClick)="extendSession()">
+        </aiap-button-v1>
+    </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

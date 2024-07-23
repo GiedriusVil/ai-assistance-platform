@@ -1,0 +1,20 @@
+{
+  "ai_search_and_analysis_documents_view_v1.breadcrumb": "Documents",
+  "ai_search_and_analysis_documents_view_v1.fld_service_id.label": "Service Id",
+  "ai_search_and_analysis_documents_view_v1.fld_service_id.placeholder": "Service Id",
+  "ai_search_and_analysis_documents_view_v1.fld_project_id.label": "Project Id",
+  "ai_search_and_analysis_documents_view_v1.fld_project_id.placeholder": "Project Id",
+  "ai_search_and_analysis_documents_view_v1.fld_collection_id.label": "Collection Id",
+  "ai_search_and_analysis_documents_view_v1.fld_collection_id.placeholder": "Collection Id",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.header": "Delete AI Search and Analysis Documents",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.content": "Confirm deletion of following AI Search and Analysis Documents:",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.btn_cancel.text": "Cancel",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.btn_delete.text": "Delete",
+  "ai_search_and_analysis_documents_table_v1.col_name.header": "Name",
+  "ai_search_and_analysis_documents_table_v1.col_type.header": "Type",
+  "ai_search_and_analysis_documents_table_v1.col_created.header": "Created",
+  "ai_search_and_analysis_documents_table_v1.col_updated.header": "Updated",
+  "ai_search_and_analysis_documents_table_v1.btn_refresh.tooltip": "Remove",
+  "ai_search_and_analysis_documents_table_v1.btn_remove.text": "Remove",
+  "ai_search_and_analysis_documents_table_v1.btn_remove.tooltip": "Remove documents"
+}

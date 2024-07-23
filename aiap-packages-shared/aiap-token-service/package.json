@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-token-service",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0"
+  }
+}

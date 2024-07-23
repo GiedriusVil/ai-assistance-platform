@@ -1,0 +1,19 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-access-groups-table-v1
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onShowRemovePlace)="showAccessGroupDeleteModal($event)" 
+      (onShowImportPlace)="handleShowImportModal($event)">
+    </aiap-access-groups-table-v1>
+  </div>
+</div>
+
+<aiap-access-group-save-modal-v1 #accessGroupSaveModal></aiap-access-group-save-modal-v1>
+<aiap-access-group-delete-modal-v1 #accessGroupDeleteModal></aiap-access-group-delete-modal-v1>
+<aiap-access-group-import-modal-v1 #accessGroupImportModal></aiap-access-group-import-modal-v1>

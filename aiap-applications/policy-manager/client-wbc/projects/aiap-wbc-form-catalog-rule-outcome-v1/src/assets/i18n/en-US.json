@@ -1,0 +1,33 @@
+{
+  "catalog_rules.delete_modal.header_text" : "Delete Catalog Rule Catalogs",
+  "catalog_rules.delete_modal.confirmation" : "Do you want to delete catalog rule catalogs?",
+  "catalog_rules.delete_modal.cancel" : "Cancel",
+  "catalog_rules.delete_modal.delete" : "Delete",
+  "catalog_rules.delete_modal.cancel_tooltip" : "Cancel",
+  "catalog_rules.delete_modal.delete_tooltip" : "Delete",
+  "catalog_rules.delete_modal.notification.success.title" : "Catalog rule catalogs removed!",
+  "catalog_rules.delete_modal.notification.error.title" : "Unable delete catalog rule catalogs",
+
+  "catalog_rules.save_modal.header_text" : "Select Catalog",
+  "catalog_rules.save_modal.cancel_button_text" : "Cancel",
+  "catalog_rules.save_modal.save_button_text" : "Save",
+  "catalog_rules.save_modal.cancel_button_tooltip" : "Cancel",
+  "catalog_rules.save_modal.save_button_tooltip" : "Save",
+
+  "catalog_rules.outcome_type_comp.restrict_button_text" : "Restrict catalogs (Assume all allowed)",
+  "catalog_rules.outcome_type_comp.allow_button_text" : "Allow catalogs (Assume all restricted)",
+  "catalog_rules.outcome_type_comp.restrict_button_tooltip" : "Restrict catalogs (Assume all allowed)",
+  "catalog_rules.outcome_type_comp.allow_button_tooltip" : "Allow catalogs (Assume all restricted)",
+
+  "catalog_rules.catalog_table.remove_button" : "Remove",
+  "catalog_rules.catalog_table.refresh_button_tooltip" : "Refresh",
+  "catalog_rules.catalog_table.add_button_tooltip" : "Add",
+
+  "form_catalog_rule_outcome_v1.rule_catalog_table.catalog_header" : "Catalog",
+  "form_catalog_rule_outcome_v1.rule_catalog_table.supplier_header" : "Supplier",
+
+  "rule_actions_table_v1.search_placeholder" : "Enter search value",
+  "rule_actions_table_v1.remove_button_tooltip" : "Remove"
+  
+  
+}

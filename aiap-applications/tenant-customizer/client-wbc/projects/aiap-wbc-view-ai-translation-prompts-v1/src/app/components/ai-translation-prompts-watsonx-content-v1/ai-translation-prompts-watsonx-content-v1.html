@@ -1,0 +1,28 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-translation-prompts-table-v1
+      [aiTranslationServiceId]="aiTranslationServiceId"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)">
+    </aiap-ai-translation-prompts-table-v1>
+  </div>
+</div>
+
+<aiap-ai-translation-prompt-save-modal-v1
+  [aiTranslationService]="aiTranslationService" 
+  #aiTranslationPromptSaveModal>
+</aiap-ai-translation-prompt-save-modal-v1>
+
+<aiap-ai-translation-prompt-delete-modal-v1
+  [aiTranslationServiceId]="aiTranslationServiceId"
+  #aiTranslationPromptDeleteModal>
+</aiap-ai-translation-prompt-delete-modal-v1>
+
+<aiap-ai-translation-prompt-import-modal-v1 
+  [aiTranslationServiceId]="aiTranslationServiceId" 
+  #aiTranslationPromptImportModal>
+</aiap-ai-translation-prompt-import-modal-v1>

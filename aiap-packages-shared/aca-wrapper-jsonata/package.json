@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-wrapper-jsonata",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jsonata": "2.0.1"
+  },
+  "license": "IBM",
+  "author": {
+    "name": "Oleg Lukasonok",
+    "email": "oleg.lukasonok@lt.ibm.com",
+    "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376"
+  }
+}

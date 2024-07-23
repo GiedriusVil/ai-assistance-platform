@@ -1,0 +1,52 @@
+<div class="message--content w-100"
+  [ngClass]="{'content--disabled': isContentEnabled }">
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th class="number"
+          scope="col">#</th>
+        <th *ngFor="let column of columns"
+          scope="col">
+          {{column?.title}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="{'content': !isContentEnabled }"
+        *ngFor="let row of rows; trackBy:trackByFn"
+        (click)="onButtonClick(row?.payload)">
+        <ng-template #tipContent>
+          <span *ngIf="row?.payload"
+            [innerHTML]="row?.payload">
+          </span>
+        </ng-template>
+        <th scope="row">{{ row?.id }}</th>
+        <td [ngbTooltip]="tipContent"
+          [disableTooltip]="showTooltip(row?.payload)">
+          {{ row?.payload | partOfText:TEXT_LIMIT }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-between">
+    <div *ngIf="collectionSize > pageSize">
+      <ngb-pagination [collectionSize]="collectionSize"
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [disabled]="isContentEnabled"
+        (pageChange)="refreshTable()">
+      </ngb-pagination>
+    </div>
+    <div class="pr-0">
+      <button *ngFor="let attribute of attributes"
+        class="btn btn-primary btn--color attribute--button"
+        tabindex="0"
+        type="button"
+        [disabled]="isContentEnabled"
+        (click)="onButtonClick(attribute?.value)">
+        {{ attribute?.value }}
+      </button>
+      <div class="break"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<aiap-modal-v1 [open]="isOpen" size="xs" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <form #assistantSaveModal="ngForm">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [placeholder]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_id.placeholder' | translate "
+            [name]="'assistantId'"
+            [label]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_id.label' | translate"
+            [labelHelp]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_id.helper_text' | translate"
+            [(value)]="assistant.id">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [placeholder]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_name.placeholder' | translate "
+            [name]="'assistantName'"
+            [label]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_name.label' | translate"
+            [labelHelp]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_name.helper_text' | translate"
+            [(value)]="assistant.name">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-field-textarea-v1
+            [isRequired]="true"
+            [placeholder]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_description.placeholder' | translate"
+            [name]="'assistantDescription'"
+            [label]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_description.label' | translate"
+            [labelHelp]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.fld_description.helper_text' | translate"
+            [rows]="3"
+            [(value)]="assistant.description">
+          </aiap-field-textarea-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </form>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="assistantSaveModal.invalid"
+      [text]="'tenants_view_v1.save_modal_v1.assistants_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

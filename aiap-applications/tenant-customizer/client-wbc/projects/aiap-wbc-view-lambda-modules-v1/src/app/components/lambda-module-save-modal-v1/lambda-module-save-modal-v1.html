@@ -1,0 +1,146 @@
+<aiap-modal-v1
+  [size]="'lg'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <div class="display-table-row">
+      <div class="table-cell">
+        <aiap-button-v1
+          [type]="'ghost'"
+          [tooltip]="'lambda_module_save_modal_v1.btn_help.tooltip' | translate"
+          [size]="'sm'"
+          [disabled]="isLoading"
+          [icon]="'assets/carbon-icons/20/status/help.svg'"
+          (onClick)="help()">
+        </aiap-button-v1>
+      </div>
+      <div class="bx--modal-header__heading bx--type-beta">
+        {{ 'lambda_module_save_modal_v1.header.text' | translate }}
+      </div>
+    </div>
+  </aiap-modal-v1-header-v1>
+  <section class="height-100">
+    <form #moduleForm="ngForm" class="height-100">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2}">
+            <aiap-field-input-v1
+              [label]="'lambda_module_save_modal_v1.fld_id.label' | translate"
+              [labelHelp]="'lambda_module_save_modal_v1.fld_id.helper_text' | translate"
+              [isDisabled]="isLoading"
+              [isRequired]="true"
+              [name]="'module_id'"
+              [(value)]="module.id">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2}">
+            <ibm-combo-box
+            placeholder="{{'lambda_module_save_modal_v1.fld_lambda_module_type.placeholder' | translate}}" 
+            name="module_type"
+            required
+            [size]="'sm'"
+            [label]="'lambda_module_save_modal_v1.fld_lambda_module_type.label' | translate"
+            [disabled]="isLoading"
+            [(ngModel)]="state.type"
+            [items]="state.types">
+              <ibm-dropdown-list>
+              </ibm-dropdown-list>
+            </ibm-combo-box>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2}">
+            <ibm-dropdown 
+              placeholder="'{{'lambda_module_save_modal_v1.fld_configuration.placeholder' | translate}}" 
+              name="module_configuration"
+              [size]="'sm'"
+              [label]="'lambda_module_save_modal_v1.fld_configuration.label' | translate"
+              [disabled]="isLoading"
+              [(ngModel)]="state.configuration">
+              <ibm-dropdown-list 
+                [items]="state.configurations">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 2, 'md': 4}">
+            <legend class="bx--label editor-theme-legend">{{ 'lambda_module_save_modal_v1.fld_radio_group.legend' | translate }}</legend>
+            <ibm-radio-group
+              name="editor_theme"
+              aria-label="radiogroup"
+              [disabled]="isLoading"
+              [(ngModel)]="state.monacoOptions.theme"
+              (change)="handleThemeChange($event)">
+              <ibm-radio 
+                value="vs" 
+                [checked]="true">{{ 'lambda_module_save_modal_v1.fld_radio_group.light' | translate }}
+              </ibm-radio>
+              <ibm-radio 
+                value="hc-black">{{ 'lambda_module_save_modal_v1.fld_radio_group.dark' | translate }}
+              </ibm-radio>
+            </ibm-radio-group>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 4}">
+            <legend class="bx--label">{{ 'lambda_module_save_modal_v1.form.toggle.legend' | translate }}</legend>
+            <ibm-toggle
+              name="show_errors"
+              [size]="'sm'" 
+              [onText]="'lambda_module_save_modal_v1.form.toggle.on_text' | translate" 
+              [offText]="'lambda_module_save_modal_v1.form.toggle.off_text' | translate"
+              [checked]="state.showErrors"
+              [disabled]="isLoading"
+              (checkedChange)="handleShowErrors()">
+            </ibm-toggle>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol class="aca-monaco-editor-col">
+            <ng-container #monacoContainer>
+            </ng-container>
+          </div>
+          <div ibmCol *ngIf="state.errorsVisible">
+            <aiap-lambda-modules-errors-table-v1 
+              class="module-errors-table" 
+              [moduleId]="module?.id">
+            </aiap-lambda-modules-errors-table-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-set-v1>
+      <aiap-button-v1
+        [text]="'lambda_module_save_modal_v1.footer.btn_cancel.text' | translate"
+        [type]="'secondary'"
+        [size]="'sm'"
+        [disabled]="isLoading"
+        (onClick)="close()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        [text]="'lambda_module_save_modal_v1.footer.btn_compile.text' | translate"
+        [type]="'tertiary'"
+        [size]="'sm'"
+        [disabled]="!isBaseUrlsPresent || isLoading"
+        (onClick)="compile()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        [text]="'lambda_module_save_modal_v1.footer.btn_save.text' | translate"
+        [type]="'primary'"
+        [size]="'sm'"
+        [disabled]="moduleForm.invalid || isLoading"
+        (onClick)="save()">
+      </aiap-button-v1>
+    </aiap-button-set-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<ng-template #monacoEditor>
+  <ngx-monaco-editor
+    name="model_code"
+    (onInit)="handleMonacoEditorInitEvent($event)"
+    [ngClass]="[state.editor.small ? 'editorSmall' : 'editor']" 
+    [options]="state.monacoOptions"
+    [(ngModel)]="module.code">
+  </ngx-monaco-editor>
+</ng-template>
+
+<aiap-lambda-module-help-modal-v1 #lambdaModuleHelpModal></aiap-lambda-module-help-modal-v1>

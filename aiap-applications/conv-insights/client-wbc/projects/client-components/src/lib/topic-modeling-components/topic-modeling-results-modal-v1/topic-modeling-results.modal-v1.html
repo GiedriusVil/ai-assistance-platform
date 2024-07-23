@@ -1,0 +1,47 @@
+<aiap-modal-v1
+  size='lg'
+  [open]="isOpen"
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3
+      ibmModalHeaderHeading>
+      {{ 'topic_modeling_view_v1.results_modal_v1.header' | translate }} {{state?.jobId}} {{state?.jobName}}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #topicModelingSaveForm>
+      <ibm-tabs>
+        <ibm-tab heading="Scatter Plot">
+          <div class="toggle">
+            <aiap-toggle-v1
+              [size]="'sm'"
+              [onText]="'Centroids'" 
+              [offText]="'Centroids'" 
+              [isChecked]="retrieveCentroids"
+              (onChange)="handleToggleChange($event)">
+            </aiap-toggle-v1>
+          </div>
+          <div class="wrapper">
+            <iframe [src]="state.urlSafe">
+            </iframe>
+          </div>
+        </ibm-tab>
+        <ibm-tab heading="Topics">
+          <aiap-topic-modeling-topic-table-v1
+            [jobId]="state?.jobId"
+            [response]="topics">
+          </aiap-topic-modeling-topic-table-v1>
+        </ibm-tab>
+      </ibm-tabs>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button ibmButton="secondary" (click)="close()">
+      {{ 'topic_modeling_view_v1.results_modal_v1.btn_close.text' | translate }}
+    </button>
+    <button ibmButton="primary" >
+      {{ 'topic_modeling_view_v1.results_modal_v1.btn_save.text' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

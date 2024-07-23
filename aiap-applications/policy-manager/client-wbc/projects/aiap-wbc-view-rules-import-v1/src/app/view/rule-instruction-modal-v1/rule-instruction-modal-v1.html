@@ -1,0 +1,44 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="close()" >
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{'rules_import_v1.view.modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <div 
+    *ngIf="step === 0">
+    <span>
+      {{'rules_import_v1.view.modal_v1.step_0' | translate}}
+    </span>
+    <br>
+    <span>
+      {{'rules_import_v1.view.modal_v1.step_0_1' | translate}}
+    </span>
+    </div>
+    <div
+    *ngIf="step === 1">
+      <span>
+        {{'rules_import_v1.view.modal_v1.step_1' | translate}}
+      </span>
+    </div>
+    <div 
+    *ngIf="step === 2">
+    <span>
+      {{'rules_import_v1.view.modal_v1.step_2' | translate}}
+    </span>
+  </div>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'rules_import_v1.view.modal_v1.close_button' | translate"
+      [tooltip]="'rules_import_v1.view.modal_v1.close_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,117 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+aiap-right-side-filter-panel-v1 {
+  .aiap-right-side-filter {
+    &--wrapper {
+      visibility: hidden;
+      position: fixed;
+      z-index: 999;
+      top: 3rem;
+      right: 0;
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      width: 0px;
+      max-width: 24rem;
+      height: 100%;
+      flex-direction: column;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease 0s;
+    }
+
+    &--divider {
+      border-color: #e0e0e0;
+      border-style: solid;
+      border-bottom: none;
+      margin: 1rem 1rem;
+    }
+
+    &--content {
+      padding: 2rem 1.5rem;
+      display: block;
+      overflow: auto;
+      margin-bottom: 4rem;
+
+      &_reset {
+        padding-bottom: 1rem;
+
+        aiap-button-v1 .bx--btn {
+          padding: 0;
+        }
+      }
+
+      &_item {
+        height: fit-content;
+        padding-bottom: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &_number {
+          display: flex;
+          justify-content: space-between;
+          
+          &_range {
+            width: 140px;
+          }
+        }
+
+        aiap-field-combo-box-singular-v1:not(:last-child) {
+          padding-bottom: 2rem;
+        }
+
+        aiap-wbc-view-conversations-v1:not(:last-child) {
+          padding-bottom: 2rem;
+        }
+
+        ibm-slider:not(:last-child) {
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    &--footer {
+      position: absolute;
+      bottom: 48px;
+      z-index: 999;
+      left: 0;
+      width: 100%;
+      height: 48px;
+
+      aiap-button-v1 .bx--btn {
+        width: 0;
+        visibility: hidden;
+      }
+    }
+
+    &--open .aiap-right-side-filter--footer aiap-button-v1 .bx--btn {
+      width: 50%;
+      visibility: visible;
+      max-height: 48px;
+    }
+
+    &--open {
+      visibility: visible;
+      min-width: 26rem;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  .bx--number input[type=number] {
+    padding-right: 4rem;
+    min-width: 8.375rem;
+  }
+
+  .bx--slider-container {
+    width: 100%;
+  }
+
+  .bx--slider {
+    min-width: 11.5rem;
+    transition: all 0.3s ease 0s;
+  }
+}

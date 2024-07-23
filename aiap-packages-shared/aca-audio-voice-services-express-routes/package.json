@@ -1,0 +1,21 @@
+{
+    "name": "@ibm-aca/aca-audio-voice-services-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "IBM",
+    "license": "IBM",
+    "contributors": [
+      {
+        "name": "Martynas Pazusis",
+        "email": "martynas.pazusis@ibm.com",
+        "url": "https://www.linkedin.com/in/martynas-pazusis/"
+      }
+    ],
+    "dependencies": {
+        "@ibm-aca/aca-audio-voice-services-service": "0.0.1",
+        "@ibm-aiap/aiap-express-session-provider": "0.0.1",
+        "@ibm-aiap/aiap-passport-provider": "0.0.1"
+    }
+}

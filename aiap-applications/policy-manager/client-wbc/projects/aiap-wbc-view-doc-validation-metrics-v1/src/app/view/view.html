@@ -1,0 +1,183 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1
+            [value]="state?.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 2, 'sm':1}">
+          <ibm-dropdown 
+            type="multi" 
+            [label]="'view_doc_validation_metrics_v1.view.dropdown_label_text' | translate" 
+            [placeholder]="'view_doc_validation_metrics_v1.view.dropdown_placeholder_text' | translate" 
+            [size]="'sm'"
+            [(ngModel)]="state.organizationsSelected" 
+            (selected)="handleOrganizationSelectionEvent($event)">
+            <ibm-dropdown-list 
+              [items]="state.organizations">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 7, 'sm':3 }">
+        </div>
+        <div ibmCol [columnNumbers]="{'md': 1, 'sm':1 }">
+          <aiap-button-v1 
+            size='sm' 
+            [type]="'primary'" 
+            [text]="'view_doc_validation_metrics_v1.view.apply_button_text' | translate"
+            [tooltip]="'view_doc_validation_metrics_v1.view.apply_button_tooltip' | translate"
+            (onClick)="handleRefreshClick()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // -->
+<div class="totals-content">
+  <div ibmGrid>
+    <div ibmRow [gutter]="false" [condensed]="true">
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalReceivedValidations"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_received_validations_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalCompletedValidations"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_completed_validations_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalApprovedValidations"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_approved_validations_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalRejectedValidations"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_rejected_validations_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalFailedValidations" 
+            [headerText]="'view_doc_validation_metrics_v1.view.total_failed_validations_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="totals-content">
+  <div ibmGrid>
+    <div ibmRow [gutter]="false" [condensed]="true">
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalValidatedPRs"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_validated_prs_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalApprovedPRs" 
+            [headerText]="'view_doc_validation_metrics_v1.view.total_approved_prs_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.totalRejectPRs"
+            [headerText]="'view_doc_validation_metrics_v1.view.total_rejected_prs_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+        <div *ngIf="showData else spinner">
+          <aiap-doc-validation-metric-tile-v1 
+            [displayData]="response.uniqueBuyers" 
+            [headerText]="'view_doc_validation_metrics_v1.view.unique_buyers_header_text' | translate">
+          </aiap-doc-validation-metric-tile-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-report-chart-v1 
+            class="graph-placeholder" 
+            [type]="'line'" 
+            [name]="'totalPurchaseRequests'"
+            [title]="'view_doc_validation_metrics_v1.view.dashboard.chart_title' | translate">
+          </aiap-report-chart-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-metrics-summary-table></aca-metrics-summary-table>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-doc-validations-summary-table-v1 
+            class="graph-placeholder" 
+            [type]="'horizontalBar'"
+            [name]="'countPurchaseRequestValidations'" 
+            [title]="'view_doc_validation_metrics_v1.view.dashboard.summary_table_title' | translate">
+          </aiap-doc-validations-summary-table-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <div 
+    data-loading-small 
+    class="bx--loading bx--loading--small">
+    <svg 
+      class="bx--loading__svg" 
+      viewBox="-37.5 -37.5 75 75">
+      <title>
+        {{'view_doc_validation_metrics_v1.view.loading_text' | translate}}
+      </title>
+      <circle 
+        class="bx--loading__background" 
+        cx="0" 
+        cy="0" 
+        r="26.8125" />
+      <circle 
+        class="bx--loading__stroke" 
+        cx="0" 
+        cy="0" 
+        r="26.8125" />
+    </svg>
+  </div>
+</ng-template>

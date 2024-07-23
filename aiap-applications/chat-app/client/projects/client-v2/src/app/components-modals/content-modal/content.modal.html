@@ -1,0 +1,20 @@
+<aca-chat-modal id="aiap-content-modal">
+  <div class="aiap--modal--close--button">
+    <img 
+      class="img--close" 
+      [src]="closeIcon"
+      tabindex="0" 
+      role="button" 
+      title="{{'content.modal-cross-title'| translate}}" 
+      alt="{{'content.modal-cross-alt'| translate}}" 
+      (click)="onCloseModal('aiap-content-modal')"
+      >
+  </div>
+  <div class="aiap--modal--body" [innerHTML]="content | safe: 'html'">
+  </div>
+  <div class="aiap--modal--footer">
+    <div>
+      <button type="button" class="btn btn-primary btn--color" (click)="onCloseModal('aiap-content-modal');">{{'content.modal-close'| translate}}</button>
+    </div>
+  </div>
+</aca-chat-modal>

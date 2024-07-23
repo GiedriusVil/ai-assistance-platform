@@ -1,0 +1,12 @@
+<ibm-combo-box
+  [placeholder]="'live-analytics-metrics-combo-v2.placeholder' | translate"
+  [size]="'sm'"
+  [type]="'multi'"
+  [label]="'live-analytics-metrics-combo-v2.label' | translate"
+  [items]="state.metrics"
+  [disabled]="disabled"
+  [(ngModel)]="state.metricsSelected"
+  (close)="handleCloseEvent($event)"
+  (search)="handleMetricsSearchEvent($event)">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

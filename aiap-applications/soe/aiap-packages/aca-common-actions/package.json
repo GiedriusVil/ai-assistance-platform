@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-common-actions",
+  "version": "3.27.0",
+  "description": "Advanced Conversation Asset Common Actions",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@ibm-aiap/aiap-utils-common": "0.0.1"
+  }
+}

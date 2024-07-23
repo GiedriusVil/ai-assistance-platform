@@ -1,0 +1,27 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-ai-skills-releases-table-v1 {
+    min-width: 100%;
+
+    .bx--pagination .bx--select__item-count .bx--select-input {
+        background-color: white;
+    }
+
+    .bx--pagination .bx--select__page-number .bx--select-input {
+        background-color: white;
+    }
+
+    .bx--search--lg .bx--search-input,
+    .bx--search--sm .bx--search-input {
+        height: 3rem;
+    }
+
+    .bx--search--lg .bx--search-close,
+    .bx--search--sm .bx--search-close {
+        width: 3rem;
+        height: 3rem;
+    }
+}

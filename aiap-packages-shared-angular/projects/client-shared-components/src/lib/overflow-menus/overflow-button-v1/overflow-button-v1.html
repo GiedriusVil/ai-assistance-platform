@@ -1,0 +1,20 @@
+<button
+  #overflowButtonV1
+  ngbTooltip="{{ state?.tooltip?.value ? state.tooltip.value: null }}"
+  [openDelay]="state.tooltip.delay?.open"
+  [closeDelay]="state.tooltip.delay?.close"
+  [size]="size"
+  [ibmButton]="type"
+  [iconOnly]="iconOnly"
+  [disabled]="state.disabled"
+  [skeleton]="state.skeleton"
+  [ibmOverflowMenu]="state?.overflowMenu"
+  [customPane]="state?.customPane"
+  [offset]="state?.offset"
+  (click)="handleClickEvent($event)">{{ state.text }}
+  <aiap-icon-svg-v1
+    *ngIf="icon"
+    [ngClass]="text? 'bx--btn__icon': 'bx--btn__icon aiap-override'"
+    [src]="icon">
+  </aiap-icon-svg-v1>
+</button>

@@ -1,0 +1,38 @@
+<aiap-modal-v1
+  [size]="'md'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'answers_view_v1.delete_modal.header' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <form #answerDeleteForm="ngForm">
+      <div class="bx--modal-content">
+          <p class="mb-3">{{ 'answers_view_v1.delete_modal.fld_confirm_question_part1' | translate }} <strong> {{ answerKeys }} </strong> {{ 'answers_view_v1.delete_modal.fld_confirm_question_part2' | translate }}</p>
+          <div class="bx--form-item mt-8">
+            <aiap-field-textarea-v1
+              [isRequired]="true"
+              [name]="comment"
+              [rows]="4"
+              [cols]="50"
+              [placeholder]="'answers_view_v1.delete_modal.fld_deletion_reason.placeholder' | translate"
+              [(value)]="comment">
+            </aiap-field-textarea-v1>
+          </div>
+      </div>
+  </form>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answers_view_v1.delete_modal.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="answerDeleteForm.invalid"
+      [type]="'danger'"
+      [size]="'md'"
+      [text]="'answers_view_v1.delete_modal.btn_delete.text' | translate"
+      (click)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

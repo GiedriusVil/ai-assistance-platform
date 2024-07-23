@@ -1,0 +1,211 @@
+/*
+	© Copyright IBM Corporation 2023. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aiap-header-v1 {
+  width: inherit;
+  display: flex;
+  height: auto;
+  z-index: 1011;
+  position: relative;
+
+  .header--wrapper {
+    width: 100%;
+    background-color: #0056b8;
+    display: block;
+  }
+
+  header {
+    width: auto;
+    user-select: none;
+    display: grid;
+    grid-template-rows: 50px;
+
+    .header--box {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .header--logo {
+        color: #fff;
+        align-items: center;
+        display: flex;
+      }
+
+      .header--logo--img {
+        width: 40px;
+        height: auto;
+        margin-left: 5px;
+      }
+
+      .header--title {
+        line-height: 50px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 15px;
+        text-align: left;
+        color: #fff;
+        display: flex;
+        margin-left: 15px;
+        flex-direction: column;
+        max-height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+          font-size: 15px;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .header--buttons--box {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      .header--quick-links {
+        right: 0;
+        grid-gap: 0;
+        justify-content: flex-end;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        .header--quick-links--list {
+          margin: 0 24px 0 12px;
+          display: block;
+          padding: 0;
+        }
+
+        .header--quick-links--list--item {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .header--quick-links--list--link {
+          padding: 0;
+          font-size: 13px;
+          font-weight: bold;
+          line-height: 1.2;
+          border-bottom: 1px solid transparent;
+          text-decoration: none;  
+        }
+
+        .header--quick-links--button {
+          border: 1px solid #00000001;
+          display: flex;
+          padding: 8px;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+
+          &:hover {
+            color: #2d75fd;
+            cursor: pointer;
+            border-color: #f4f8fa;
+            background-color: #f4f8fa;
+          }
+        }
+
+        .header--quick-links--img {
+          width: 24px;
+          height: 24px;
+        }
+
+        img {
+          height: 26px;
+          margin-left: 2px;
+        }
+      }
+
+      .header--icon--box {
+        .img--minimize,
+        .img--survey,
+        .img--transcripts,
+        .img--volume,
+        .img--transform,
+        .img--quick-links {
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+
+        .img--left--panel--close {
+          width: 30px;
+        }
+
+        .img--close {
+          width: 30px;
+          margin-right: 6px;
+          margin-left: 6px;
+        }
+
+        .img--right-icon {
+          width: auto;
+          height: 26px;
+        }
+
+        img {
+          width: 19px;
+          height: 50px;
+          color: #ffffff;
+          display: block;
+        }
+
+        &:hover {
+          background-color: #2d75fd;
+        }
+      }
+
+      .header--language-change--box {
+        padding: 2px;
+        font-size: 14px;
+        background: #0056b8;
+        font-weight: bold;
+        color: #ffffff;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: #2d75fd;
+        }
+      }
+
+      .header--language-change--items {
+        min-width: fit-content;
+
+        .header--language-change--item {
+          text-transform: uppercase;
+          padding: 0.25rem 0.5rem;
+        }
+      }
+    }
+
+    .header--zoom {
+      position: relative;
+      height: 100%;
+      align-items: center;
+
+      .header--icon--box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .pointer-cursor {
+    cursor: pointer;
+  }
+}

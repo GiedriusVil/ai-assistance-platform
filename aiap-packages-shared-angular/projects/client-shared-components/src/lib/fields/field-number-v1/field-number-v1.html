@@ -1,0 +1,11 @@
+<ibm-number
+  size="md"
+  [min]="state?.min"
+  [max]="state?.max"
+  [invalid]="state?.invalid"
+  [invalidText]="state?.invalidText"
+  [step]="state?.step"
+  [(ngModel)]="state.value"
+  (change)="handleEventValueChange($event)">
+</ibm-number>
+

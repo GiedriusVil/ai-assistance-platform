@@ -1,0 +1,62 @@
+<ng-template #surveyContent let-modal>
+  <div class="app-survey-modal">
+    <div class="modal-header">
+      <h5 class="modal-title">{{'survey.modal-title'| translate}}</h5>
+      <div
+        class="header-icon-box"
+        role="button"
+        (keydown.enter)="closeModal()"
+        (click)="closeModal()">
+          <div
+            class="img--close icon--close"
+            aria-hidden="true"
+            tabindex="0"
+            title="{{'survey.modal-icon-cross-title'| translate}}"
+            alt="{{'survey.modal-icon-cross-alt'| translate}}">
+          </div>
+      </div>
+    </div>
+    <div class="modal-body survey-body">
+      <div class="modal-body-question-2" aria-label="{{'survey.modal-description-aria-label'| translate}}">
+        <b>{{'survey.modal-description'| translate}}</b>
+            <!-- <b>How would you rate your satisfaction with the quality of your interaction with the chat?*</b> -->
+      </div>
+      <form [formGroup]="surveyForm">
+        <div class="form-group">
+          <div class="text-center row--center-align">
+            <div class="col-xs-2" *ngFor="let score of survey.values;let i = index">
+              <div class="form-check text-center">
+                <input 
+                  tabindex="0" 
+                  type="radio" 
+                  formControlName="score" 
+                  class="form-check-input-1 position-static"
+                  title="{{score.title | translate}}"
+                  [value]="score.value" />
+                <div>{{score.title | translate}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea id="textArea"
+            class="form-control textareaExpand"
+            formControlName="comment"
+            rows="2"
+            maxlength="1000"
+            placeholder="{{'survey.modal-comment-placeholder'| translate}}"
+            (input)="onInput()">
+          </textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <div 
+        title="{{'survey.modal-button-submit'| translate}}">
+          <button type="button" class="btn btn-primary btn-block btn--color" [disabled]="!surveyForm.valid"
+          (keydown.enter)="submit()"
+          (click)="submit()">{{'survey.modal-button-submit'| translate}}</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

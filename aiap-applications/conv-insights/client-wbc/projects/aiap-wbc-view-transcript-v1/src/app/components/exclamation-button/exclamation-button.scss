@@ -1,0 +1,15 @@
+aca-exclamation-button {
+    position: relative;
+    .exclamation-container {
+        position: relative;
+        display: block;
+        z-index: 1;
+        float: right;
+        top: 16px;
+    }
+
+    .icon-color {
+        color: red;
+        cursor: pointer;
+    }
+}

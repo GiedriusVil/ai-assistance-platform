@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-retry-tag-handler",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {}
+}

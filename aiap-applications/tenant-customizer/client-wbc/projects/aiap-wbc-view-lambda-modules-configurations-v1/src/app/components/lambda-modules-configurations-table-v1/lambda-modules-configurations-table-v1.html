@@ -1,0 +1,74 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [tooltip]="'lambda_modules_configurations_table_v1.btn_refresh.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'lambda_modules_configurations_table_v1.search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchChangeEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules-configurations.view.add'}"
+      [text]="'lambda_modules_configurations_table_v1.btn_add.text' | translate"
+      [tooltip]="'lambda_modules_configurations_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules-configurations.view.import'}"
+      [text]="'lambda_modules_configurations_table_v1.btn_import.text' | translate"
+      [tooltip]="'lambda_modules_configurations_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules-configurations.view.export'}"
+      [text]="'lambda_modules_configurations_table_v1.btn_export.text' | translate"
+      [tooltip]="'lambda_modules_configurations_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'lambda-modules-configurations.view.delete'}"
+      [text]="('lambda_modules_configurations_table_v1.btn_remove.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'lambda_modules_configurations_table_v1.btn_remove.tooltip' | translate"
+      [type]="'danger'"
+      [size]="'sm'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [skeleton]="skeleton"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+</aiap-table-v1-container-v1>

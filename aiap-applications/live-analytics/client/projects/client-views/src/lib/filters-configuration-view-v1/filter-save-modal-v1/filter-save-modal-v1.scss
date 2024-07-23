@@ -1,0 +1,44 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./filters-configuration-configurations-tab/filters-configuration-configurations-tab.scss";
+
+aiap-filter-save-modal-v1 {
+  overflow: hidden;
+
+  section.bx--modal-content {
+    max-height: 85vh;
+  }
+
+  .bx--modal-content--overflow-indicator {
+    display: none;
+  }
+
+  .bx--grid {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-right: 0px;
+    padding-left: 0px;
+    max-width: 100%;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--tab-content {
+    padding-left: 0;
+    padding-right: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+}

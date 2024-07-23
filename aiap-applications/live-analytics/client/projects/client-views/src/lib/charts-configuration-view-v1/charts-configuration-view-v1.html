@@ -1,0 +1,22 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+      <aca-breadcrumb [outlet]="outlet"></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+      <aiap-charts-configuration-table-v1
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowRemovePlace)="handleChartDeleteModal($event)"
+      (onShowImportPlace)="handleShowImportModal($event)"
+      >
+      </aiap-charts-configuration-table-v1>
+  </div>
+</div>
+
+<aiap-chart-save-modal-v1 #aiapChartSaveModalV1></aiap-chart-save-modal-v1>
+<aiap-chart-delete-modal-v1 #aiapChartDeleteModalV1></aiap-chart-delete-modal-v1>
+<aiap-chart-import-modal-v1 #aiapChartImportModalV1></aiap-chart-import-modal-v1>

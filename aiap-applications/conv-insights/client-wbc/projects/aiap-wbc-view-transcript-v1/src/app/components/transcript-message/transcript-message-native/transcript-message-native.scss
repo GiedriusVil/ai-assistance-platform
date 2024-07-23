@@ -1,0 +1,353 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+$context-color: #00a68f;
+$darken-context-icon-color: darken($context-color, 5%);
+
+aca-transcript-message-native {
+  .key-td {
+    white-space: nowrap;
+    vertical-align: top;
+  }
+
+  .value-td {
+    vertical-align: top;
+  }
+
+  .message-container-json {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+
+    &.expanded {
+      max-height: 100%;
+    }
+  }
+
+  .jsoneditor {
+    &.jsoneditor-mode-tree {
+      border-color: black;
+
+      .jsoneditor-menu {
+        border-color: black;
+        background-color: black;
+      }
+    }
+  }
+
+  .json-editor-close-btn {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    line-height: 20px;
+    font-family: inherit;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #01579b;
+    }
+  }
+
+  .maskMessage {
+    height: 16px;
+    float: right;
+  }
+
+  .message-container {
+    clear: both;
+
+    &.bot,
+    &.user,
+    &.system {
+      padding-right: 7px;
+      padding-left: 7px;
+
+      .message {
+        position: relative;
+        font-size: 14px;
+        line-height: 1.2em;
+        padding: 7px;
+        margin-bottom: 4px;
+        word-break: break-word;
+
+        .feedback {
+          transform: scale(0.6);
+
+          border-radius: 50%;
+          position: absolute;
+          display: block;
+          padding: 10px;
+          bottom: -18px;
+          right: -18px;
+          float: right;
+          height: 36px;
+          width: 36px;
+
+          .fas {
+            color: #ffffff;
+          }
+
+          &.green {
+            background-color: #5aa700;
+          }
+
+          &.red {
+            background-color: #e0182d;
+          }
+        }
+      }
+
+      .button-selected {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+        margin-right: 4px;
+        padding: 6px 8px;
+        border: 2px solid #00a68f;
+        color: #00a68f;
+        margin-bottom: 4px;
+        float: right;
+      }
+
+      .buttons {
+        display: block;
+        clear: both;
+        float: left;
+
+        li {
+          float: left;
+          display: block;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 16px;
+          margin-right: 4px;
+          padding: 6px 8px;
+          border: 2px solid #3d70b2;
+          color: #3d70b2;
+          margin-bottom: 4px;
+          user-select: none;
+
+          &.true {
+            background-color: #3d70b2;
+            color: #ffffff;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .image {
+        clear: both;
+        float: left;
+        display: block;
+        margin-bottom: 4px;
+        max-width: 150px;
+        border: 1px solid #dfe6eb;
+        padding: 5px;
+      }
+
+      .timestamp {
+        clear: both;
+        float: left;
+        font-size: 12px;
+        color: #a6a5a6;
+        user-select: none;
+      }
+    }
+
+    .wds {
+      list-style: inside;
+    }
+
+    // carousel
+    .message--cards-scroll {
+      overflow: scroll;
+      display: block;
+      clear: both;
+      float: left;
+      margin-bottom: 4px;
+    }
+
+    .message--cards--table {
+      display: table;
+      clear: both;
+      float: left;
+
+      tr {
+        td {
+          vertical-align: top;
+          padding: 0 1px;
+
+          &:first-child {
+            padding-left: 0;
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+
+      .card--background {
+        clear: both;
+        float: left;
+        width: 100%;
+        background-color: #fff;
+        width: 200px;
+      }
+
+      .card--header {
+        .card--background {
+          height: 120px;
+          background-size: cover;
+          background-position: center center;
+          background-color: #f1f0f0;
+
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+      }
+
+      .card--body {
+        td {
+          .card--background {
+            padding: 10px 10px 5px;
+
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+          }
+
+          h5 {
+            font-size: 16px;
+            line-height: 20px;
+          }
+
+          p {
+            margin-bottom: 0;
+            font-size: 13px;
+            line-height: 16px;
+          }
+        }
+      }
+
+      .card--footer {
+        .card--background {
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          padding: 5px 10px 10px;
+        }
+      }
+
+      .card--button {
+        text-align: center;
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.2rem;
+        background-color: #999;
+
+        &.true {
+          color: #dc143c;
+          background-color: #28a745;
+          border-color: #28a745;
+        }
+      }
+    }
+
+    .table {
+      display: table;
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #dee2e6;
+
+      td {
+        border: 1px solid #dee2e6;
+        padding: 7px;
+
+        b {
+          font-weight: 600;
+        }
+      }
+    }
+
+    &.bot {
+      float: left;
+
+      .message {
+        cursor: pointer;
+        float: left;
+        background-color: #f3f3f3;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 5px;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-right-color: #f3f3f3;
+          border-left: 0;
+          border-top: 0;
+          margin-top: -5px;
+          margin-left: -10px;
+        }
+      }
+    }
+
+    &.user,
+    &.system {
+      float: right;
+
+      .message {
+        cursor: pointer;
+        float: right;
+        background-color: $context-color;
+        color: #ffffff;
+
+        &:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 5px;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-left-color: $context-color;
+          border-right: 0;
+          border-top: 0;
+          margin-top: -5px;
+          margin-right: -10px;
+        }
+      }
+
+      .timestamp {
+        float: right;
+      }
+    }
+  }
+
+  .message-container .message a {
+    color: #0f62fe;
+    text-decoration: none;
+  }
+
+  .button-icon-custom {
+    cursor: pointer;
+    fill: $context-color;
+
+    &:hover {
+      fill: $darken-context-icon-color;
+    }
+  }
+}

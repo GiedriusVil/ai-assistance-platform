@@ -1,0 +1,31 @@
+<div *ngIf="isReady()">
+  <div 
+    *ngIf="message?.description" 
+    class="aca--wbc--dropdown--options--description">{{message?.description}}</div>
+  <div 
+    *ngFor="let dropdown of message?.dropdowns; let i = index"
+    ngbDropdown
+    class="aca--wbc--dropdown--options--container">
+    <button 
+      type="button"
+      class="btn btn-outline-primary aca--wbc--dropdown--options--button" 
+      [id]="'dropdown-options-' + i"
+      ngbDropdownToggle>{{dropdown.title}}
+    </button>
+    <div 
+      ngbDropdownMenu
+      [attr.aria-labelledby]="'dropdown-options-' + i"
+      class="aca--wbc--dropdown--options--list">
+      <button 
+        *ngFor="let item of dropdown.items"
+        class="aca--wbc--dropdown--options--list--item--button"
+        ngbDropdownItem
+        (click)="selectOption(item, dropdown)">{{item.text}}
+        <span 
+          *ngIf="item.note" 
+          class="aca--wbc--dropdown--options--list--item--note">{{item.note}}
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

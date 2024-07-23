@@ -1,0 +1,38 @@
+<aiap-modal-v1
+    [open]="isOpen"
+    (overlaySelected)="close()"
+    size='sm'>
+    <ibm-modal-header
+        (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>{{ 'engagement_import_modal_v1.header' | translate }}</h3>
+    </ibm-modal-header>
+    <div class="bx--modal-content bx--modal-content--with-form">
+      <aiap-file-uploader-v2
+        #fileUploader
+        [title]="'engagement_import_modal_v1.file_uploader_import.title' | translate"
+        [description]="'engagement_import_modal_v1.file_uploader_import.description' | translate"
+        [accept]="['.json']"
+        [multiple]="false"
+        [drop]="true"
+        [dropText]="'engagement_import_modal_v1.file_uploader_import.fld_drop_text' | translate"
+        [disabled]="false"
+        [(files)]="files"
+        (filesChange)="onFileAdd($event)">
+      </aiap-file-uploader-v2>
+    </div>
+    <ibm-modal-footer>
+      <aiap-button-v1
+        [type]="'secondary'"
+        [size]="'md'"
+        [text]="'engagement_import_modal_v1.btn_cancel.text' | translate"
+        (click)="close()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        [disabled]="uploadButtonDisabled"
+        [type]="'primary'"
+        [size]="'md'"
+        [text]="'engagement_import_modal_v1.btn_import.text' | translate"
+        (click)="import()">
+      </aiap-button-v1>
+    </ibm-modal-footer>
+</aiap-modal-v1>

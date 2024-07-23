@@ -1,0 +1,22 @@
+{
+  "name": "@ibm-aca/aca-notifications-express-routes",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/aca-notifications-express-routes.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:virtual-buy-assistant/vba-conversation-insights.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

@@ -1,0 +1,70 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-query-save-modal-v1 {
+  overflow: hidden;
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+    padding: 0;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+
+    .bx--modal-content {
+      margin-bottom: 0;
+      height: 100%;
+    }
+  }
+  .bx--modal-content--overflow-indicator {
+    display: none;
+  }
+  .bx--modal-footer .bx--btn {
+    height: 3rem;
+    flex: 0 1 50%;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .bx--modal-footer {
+    height: 3rem;
+    .bx--btn-set {
+      background-color: white;
+      min-width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  .bx--modal-header__heading {
+    display: table-cell;
+  }
+
+  .editor {
+    .editor-container {
+      height: 80vh;
+    }
+  }
+  .editorSmall {
+    .editor-container {
+      height: 80vh;
+      width: calc(65vw);
+    }
+  }
+  .aca-monaco-editor-col {
+    height: 90vh;
+    padding: 0;
+  }
+  .aca-modal-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}

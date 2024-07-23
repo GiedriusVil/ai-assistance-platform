@@ -1,0 +1,41 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'answers_view_v1.pull_modal.header' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <form #answerStorePullForm="ngForm">
+    <div class="bx--modal-content">
+        <p class="mb-3">{{ 'answers_view_v1.pull_modal.fld_confirm' | translate }}</p>
+    </div>
+    <div class="bx--modal-content">
+      <legend class="bx--label">{{ 'answers_view_v1.pull_modal.fld_show_comparison.legend' | translate }}</legend>
+      <ibm-toggle
+        name="show_modified"
+        [size]="'md'" 
+        [onText]="'answers_view_v1.pull_modal.fld_hide.toggle' | translate"
+        [offText]="'answers_view_v1.pull_modal.fld_show.toggle' | translate"
+        [checked]="state.showComparison"
+        (checkedChange)="handleShowComparisonToggle()">>
+      </ibm-toggle>
+    </div>
+  </form>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answers_view_v1.pull_modal.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="answerStorePullForm.invalid"
+      [type]="'danger'"
+      [size]="'md'"
+      [text]="'answers_view_v1.pull_modal.btn_pull.text' | translate"
+      (click)="pull()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<aiap-answers-compare-modal-v1 #answersCompareModal></aiap-answers-compare-modal-v1>

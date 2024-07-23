@@ -1,0 +1,124 @@
+<aiap-modal-v1 size="lg" [open]="isOpen" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form #redisClientForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_name.placeholder' | translate "
+              [name]="'redis_client_name'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_name.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_name.helper_text' | translate"
+              [(value)]="client.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'single'"
+              [name]="'redis_client_type'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_type.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_type.placeholder' | translate"
+              [items]="selections?.clientTypes"
+              [(value)]="selections.clientType">
+           </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_url.placeholder' | translate "
+              [name]="'redis_client_url'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_url.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_url.helper_text' | translate"
+              [(value)]="client.url">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="false"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_username.placeholder' | translate "
+              [name]="'redis_client_user'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_username.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_username.helper_text' | translate"
+              [(value)]="client.username">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="false"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_password.placeholder' | translate "
+              [name]="'redis_client_password'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_password.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_password.helper_text' | translate"
+              [(value)]="client.password">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 6}">
+            <aiap-toggle-v1
+              [onText]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_tls_enablement.text_on' | translate"
+              [offText]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_tls_enablement.text_off' | translate"
+              [isChecked]="selections.tlsEnabled"
+              (onChange)="handleTlsFlagClickEvent($event)">
+          </aiap-toggle-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow class="input-toggle-tls-enablement">
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-textarea-v1
+              [isDisabled]="!isTlsEnabled()"
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_tls_certificate.placeholder' | translate"
+              [name]="'tenantDescription'"
+              [label]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_tls_certificate.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.fld_tls_certificate.helper_text' | translate"
+              [rows]="10"
+              [(value)]="client.tls.cert.ca">
+            </aiap-field-textarea-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-button-v1
+              [tooltip]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.btn_test.text' | translate"
+              [size]="'md'"
+              [text]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.btn_test.text' | translate"
+              [type]="'primary'"
+              (onClick)="handleTestConnectionClickEvent($event)">
+            </aiap-button-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="redisClientForm.invalid"
+      [text]="'tenants_view_v1.save_modal_v1.redis_clients_save_modal_v1.btn_add.text' | translate"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

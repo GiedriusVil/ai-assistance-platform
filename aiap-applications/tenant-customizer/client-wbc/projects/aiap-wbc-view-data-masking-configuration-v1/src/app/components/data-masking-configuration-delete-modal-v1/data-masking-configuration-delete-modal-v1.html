@@ -1,0 +1,29 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'data_masking_configuration_delete_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <p class="mb-3">{{ 'data_masking_configuration_delete_modal_v1.content' | translate }}</p>
+    <ul ibmList>
+      <li ibmListItem *ngFor="let key of configKeys">{{key}}</li>
+    </ul>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_delete_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

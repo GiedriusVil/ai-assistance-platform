@@ -1,0 +1,21 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-rules-export-modal-v1 {
+  div.bx--modal-container.bx--modal-container--xs {
+    background-color: transparent;
+    text-align: -webkit-center;
+    justify-items: center;
+  }
+
+  .default-class {
+    background-color: white;
+    text-align: left;
+  }
+
+  .bx--list-box.bx--multiselect {
+    margin-top: 1rem;
+  }
+}

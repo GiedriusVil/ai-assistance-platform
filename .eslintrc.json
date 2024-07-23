@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-prototype-builtins": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "varsIgnorePattern": "(ramda)|(lodash)|(logger)|(context)|(CONTEXT)|(params)|(PARAMS)|(options)|(OPTIONS)|(engine)|(ENGINE)|(MODULE_ID)",
+        "argsIgnorePattern": "(context)|(CONTEXT)|(params)|(PARAMS)|(options)|(OPTIONS)|(reject)|(request)|(response)|(error)|(fact)|(expect)|(provider)|(PROVIDER)|(message)|(MESSAGE)|(adapter)|(ADAPTER)|(update)|(UPDATE)|(bot)|(BOT)|(engine)|(ENGINE)|(MODULE_ID)",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+<div ibmGrid>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_version'"
+        [label]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_version.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_version.labelHelp' | translate"
+        [(value)]="value.version"
+        [placeholder]="'YYYY-MM-DD'"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-ai-service-external-wa-versions></aiap-ai-service-external-wa-versions>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_url'"
+        [label]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_url.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_url.labelHelp' | translate"
+        [(value)]="value.url"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_assistant_id'"
+        [label]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_assistant_id.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_assistant_id.labelHelp' | translate"
+        [(value)]="value.assistantId"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_environment_id'"
+        [label]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_environment_id.label' | translate"
+        [labelHelp]="'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_environment_id.labelHelp' | translate"
+        [(value)]="value.environmentId"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-label>{{ 'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_apikey.label' | translate }}
+        <div class="password-field-container">
+          <input 
+            ibmText 
+            data-toggle-password-visibility 
+            required 
+            class="bx--password-input"
+            name="ai_service_external_api_key" 
+            placeholder="{{ 'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_apikey.placeholder' | translate }}"
+            type="{{state.isApiKeyVisible ? 'text' : 'password' }}" 
+            [skeleton]="state.isLoading" 
+            [autocomplete]="'off'"
+            [(ngModel)]="value.apiKey" />
+          <button class="ai--service--external--api--key" ibmButton="ghost" [size]="'sm'" [iconOnly]="true"
+            (click)="handleShowApiKeyClickEvent($event)">
+            <ng-container *ngIf="state.isApiKeyVisible; else showPasswordIcon">
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view--off.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_apikey.btn_show.tootip' | translate }}</span>
+            </ng-container>
+            <ng-template #showPasswordIcon>
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.ai_service_external_wa_v2_save_form.fld_apikey.btn_hide.tootip' | translate }}</span>
+            </ng-template>
+          </button>
+        </div>
+      </ibm-label>
+    </div>
+  </div>
+</div>

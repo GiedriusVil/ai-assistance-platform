@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+
+<head>
+  <title>Virtual AI Assistants platform - Full Screen Chat App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script id="get-widget-options" type="text/javascript" src="/v1/get-widget-options?tenantId={{tenantId}}&assistantId={{assistantId}}&engagementId={{engagementId}}"></script>
+  <script id="get-widget" type="text/javascript" src="/v1/get-widget?tenantId={{tenantId}}&assistantId={{assistantId}}&engagementId={{engagementId}}"></script>
+  {{!-- <script src="http://localhost:3000/wbc-chat-app-v3/en-US/main.js" type="text/javascript" id="aiap-chat-app-v3-script"></script> --}}
+  <script>
+    const openClient = () => {
+      const EVENT = {
+        type: 'aiapChatAppClientOpen',
+        data: true
+      };
+      setTimeout(() => {
+        window['postMessage'](EVENT, '*')
+      }, 0);
+    };
+
+    let retries = 0;
+    const INTERVAL_IDA = setInterval(function () {
+      retries += 1;
+      const CA = document.querySelector('aca-chat-app') ?? document.querySelector('chat-app-v3');
+      if (CA) {
+        clearInterval(INTERVAL_IDA);
+        openClient();
+      }
+      if (retries >= 10) {
+        clearInterval(INTERVAL_IDA);
+        console.log('initialise -> Missing wbcChatAppButtonOptions.chatAppHost parameter!');
+      }
+    }, 1000)
+  </script>
+</head>
+  <body>
+    {{!-- <chat-app-v3></chat-app-v3> --}}
+  </body>
+</html>

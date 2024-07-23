@@ -1,0 +1,32 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      *isActionAllowed="{ action: 'validation-engagements-changes.view.export'}"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      [text]="'validation_engagements_changes_v1.table.export_button' | translate"
+      [tooltip]="'validation_engagements_changes_v1.table.export_button_tooltip' | translate"
+      (onClick)="export()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <div>
+    <aiap-table-v1
+      [model]="model"
+      (onRowClick)="emitShowSavePlace($event)"
+      (onSort)="handleSortEvent($event)">
+    </aiap-table-v1>
+  </div>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template 
+  #createdTemplate 
+  let-data="data">
+  <aiap-table-cell-created-v1 
+    [value]="data?.created">
+  </aiap-table-cell-created-v1>
+</ng-template>

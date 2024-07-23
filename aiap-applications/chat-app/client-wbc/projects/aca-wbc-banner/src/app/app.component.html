@@ -1,0 +1,19 @@
+<div 
+  *ngIf="isReady()"
+  class="aca--wbc--banner">
+  <a 
+  class="aca--wbc--banner--link"
+  [href]="message?.href"
+  target="_blank">
+    <div class="aca--wbc--banner--image--container">
+      <img
+      class="aca--wbc--banner--image"
+      [src]="message?.imageUrl" />
+    </div>
+
+    <div class="aca--wbc--banner--footer--container">
+      <p class="aca--wbc--banner--footer--text">{{message?.text}}</p>
+      <div class="aca--wbc--banner--link--image"></div>
+    </div>
+  </a>
+</div>

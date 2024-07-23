@@ -1,0 +1,73 @@
+<aiap-modal-v1 
+  [size]="'lg'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'ai_search_and_analysis_collections_view.save_modal.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+      <form #aiSearchAndAnalysisCollectionSaveModal="ngForm">
+        <div ibmGrid>
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 4, 'sm': 2}">
+              <aiap-field-input-v1
+                [name]="'ai_search_and_analysis_collection_name'"
+                [label]="'ai_search_and_analysis_collections_view.save_modal.fld_name.label' | translate"
+                [labelHelp]="'ai_search_and_analysis_collections_view.save_modal.fld_name.labelHelp' | translate"
+                [isRequired]="true"
+                [skeleton]="isLoading"
+                [(value)]="aiSearchAndAnalysisCollection.name">
+              </aiap-field-input-v1>
+            </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 4, 'sm': 2}">
+              <aiap-field-input-v1
+                [name]="'ai_search_and_analysis_collection_description'"
+                [label]="'ai_search_and_analysis_collections_view.save_modal.fld_description.label' | translate"
+                [labelHelp]="'ai_search_and_analysis_collections_view.save_modal.fld_description.labelHelp' | translate"
+                [isRequired]="true"
+                [skeleton]="isLoading"
+                [(value)]="aiSearchAndAnalysisCollection.description">
+              </aiap-field-input-v1>
+            </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 4, 'sm': 2}">
+              <ibm-combo-box
+                  name="aiSearchAndAnalysisCollectionLanguage"
+                  type="single"
+                  required
+                  [label]="'ai_search_and_analysis_collections_view_v1.save_modal_v1.fld_language.label' | translate"
+                  placeholder="Select language"
+                  theme="light"
+                  [autocomplete]="'off'"
+                  [dropUp]="false"
+                  (selected)="onLanguageSelected($event)"
+                  [(items)]="selections.languages">
+                <ibm-dropdown-list></ibm-dropdown-list>
+              </ibm-combo-box>
+            </div>
+          </div>
+        </div>
+      </form>
+  </aiap-modal-v1-content-v1>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_collections_view_v1.save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_collections_view_v1.save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [skeleton]="isLoading"
+      [disabled]="aiSearchAndAnalysisCollectionSaveModal.invalid"
+      (onClick)="handleEventSave($event)">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</aiap-modal-v1>

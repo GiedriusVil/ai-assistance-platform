@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-conversations-express-router",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "oleg.lukasonok@lt.ibm.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aca/aca-conversations-service": "0.0.1",
+    "@ibm-aiap/aiap-express-session-provider": "0.0.1",
+    "@ibm-aiap/aiap-passport-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-express-routes": "0.0.1"
+  }
+}

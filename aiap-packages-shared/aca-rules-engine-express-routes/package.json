@@ -1,0 +1,12 @@
+{
+    "name": "@ibm-aca/aca-rules-engine-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "lego",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aca/aca-common-logger": "3.27.0"
+    }
+}

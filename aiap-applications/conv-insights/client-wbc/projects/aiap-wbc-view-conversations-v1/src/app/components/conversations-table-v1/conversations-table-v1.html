@@ -1,0 +1,127 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'conversations_table_v1.fld_search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      [icon]="filterIcon"
+      (onClick)="emitFilterPanelOpen()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'conversations.view.delete'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [disabled]="isRemoveDisabled()"
+      [text]="('conversations_table_v1.toolbar.btn_remove' | translate) + '(' + (this.selectedRows.length) + ')'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [size]="'md'"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)"
+    (onAllDeselect)="handleEventAllDeselect()"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template #reviewAmount let-data="data">
+  <ibm-tag *ngIf="data?.length >= 1" type="green">{{data.length}}</ibm-tag>
+  <ibm-tag *ngIf="_isEmpty(data)" type="red">0</ibm-tag>
+</ng-template>
+
+<ng-template #tags let-data="data">
+  <span *ngFor="let tag of data" class="bx--tag bx--tag--local custom-tags">
+    {{tag}}
+  </span>
+</ng-template>
+
+<ng-template #browsericon let-data="data">
+  <i class="{{ data | BrowserIcon }}"></i>
+</ng-template>
+
+<ng-template #startedTime let-data="data">
+  {{ timezoneService.getTimeByUserTimezone(data) }}
+</ng-template>
+
+<ng-template #endedTime let-data="data">
+  {{ timezoneService.getTimeByUserTimezone(data) }}
+</ng-template>
+
+<ng-template #channelIcon let-data="data">
+  <div [innerHTML]="data | ChannelIcon"></div>
+</ng-template>
+
+<ng-template #userLang let-data="data">
+  <span class="bx--tag bx--tag--third-party">{{ data | uppercase }}</span>
+</ng-template>
+
+<ng-template #windowSize let-data="data">
+  <span  class="bx--tag bx--tag--beta">{{ data }}</span>
+</ng-template>
+
+<ng-template #clientOs let-data="data">
+  <i class="{{ data | OsIcon }}"></i>
+</ng-template>
+
+<ng-template #clientHostname let-data="data">
+  <span class="bx--tag bx--tag--local">{{ data| HostName }}</span>
+</ng-template>
+
+<ng-template #hasIssues let-data="data">
+  <aiap-icon-svg-v1
+    *ngIf="data"
+    class="icon-has-issues"
+    [src]="'assets/carbon-icons/20/status/warning.svg'">
+  </aiap-icon-svg-v1>
+</ng-template>
+
+<ng-template #conversationId let-data="data">
+  <div
+    class="conversation-id-cell"
+    [ngClass]="{'wide': !isBrowserDataEnabled(), 'narrow': isBrowserDataEnabled()}">
+    <button
+      ibmButton="ghost"
+      size="sm"
+      iconOnly="true"
+      (click)="_allowActionsClick($event,button)"
+      class="bx--btn--conversation">
+      <aiap-icon-svg-v1
+        *isActionAllowed="{action: 'conversations.view.view-transcript'}"
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/operations/launch.svg'"
+        (click)="handleOpenTranscriptInNewTab(data)">
+      </aiap-icon-svg-v1>
+    </button>
+   <div class="conversations-table-text-overflow">{{ data }}</div>
+  </div>
+</ng-template>
+
+<ng-template #userId let-data="data">
+  <div
+    class="conversations-table-text-overflow user-id-cell"
+    [ngClass]="{'wide': !isBrowserDataEnabled(), 'narrow': isBrowserDataEnabled()}">
+    {{ data }}
+  </div>
+</ng-template>

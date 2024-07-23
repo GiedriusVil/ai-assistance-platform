@@ -1,0 +1,61 @@
+<aiap-modal-v1
+  size="sm" 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.application_save_modal_v1.header' | translate }}
+      </h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent hasForm="true">
+    <form #applicationForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input 
+        type="hidden" 
+        name="csrftoken" 
+        value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'multi'"
+              [name]="'application'"
+              [label]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.fld_application.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.fld_application.placeholder' | translate"
+              [items]="selections.applicationOptions"
+              [(value)]="selections.applications">
+            </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-toggle-v1
+              [onText]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.fld_enablement.text_on' | translate"
+              [offText]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.fld_enablement.text_off' | translate"
+              [isChecked]="applicationConfigs.enabled"
+              (onChange)="handleApplicationFlagChangeEvent($event)">
+            </aiap-toggle-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="applicationForm.invalid"
+      [text]="'tenants_view_v1.save_modal_v1.application_save_modal_v1.btn_add.text' | translate"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

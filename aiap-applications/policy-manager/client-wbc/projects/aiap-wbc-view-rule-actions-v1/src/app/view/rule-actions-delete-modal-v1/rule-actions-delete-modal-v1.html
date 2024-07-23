@@ -1,0 +1,30 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'rule_actions_v1.delete_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span>
+      {{'rule_actions_v1.delete_modal_v1.delete_confirmation' | translate}}
+    </span>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'"
+      [text]="'rule_actions_v1.delete_modal_v1.cancel_button_text' | translate"
+      [tooltip]="'rule_actions_v1.delete_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'" 
+      [text]="'rule_actions_v1.delete_modal_v1.delete_button_text' | translate"
+      [tooltip]="'rule_actions_v1.delete_modal_v1.delete_button_tooltip' | translate"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

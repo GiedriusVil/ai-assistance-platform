@@ -1,0 +1,32 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  (overlaySelected)="close()"
+  size='md'>
+  <ibm-modal-header
+    (closeSelect)="close()">
+    <p
+      class="bx--modal-header__heading bx--type-beta">{{ 'audio_voice_services_delete_modal_v1.header' | translate }}
+    </p>
+  </ibm-modal-header>
+  <section
+    ibmModalContent>
+    <span>{{ 'audio_voice_services_delete_modal_v1.fld_confirm_deletion.span' | translate }}</span>
+    <div ibmGrid>
+      <div ibmRow *ngFor="let id of ids">
+        <div ibmCol>{{id}}</div>
+      </div>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'audio_voice_services_delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'audio_voice_services_save_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

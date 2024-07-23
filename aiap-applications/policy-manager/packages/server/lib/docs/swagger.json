@@ -1,0 +1,232 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "vba-policy-manager"
+  },
+  "servers": [
+    {
+      "url": "https://vba-policy-manager-test.mybluemix.net/api/external",
+      "description": "TEST environment."
+    },
+    {
+      "url": "https://vba-policy-manager-dev.mybluemix.net/api/external",
+      "description": "DEV environment."
+    },{
+      "url": "http://localhost:{port}/api/external",
+      "variables": {
+        "port": {
+          "default": "3002"
+        }
+      },
+      "description": "LOCAL enviroment."
+    }
+  ],
+  "tags": [
+    {
+      "name": "Organisations",
+      "description": "API for performing create, retrieve, update and delete operations on organisations."
+    }
+  ],
+  "paths": {
+    "/organisations/save": {
+      "post": {
+        "tags": [
+          "Organisations"
+        ],
+        "summary": "Save organisation",
+        "description": "Updates an existing organisation or creates a new one if it does not exist.",
+        "operationId": "saveOrganisation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "extId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/organisations/findManyByQuery": {
+      "post": {
+        "tags": [
+          "Organisations"
+        ],
+        "summary": "Find many organisations",
+        "description": "Find an organisation by mongo query.",
+        "operationId": "findManyOrganisation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/organisation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/organisations/findOneById": {
+      "post": {
+        "tags": [
+          "Organisations"
+        ],
+        "summary": "Find one organisation by id",
+        "description": "Find an organisation based on the provided id.",
+        "operationId": "findOneOrganisation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/organisation"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/organisations/deleteOneById": {
+      "post": {
+        "tags": [
+          "Organisations"
+        ],
+        "summary": "Delete organisation by id",
+        "description": "Delete an organisation based on the provided id.",
+        "operationId": "deleteOneOrganisation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type":"http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "organisation": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "extId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

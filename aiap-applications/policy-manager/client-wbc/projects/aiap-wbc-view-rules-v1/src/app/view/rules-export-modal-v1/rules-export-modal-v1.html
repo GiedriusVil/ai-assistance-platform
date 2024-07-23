@@ -1,0 +1,51 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <div 
+    *ngIf="!showSpinner else spinner" 
+    [ngClass]="showSpinner ? 'div.bx--modal-container.bx--modal-container--xs' : 'default-class'">
+    <ibm-modal-header
+      (closeSelect)="close()">
+      <p 
+        class="bx--modal-header__heading bx--type-beta">
+        {{'rules_v1.export_modal_v1.header' | translate}}
+      </p>
+    </ibm-modal-header>
+    <div>
+      <section ibmModalContent>
+        <span>
+          {{'rules_v1.export_modal_v1.message' | translate}}
+        </span>
+        <ibm-dropdown
+          required
+          [placeholder]="'rules_v1.export_modal_v1.buyer_placeholder' | translate"
+          name="buyers"
+          type="multi"
+          (selected)="handleBuyerSelect($event)">
+          <ibm-dropdown-list 
+            [items]="availableBuyers">
+          </ibm-dropdown-list>
+        </ibm-dropdown>
+      </section>
+      <ibm-modal-footer>
+        <aiap-button-v1
+          [type]="'secondary'"
+          [text]="'rules_v1.export_modal_v1.cancel_button' | translate"
+          [tooltip]="'rules_v1.export_modal_v1.cancel_button_tooltip' | translate"
+          (onClick)="close()">
+        </aiap-button-v1>
+        <aiap-button-v1
+          [type]="'danger'"
+          [text]="'rules_v1.export_modal_v1.export_button' | translate"
+          [tooltip]="'rules_v1.export_modal_v1.export_button_tooltip' | translate"
+          (onClick)="export()">
+        </aiap-button-v1>
+      </ibm-modal-footer>
+    </div>
+  </div>
+</ibm-modal>
+
+<ng-template #spinner >
+  <ibm-loading size="sm"></ibm-loading>
+</ng-template>

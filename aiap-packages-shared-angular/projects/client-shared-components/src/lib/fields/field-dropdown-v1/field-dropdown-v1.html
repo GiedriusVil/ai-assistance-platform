@@ -1,0 +1,24 @@
+<ibm-dropdown
+  [required]="state?.isRequired"
+  [disabled]="state?.isDisabled"
+  [skeleton]="state?.skeleton"
+  [type]="state?.type"
+  [name]="state?.name"
+  [label]="state?.label"
+  [placeholder]="state?.placeholder"
+  [size]="state?.size"
+  (selected)="handleOnSelectionEvent($event)"
+  [(ngModel)]="state.value"
+  (ngModelChange)="handleEventValueChange($event)">
+  <ibm-dropdown-list [listTpl]="dropdownTemplate" [items]="state?.items">
+  </ibm-dropdown-list>
+</ibm-dropdown>
+
+<ng-template #dropdownTemplate let-item="item" let-custom="custom">
+  <div *ngIf="dropdownRenderer">
+    <ng-container  *ngTemplateOutlet="dropdownRenderer; context:{item: item}"></ng-container>
+  </div>
+  <div *ngIf="!dropdownRenderer">
+    <ng-container>{{item.content}}</ng-container>
+  </div>
+</ng-template>

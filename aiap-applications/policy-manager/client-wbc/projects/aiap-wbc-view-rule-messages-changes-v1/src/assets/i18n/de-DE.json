@@ -1,0 +1,25 @@
+{
+  "rule_messages_changes_v1.table_v1.export_button_text": "Exportieren",
+  "rule_messages_changes_v1.table_v1.notification.error.title" : "[DE] Unable to retrieve messages changes!",
+  "view_rule_messages_changes_v1.changes_table_v1.transaction_id_header" : "Transaktions-ID",
+  "view_rule_messages_changes_v1.changes_table_v1.document_id_header" : "Dokument-ID",
+  "view_rule_messages_changes_v1.changes_table_v1.document_type_header" : "Dokumententyp",
+  "view_rule_messages_changes_v1.changes_table_v1.action_header" : "Aktion",
+  "view_rule_messages_changes_v1.changes_table_v1.changed_header" : "Geändert",
+  "rule_messages_changes_v1.table_v1.export_button_tooltip": "Exportieren",
+
+  "rule_actions_v1.view.modal_v1.header" : "Nachrichtenwechsel",
+  "rule_actions_v1.view.modal_v1.transaction_id_label" : "Transaktions-ID",
+  "rule_actions_v1.view.modal_v1.action_label" : "Aktion",
+  "rule_actions_v1.view.modal_v1.initiator_id_label" : "Initiator-ID",
+  "rule_actions_v1.view.modal_v1.initiator_name_label" : "Initiatorname",
+  "rule_actions_v1.view.modal_v1.document_id_label" : "Dokument-ID",
+  "rule_actions_v1.view.modal_v1.document_type_label" : "Dokumententyp",
+  "rule_actions_v1.view.modal_v1.timestamp_label" : "Zeitstempel",
+  "rule_actions_v1.view.modal_v1.close_button_text" : "Schließen",
+  "rule_actions_v1.view.modal_v1.close_button_tooltip" : "Schließen",
+
+  "difference_table_v1.table.field_header" : "Feld",
+  "difference_table_v1.table.old_value_header" : "Alter Wert",
+  "difference_table_v1.table.new_value_header" : "Neuer Wert"
+}

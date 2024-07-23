@@ -1,0 +1,15 @@
+{
+    "name": "@ibm-aca/aca-jobs-queue-board-provider",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+    },
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {
+      "@bull-board/express":"4.2.2",
+      "@ibm-aca/aca-jobs-queue-provider": "0.0.1"
+    }
+  }
+  

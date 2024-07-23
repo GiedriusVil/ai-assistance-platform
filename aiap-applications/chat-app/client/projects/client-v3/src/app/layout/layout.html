@@ -1,0 +1,17 @@
+<aiap-side-nav
+  *ngIf="state.enabled.sideNav"
+></aiap-side-nav>
+<aiap-header></aiap-header>
+<aiap-left-panel
+  *ngIf="state.enabled.leftPanel"
+  [ngClass]="columns.leftPanel ? '' : 'aiap-hidden'"
+></aiap-left-panel>
+<aiap-base></aiap-base>
+<aiap-right-panel
+  *ngIf="state.enabled.rightPanel"
+  [ngClass]="columns.rightPanel ? '' : 'aiap-hidden'"
+></aiap-right-panel>
+
+<aiap-modal
+  [ngClass]="classes.modal"
+></aiap-modal>

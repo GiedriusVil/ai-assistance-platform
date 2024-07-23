@@ -1,0 +1,17 @@
+{
+  "name": "@ibm-aiap/aiap-chat-server-provider-socketio",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@ibm-aca/aca-utils-session": "0.0.1",
+    "@ibm-aiap/aiap-token-service": "0.0.1",
+    "@ibm-aiap/aiap-authorization-service": "0.0.1",
+    "@ibm-aca/aca-utils-transcript": "0.0.1",
+    "@ibm-aiap/aiap-chat-channel-genesys": "0.0.1",
+    "@ibm-aiap/aiap-chat-channel-genesys-coh-provider": "0.0.1",
+    "@ibm-aiap/aiap-chat-channel-socketio": "0.0.1",
+    "socket.io": "4.5.4"
+  }
+}

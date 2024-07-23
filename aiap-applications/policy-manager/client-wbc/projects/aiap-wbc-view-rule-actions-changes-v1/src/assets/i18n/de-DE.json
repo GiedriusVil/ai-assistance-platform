@@ -1,0 +1,26 @@
+{
+  "rule_action_changes_v1.change_modal.header_title": "Regeländerung",
+  "rule_action_changes_v1.change_modal.action_id_label": "Aktions-ID",
+  "rule_action_changes_v1.change_modal.action_label": "Aktion",
+  "rule_action_changes_v1.change_modal.doc_id_label": "Dokumenten-ID",
+  "rule_action_changes_v1.change_modal.doc_type_label": "Dokumententyp",
+  "rule_action_changes_v1.change_modal.changed_by_label": "Geändert von",
+  "rule_action_changes_v1.change_modal.instructions_strong": "Wie wurde das Dokument verändert?",
+  "rule_action_changes_v1.change_modal.instructions" : "Beschreibt die Art der Änderung mit einem der folgenden Werte:",
+  "rule_action_changes_v1.change_modal.instructions_list_1" : "N - neu hinzugefügtes Element/Eigenschaft",
+  "rule_action_changes_v1.change_modal.instructions_list_2" : "D - gelöschtes Element/Eigenschaft",
+  "rule_action_changes_v1.change_modal.instructions_list_3" : "E - geändertes Element/Eigenschaft",
+  "rule_action_changes_v1.change_modal.instructions_list_4" : "A - Ängerung im Array",
+  "rule_action_changes_v1.change_modal.close_button_text": "Schließen",
+  "rule_action_changes_v1.view.action_label_text": "Aktion",
+
+  "rule_actions_changes_table_v1.export_button" : "Exportieren",
+  "rule_actions_changes_table_v1.export_button_tooltip" : "Exportieren",
+  "rule_actions.actions_changes_table_v1.action_id_header" : "Aktions-ID",
+  "rule_actions.actions_changes_table_v1.action_header" : "Aktion",
+  "rule_actions.actions_changes_table_v1.document_id_header" : "Dokument-ID",
+  "rule_actions.actions_changes_table_v1.document_type_header" : "Dokumententyp",
+  "rule_actions.actions_changes_table_v1.changed_header" : "Geändert",
+  "rule_action_changes_v1.change_modal.close_button_tooltip": "Schließen",
+  "rule_actions_changes_table_v1.search_placeholder" : "[DE] Enter search value"
+}

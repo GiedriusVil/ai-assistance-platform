@@ -1,0 +1,29 @@
+<ng-template #loading>
+  <div class="aiap-wbc-field-loader-wrapper">
+      <div class="aiap-wbc-field-loader-content">
+        <ibm-inline-loading
+          [state]="'active'"
+          [loadingText]="loadingText()">
+        </ibm-inline-loading>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="aiap-wbc-field-loader-wrapper">
+      <div class="aiap-wbc-field-loader-content">
+        <ibm-notification 
+          [notificationObj]="wbcLoadingError()">
+        </ibm-notification>
+      </div>
+  </div>
+</ng-template>
+
+{{ '' // [LEGO] 2023-03-10 2-way binding is not working within Anguler + WBC }}
+<ax-lazy-element
+  *axLazyElementDynamic="context?.wbc?.tag, url: url(); loadingTemplate: loading; errorTemplate: error;"
+  [context]="context"
+  (contextChange)="handleContextChange($event)"
+  [value]="value"
+  (valueChange)="handleValueChange($event)">
+</ax-lazy-element>

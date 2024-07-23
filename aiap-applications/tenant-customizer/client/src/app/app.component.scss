@@ -1,0 +1,42 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "../../projects/client-components/src/lib/client-components-module-styles.scss";
+@use "../../projects/client-views/src/lib/client-views-module-styles.scss";
+
+@use "../../../../../aiap-packages-shared-angular/projects/client-shared-components/src/lib/client-shared-components-module-styles.scss";
+@use "../../../../../aiap-packages-shared-angular/styles/shared-styles.scss";
+
+@use "./views/main-view/main.view.scss";
+
+.bx--modal-shown {
+  overflow: hidden !important;
+}
+
+.bx--overflow-menu-options {
+  z-index: 9999;
+}
+
+.bx--overflow-menu-options__option:first-child {
+  border-top: 0 solid #dfe3e6 !important;
+}
+
+.bx--body {
+  overflow-x: hidden !important;
+}
+
+.bx--table-column-checkbox .bx--checkbox-label {
+  min-width: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.bx--table-column-checkbox .bx--checkbox-label {
+  padding-left: 1rem;
+}
+
+.app-graph-header-icon {
+  vertical-align: middle;
+}

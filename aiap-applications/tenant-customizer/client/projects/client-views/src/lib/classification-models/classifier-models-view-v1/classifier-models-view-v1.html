@@ -1,0 +1,25 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-classification-models-table 
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)" 
+      (onShowTestPlace)="handleShowTestPlaceEvent($event)"
+      (onShowTrainPlace)="handleShowTrainPlaceEvent($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)" 
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowImportPlace)="handleShowImportQueue($event)">
+    </aca-classification-models-table>
+  </div>
+</div>
+
+<aca-classifier-model-delete-modal #classifierModelDeleteModal></aca-classifier-model-delete-modal>
+<aca-classifier-model-save-modal #classifierModelSaveModal></aca-classifier-model-save-modal>
+<aca-classifier-model-test-modal #classifierModelTestModal></aca-classifier-model-test-modal>
+<aca-classifier-model-train-modal #classifierModelTrainModal></aca-classifier-model-train-modal>
+<aca-classifier-model-import-modal #classifierModelImportModal></aca-classifier-model-import-modal>

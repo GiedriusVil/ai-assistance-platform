@@ -1,0 +1,48 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'purchase_rule_outcome.buy_rules_suppliers_table.search_placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="handleSearchChangeEvent($event)"
+      (onSearchClear)="handleSearchClearEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'buy-rules.view.edit.suppliers.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'purchase_rule_outcome.buy_rules_suppliers_table.add_button_text' | translate"
+      [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_table.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'buy-rules.view.edit.suppliers.remove'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [text]="('purchase_rule_outcome.buy_rules_suppliers_table.remove_button_text' | translate) + '(' + this.model.selectedRowsCount() + ')'"
+      [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_table.remove_button_tooltip' | translate"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onRowSelect)="onSelectRow($event)"
+    (onRowDeselect)="onDeselectRow($event)"
+    (onAllDeselect)="onDeselectAll($event)"
+    (onAllSelect)="onSelectAll($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>

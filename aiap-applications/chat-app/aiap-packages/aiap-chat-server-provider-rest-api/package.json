@@ -1,0 +1,20 @@
+
+{
+  "name": "@ibm-aiap/aiap-chat-server-provider-rest-api",
+  "version": "0.0.1",
+  "description": "REST API provider for chat application conversation!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "private": true,
+  "dependencies": {
+    "body-parser": "1.19.0"
+  },
+  "contributors": [
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis/"
+    }
+  ]
+}

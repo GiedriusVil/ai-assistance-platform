@@ -1,0 +1,39 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>
+        <div class="pl-0" ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_service_id'"
+            [label]="'ai_translation_models_v1.fld_id.label' | translate"
+            [labelHelp]="'ai_translation_models_v1.fld_id.labelHelp' | translate"
+            [(value)]="aiTranslationServiceId"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_models_v1.fld_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div *ngIf="!state.isLoading" class="pl-0" ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_service_type'"
+            [label]="'ai_translation_models_v1.fld_type.label' | translate"
+            [labelHelp]="'ai_translation_models_v1.fld_type.labelHelp' | translate"
+            [(value)]="aiTranslationService.type"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_models_v1.fld_type.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="aiTranslationService?.type">
+  <aiap-ai-translation-models-wlt-content-v1 
+    *ngSwitchCase="'WLT'"
+    [aiTranslationServiceId]="aiTranslationServiceId"
+    [aiTranslationService]="aiTranslationService">
+  </aiap-ai-translation-models-wlt-content-v1>
+</ng-container>

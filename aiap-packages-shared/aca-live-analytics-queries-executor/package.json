@@ -1,0 +1,17 @@
+{
+  "name": "@ibm-aca/aca-live-analytics-queries-executor",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Jevgenij Golobokin",
+      "email": "jevgenij.golobokin@ibm.com",
+      "url": "https://www.linkedin.com/in/jevgenij-golobokin/"
+    }
+  ],
+  "license": "IBM",
+  "dependencies": {}
+}

@@ -1,0 +1,10 @@
+{
+    "name": "@ibm-aca/aca-worker-pool-manager-provider",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {}
+}

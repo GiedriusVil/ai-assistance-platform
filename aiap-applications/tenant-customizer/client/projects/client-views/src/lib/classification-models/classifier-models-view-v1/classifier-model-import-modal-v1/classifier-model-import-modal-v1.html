@@ -1,0 +1,34 @@
+<ibm-modal 
+    [open]="isOpen" 
+    (overlaySelected)="close()" 
+    size='sm'>
+    <ibm-modal-header 
+        (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>Import classifier model</h3>
+    </ibm-modal-header>
+    <div class="bx--modal-content bx--modal-content--with-form">
+        <ibm-file-uploader 
+            #fileUploader
+            [title]="'Classifier models'" 
+            [description]="'Only .json files supported'" 
+            [accept]="['.json']"
+            [multiple]="false" 
+            drop="true" 
+            [dropText]="'Drag and drop file here to import'" 
+            [disabled]="false"
+            [(files)]="files"
+            (filesChange)="onFileAdd($event)">
+        </ibm-file-uploader>
+    </div>
+    <ibm-modal-footer>
+        <button 
+            ibmButton="secondary" 
+            (click)="close()">Cancel
+        </button>
+        <button 
+            ibmButton="primary"
+            [disabled]="uploadButtonDisabled"
+            (click)="import()">Import
+        </button>
+    </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,114 @@
+<ibm-modal
+  [open]="isOpen"
+  size="lg"
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'doc_validation_modal_v2.header_text' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #auditViewForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid class="margin-bottom-30">
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.action_id_label_text' | translate}}
+              </label>
+              <input
+                name="actionId"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.id">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.action_label_text' | translate}}
+              </label>
+              <input
+                name="action"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.action">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.document_id_label_text' | translate}}
+              </label>
+              <input
+                name="doc_ext_id"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.docExtId">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.document_type_label_text' | translate}}
+              </label>
+              <input
+                name="doc_type"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.docType">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.created_by_label_text' | translate}}
+              </label>
+              <input
+                name="changedBy"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.created.user.name">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'doc_validation_modal_v2.created_date_label_text' | translate}}
+              </label>
+              <input
+                name="createdDate"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="value.created.date">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+            <div ibmCol>
+              <json-editor
+                [options]="jsonEditorOptions"
+                [data]="{ doc: value.doc, docChanges: value.docChanges }"></json-editor>
+            </div>
+        </div>
+    </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'sm'"
+      [text]="'doc_validation_modal_v2.close_button_text' | translate"
+      [tooltip]="'doc_validation_modal_v2.close_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

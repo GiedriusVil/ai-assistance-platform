@@ -1,0 +1,21 @@
+<div 
+  *ngIf="isReady()"
+  [ngClass]="getActiveClassNames()">
+  <div>
+    <p>Based on the chosen values:</p>
+    <p>
+      The responsible sourcing owner who can advise on the return product process is <b>{{message?.attachment?.content["Sourcing Owner"]}}</b>. 
+      Please contact them and advise how you must proceed. 
+    </p>
+    <b>Supplier catalog details</b>
+    <ul>
+      <li *ngIf="message?.attachment?.content['Country']">Country: {{message.attachment.content["Country"]}}</li>
+      <li *ngIf="message?.attachment?.content['Supplier Name']">Supplier name: {{message.attachment.content["Supplier Name"]}}</li>
+      <li *ngIf="message?.attachment?.content['Supplier VLC ID']">Supplier VLC ID: {{message.attachment.content["Supplier VLC ID"]}}</li>
+      <li *ngIf="message?.attachment?.content['Supplier Point Of Contact']">Supplier point of contact: {{message.attachment.content["Supplier Point Of Contact"]}}</li>
+      <li *ngIf="message?.attachment?.content['Catalog Type']">Catalog type: {{message.attachment.content["Catalog Type"]}}</li>
+      <li *ngIf="message?.attachment?.content['Comments']">Catalog comments: {{message.attachment.content["Comments"]}}</li>
+    </ul>
+    <p>If you need additional assistance or there is no sourcing owner displayed, please type below "create ticket to support" and I will connect you to POP team.</p>
+  </div>
+</div>

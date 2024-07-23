@@ -1,0 +1,65 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='sm'>
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      Test Classifier Model
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form ngForm #classifierModelTest="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-label 
+              for="test_phrase"
+              [helperText]="'CTRL + ENTER -> Test'">Test Phrase*
+              <textarea
+                ibmTextArea
+                required
+                name="test_phrase"
+                aria-label="textarea"
+                (keydown)="handleKeyCtrlDownEvent($event)"
+                [placeholder]="'Enter test phrase'"
+                [disabled]="state.testing"
+                [rows]="5"
+                [(ngModel)]="state.phrase">
+              </textarea>
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-tile>
+              <ibm-loading
+                *ngIf="state.testing"
+                [isActive]="true" 
+                [size]="'sm'">
+              </ibm-loading>
+              <div *ngIf="!state.testing">
+                <ibm-label>Test Result</ibm-label>
+                <json-editor 
+                  class="aca-override" 
+                  [options]="jsonEditorOptions" 
+                  [data]="state.response">
+                </json-editor>
+              </div>
+            </ibm-tile>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <button
+      ibmButton="secondary"
+      (click)="close()">Cancel
+    </button>
+    <button
+        ibmButton="ghost"
+        [disabled]="classifierModelTest.invalid" 
+        (click)="test()">Test
+      </button>
+  </ibm-modal-footer>
+</ibm-modal>

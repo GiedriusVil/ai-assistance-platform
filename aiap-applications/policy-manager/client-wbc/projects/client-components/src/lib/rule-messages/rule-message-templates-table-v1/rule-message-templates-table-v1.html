@@ -1,0 +1,59 @@
+<aiap-table-v1-container-v1 
+  #messageTemplatesTableContainer>
+  <ibm-table-header>
+    <h4 ibmTableHeaderTitle>Templates *</h4>
+  </ibm-table-header>
+  <aiap-table-v1-toolbar-content-v1 >
+    <aiap-button-v1
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'rule_messages.template_table_v1.add_button' | translate"
+      [tooltip]="'rule_messages.template_table_v1.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="addTemplate()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    #messageTemplateTable
+    [model]="templateModel">
+  </aiap-table-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template #actionsOverFlowTemplate let-data="data">
+  <button
+    ibmButton="tertiary"
+    size="sm"
+    assistiveTextPlacement="bottom"
+    assistiveTextAlignment="start"
+    [disabled]="data?.isDefault"
+    [hasAssistiveText]="true"
+    [iconOnly]="true"
+    (click)="removeTemplate(data, $event)">
+    <aiap-icon-svg-v1 
+      class="bx--btn__icon"
+      [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+    </aiap-icon-svg-v1>
+  </button>
+</ng-template>
+
+<ng-template #templateMessageTemplate let-data="data">
+  <input
+    id="text-input-value"
+    type="text"
+    class="bx--text-input"
+    name="templateMessage"
+    [placeholder]="'rule_messages.template_table_v1.message_placeholder' | translate"
+    [(ngModel)]="message?.templates[data?.index].message"/>
+</ng-template>
+
+
+<ng-template #templateLanguageTemplate let-data="data">
+  <ibm-dropdown
+    [placeholder]="'rule_messages.template_table_v1.language_placeholder' | translate"
+    name="templateLanguages"
+    (selected)="handleLanguagesSelect($event, data)">
+    <ibm-dropdown-list 
+      [items]="selections.templates[data.index].languages">
+    </ibm-dropdown-list>
+  </ibm-dropdown>
+</ng-template>

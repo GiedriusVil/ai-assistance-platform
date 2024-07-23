@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aiap/aiap-chat-server-provider-slack",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@slack/events-api": "2.3.1",
+    "@slack/interactive-messages": "2.0.2",
+    "@slack/web-api": "5.15.0",
+    "body-parser": "1.19.0"
+  }
+}

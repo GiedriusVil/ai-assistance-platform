@@ -1,0 +1,52 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'classification_catalogs_save_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #classificationCatalogSaveModal>
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [label]="'classification_catalogs_save_modal_v1.fld_catalog_id.label' | translate"
+              [labelHelp]="'classification_catalogs_save_modal_v1.fld_catalog_id.labelHelp' | translate"
+              [placeholder]="'classification_catalogs_save_modal_v1.fld_catalog_id.placeholder' | translate"
+              [isRequired]="true"
+              [isDisabled]="!isIdFieldEnabled"
+              [(value)]="state.id">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [label]="'classification_catalogs_save_modal_v1.fld_catalog_name.label' | translate"
+              [labelHelp]="'classification_catalogs_save_modal_v1.fld_catalog_name.labelHelp' | translate"
+              [placeholder]="'classification_catalogs_save_modal_v1.fld_catalog_name.placeholder' | translate"
+              [isRequired]="true"
+              [(value)]="state.name">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'classification_catalogs_save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_catalogs_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="classificationCatalogSaveModal.invalid"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

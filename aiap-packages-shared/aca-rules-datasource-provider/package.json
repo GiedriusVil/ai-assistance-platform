@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aca/aca-rules-datasource-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1"
+  }
+}

@@ -1,0 +1,107 @@
+<aiap-modal-v1
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">{{ (this.state.modalVal ? 'access_groups_view_v1.save_modal_v1.header_save': 'access_groups_view_v1.save_modal_v1.header_copy') | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <section 
+    ibmModalContent
+    class="access-group-save-modal-section">
+    <form 
+      class="access-group-form" 
+      #accessGroupForm="ngForm">
+      <div ibmGrid>
+        <div ibmRow [leftGutter]="true">
+          <div
+            class="access-group-name-container"
+            ibmCol 
+            [columnNumbers]="{'md': 5, 'sm': 3}">
+            <div ibmGrid>
+              <div ibmRow>
+                <div ibmCol>
+                  <ibm-tabs 
+                    [followFocus]="true" 
+                    [isNavigation]="false" 
+                    [cacheActive]="true">
+                    <ibm-tab 
+                      [heading]="generalHeader">
+                      <aiap-access-group-policy-general-v1
+                        [(accessGroup)]="value">
+                      </aiap-access-group-policy-general-v1>
+                    </ibm-tab>
+                    <ibm-tab 
+                      [heading]="platformPolicyHeader">
+                      <aiap-access-group-policy-platform-v1
+                        (onAddPolicy)="handlePlatformPolicyAddEvent($event)"
+                        [(accessGroup)]="value">
+                      </aiap-access-group-policy-platform-v1>
+                    </ibm-tab>
+                    <ibm-tab 
+                      [heading]="tenantPolicyHeader">
+                      <aiap-access-group-policy-tenant-v1 
+                        (onAddPolicy)="handleAddTenantPolicyEvent($event)">
+                      </aiap-access-group-policy-tenant-v1>
+                    </ibm-tab>
+                    <ibm-tab 
+                      [heading]="applicationPolicyHeader">
+                      <aiap-access-group-policy-application-v1
+                        (onAddPolicy)="handleAddApplicationPolicyEvent($event)">
+                      </aiap-access-group-policy-application-v1>
+                    </ibm-tab>
+                  </ibm-tabs>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="access-group-summary-container"
+            ibmCol 
+            [columnNumbers]="{'md': 3, 'sm': 1}">
+            <aiap-access-group-summary-v1 
+              [accessGroup]="value"
+              (onRemovePlatformPolicyItem)="handlePlatformPolicyItemRemoveEvent($event)"
+              (onRemoveTenantPolicyItem)="handleTenantPolicyItemRemoveEvent($event)">
+            </aiap-access-group-summary-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1 
+    class="aca-modal-footer">
+    <aiap-button-v1
+      [text]="'access_groups_view_v1.save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'access_groups_view_v1.save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="!value.name || !value.description || !value.externalId"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<ng-template #generalHeader>
+  <div class="font-size-small">
+    {{ 'access_groups_view_v1.save_modal_v1.tabs.tab_general.header' | translate }}
+  </div>
+</ng-template>
+<ng-template #platformPolicyHeader>
+  <div class="font-size-small">
+    {{ 'access_groups_view_v1.save_modal_v1.tabs.tab_policy_platform.header' | translate }}
+  </div>
+</ng-template>
+<ng-template #tenantPolicyHeader>
+  <div class="font-size-small">
+    {{ 'access_groups_view_v1.save_modal_v1.tabs.tab_policy_tenant.header' | translate }}
+  </div>
+</ng-template>
+<ng-template #applicationPolicyHeader>
+  <div class="font-size-small">
+    {{ 'access_groups_view_v1.save_modal_v1.tabs.tab_policy_application.header' | translate }}
+  </div>
+</ng-template>

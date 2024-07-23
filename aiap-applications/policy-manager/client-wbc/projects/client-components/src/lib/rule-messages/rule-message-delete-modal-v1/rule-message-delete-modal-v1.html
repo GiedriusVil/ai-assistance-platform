@@ -1,0 +1,51 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="close()" >
+  <ibm-modal-header (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{'rule_messages.delete_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <div style="margin-bottom: 6px;">
+      <span 
+        *ngIf="!state.isInvalidDelete" 
+        style="margin-bottom: 6px;">
+        {{'rule_messages.delete_modal_v1.delete_confirmation' | translate}}
+      </span>
+      <span 
+        *ngIf="state.isInvalidDelete">
+        {{'rule_messages.delete_modal_v1.delete_error' | translate}}
+        {{ state.rules.length > 1 ? 'rules' : 'rule' }}:
+      </span>
+    </div>
+    <div *ngFor="let rule of state.rules">
+      <span style="vertical-align: super"> - {{rule.id}}
+        <aiap-button-v1 
+          [type]="'ghost'" 
+          [size]="'sm'" 
+          [icon]="'assets/carbon-icons/16/formatting/edit.svg'"
+          [iconOnly]="'true'"
+          (onClick)="handleOpenRuleInNewTab(rule)">
+        </aiap-button-v1>
+      </span>
+    </div>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'rule_messages.delete_modal_v1.cancel_button' | translate"
+      [tooltip]="'rule_messages.delete_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'" 
+      [disabled]="state.isInvalidDelete" 
+      [text]="'rule_messages.delete_modal_v1.delete_button' | translate"
+      [tooltip]="'rule_messages.delete_modal_v1.delete_button_tooltip' | translate"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

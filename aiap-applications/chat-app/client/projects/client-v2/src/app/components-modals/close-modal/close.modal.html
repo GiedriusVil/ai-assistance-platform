@@ -1,0 +1,24 @@
+<aca-chat-modal id="aca-close-modal">
+  <div class="aca--modal--header">
+    <h4 class="aca--modal--title">{{'close.modal-title'| translate}}</h4>
+    <div class="aca--header--icon--box">
+      <img 
+        class="img--close" 
+        [src]="chatAssestsUrl + '/close.svg'" 
+        tabindex="0" 
+        role="button" 
+        title="{{'close.modal-cross-title'| translate}}" 
+        alt="{{'close.modal-cross-alt'| translate}}" 
+        (click)="onCloseModal('aca-close-modal')"
+        >
+    </div>
+  </div>
+  <div class="aca--modal--body">
+    <p class="body--text">{{'close.modal-description'| translate}}</p>
+  </div>
+  <div class="aca--modal--footer">
+    <button type="button" class="btn btn-primary btn--color" (click)="onRestartChat($event);">{{'close.modal-restart'| translate}}</button>
+    <button type="button" class="btn btn-primary btn--color" (click)="onCloseChat($event)">{{'close.modal-yes'| translate}}</button>
+    <button type="button" class="btn btn-primary btn--color" (click)="onCloseModal('aca-close-modal');">{{'close.modal-no'| translate}}</button>
+  </div>
+</aca-chat-modal>

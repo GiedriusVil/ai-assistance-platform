@@ -1,0 +1,67 @@
+<div *ngIf="!message?.attachment?.disableFeedback">
+  <div class="message--feedback">
+    <ng-container *ngIf="!feedbackScore && !message?.feedback?.feedbackScore && !isTranscript">
+      <div 
+        class="feedback-icon-box" 
+        role="button" 
+        (mouseover)="positiveFeedbackImgFilled=true"
+        (mouseout)="positiveFeedbackImgFilled=false" 
+        (keydown.enter)="provideFeedback(message, FEEDBACK_TYPE.POSITIVE)"
+        (click)="provideFeedback(message, FEEDBACK_TYPE.POSITIVE)">
+        <img 
+          tabindex="0" 
+          role="button" 
+          title="{{'feedback.icon-positive-title'| translate}}"
+          alt="{{'feedback.icon-positive-alt'| translate}}" 
+          class="img--feedback--positive"
+          [src]="positiveFeedbackImgFilled ? icons['selectedPositive'] : icons['positive']" />
+      </div>
+      <div 
+        class="feedback-icon-box" 
+        role="button" 
+        (mouseover)="negativeFeedbackImgFilled=true"
+        (mouseout)="negativeFeedbackImgFilled=false" 
+        (keydown.enter)="provideFeedback(message, FEEDBACK_TYPE.NEGATIVE)"
+        (click)="provideFeedback(message, FEEDBACK_TYPE.NEGATIVE)">
+        <img 
+          tabindex="0" 
+          role="button" 
+          title="{{'feedback.icon-negative-title'| translate}}"
+          alt="{{'feedback.icon-negative-alt'| translate}}" 
+          class="img--feedback--negative"
+          [src]="negativeFeedbackImgFilled ? icons['selectedNegative'] : icons['negative']" />
+      </div>
+    </ng-container>
+    <ng-container *ngIf="feedbackScore || message?.feedback?.feedbackScore">
+      <div 
+        *ngIf="[feedbackScore, message?.feedback?.feedbackScore].includes(FEEDBACK_TYPE.POSITIVE)" 
+        class="feedback-icon-box" 
+        role="button">
+        <img
+          class="img--feedback--positive"
+          tabindex="0" 
+          role="button"
+          title="{{'feedback.icon-positive-selected-title'| translate}}"
+          alt="{{'feedback.icon-positive-selected-alt'| translate}}" 
+          [src]="icons['selectedPositive']" />
+      </div>
+      <div 
+        *ngIf="[feedbackScore, message?.feedback?.feedbackScore].includes(FEEDBACK_TYPE.NEGATIVE)" 
+        class="feedback-icon-box" 
+        role="button">
+        <img 
+          tabindex="0" 
+          role="button"
+          class="img--feedback--negative"
+          title="{{'feedback.icon-negative-selected-title'| translate}}"
+          alt="{{'feedback.icon-negative-selected-alt'| translate}}" 
+          [src]="icons['selectedNegative']" />
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<aca-wbc-feedback-modal
+  [assetsUrl]="assetsUrl"
+  [suffix]="suffix"
+></aca-wbc-feedback-modal>

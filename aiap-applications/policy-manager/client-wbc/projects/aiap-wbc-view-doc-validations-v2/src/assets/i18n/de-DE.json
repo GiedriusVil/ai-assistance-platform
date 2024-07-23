@@ -1,0 +1,22 @@
+{
+  "doc_validation_modal_v2.header_text" : "Transaktionsdetails",
+  "doc_validation_modal_v2.action_id_label_text" : "Aktions-ID",
+  "doc_validation_modal_v2.action_label_text" : "Aktion",
+  "doc_validation_modal_v2.document_id_label_text" : "Externe Dokumenten-ID",
+  "doc_validation_modal_v2.document_type_label_text" : "Dokumententyp",
+  "doc_validation_modal_v2.created_by_label_text" : "Erstellt von",
+  "doc_validation_modal_v2.created_date_label_text" : "[DE] Created",
+  "doc_validation_modal_v2.close_button_text" : "Schließen",
+  "view_doc_validations_v2.view.actions_label_text" : "Aktion",
+  "doc_validations.doc_validation_table_v2.export_button" : "Exportieren",
+  "doc_validations.doc_validation_table_v2.refresh_button_tooltip" : "Erneuern",
+  "doc_validations.doc_validation_table_v2.export_button_tooltip" : "Exportieren",
+
+  "doc_validations.table_v2.action_id_header" : "Aktion-ID",
+  "doc_validations.table_v2.action_header" : "Aktion",
+  "doc_validations.table_v2.document_id_header" : "Externe Dokumenten-ID",
+  "doc_validations.table_v2.document_type_header" : "Dokumententyp",
+  "doc_validations.table_v2.created_header" : "Erstellt",
+  "doc_validation_modal_v2.close_button_tooltip" : "Schließen",
+  "doc_validations.doc_validation_table_v2.search_placeholder" : "Suchen"
+}

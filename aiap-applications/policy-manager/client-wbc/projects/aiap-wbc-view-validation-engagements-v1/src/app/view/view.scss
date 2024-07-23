@@ -1,0 +1,12 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./validation-engagements-delete-modal-v1/validation-engagements-delete-modal-v1.scss";
+@use "./validation-engagements-import-modal-v1/validation-engagements-import-modal-v1.scss";
+@use "./validation-engagements-save-modal-v1/validation-engagements-save-modal-v1.scss";
+
+aiap-wbc-validation-engagements-view-v1 {
+  background: lightgray;
+}

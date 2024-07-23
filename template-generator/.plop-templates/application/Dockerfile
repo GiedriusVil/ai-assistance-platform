@@ -1,0 +1,103 @@
+#
+# © Copyright IBM Corporation 2022. All Rights Reserved.
+#
+# SPDX-License-Identifier: EPL-2.0
+#
+
+##################################################################
+#  This section is dedicated to copy source files into Docker image!
+##################################################################
+FROM node:18-bullseye-slim as copy_src_files
+
+RUN chown -R node:node /home/node
+RUN mkdir -p /home/node/app 
+
+WORKDIR /home/node/app
+
+COPY --chown=node:node scripts scripts
+COPY --chown=node:node lerna.json lerna.json
+COPY --chown=node:node package.json package.json
+COPY --chown=node:node yarn.lock yarn.lock
+COPY --chown=node:node aiap-packages-shared aiap-packages-shared
+COPY --chown=node:node aiap-packages-shared-angular aiap-packages-shared-angular
+COPY --chown=node:node aiap-applications/{{dashCase name}} aiap-applications/{{dashCase name}}
+
+##################################################################
+#  Section build_client
+##################################################################
+FROM copy_src_files as build_client
+
+RUN yarn global add @angular/cli
+
+RUN apt-get update -y && apt-get upgrade -y
+
+WORKDIR /home/node/app
+COPY --from=copy_src_files --chown=node:node /home/node/app .
+
+USER node
+RUN NODE_ENV=development 
+
+WORKDIR /home/node/app
+RUN yarn run client:libs:install --app {{dashCase name}}
+RUN yarn run client:build:libs --app {{dashCase name}}
+RUN yarn run client:build --app {{dashCase name}}
+
+##################################################################
+#  Section build_server
+##################################################################
+FROM copy_src_files as build_server
+
+USER root
+
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install --no-install-recommends --yes curl python3 build-essential
+
+RUN yarn global add node-gyp@9.3.1
+RUN yarn global add lerna@6.6.2
+
+WORKDIR /home/node/app
+
+COPY --from=copy_src_files --chown=node:node /home/node/app .
+RUN yarn run server:libs:install
+RUN yarn run metadata:generate --app {{dashCase name}}
+
+RUN lerna clean --yes
+RUN apt-get clean
+
+# ##################################################################
+# #  Section build_runtime
+# ##################################################################
+FROM node:18-bullseye-slim as build_runtime
+
+LABEL vendor IBM
+LABEL version $BUILD_VERSION
+LABEL maintainer ACA Team <aca.devops@lt.ibm.com>
+
+ENV ENVIRONMENT_REFRESH 2022-02-02
+
+ARG BUILD_VERSION=local
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install --no-install-recommends --yes curl build-essential python3 python3-pip 
+
+WORKDIR /home/node/app
+COPY --from=build_server --chown=node:node /home/node/app .
+COPY --from=build_client --chown=node:node /home/node/app/aiap-applications/{{dashCase name}}/client/dist ./aiap-applications/{{dashCase name}}/client/dist
+
+RUN rm -rf ./node_modules/node-gyp/test
+
+RUN apt-get clean
+USER node
+
+#  PythonDependencies option_1
+##################################################################
+RUN pip install -U setuptools
+RUN pip install 'scikit-learn==1.0.2' --force-reinstall
+
+#  PythonDependencies option_2
+##################################################################
+# RUN ["chmod", "+x", "/home/node/app/aca-packages/aca-python-wrapper/scripts/install-python-dependancies.sh"]
+# RUN /home/node/app/aca-packages/aca-python-wrapper/scripts/install-python-dependancies.sh
+EXPOSE {{serverPort}}
+ENV START_COMMAND server:start --app {{dashCase name}} --skip-eslint
+ENV NODE_ENV production
+CMD yarn run $START_COMMAND

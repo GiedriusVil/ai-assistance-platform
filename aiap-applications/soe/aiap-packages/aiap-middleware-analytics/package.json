@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-analytics",
+  "version": "3.27.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@ibm-aiap/aiap-utils-common": "0.0.1",
+    "@ibm-aiap/aiap-soe-brain": "3.27.0",
+    "@ibm-aca/aca-data-masking-provider": "3.28.1",
+    "moment": "2.29.4",
+    "uuid": "3.3.2"
+  }
+}

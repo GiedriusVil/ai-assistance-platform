@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aca/aca-language-translator",
+  "version": "3.27.0",
+  "description": "Watson Language Translator for Advanced Conversation Asset",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@cospired/i18n-iso-languages": "2.1.2",
+    "@ibm-aiap/aiap-soe-brain": "3.27.0"
+  }
+}

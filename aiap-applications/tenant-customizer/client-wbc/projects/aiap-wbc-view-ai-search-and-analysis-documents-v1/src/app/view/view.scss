@@ -1,0 +1,50 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-ai-search-and-analysis-documents-view-v1 {
+  .bx--dropdown {
+    &__arrow {
+      top: 0.8125rem;
+      width: 18px;
+      height: 18px;
+    }
+
+    &-text {
+      padding: 0.7rem;
+    }
+  }
+
+  .bx--structured-list {
+    margin-bottom: 0;
+  }
+
+  .bx--structured-list-tbody {
+    .bx--structured-list-row {
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .bx--structured-list-td {
+    padding: 1rem 2rem 1rem 1rem;
+  }
+
+  .expanded {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: transform 0.2s;
+  }
+
+  .collapsed {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+  }
+
+  .hide {
+    display: none;
+  }
+}

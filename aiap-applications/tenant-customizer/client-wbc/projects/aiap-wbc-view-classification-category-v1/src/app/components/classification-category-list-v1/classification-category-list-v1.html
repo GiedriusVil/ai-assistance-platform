@@ -1,0 +1,82 @@
+<ibm-structured-list
+  [border]="false"
+  [condensed]="false"
+  [nowrap]="false">
+  <section class="bx--structured-list">
+    <ibm-list-header class="bx--structured-list-th">
+      <ibm-list-column>
+        <div ibmGrid>
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{ 'xlg': 10, 'lg': 10, 'md': 6, 'sm': 4}">
+              {{label}} ({{ 'classification_category_list_v1.fld_categories_quantity.label' | translate }}: {{ categoriesTotalQty() }})
+            </div>
+            <div ibmCol [columnNumbers]="{ 'xlg': 2, 'lg': 2, 'md': 2, 'sm': 4}">
+              <aiap-button-v1
+                [iconOnly]="true"
+                [type]="'tertiary'"
+                [size]="'sm'"
+                [disabled]="!isBtnAddEnabled()"
+                (onClick)="handleCategoryAddEvent($event)"
+                [icon]="'assets/carbon-icons/20/navigation/add.svg'">
+              </aiap-button-v1>
+            </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+            <div ibmCol>
+              <ibm-search
+                [placeholder]="'classification_category_list_v1.fld_search.placeholder' | translate"
+                [autocomplete]="'off'"
+                [size]="'sm'"
+                [disabled]="!isBtnAddEnabled()"
+                (search)="handleSearchEvent($event)"
+                (clear)="handleSearchClearEvent($event)">
+              </ibm-search>
+            </div>
+          </div>
+        </div>
+      </ibm-list-column>
+      <div class="bx--structured-list-tbody"></div>
+    </ibm-list-header>
+  </section>
+  <ibm-list-row
+    *ngFor="let category of state?.categories"
+    [ngClass]="getClassificationCategoryNgClass(category)"
+    (click)="handleClassificationCategoryClickEvent($event, category)">
+    <ibm-list-column>
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            {{category?.title?.en}}
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{ 'xlg': 8, 'lg': 8, 'md': 4, 'sm': 4}">
+            {{category?.code}}
+          </div>
+          <div ibmCol [columnNumbers]="{ 'xlg': 2, 'lg': 2, 'md': 2, 'sm': 4}">
+            <aiap-button-v1
+              [iconOnly]="true"
+              [type]="'tertiary'"
+              [size]="'sm'"
+              [disabled]="!isBtnAddEnabled()"
+              (onClick)="handleCategoryEditEvent($event, category)"
+              [icon]="'assets/carbon-icons/20/formatting/edit.svg'">
+            </aiap-button-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{ 'xlg': 2, 'lg': 2, 'md': 2, 'sm': 4}">
+            <aiap-button-v1
+              [iconOnly]="true"
+              [type]="'danger'"
+              [size]="'sm'"
+              [disabled]="!isBtnAddEnabled()"
+              (onClick)="handleCategoryDeleteEvent($event, category)"
+              [icon]="'assets/carbon-icons/20/formatting/trash-can.svg'">
+            </aiap-button-v1>
+          </div>
+        </div>
+      </div>
+    </ibm-list-column>
+  </ibm-list-row>
+</ibm-structured-list>

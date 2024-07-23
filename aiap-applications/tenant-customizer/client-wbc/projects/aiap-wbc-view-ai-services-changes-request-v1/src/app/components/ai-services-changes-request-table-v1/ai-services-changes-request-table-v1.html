@@ -1,0 +1,50 @@
+
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'ai_services_changes_request_table_v1.fld_search_for_change_request.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchChangeEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [text]="('ai_services_changes_table_v1.btn_remove.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'ai_services_changes_table_v1.btn_remove.tooltip' | translate"
+      [type]="'danger'"
+      [size]="'sm'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [sortable]="true"
+    [stickyHeader]="false"
+    [showSelectionColumn]="true"
+    [skeleton]="skeleton"
+    [striped]="true"
+    [model]="model"
+    (onAllSelect)="selectAllRows($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 [value]="data?.created"></aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aiap-table-cell-updated-v1 [value]="data?.updated"></aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

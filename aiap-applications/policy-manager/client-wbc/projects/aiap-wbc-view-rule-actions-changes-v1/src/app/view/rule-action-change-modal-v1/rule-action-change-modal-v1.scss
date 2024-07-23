@@ -1,0 +1,36 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-rule-action-change-modal-v1 {
+  section {
+    padding-right: 0;
+  }
+
+  .assist-text {
+    p {
+      font-size: 0.875rem;
+    }
+
+    ul {
+      font-size: 0.75rem;
+    }
+  }
+
+  ibm-label {
+    margin-top: 1em;
+  }
+
+  .jsoneditor {
+    &.jsoneditor-mode-tree {
+      border-color: black;
+      height: 300px;
+
+      .jsoneditor-menu {
+        border-color: black;
+        background-color: black;
+      }
+    }
+  }
+}

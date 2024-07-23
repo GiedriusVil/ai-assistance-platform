@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aca/aca-suggestions-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "martynas.pazusis@ibm.com",
+  "license": "ISC",
+  "dependencies": {}
+}

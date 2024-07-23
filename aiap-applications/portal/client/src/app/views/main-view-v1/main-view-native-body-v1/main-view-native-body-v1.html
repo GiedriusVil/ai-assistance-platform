@@ -1,0 +1,57 @@
+<ibm-sidenav 
+  #sideNav 
+  allowExpansion="false" 
+  [rail]="true"
+  [expanded]="isExpanded" 
+  (click)="setExpansion()">
+  <ng-container 
+    *ngFor="let view of session?.application?.configuration?.views" 
+    [ngSwitch]="view.type">
+    <ng-container *ngSwitchCase="'SINGLE_VIEW'">
+      <ibm-sidenav-item 
+        *isViewAllowed="view?.component" 
+        [route]="view?.route">
+        <svg 
+          [ibmIcon]="view?.icon" 
+          size="16">
+        </svg>{{ view?.name | translate }}
+      </ibm-sidenav-item>
+    </ng-container>
+    <ng-container 
+      *ngSwitchCase="'MULTI_VIEW'">
+      <ibm-sidenav-menu 
+        [title]="view?.name | translate">
+        <svg 
+          icon 
+          [ibmIcon]="view?.icon" 
+          size="16">
+        </svg>
+        <ng-container 
+          *ngFor="let childView of view?.views">
+          <ibm-sidenav-item 
+            *isViewAllowed="childView?.component" 
+            [route]="childView?.route">{{ childView?.name | translate}}
+          </ibm-sidenav-item>
+        </ng-container>
+      </ibm-sidenav-menu>
+    </ng-container>
+    <ng-container 
+      *ngSwitchDefault>
+      <div>DEFAULT_VIEW</div>
+    </ng-container>
+  </ng-container>
+</ibm-sidenav>
+<main
+  class="bx--content">
+  <div 
+    style="position:fixed; z-index: 10000; right: 10px;" 
+    class="notification-container">
+  </div>
+  <div 
+    class="main-view-container">
+    <router-outlet 
+      (activate)="onActivate($event)" 
+      (deactivate)="onDeactivate($event)">
+    </router-outlet>
+  </div>
+</main>

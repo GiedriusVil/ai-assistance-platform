@@ -1,0 +1,11 @@
+<div *ngIf="isReady()" [ngClass]="getActiveClassNames()">
+  <div class="aca-wbc-multimedia-box card">
+    <div class="card-body">
+      <ng-container *ngFor="let multimedia of message?.attachment?.multimedia">
+        <aiap-multimedia-box 
+          [multimedia]="multimedia">
+        </aiap-multimedia-box>
+      </ng-container>
+    </div>
+  </div>
+</div>

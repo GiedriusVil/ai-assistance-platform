@@ -1,0 +1,46 @@
+[
+    {
+        "id": "org_id_0", 
+        "name": "Organization Zero", 
+        "extId": "org_external_id_0",
+        "external": {
+            "id": "org_external_id_0"
+        },
+        "isBuyer": true,
+        "isSeller": false,
+        "isAuthorized": true
+    }, 
+    {
+        "id": "org_id_1", 
+        "name": "Organization One", 
+        "extId": "org_external_id_1",
+        "external": {
+            "id": "org_external_id_1"
+        },
+        "isBuyer": true,
+        "isSeller": false,
+        "isAuthorized": true
+    }, 
+    {
+        "id": "org_id_2", 
+        "name": "Organization Two", 
+        "extId": "org_external_id_2",
+        "external": {
+            "id": "org_external_id_2"
+        },
+        "isBuyer": true,
+        "isSeller": false,
+        "isAuthorized": true
+    }, 
+    {
+        "id": "org_id_3", 
+        "name": "Organization Three", 
+        "extId": "org_external_id_3",
+        "external": {
+            "id": "org_external_id_3"
+        },
+        "isBuyer": true,
+        "isSeller": false,
+        "isAuthorized": true
+    }
+]

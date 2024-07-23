@@ -1,0 +1,22 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-services-table-v1
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowAiSkillsPlace)="handleShowAiSkillsPlaceEvent($event)">
+    </aiap-ai-services-table-v1>
+  </div>
+</div>
+
+<aiap-ai-service-save-modal-v1 #aiServiceSaveModal></aiap-ai-service-save-modal-v1>
+<aiap-ai-service-delete-modal-v1 #aiServiceDeleteModal></aiap-ai-service-delete-modal-v1>
+<aiap-ai-service-import-modal-v1 #aiServiceImportModal></aiap-ai-service-import-modal-v1>

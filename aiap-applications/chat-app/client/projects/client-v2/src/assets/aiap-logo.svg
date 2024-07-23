@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 465 483">
+  <defs/>
+  <g>
+    <ellipse cx="232" cy="242" rx="230" ry="230" fill="none" stroke="#000000" stroke-width="5" pointer-events="all"/>
+    <ellipse cx="62" cy="212" rx="20" ry="20" fill="#000000" stroke="#000000" pointer-events="all"/>
+    <path d="M 62 87.08 Q 62 2 142 2 Q 222 2 222 37 Q 222 72 142 72 Q 62 72 62 192" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
+    <ellipse cx="402" cy="292" rx="20" ry="20" fill="#000000" stroke="#000000" pointer-events="all"/>
+    <path d="M 402 396.92 Q 402 482 312 482 Q 222 482 222 447 Q 222 412 312 412 Q 402 412 402 312" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke"/>
+    <path d="M 82 212 Q 242 212 242 252 Q 242 292 382 292" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
+    <ellipse cx="282" cy="132" rx="20" ry="20" fill="#000000" stroke="#000000" pointer-events="all"/>
+    <path d="M 69.37 404.63 Q 69.4 322 105.7 322 Q 142 322 142 227 Q 142 132 262 132" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" pointer-events="stroke"/>
+    <path d="M 282 112 Q 282 42 338.3 42 Q 394.6 42 394.63 79.37" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" pointer-events="stroke"/>
+  </g>
+</svg>

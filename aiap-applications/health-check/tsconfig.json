@@ -1,0 +1,32 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "../../aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-redis-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-event-stream-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-mongo-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-client-provider"
+    },
+    {
+      "path": "./packages/server"
+    },
+    {
+      "path": "./packages/configuration"
+    }
+  ]
+}

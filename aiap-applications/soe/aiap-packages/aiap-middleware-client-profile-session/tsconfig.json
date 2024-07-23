@@ -1,0 +1,12 @@
+{
+    "extends": "../../../../tsconfig-base.json",
+    "compilerOptions": {
+      "outDir": "./dist",
+      "esModuleInterop": true, /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+      "paths": { }
+    },
+    // first line is needed to include transpiled files itself
+    "include": [
+      "**/*"
+    ]
+  }

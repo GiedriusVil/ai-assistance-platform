@@ -1,0 +1,93 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+const {
+  matchFieldBetween2Dates,
+  matchAttributeAssistantIdByParams,
+  matchAttributeAssistantIdByContext,
+  projectField$DateToString,
+  nMatchAttributeByArrayOfPrimitives
+} = require('@ibm-aiap/aiap-utils-mongo');
+
+const addMatcherToPipeline = (context, params, pipeline) => {
+  const MATCHER = {
+    $match: {
+      $and: [
+        {
+          $or: [
+            matchFieldBetween2Dates('created', params),
+          ]
+        },
+        matchAttributeAssistantIdByContext(context),
+        matchAttributeAssistantIdByParams(params),
+        nMatchAttributeByArrayOfPrimitives('_id', params?.query?.nFilter?.userIds),
+      ]
+    },
+  };
+  pipeline.push(MATCHER);
+}
+
+const addProjectGroupFieldsToPipeline = (pipeline) => {
+  const COUNT_PROJECT = {
+    $project: {
+      country: '$country',
+      created: '$created',
+      count: {
+        $sum: 1
+      }
+    }
+  };
+  pipeline.push(COUNT_PROJECT);
+}
+
+const addGroupByMonthToPipeline = (context, pipeline) => {
+  const GROUP_BY_MONTH = {
+    $group: {
+      _id: {
+        month: projectField$DateToString(context?.user?.timezone, '%m', '$created'),
+        year: projectField$DateToString(context?.user?.timezone, '%Y', '$created'),
+        country: '$country'
+      },
+      count: {
+        $sum: 1
+      }
+    }
+  };
+  pipeline.push(GROUP_BY_MONTH);
+}
+
+const addCountProjectToPipeline = (pipeline) => {
+  const COUNT_PROJECT = {
+    $project: {
+      _id: 0,
+      name: '$_id.country',
+      month: '$_id.month',
+      year: '$_id.year',
+      count: '$count'
+    }
+  };
+  pipeline.push(COUNT_PROJECT);
+}
+
+const addSortingParamsToPipeline = (pipeline) => {
+  const SORTING_PARAMS = {
+    $sort: { year: 1, month: 1 }
+  };
+  pipeline.push(SORTING_PARAMS);
+}
+
+const aggregatePipeline = (context, params) => {
+  const PIPELINE = [];
+  addMatcherToPipeline(context, params, PIPELINE);
+  addProjectGroupFieldsToPipeline(PIPELINE);
+  addGroupByMonthToPipeline(context, PIPELINE);
+  addCountProjectToPipeline(PIPELINE);
+  addSortingParamsToPipeline(PIPELINE);
+  return PIPELINE;
+}
+
+module.exports = {
+  aggregatePipeline,
+}

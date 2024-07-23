@@ -1,0 +1,13 @@
+{
+  "feedback.icon-negative-alt": "Neigiamas įvertinimas",
+  "feedback.icon-negative-selected-alt": "Paliktas neigiamas įvertinimas",
+  "feedback.icon-negative-selected-title": "Paliktas neigiamas įvertinimas",
+  "feedback.icon-negative-title": "Neigiamas įvertinimas",
+  "feedback.icon-positive-alt": "Teigiamas įvertinimas",
+  "feedback.icon-positive-selected-alt": "Paliktas teigiamas įvertinimas",
+  "feedback.icon-positive-selected-title": "Paliktas teigiamas įvertinimas",
+  "feedback.icon-positive-title": "Teigiamas įvertinimas",
+  "wds.modal-article": "Pilnas straipsnis:",
+  "wds.modal-document": "Dokumentas:",
+  "wds.modal-button-close": "Uždaryti"
+}

@@ -1,0 +1,8 @@
+{
+  "chat_app_rocketchat.no-agents-available": "Es sind keine Agenten verfügbar.",
+  "chat_app_rocketchat.agent-closed-chat": "Agent hat den Chat verlassen.",
+  "chat_app_rocketchat.user-joined-chat": "Nutzer hat den Chat betreten.",
+  "chat_app_rocketchat.transfer-to-other-agent": "An nächsten Agenten übergeben.",
+  "chat_app_rocketchat.agent-first-message": "Willkommen beim Kundensupport. Ein Agent wird sich gleich bei Ihnen melden.",
+  "chat_app_rocketchat.transfer-back-message": "Willkommen zurück beim Chatbot. Sie können weiterhin Fragen stellen.",
+}

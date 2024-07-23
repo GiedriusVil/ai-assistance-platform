@@ -1,0 +1,28 @@
+$headerTextColor: white;
+$headerFocusOutline: 2px solid $headerTextColor;
+$bodyFocusOutline: 2px solid #0000BF;
+$shadowFocusOutline: 0 0 0 0.25rem rgba(49, 132, 253, .5);
+
+$font-size-base: 0.875rem !default;
+
+$primary: #252525;
+
+$aca-font-size: 16px;
+
+$aca-primary-background: #00598f;
+$aca-primary-font-size: 13px;
+$aca-primary-blue-color: #0056b8;
+$aca-primary-white-color: #fff;
+$aca-primary-black-color: black;
+
+$aca-secondary-blue-color: #2d75fd;
+$aca-secondary-black-color: #393939;
+
+$aca-first-gray-color: #f4f4f4;
+
+$aca-user-bubble-background: #C9DCE6;
+$aca-user-bubble-color: black;
+$aca-bot-bubble-color: white;
+$aca-footer-animation-shadow: 1px -1px 16px 0px rgba(0,0,0,.2);
+
+$aca-default-width: 100%;

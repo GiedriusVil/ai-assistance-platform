@@ -1,0 +1,6 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-reconnection-check",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {}
+}

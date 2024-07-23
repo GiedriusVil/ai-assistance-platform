@@ -1,0 +1,10 @@
+<div
+  *ngIf="isReady()">
+  <aiap-queries-models-changes-view-v1></aiap-queries-models-changes-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <aiap-inline-loader-v1
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </aiap-inline-loader-v1>
+</div>

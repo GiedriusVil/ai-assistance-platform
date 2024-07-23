@@ -1,0 +1,142 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+img:focus {
+  outline: $headerFocusOutline;
+}
+
+app-header {
+  $header-height: 50px;
+  $header-font-size: 16px;
+  #header {
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.35);
+    background-color: $aca-primary-blue-color;
+    height: $header-height;
+    user-select: none;
+    position: fixed;
+    display: block;
+    z-index: 1060;
+    left: 0;
+    top: 0;
+
+    .header--logo {
+      color: $headerTextColor;
+      align-items: center;
+      height: $header-height;
+      width: 50px;
+    }
+
+    .header--logo--img {
+      background: url("/assets/va-logo-white.svg") no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    img {
+      width: 40px;
+      height: auto;
+      margin-left: 5px;
+    }
+
+    img:focus {
+      outline: $headerFocusOutline;
+    }
+
+    .header--title {
+      line-height: $header-height;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 15px;
+      text-align: left;
+      color: $headerTextColor;
+      display: block;
+      margin-left: 15px;
+    }
+
+    .header--buttons {
+      color: $headerTextColor;
+      position: absolute;
+      right: 0;
+      height: 50px;
+
+      &.position--left {
+        margin-left: -15px;
+      }
+
+      .header-icon-box {
+        .img--minimize,
+        .img--survey,
+        .img--transform,
+        .img--transcripts,
+        .img--volume {
+          margin-right: 10px;
+          margin-left: 10px;
+          width: 19px;
+          height: 50px;
+          color: #ffffff;
+        }
+
+        .img--close {
+          width: 30px;
+          height: 50px;
+          margin-right: 6px;
+          margin-left: 6px;
+        }
+        .icon--volume--off {
+          background: url("/assets/volume-mute-filled.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--volume--on {
+          background: url("/assets/volume-up-filled.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--survey {
+          background: url("/assets/pen.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--transform {
+          background: url("/assets/journal-plus.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--transcripts {
+          background: url("/assets/download.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--minimize {
+          background: url("/assets/subtract.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+        .icon--close {
+          background: url("/assets/close.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+
+        &:hover {
+          background-color: $aca-secondary-blue-color;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .dropdown-toggle {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

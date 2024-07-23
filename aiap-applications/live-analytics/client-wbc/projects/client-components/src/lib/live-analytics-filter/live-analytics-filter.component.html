@@ -1,0 +1,29 @@
+<ng-container [ngSwitch]="filter?.type">
+    <ibm-dropdown
+    *ngSwitchCase="'DROPDOWN'"
+    type="multi" 
+    [placeholder]='filter?.configuration?.placeholder' 
+    [label]="filter?.configuration?.label"
+    [(ngModel)]="state[filter?.queryParamName].selected"
+    (selected)="handleDropdownSelectionEvent($event)">
+      <ibm-dropdown-list
+      [items]="state[filter?.queryParamName].items"
+      ></ibm-dropdown-list>
+    </ibm-dropdown>
+    
+    <ibm-toggle
+    *ngSwitchCase="'TOGGLE'" 
+    [onText]="filter?.configuration?.onText" 
+    [offText]="filter?.configuration?.offText"
+    [checked]="state[filter?.queryParamName]"
+    (checkedChange)="handleToggleEvent($event)">
+    </ibm-toggle>
+    <ibm-search
+    *ngSwitchCase="'SEARCH_BAR'" 
+    [placeholder]="filter?.configuration?.placeholder"
+    [value]="state[filter?.queryParamName]"
+    (search)="handleSearchEvent($event)"
+    (clear)="handleSearchClearEvent()" 
+    [autocomplete]="'on'">
+    </ibm-search>
+</ng-container>

@@ -1,0 +1,31 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-translation-model-train-modal-v1 {
+  overflow: hidden;
+
+  .confirm-info-div {
+    padding: 10px;
+  }
+
+  .bx--btn {
+    justify-content: center;
+    padding-right: 15px;
+  }
+
+  section {
+    div {
+      padding: 10px;
+    }
+  }
+
+  .width50 {
+    width: 50%;
+  }
+
+  .width50 > button {
+    width: 100%;
+  }
+}

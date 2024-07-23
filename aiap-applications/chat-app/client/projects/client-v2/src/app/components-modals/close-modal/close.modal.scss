@@ -1,0 +1,21 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-close-modal {
+}
+
+#aca-close-modal {
+  .btn--color {
+    background-color: $aca_primary_color_white;
+    border: 1.5px solid $aca_secondary_color_blue;
+    color: $aca_secondary_color_blue;
+    border-radius: 100px;
+  }
+  .body--text {
+    margin-bottom: 0;
+  }
+}

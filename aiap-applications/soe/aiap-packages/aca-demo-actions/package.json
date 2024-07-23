@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-demo-actions",
+  "version": "3.27.0",
+  "description": "Advanced Conversational Asset Demo Bot Actions",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0"
+  }
+}

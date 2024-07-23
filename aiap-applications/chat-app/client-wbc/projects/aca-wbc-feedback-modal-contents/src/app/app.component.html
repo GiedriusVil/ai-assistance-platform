@@ -1,0 +1,51 @@
+<div class="aca--modal--header">
+  <h5 class="aca--modal--title">{{parameters?.title}}</h5>
+  <div class="aca--header--icon--box">
+    <img 
+      class="img--close" 
+      [src]="assetsUrl + '/close.svg'" 
+      tabindex="0" 
+      role="button"
+      title="{{parameters?.close}}"
+      (keydown.enter)="onCloseModal()"
+      (click)="onCloseModal()">
+  </div>
+</div>
+<div class="aca--modal--body">
+  <div class="aca--modal--description">
+    <p class="w-100">{{parameters?.description}}</p>
+  </div>
+  <form [formGroup]="feedbackForm">
+    <div class="form--group--box">
+      <div class="text-center row--center-align">
+        <div *ngFor="let value of parameters?.values;let i = index" class="col-xs-2">
+          <div class="form-check text-center">
+            <input 
+              tabindex="0" 
+              type="radio" 
+              formControlName="reason" 
+              class="form-check-input-1 position-static"
+              title="{{value}}"
+              [value]="value" />
+            <div>{{value}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form--group--box">
+      <textarea 
+        formControlName="comment" 
+        class="form-control textareaExpand" 
+        rows="2" 
+        maxlength="1000"
+        placeholder="{{parameters?.placeholder}}" (input)="onInput()"></textarea>
+    </div>
+  </form>
+</div>
+<div class="modal-footer" title="{{parameters?.submit}}">
+  <button 
+    type="button" 
+    class="btn btn-primary btn--color"
+    (click)="submitNegativeFeedback()">{{parameters?.submit}}
+  </button>
+</div>

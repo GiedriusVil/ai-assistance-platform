@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-cos-instance-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "ibm-cos-sdk": "^1.10.2"
+  }
+}

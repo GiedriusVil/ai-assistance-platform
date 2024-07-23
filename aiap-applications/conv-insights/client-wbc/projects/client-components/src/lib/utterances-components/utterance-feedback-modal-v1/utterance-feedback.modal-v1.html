@@ -1,0 +1,37 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p
+      class="bx--modal-header__heading bx--type-beta">
+      {{ 'utterances.utterance_feedback_modal_v1.header' | translate }}: {{ feedback?.reason }}</p>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content  bx--modal-content--with-form">
+    <form #feedbackModal="ngForm">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-md-8">
+            <div class="bx--form-item">
+              <label for="text-area-4" class="bx--label">
+                {{ 'utterances.utterance_feedback_modal.content_comment' | translate }}
+              </label>
+              <textarea id="text-area-4" name="comment" [(ngModel)]="feedback.comment" class="bx--text-area" rows="4" cols="50" 
+                placeholder="{{ 'utterances.utterance_feedback_modal.content_comment' | translate }}" readonly>
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <button class="bx--btn bx--btn--secondary" (click)="close()">
+      {{ 'utterances.utterance_feedback_modal.btn_cancel.text' | translate }}
+    </button>
+    <button class="bx--btn bx--btn--primary" modal-primary-focus [disabled]="feedbackModal.invalid"
+      (click)="isOpen = false">
+      {{ 'utterances.utterance_feedback_modal.btn_ok.text' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+
+<head>
+  <title>Virtual AI Assistants platform</title>
+  <link id="aiap-favicon" type="image/x-icon" rel="icon" href="favicon.ico"/>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <style>
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+
+    body ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+
+    body :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      opacity: 1;
+      font-weight: 300;
+    }
+
+    body ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      opacity: 1;
+      font-weight: 300;
+    }
+
+    body :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+
+    body h2 {
+      margin: auto;
+      text-align: center;
+    }
+
+    body h3 {
+      margin: auto;
+      text-align: center;
+    }
+
+    body h4 {
+      margin: auto;
+      text-align: center;
+    }
+
+    .root-wrapper {
+      background: #50a3a2;
+      background: linear-gradient(to bottom right, #0000bf 0%, #50a3a2 100%);
+      position: absolute;
+      top: 0%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin-top: -1px;
+      overflow: hidden;
+    }
+
+    .root-wrapper.form-success .root-container h1 {
+      transform: translateY(85px);
+    }
+
+    .root-container h1 {
+      font-size: 40px;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-put;
+      font-weight: 200;
+    }
+
+    .g-aca-props-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .g-aca-props-container textarea {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 3px;
+      padding: 10px 15px;
+      margin: 0 auto 10px auto;
+      display: block;
+      font-size: 18px;
+      color: white;
+      transition-duration: 0.25s;
+      font-weight: 300;
+    }
+
+    .g-aca-props-container input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 100%;
+      border-radius: 3px;
+      padding: 10px 15px;
+      margin: 0 auto 10px auto;
+      display: block;
+      font-size: 18px;
+      color: white;
+      transition-duration: 0.25s;
+      font-weight: 300;
+    }
+
+    .g-aca-props-container button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 0;
+      padding: 10px 15px;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 18px;
+      transition-duration: 0.25s;
+      width: 100%;
+    }
+
+    .g-aca-props-container input:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .g-aca-props-container input:focus {
+      background-color: white;
+      color: #00598f;
+    }
+
+    .g-aca-props-container textarea:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .g-aca-props-container textarea:focus {
+      background-color: white;
+      color: #00598f;
+    }
+
+    .assistants-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .root-container button:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .bg-bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .profile-validation-message {
+      text-align: center;
+    }
+
+    .bg-bubbles li {
+      position: absolute;
+      list-style: none;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.15);
+      bottom: -160px;
+      -webkit-animation: square 25s infinite;
+      animation: square 25s infinite;
+      transition-timing-function: linear;
+    }
+
+    .bg-bubbles li:nth-child(1) {
+      left: 10%;
+    }
+
+    .bg-bubbles li:nth-child(2) {
+      left: 20%;
+      width: 80px;
+      height: 80px;
+      -webkit-animation-delay: 2s;
+      animation-delay: 2s;
+      -webkit-animation-duration: 17s;
+      animation-duration: 17s;
+    }
+
+    .bg-bubbles li:nth-child(3) {
+      left: 25%;
+      -webkit-animation-delay: 4s;
+      animation-delay: 4s;
+    }
+
+    .bg-bubbles li:nth-child(4) {
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation-duration: 22s;
+      animation-duration: 22s;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .bg-bubbles li:nth-child(5) {
+      left: 70%;
+    }
+
+    .bg-bubbles li:nth-child(6) {
+      left: 80%;
+      width: 120px;
+      height: 120px;
+      -webkit-animation-delay: 3s;
+      animation-delay: 3s;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .bg-bubbles li:nth-child(7) {
+      left: 32%;
+      width: 160px;
+      height: 160px;
+      -webkit-animation-delay: 7s;
+      animation-delay: 7s;
+    }
+
+    .bg-bubbles li:nth-child(8) {
+      left: 55%;
+      width: 20px;
+      height: 20px;
+      -webkit-animation-delay: 15s;
+      animation-delay: 15s;
+      -webkit-animation-duration: 40s;
+      animation-duration: 40s;
+    }
+
+    .bg-bubbles li:nth-child(9) {
+      left: 25%;
+      width: 10px;
+      height: 10px;
+      -webkit-animation-delay: 2s;
+      animation-delay: 2s;
+      -webkit-animation-duration: 40s;
+      animation-duration: 40s;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .bg-bubbles li:nth-child(10) {
+      left: 90%;
+      width: 160px;
+      height: 160px;
+      -webkit-animation-delay: 11s;
+      animation-delay: 11s;
+    }
+
+    @-webkit-keyframes square {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-1200px) rotate(600deg);
+      }
+    }
+
+    @keyframes square {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-1200px) rotate(600deg);
+      }
+    }
+
+  </style>
+  <!-- START - Widget Scripts -->
+
+  {{#if jsPathWidget}}
+  <script type="text/javascript" src="{{jsPathWidget}}"></script>
+  {{/if}}
+  {{#if jsPathWidgetMin}}
+  <script type="text/javascript" src="{{jsPathWidgetMin}}"></script>
+  {{/if}}
+  {{#if jsPathDefaultMin}}
+  <script type="text/javascript" src="{{jsPathDefaultMin}}"></script>
+  {{/if}}
+  {{#if jsPathWidgetButton}}
+  <script type="text/javascript" id="wbc-widget-button" src="{{jsPathWidgetButton}}"></script>
+  {{/if}}
+
+  <!-- END - Widget Scripts -->
+  <script>
+    const ASSISTANTS_CONTENT = {
+      "aca-playground": {
+        "root-wrapper": `linear-gradient(to bottom right,  #556B2F 0%, #483D8B 100%)`,
+      },
+      "sports-and-culture": {
+        "root-wrapper": `linear-gradient(to bottom right,  #0000bf 0%, #50a3a2 100%)`,
+      },
+      "housing": {
+        "root-wrapper": `linear-gradient(to bottom right,  #bd2719 0%, #50a3a2 100%)`,
+      },
+      "neuvola": {
+        "root-wrapper": `linear-gradient(to bottom right,  #50a3a2 0%, #556B2F 100%)`,
+      },
+    };
+    const QUERY = window.location.search;
+    const QUERY_PARAMS = new URLSearchParams(QUERY);
+
+    const QP_TENANT_ID = QUERY_PARAMS.get('tenantId');
+    const QP_ASSISTANT_ID = QUERY_PARAMS.get('assistantId');
+    const QP_ENGAGEMENT_ID = QUERY_PARAMS.get('engagementId');
+    const WINDOW_LANGUAGE = document.documentElement.lang;
+
+    const USER_PROFILE_MOCK_ENABLED = {{ userProfileMockEnabled }};
+
+    const ENGAGEMENTS = {{{ engagements }}};
+    const ENVIRONMENTS = {{{ environments }}};
+
+    console.log(`[ACA_DEMO_PAGE] PARAMS`, {
+      QP_TENANT_ID,
+      QP_ASSISTANT_ID,
+      QP_ENGAGEMENT_ID,
+      WINDOW_LANGUAGE,
+      USER_PROFILE_MOCK_ENABLED,
+      ENGAGEMENTS,
+      ENVIRONMENTS
+    });
+
+    var handleOpenChatApp = () => {
+      aiap.broadcastChatAppOpenEvent();
+    }
+
+    var isUserProfileMockEnabled = () => {
+      const RET_VAL = USER_PROFILE_MOCK_ENABLED;
+      return RET_VAL;
+    }
+
+    var executeAsyncHTTPGetMethod = (url, callback) => {
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.overrideMimeType("application/json");
+      httpRequest.onreadystatechange = () => {
+        let response = {
+          status: httpRequest.status,
+          text: httpRequest.response,
+          raw: httpRequest,
+        };
+        if (httpRequest.readyState === 4) {
+          callback(response);
+        }
+      }
+      httpRequest.open("GET", url, true); // true for asynchronous
+      httpRequest.timeout = 2000;
+      httpRequest.ontimeout = () => { console.log('[ACA_DEMO_PAGE] Timeout from user profile validation endpoint!'); }
+      httpRequest.send(null);
+    }
+
+    var getUserFromLocalStorage = () => {
+      let retVal;
+      try {
+        const USER_JSON_STRING = window.localStorage.getItem('user');
+        if (
+          USER_JSON_STRING
+        ) {
+          retVal = JSON.parse(USER_JSON_STRING);
+        }
+      } catch (error) {
+        console.log('[ACA_DEMO_PAGE] [ERROR] getUserFromLocalStorage', { error });
+      }
+      return retVal;
+    }
+
+    var setUserToPage = () => {
+      try {
+        const USER = getUserFromLocalStorage();
+        if (
+          USER
+        ) {
+          if (
+            USER.email
+          ) {
+            document.getElementById('userEmail').value = USER.email;
+          }
+          if (
+            USER.firstName
+          ) {
+            document.getElementById('userFirstName').value = USER.firstName;
+          }
+          if (
+            USER.lastName
+          ) {
+            document.getElementById('userLastName').value = USER.lastName;
+          }
+          if (
+            USER.contry &&
+            USER.contry.isoCode
+          ) {
+            document.getElementById('userCountryIsoCode').value = USER.contry.isoCode;
+          }
+        }
+      } catch (error) {
+        console.log('[ACA_DEMO_PAGE] [ERROR] setUserToPage', { error });
+      }
+    }
+
+    var setUserToLocalStorage = () => {
+      const USER = {};
+      let email = document.getElementById('userEmail').value;
+      let firstName = document.getElementById('userFirstName').value;
+      let lastName = document.getElementById('userLastName').value;
+      let countryIsoCode = document.getElementById('userCountryIsoCode').value;
+      if (
+        email &&
+        email.length > 0
+      ) {
+        USER.email = email;
+      }
+      if (
+        firstName &&
+        firstName.length > 0
+      ) {
+        USER.firstName = firstName;
+      }
+      if (
+        lastName &&
+        lastName.length > 0
+      ) {
+        USER.lastName = lastName;
+      }
+      if (
+        countryIsoCode &&
+        countryIsoCode.length > 0
+      ) {
+        USER.country = {
+          isoCode: countryIsoCode
+        }
+      }
+      USER.piConfirmation = {
+        confirmed: null,
+        timestamp: new Date().getTime()
+      }
+      window.localStorage.setItem('user', JSON.stringify(USER));
+    }
+    var setAccessTokenToPage = () => {
+      const ACCESS_TOKEN = window.localStorage.getItem('access_token');
+      if (
+        ACCESS_TOKEN
+      ) {
+        document.getElementById('userAccessToken').value = ACCESS_TOKEN;
+      }
+    }
+    var setAccessTokenToLocalStorage = () => {
+      let accessToken = document.getElementById('userAccessToken').value;
+      window.localStorage.setItem('access_token', accessToken);
+    }
+    var getMockFlagUserProfileFromLocalStorage = () => {
+      const MOCK_FLAG_USER_PROFILE_AS_STRING = window.localStorage.getItem('mockFlagUserProfile');
+      const RET_VAL = 'true' === MOCK_FLAG_USER_PROFILE_AS_STRING;
+      return RET_VAL;
+    }
+    var setMockFlagUserProfileToPage = () => {
+      const MOCK_FLAG_USER_PROFILE = getMockFlagUserProfileFromLocalStorage();
+      if (
+        MOCK_FLAG_USER_PROFILE
+      ) {
+        document.getElementById('mock-flag-user-profile').innerText = 'Disable';
+      } else {
+        document.getElementById('mock-flag-user-profile').innerText = 'Enable';
+      }
+    }
+
+    var setLanguagesContainer = () => {
+      const LANGUAGE_LIST = [
+        {
+          code: "ab",
+          name: "Abkhaz"
+        },
+        {
+          code: "aa",
+          name: "Afar"
+        },
+        {
+          code: "af",
+          name: "Afrikaans"
+        },
+        {
+          code: "ak",
+          name: "Akan"
+        },
+        {
+          code: "sq",
+          name: "Albanian"
+        },
+        {
+          code: "am",
+          name: "Amharic"
+        },
+        {
+          code: "ar",
+          name: "Arabic"
+        },
+        {
+          code: "an",
+          name: "Aragonese"
+        },
+        {
+          code: "hy",
+          name: "Armenian"
+        },
+        {
+          code: "as",
+          name: "Assamese"
+        },
+        {
+          code: "av",
+          name: "Avaric"
+        },
+        {
+          code: "ae",
+          name: "Avestan"
+        },
+        {
+          code: "ay",
+          name: "Aymara"
+        },
+        {
+          code: "az",
+          name: "Azerbaijani"
+        },
+        {
+          code: "bm",
+          name: "Bambara"
+        },
+        {
+          code: "ba",
+          name: "Bashkir"
+        },
+        {
+          code: "eu",
+          name: "Basque"
+        },
+        {
+          code: "be",
+          name: "Belarusian"
+        },
+        {
+          code: "bn",
+          name: "Bengali; Bangla"
+        },
+        {
+          code: "bh",
+          name: "Bihari"
+        },
+        {
+          code: "bi",
+          name: "Bislama"
+        },
+        {
+          code: "bs",
+          name: "Bosnian"
+        },
+        {
+          code: "br",
+          name: "Breton"
+        },
+        {
+          code: "bg",
+          name: "Bulgarian"
+        },
+        {
+          code: "my",
+          name: "Burmese"
+        },
+        {
+          code: "ca",
+          name: "Catalan; Valencian"
+        },
+        {
+          code: "ch",
+          name: "Chamorro"
+        },
+        {
+          code: "ce",
+          name: "Chechen"
+        },
+        {
+          code: "ny",
+          name: "Chichewa; Chewa; Nyanja"
+        },
+        {
+          code: "zh",
+          name: "Chinese"
+        },
+        {
+          code: "cv",
+          name: "Chuvash"
+        },
+        {
+          code: "kw",
+          name: "Cornish"
+        },
+        {
+          code: "co",
+          name: "Corsican"
+        },
+        {
+          code: "cr",
+          name: "Cree"
+        },
+        {
+          code: "hr",
+          name: "Croatian"
+        },
+        {
+          code: "cs",
+          name: "Czech"
+        },
+        {
+          code: "da",
+          name: "Danish"
+        },
+        {
+          code: "dv",
+          name: "Divehi; Dhivehi; Maldivian;"
+        },
+        {
+          code: "nl",
+          name: "Dutch"
+        },
+        {
+          code: "dz",
+          name: "Dzongkha"
+        },
+        {
+          code: "en",
+          name: "English"
+        },
+        {
+          code: "eo",
+          name: "Esperanto"
+        },
+        {
+          code: "et",
+          name: "Estonian"
+        },
+        {
+          code: "ee",
+          name: "Ewe"
+        },
+        {
+          code: "fo",
+          name: "Faroese"
+        },
+        {
+          code: "fj",
+          name: "Fijian"
+        },
+        {
+          code: "fi",
+          name: "Finnish"
+        },
+        {
+          code: "fr",
+          name: "French"
+        },
+        {
+          code: "fr-CA",
+          name: "French (Canada)"
+        },
+        {
+          code: "ff",
+          name: "Fula; Fulah; Pulaar; Pular"
+        },
+        {
+          code: "gl",
+          name: "Galician"
+        },
+        {
+          code: "ka",
+          name: "Georgian"
+        },
+        {
+          code: "de",
+          name: "German"
+        },
+        {
+          code: "el",
+          name: "Greek, Modern"
+        },
+        {
+          code: "gn",
+          name: "GuaranÃ­"
+        },
+        {
+          code: "gu",
+          name: "Gujarati"
+        },
+        {
+          code: "ht",
+          name: "Haitian; Haitian Creole"
+        },
+        {
+          code: "ha",
+          name: "Hausa"
+        },
+        {
+          code: "he",
+          name: "Hebrew (modern)"
+        },
+        {
+          code: "hz",
+          name: "Herero"
+        },
+        {
+          code: "hi",
+          name: "Hindi"
+        },
+        {
+          code: "ho",
+          name: "Hiri Motu"
+        },
+        {
+          code: "hu",
+          name: "Hungarian"
+        },
+        {
+          code: "ia",
+          name: "Interlingua"
+        },
+        {
+          code: "id",
+          name: "Indonesian"
+        },
+        {
+          code: "ie",
+          name: "Interlingue"
+        },
+        {
+          code: "ga",
+          name: "Irish"
+        },
+        {
+          code: "ig",
+          name: "Igbo"
+        },
+        {
+          code: "ik",
+          name: "Inupiaq"
+        },
+        {
+          code: "io",
+          name: "Ido"
+        },
+        {
+          code: "is",
+          name: "Icelandic"
+        },
+        {
+          code: "it",
+          name: "Italian"
+        },
+        {
+          code: "iu",
+          name: "Inuktitut"
+        },
+        {
+          code: "ja",
+          name: "Japanese"
+        },
+        {
+          code: "jv",
+          name: "Javanese"
+        },
+        {
+          code: "kl",
+          name: "Kalaallisut, Greenlandic"
+        },
+        {
+          code: "kn",
+          name: "Kannada"
+        },
+        {
+          code: "kr",
+          name: "Kanuri"
+        },
+        {
+          code: "ks",
+          name: "Kashmiri"
+        },
+        {
+          code: "kk",
+          name: "Kazakh"
+        },
+        {
+          code: "km",
+          name: "Khmer"
+        },
+        {
+          code: "ki",
+          name: "Kikuyu, Gikuyu"
+        },
+        {
+          code: "rw",
+          name: "Kinyarwanda"
+        },
+        {
+          code: "ky",
+          name: "Kyrgyz"
+        },
+        {
+          code: "kv",
+          name: "Komi"
+        },
+        {
+          code: "kg",
+          name: "Kongo"
+        },
+        {
+          code: "ko",
+          name: "Korean"
+        },
+        {
+          code: "ku",
+          name: "Kurdish"
+        },
+        {
+          code: "kj",
+          name: "Kwanyama, Kuanyama"
+        },
+        {
+          code: "la",
+          name: "Latin"
+        },
+        {
+          code: "lb",
+          name: "Luxembourgish, Letzeburgesch"
+        },
+        {
+          code: "lg",
+          name: "Ganda"
+        },
+        {
+          code: "li",
+          name: "Limburgish, Limburgan, Limburger"
+        },
+        {
+          code: "ln",
+          name: "Lingala"
+        },
+        {
+          code: "lo",
+          name: "Lao"
+        },
+        {
+          code: "lt",
+          name: "Lithuanian"
+        },
+        {
+          code: "lu",
+          name: "Luba-Katanga"
+        },
+        {
+          code: "lv",
+          name: "Latvian"
+        },
+        {
+          code: "gv",
+          name: "Manx"
+        },
+        {
+          code: "mk",
+          name: "Macedonian"
+        },
+        {
+          code: "mg",
+          name: "Malagasy"
+        },
+        {
+          code: "ms",
+          name: "Malay"
+        },
+        {
+          code: "ml",
+          name: "Malayalam"
+        },
+        {
+          code: "mt",
+          name: "Maltese"
+        },
+        {
+          code: "mi",
+          name: "MÄori"
+        },
+        {
+          code: "mr",
+          name: "Marathi (MarÄá¹­hÄ«)"
+        },
+        {
+          code: "mh",
+          name: "Marshallese"
+        },
+        {
+          code: "mn",
+          name: "Mongolian"
+        },
+        {
+          code: "na",
+          name: "Nauru"
+        },
+        {
+          code: "nv",
+          name: "Navajo, Navaho"
+        },
+        {
+          code: "nb",
+          name: "Norwegian BokmÃ¥l"
+        },
+        {
+          code: "nd",
+          name: "North Ndebele"
+        },
+        {
+          code: "ne",
+          name: "Nepali"
+        },
+        {
+          code: "ng",
+          name: "Ndonga"
+        },
+        {
+          code: "nn",
+          name: "Norwegian Nynorsk"
+        },
+        {
+          code: "no",
+          name: "Norwegian"
+        },
+        {
+          code: "ii",
+          name: "Nuosu"
+        },
+        {
+          code: "nr",
+          name: "South Ndebele"
+        },
+        {
+          code: "oc",
+          name: "Occitan"
+        },
+        {
+          code: "oj",
+          name: "Ojibwe, Ojibwa"
+        },
+        {
+          code: "cu",
+          name: "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic"
+        },
+        {
+          code: "om",
+          name: "Oromo"
+        },
+        {
+          code: "or",
+          name: "Oriya"
+        },
+        {
+          code: "os",
+          name: "Ossetian, Ossetic"
+        },
+        {
+          code: "pa",
+          name: "Panjabi, Punjabi"
+        },
+        {
+          code: "pi",
+          name: "PÄli"
+        },
+        {
+          code: "fa",
+          name: "Persian (Farsi)"
+        },
+        {
+          code: "pl",
+          name: "Polish"
+        },
+        {
+          code: "ps",
+          name: "Pashto, Pushto"
+        },
+        {
+          code: "pt",
+          name: "Portuguese"
+        },
+        {
+          code: "qu",
+          name: "Quechua"
+        },
+        {
+          code: "rm",
+          name: "Romansh"
+        },
+        {
+          code: "rn",
+          name: "Kirundi"
+        },
+        {
+          code: "ro",
+          name: "Romanian, [])"
+        },
+        {
+          code: "ru",
+          name: "Russian"
+        },
+        {
+          code: "sa",
+          name: "Sanskrit (Saá¹ská¹›ta)"
+        },
+        {
+          code: "sc",
+          name: "Sardinian"
+        },
+        {
+          code: "sd",
+          name: "Sindhi"
+        },
+        {
+          code: "se",
+          name: "Northern Sami"
+        },
+        {
+          code: "sm",
+          name: "Samoan"
+        },
+        {
+          code: "sg",
+          name: "Sango"
+        },
+        {
+          code: "sr",
+          name: "Serbian"
+        },
+        {
+          code: "gd",
+          name: "Scottish Gaelic; Gaelic"
+        },
+        {
+          code: "sn",
+          name: "Shona"
+        },
+        {
+          code: "si",
+          name: "Sinhala, Sinhalese"
+        },
+        {
+          code: "sk",
+          name: "Slovak"
+        },
+        {
+          code: "sl",
+          name: "Slovene"
+        },
+        {
+          code: "so",
+          name: "Somali"
+        },
+        {
+          code: "st",
+          name: "Southern Sotho"
+        },
+        {
+          code: "es",
+          name: "Spanish; Castilian"
+        },
+        {
+          code: "su",
+          name: "Sundanese"
+        },
+        {
+          code: "sw",
+          name: "Swahili"
+        },
+        {
+          code: "ss",
+          name: "Swati"
+        },
+        {
+          code: "sv",
+          name: "Swedish"
+        },
+        {
+          code: "ta",
+          name: "Tamil"
+        },
+        {
+          code: "te",
+          name: "Telugu"
+        },
+        {
+          code: "tg",
+          name: "Tajik"
+        },
+        {
+          code: "th",
+          name: "Thai"
+        },
+        {
+          code: "ti",
+          name: "Tigrinya"
+        },
+        {
+          code: "bo",
+          name: "Tibetan Standard, Tibetan, Central"
+        },
+        {
+          code: "tk",
+          name: "Turkmen"
+        },
+        {
+          code: "tl",
+          name: "Tagalog"
+        },
+        {
+          code: "tn",
+          name: "Tswana"
+        },
+        {
+          code: "to",
+          name: "Tonga (Tonga Islands)"
+        },
+        {
+          code: "tr",
+          name: "Turkish"
+        },
+        {
+          code: "ts",
+          name: "Tsonga"
+        },
+        {
+          code: "tt",
+          name: "Tatar"
+        },
+        {
+          code: "tw",
+          name: "Twi"
+        },
+        {
+          code: "ty",
+          name: "Tahitian"
+        },
+        {
+          code: "ug",
+          name: "Uyghur, Uighur"
+        },
+        {
+          code: "uk",
+          name: "Ukrainian"
+        },
+        {
+          code: "ur",
+          name: "Urdu"
+        },
+        {
+          code: "uz",
+          name: "Uzbek"
+        },
+        {
+          code: "ve",
+          name: "Venda"
+        },
+        {
+          code: "vi",
+          name: "Vietnamese"
+        },
+        {
+          code: "vo",
+          name: "VolapÃ¼k"
+        },
+        {
+          code: "wa",
+          name: "Walloon"
+        },
+        {
+          code: "cy",
+          name: "Welsh"
+        },
+        {
+          code: "wo",
+          name: "Wolof"
+        },
+        {
+          code: "fy",
+          name: "Western Frisian"
+        },
+        {
+          code: "xh",
+          name: "Xhosa"
+        },
+        {
+          code: "yi",
+          name: "Yiddish"
+        },
+        {
+          code: "yo",
+          name: "Yoruba"
+        },
+        {
+          code: "za",
+          name: "Zhuang, Chuang"
+        },
+        {
+          code: "zu",
+          name: "Zulu"
+        }
+      ];
+      let EL_LANGS_CONTAINER = document.getElementById('languages-container');
+      console.log('[ACA_DEMO_PAGE] setLanguagesContainer', { EL_LANGS_CONTAINER });
+      for (let lang of LANGUAGE_LIST) {
+        let langButton = "";
+        if (
+          lang?.code === WINDOW_LANGUAGE
+        ) {
+          langButton = "<button style=\"margin-bottom: 10px; display: inline;\" onclick='switchLanguage(\"";
+        } else {
+          langButton = "<button style=\"margin-bottom: 10px; display: none;\" onclick='switchLanguage(\"";
+        }
+        langButton = langButton
+          + ""
+          + lang?.code
+          + "\")'>"
+          + lang?.name
+          + "</button>";
+        EL_LANGS_CONTAINER.innerHTML = EL_LANGS_CONTAINER.innerHTML + langButton;
+      }
+    }
+
+    var setEngagementsContainer = () => {
+      let ENGAGEMENTS_CONTAINER = document.getElementById('engagements-container');
+      console.log('[ACA_DEMO_PAGE] setEngagementsContainer', { ENGAGEMENTS_CONTAINER, ENGAGEMENTS, QP_TENANT_ID });
+      for (let engagement of ENGAGEMENTS) {
+        let engagementButton = "";
+        if (
+          QP_TENANT_ID &&
+          QP_TENANT_ID.toLowerCase().includes(engagement?.tenant?.environment?.id.toLowerCase())
+        ) {
+          engagementButton = "<button style=\"margin-bottom: 2px; display: inline;\" onclick='goToEngagement(";
+        } else {
+          engagementButton = "<button style=\"margin-bottom: 2px; display: none;\" onclick='goToEngagement(";
+        }
+        engagementButton = engagementButton
+          + ""
+          + engagement?.serialized
+          + ")'>"
+          + "<div>Tenant: " + engagement?.tenant?.id + "</div>"
+          + "<div>Tenant environment: " + engagement?.tenant?.environment?.id + "</div>"
+          + "<div>Assistant: " + engagement?.assistant?.id + "</div>"
+          + "<div>Engagement: " + engagement?.id + "</div>"
+          + "</button>";
+        ENGAGEMENTS_CONTAINER.innerHTML = ENGAGEMENTS_CONTAINER.innerHTML + engagementButton;
+      }
+    }
+
+    var setEnvironmentsContainer = () => {
+      let ENVIRONMENTS_CONTAINER = document.getElementById('environments-container');
+      console.log('[ACA_DEMO_PAGE] setEngagementsContainer', { ENVIRONMENTS_CONTAINER, ENVIRONMENTS });
+      for (let env of ENVIRONMENTS) {
+        let envButton = "<button style=\"margin-bottom: 10px;\" value=\""
+          + env
+          + "\" onclick=\"handleEngagementsEnvironmentChange(event)\">"
+          + env
+          + "</button>";
+        ENVIRONMENTS_CONTAINER.innerHTML = ENVIRONMENTS_CONTAINER.innerHTML + envButton;
+      }
+    }
+
+    var setUserProfileMockContainers = () => {
+      if (!USER_PROFILE_MOCK_ENABLED) {
+        document.getElementById('mock-flag-user-profile').disabled = true;
+        document.getElementById('mock-flag-user-profile').innerText = '[DISABLED BY CONFIGURATION]';
+      } else {
+        setMockFlagUserProfileToPage();
+      }
+    }
+
+    var loadUserProfile = () => {
+      if (!USER_PROFILE_MOCK_ENABLED) {
+        console.log('[ACA_DEMO_PAGE] User profile mock disabled by configuration', { USER_PROFILE_MOCK_ENABLED });
+        return;
+      }
+      const USER = getUserFromLocalStorage();
+      const MOCK_FLAG_USER_PROFILE = getMockFlagUserProfileFromLocalStorage();
+      if (
+        USER &&
+        USER.email &&
+        MOCK_FLAG_USER_PROFILE
+      ) {
+        const SANITIZED_EMAIL = USER.email.trim();
+        const URL = `https://w3-unifiedprofile-api.dal1a.cirrus.ibm.com/v3/profiles/${SANITIZED_EMAIL}/profile`;
+        const CALLBACK = (response) => {
+          if (
+            response.status !== 200
+          ) {
+            document.getElementById('profile-validation-message').style.display = 'block';
+            document.getElementById('profile-validation-message').style.border = '1px solid rgba(231, 7, 7, 0.4)';
+            document.getElementById('profile-validation-message').innerText = 'INVALID';
+          } else {
+            let userProfile;
+            let profileData;
+            try {
+              profileData = JSON.parse(response.text);
+              if (
+                profileData
+              ) {
+                userProfile = profileData;
+                console.log('[ACA_DEMO_PAGE] Loaded user profile!', { profileData });
+                window.localStorage.setItem('userProfile', JSON.stringify(userProfile));
+              }
+
+            } catch (error) {
+              console.log('[ACA_DEMO_PAGE] [ACA_ERROR] Unable serialize user-profile!', { error });
+            }
+            document.getElementById('profile-validation-message').style.display = 'block';
+            document.getElementById('profile-validation-message').style.border = 'none';
+            document.getElementById('profile-validation-message').innerText = 'VERIFIED';
+          }
+        }
+        executeAsyncHTTPGetMethod(URL, CALLBACK);
+      }
+    }
+    var handleMockFlagUserProfileClick = () => {
+      const MOCK_FLAG_USER_PROFILE = getMockFlagUserProfileFromLocalStorage();
+      if (
+        MOCK_FLAG_USER_PROFILE
+      ) {
+        window.localStorage.removeItem('userProfile');
+        window.localStorage.setItem('mockFlagUserProfile', 'false');
+      } else {
+        window.localStorage.setItem('mockFlagUserProfile', 'true');
+        loadUserProfile();
+      }
+      setUserProfileMockContainers();
+    }
+    var onInputChange = (validate) => {
+      window.localStorage.removeItem('user');
+      document.getElementById('profile-validation-message').style.display = 'none';
+      document.getElementById('profile-validation-message').innerText = '';
+      try {
+        setUserToLocalStorage();
+        setAccessTokenToLocalStorage();
+        if (
+          validate
+        ) {
+          loadUserProfile();
+        }
+      } catch (error) {
+        console.log('[ACA_DEMO_PAGE] [ERROR] Unable update user in local storage!', { error });
+      }
+    }
+    var onLanguageSearchInputChange = (event) => {
+      const EVENT_VALUE = event?.srcElement?.value;
+      const EL_LANGUAGES_CONTAINER = document.getElementById('languages-container');
+      const EL_LANGUAGES_CONTAINER_OPTS = EL_LANGUAGES_CONTAINER?.children;
+      if (
+        EL_LANGUAGES_CONTAINER_OPTS &&
+        EL_LANGUAGES_CONTAINER_OPTS.length > 0
+      ) {
+        for (let option of EL_LANGUAGES_CONTAINER_OPTS) {
+          let optionInnerText = option?.innerText;
+          console.log('[DEBUG]', { EVENT_VALUE, optionInnerText, option_style: option.style });
+          if (
+            EVENT_VALUE &&
+            optionInnerText &&
+            optionInnerText.toLowerCase().includes(EVENT_VALUE.toLowerCase())
+          ) {
+            option.style.display = 'inline';
+          } else {
+            option.style.display = 'none';
+          }
+        }
+      }
+    }
+
+    const handleEngagementsEnvironmentChange = (event) => {
+      const EVENT_VALUE = event?.srcElement?.value;
+      const EL_ENGAGEMENTS_CONTAINER = document.getElementById('engagements-container');
+      const EL_ENGAGEMENTS_CONTAINER_OPTS = EL_ENGAGEMENTS_CONTAINER?.children;
+      if (
+        EL_ENGAGEMENTS_CONTAINER_OPTS &&
+        EL_ENGAGEMENTS_CONTAINER_OPTS.length > 0
+      ) {
+        for (let option of EL_ENGAGEMENTS_CONTAINER_OPTS) {
+          let optionInnerText = option?.innerText;
+          console.log('[DEBUG] handleEngagementsEnvironmentChange', { EVENT_VALUE, optionInnerText });
+          if (
+            EVENT_VALUE &&
+            optionInnerText &&
+            optionInnerText.includes("Tenant environment: " + EVENT_VALUE)
+          ) {
+            option.style.display = 'inline';
+          } else {
+            option.style.display = 'none';
+          }
+        }
+      }
+    }
+
+    setTimeout(() => {
+      if (
+        ASSISTANTS_CONTENT[QP_ASSISTANT_ID] &&
+        ASSISTANTS_CONTENT[QP_ASSISTANT_ID]['root-wrapper']
+      ) {
+        document.getElementById('root-wrapper').style.background = ASSISTANTS_CONTENT[QP_ASSISTANT_ID]['root-wrapper'];
+      }
+      setLanguagesContainer();
+      setEnvironmentsContainer();
+      setEngagementsContainer();
+      setUserToPage();
+      setAccessTokenToPage();
+      setUserProfileMockContainers();
+      loadUserProfile();
+    }, 100);
+
+    const goToEngagement = (engagement) => {
+      const WINDOW_LOCATION = window.location;
+      const WINDOW_LOCATION_SEARCH = WINDOW_LOCATION.search;
+      const WINDOW_LOCATION_ORIGIN = WINDOW_LOCATION.origin;
+      const WINDOW_LOCATION_PATHNAME = WINDOW_LOCATION.pathname;
+
+      const URL_SEARCH_PARAMS = new URLSearchParams(QUERY);
+      const URL_SEARCH_PARAMS_LANGUAGE = QUERY_PARAMS.get('language');
+
+      const ENGAGEMENT_ID = engagement.id;
+      const ENGAGEMENT_TENANT_ID = engagement.tenant.id;
+      const ENGAGEMENT_ASSISTANT_ID = engagement.assistant.id;
+
+      const GO_TO_URL = `${WINDOW_LOCATION_ORIGIN}${WINDOW_LOCATION_PATHNAME}?` +
+        `tenantId=${ENGAGEMENT_TENANT_ID}&` +
+        `assistantId=${ENGAGEMENT_ASSISTANT_ID}&` +
+        `engagementId=${ENGAGEMENT_ID}&` +
+        `language=${URL_SEARCH_PARAMS_LANGUAGE ? URL_SEARCH_PARAMS_LANGUAGE : 'fi'}`;
+
+      console.log('[ACA_DEMO_PAGE] goToEngagement', { GO_TO_URL, engagement });
+      window.location.replace(GO_TO_URL);
+    }
+
+    const switchLanguage = (language) => {
+      const WINDOW_LOCATION = window.location;
+      const WINDOW_LOCATION_SEARCH = WINDOW_LOCATION.search;
+      const WINDOW_LOCATION_ORIGIN = WINDOW_LOCATION.origin;
+      const WINDOW_LOCATION_PATHNAME = WINDOW_LOCATION.pathname;
+
+      const URL_SEARCH_PARAMS = new URLSearchParams(QUERY);
+      const URL_SEARCH_PARAMS_TENANT_ID = QUERY_PARAMS.get('tenantId');
+      const URL_SEARCH_PARAMS_ASSISTANT_ID = QUERY_PARAMS.get('assistantId');
+      const URL_SEARCH_PARAMS_ENGAGEMENT_ID = QUERY_PARAMS.get('engagementId');
+
+      const GO_TO_URL = `${WINDOW_LOCATION_ORIGIN}${WINDOW_LOCATION_PATHNAME}?` +
+        `tenantId=${URL_SEARCH_PARAMS_TENANT_ID}&` +
+        `assistantId=${URL_SEARCH_PARAMS_ASSISTANT_ID}&` +
+        `engagementId=${URL_SEARCH_PARAMS_ENGAGEMENT_ID}&` +
+        `language=${language}`;
+
+      console.log('[ACA_DEMO_PAGE] switchLanguage', { GO_TO_URL, language });
+      window.location.replace(GO_TO_URL);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root-wrapper" class="root-wrapper">
+    <div class="root-container">
+      <div class="container">
+        <div class="row">
+          <div col="col-12" style="margin: auto;">
+            <h2>AI-ASSISTANCE-PLATFORM</h2>
+            <h4><i>[BUILD_TIMESTAMP:{{acaAppBuildTimestamp}}]</i></h4>
+            <div class="row">&nbsp;</div>
+            <h4>Current selection: [language: {{language}}] [tenant: {{tenantId}}] [assistant: {{assistantId}}]
+              [engagement: {{engagementId}}]</h4>
+          </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+          <div class="col-4 g-aca-props-container">
+            <div class="card" style="background-color: transparent; max-height: 13vh; min-height: 13vh;">
+              <div class="card-body">
+                <h4 class="card-title">Open Chat App</h4>
+                <button id="open-chat-app" onclick='handleOpenChatApp()'>Open</button>
+              </div>
+            </div>
+            <div class="card" style="background-color: transparent; max-height: 13vh; min-height: 13vh;">
+              <div class="card-body">
+                <h4 class="card-title">User Profile Mock</h4>
+                <button id="mock-flag-user-profile" onclick='handleMockFlagUserProfileClick()'>...</button>
+              </div>
+            </div>
+            <div class="card" style="background-color: transparent; max-height: 54vh; min-height: 54vh;">
+              <div class="card-body">
+                <h4 class="card-title">User</h4>
+                <div id="profile-validation-message" class="profile-validation-message">...</div>
+                <input id="userEmail" type="text" placeholder="Email" onchange="onInputChange(true)">
+                <input id="userFirstName" type="text" placeholder="First name" onchange="onInputChange(false)">
+                <input id="userLastName" type="text" placeholder="Last name" onchange="onInputChange(false)">
+                <input id="userCountryIsoCode" type="text" placeholder="Country ISO Code"
+                  onchange="onInputChange(false)">
+                <textarea id="userAccessToken" name="accessToken" rows="5" placeholder="Access token"
+                  onchange="onInputChange(false)"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 g-aca-props-container">
+            <div class="card" style="background-color: transparent; max-height: 40vh; min-height: 40vh;">
+              <div class="card-body">
+                <h4 class="card-title">Tenant environment</h4>
+                <div id="environments-container">
+                </div>
+              </div>
+            </div>
+            <div class="card" style="background-color: transparent; max-height: 40vh; min-height: 40vh;">
+              <div class="card-body">
+                <h4 class="card-title">Language</h4>
+                <input id="languageSearch" type="text" placeholder="Search..." autocomplete="off"
+                  onchange="onLanguageSearchInputChange(event, this)">
+                <div id="languages-container"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 g-aca-props-container">
+            <div class="card overflow-auto"
+              style="background-color: transparent; max-height: 80vh; min-height: 80vh; overflow: scroll;">
+              <div class="card-body">
+                <h4 class="card-title">Engagement</h4>
+                <div id="engagements-container">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+  </div>
+</body>
+
+</html>

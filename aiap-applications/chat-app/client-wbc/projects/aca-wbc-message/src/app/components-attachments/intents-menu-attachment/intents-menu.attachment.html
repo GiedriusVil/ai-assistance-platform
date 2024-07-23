@@ -1,0 +1,26 @@
+<div class="message--buttons message--content w-100">
+  <div class="d-flex flex-column w-100">
+    <div class="nav">
+      <button *ngFor="let tab of tabs"
+        [ngClass]="getTabClass(tab)"
+        title={{tab.title}}
+        name={{tab.name}}
+        id={{tab.name}}
+        (click)="onTabClick($event)">
+        {{tab.title}}
+      </button>
+    </div>
+    <div *ngIf="activeTab.title" class="tab-content">
+      <div class="tab-pane fade show active">
+        <div *ngFor="let button of message?.attachment?.attachments[activeTab.name]">
+          <button
+            class="intents-btns"
+            (click)="onButtonClick(button.title)"
+            [disabled]="button.disabled">
+            {{button.title}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

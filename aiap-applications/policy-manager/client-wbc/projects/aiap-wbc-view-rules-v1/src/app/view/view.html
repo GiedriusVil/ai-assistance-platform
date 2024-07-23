@@ -1,0 +1,66 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div ibmGrid class="page-filters">
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 2, 'sm': 1}">
+          <ibm-dropdown 
+            type="multi" 
+            [label]="'view_rules_v1.view.buyer_filter_label' | translate"
+            [placeholder]="'view_rules_v1.view.buyer_filter_placeholder' | translate"
+            [size]="'sm'"
+            [(ngModel)]="state.buyersSelected" 
+            (selected)="handleBuyerSelectionEvent($event)">
+            <ibm-dropdown-list 
+              [items]="state.buyers">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div ibmCol [columnNumbers]="{'md': 2, 'sm': 1}">
+          <ibm-dropdown 
+            [label]="'view_rules_v1.view.status_filter_label' | translate"
+            [placeholder]="'view_rules_v1.view.status_filter_placeholder' | translate"
+            [size]="'sm'"
+            [(ngModel)]="state.statusSelected" 
+            (selected)="handleStatusSelectionEvent($event)">
+            <ibm-dropdown-list 
+              [items]="state.status">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div ibmCol 
+          [columnNumbers]="{'xlg': 2, 'lg': 2, 'md': 2, 'sm': 2}"
+          class="toggle-filter-wrapper">
+          <ibm-toggle 
+            [label]="'view_rules_v1.view.label.show_with_warning' | translate"
+            class="checkbox-margin" 
+            [size]="'sm'"
+            [checked]="state.warning" 
+            [onText]="''"
+            [offText]="''"
+            (change)="handleWarningFilterCheck($event)"></ibm-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-rules-table-v1
+      (onShowSavePlace)="handleShowRuleModal($event)" 
+      (onShowPullPlace)="handleShowPullModal($event)"
+      (onClearPlace)="handleSearchClearEvent($event)" 
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onShowExportPlace)="handleShowExportModal($event)" 
+      (onShowRemovePlace)="handleShowRuleDeleteModal($event)"
+      (onShowEnablePlace)="handleShowRuleEnableModal($event)">
+    </aiap-rules-table-v1>
+  </div>
+</div>
+
+<aiap-rule-save-modal-v1 #ruleSaveModal></aiap-rule-save-modal-v1>
+<aiap-rule-delete-modal-v1 #ruleDeleteModal></aiap-rule-delete-modal-v1>
+<aiap-rule-enable-modal-v1 #ruleEnableModal></aiap-rule-enable-modal-v1>
+<aiap-rules-pull-modal-v1 #rulesPullModal></aiap-rules-pull-modal-v1>
+<aiap-rules-export-modal-v1 #rulesExportModal></aiap-rules-export-modal-v1>

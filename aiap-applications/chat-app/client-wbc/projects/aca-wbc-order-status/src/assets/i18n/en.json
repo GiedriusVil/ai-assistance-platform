@@ -1,0 +1,10 @@
+{
+  "title": "Order status",
+  "pr-number": "PR Number",
+  "pr-number-description": "If you place your Purchase Requisition number here and will receive the current status of it.",
+  "po-number": "PO Number",
+  "po-number-description": "Place your Purchase Order number here to find out its status and delivery info.",
+  "invoice-number": "Invoice Number",
+  "invoice-number-description": "Place your invoice number here and you will receive invoicing and payment status.",
+  "send": "Send"
+}

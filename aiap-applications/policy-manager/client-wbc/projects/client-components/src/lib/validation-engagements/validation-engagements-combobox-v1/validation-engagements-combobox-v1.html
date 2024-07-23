@@ -1,0 +1,14 @@
+<ibm-combo-box
+  id="validation-engagements-combobox-v1"
+  name="validation-engagements-combobox-v1"
+  [size]="state.size" 
+  [type]="state.selectionType"
+  [label]="label" 
+  [autocomplete]="'none'"
+  [items]="state.selections"
+  [(ngModel)]="state.selected"
+  (selected)="handleSelectedEvent($event)"
+  (submit)="handleSubmitEvent($event)"
+  (close)="handleCloseEvent($event)">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

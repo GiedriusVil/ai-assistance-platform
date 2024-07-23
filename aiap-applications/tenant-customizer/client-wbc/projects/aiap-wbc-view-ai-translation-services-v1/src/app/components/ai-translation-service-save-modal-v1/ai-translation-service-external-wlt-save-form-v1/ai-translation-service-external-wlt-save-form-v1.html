@@ -1,0 +1,102 @@
+<div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 4, 'sm': 2}">
+          <aiap-field-input-v1
+            [name]="'ai_translation_service_external_url'"
+            [label]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_url.label' | translate"
+            [labelHelp]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_url.labelHelp' | translate"
+            [(value)]="value.url"
+            [skeleton]="state.isLoading"
+            [isDisabled]="false"
+            [isRequired]="true">
+          </aiap-field-input-v1>
+      </div>
+    </div>
+
+    <div ibmRow [rightGutter]="_grid.rightGutter" [leftGutter]="_grid.leftGutter">&nbsp;</div>
+
+    <div ibmRow [rightGutter]="_grid.rightGutter" [leftGutter]="_grid.leftGutter">
+        <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6,  'md': 4, 'sm': 2}">
+          <aiap-field-dropdown-v1
+            [type]="'single'"
+            [size]="'lg'"
+            [name]="'ai_translation_service_external_auth_type'"
+            [label]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_authType.label' | translate"
+            [placeholder]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_authType.placeholder' | translate"
+            [items]="state.selections?.authTypes"
+            [skeleton]="state.isLoading"
+            (onSelected)="handleAuthTypeSelectedEvent($event)"
+            [(value)]="state.selections.authType"
+            [isRequired]="true">
+          </aiap-field-dropdown-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6,  'md': 4, 'sm': 2}">
+            <aiap-field-input-v1
+              [name]="'ai_translation_service_external_version'"
+              [label]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_version.label' | translate"
+              [labelHelp]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_version.labelHelp' | translate"
+              [plaholder]="'YYYY-MM-DD'"
+              [(value)]="value.version"
+              [skeleton]="state.isLoading"
+              [isDisabled]="false"
+              [isRequired]="true">
+            </aiap-field-input-v1>
+        </div>
+    </div>
+
+    <div ibmRow [rightGutter]="_grid.rightGutter" [leftGutter]="_grid.leftGutter">&nbsp;</div>
+
+    <div ibmRow [rightGutter]="_grid.rightGutter" [leftGutter]="_grid.leftGutter">
+        <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+            <aiap-field-input-v1
+              [name]="'ai_translation_service_external_username'"
+              [label]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_username.label' | translate"
+              [labelHelp]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_username.labelHelp' | translate"
+              [plaholder]="'ai_translation_services_v1.external_wlt_save_modal_v1.fld_username.placeholder' | translate"
+              [(value)]="value.username"
+              [skeleton]="state.isLoading"
+              [isDisabled]="isUsernameFieldDisabled()"
+              [isRequired]="true">
+            </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+            <ibm-label>{{ 'ai_translation_services_v1.external_wlt_save_modal_v1.fld_password.label' | translate }}
+                <div class="password-field-container">
+                    <input 
+                        ibmText
+                        data-toggle-password-visibility
+                        required 
+                        class="bx--password-input" 
+                        name="ai_translation_service_external_password" 
+                        placeholder="{{ 'ai_translation_services_v1.external_wlt_save_modal_v1.fld_password.placeholder' | translate }}"
+                        type="{{state.selections.isPasswordShown? 'text': 'password'}}" 
+                        [skeleton]="state.isLoading"
+                        [autocomplete]="'off'"
+                        [disabled]="isPasswordFieldDisabled()" 
+                        [(ngModel)]="value.password" />
+                    <button
+                        class="password-reveal-button"
+                        ibmButton="ghost" 
+                        [size]="'sm'"
+                        [iconOnly]="true" 
+                        (click)="handleShowApiKeyClickEvent($event)">
+                        <ng-container *ngIf="state.selections.isPasswordShown; else showPasswordIcon">
+                            <aiap-icon-svg-v1
+                              class="bx--btn__icon"
+                              [src]="'assets/carbon-icons/16/toggle/view--off.svg'">
+                            </aiap-icon-svg-v1>
+                            <span class="bx--assistive-text">{{ 'ai_translation_services_v1.external_wlt_save_modal_v1.show_password.label' | translate }}</span>
+                        </ng-container>
+                        <ng-template #showPasswordIcon>
+                            <aiap-icon-svg-v1
+                              class="bx--btn__icon"
+                              [src]="'assets/carbon-icons/16/toggle/view.svg'">
+                            </aiap-icon-svg-v1>
+                            <span class="bx--assistive-text">{{ 'ai_translation_services_v1.external_wlt_save_modal_v1.hide_password.label' | translate }}</span>
+                        </ng-template>
+                    </button>
+                </div>
+            </ibm-label>
+        </div>
+    </div>
+</div>

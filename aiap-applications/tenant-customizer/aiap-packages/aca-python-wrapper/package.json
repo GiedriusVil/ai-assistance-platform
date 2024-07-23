@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aca/aca-python-wrapper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "martynas.p",
+  "license": "ISC",
+  "dependencies": {}
+}

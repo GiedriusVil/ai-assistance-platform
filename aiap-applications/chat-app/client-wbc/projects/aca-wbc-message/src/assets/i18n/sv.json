@@ -1,0 +1,13 @@
+{
+  "feedback.icon-negative-alt": "Negativ feedback",
+  "feedback.icon-negative-selected-alt": "Negativ feedback skickad",
+  "feedback.icon-negative-selected-title": "Negativ feedback skickad",
+  "feedback.icon-negative-title": "Negativ feedback",
+  "feedback.icon-positive-alt": "Positiv feedback",
+  "feedback.icon-positive-selected-alt": "Positiv feedback skickad",
+  "feedback.icon-positive-selected-title": "Positiv feedback skickad",
+  "feedback.icon-positive-title": "Positiv feedback",
+  "wds.modal-article": "Hela artikeln:",
+  "wds.modal-document": "Dokument:",
+  "wds.modal-button-close": "Stäng"
+}

@@ -1,0 +1,106 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.query'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_query.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_query.tooltip' | translate"
+      [type]="'primary'"
+      (onClick)="emitQueryManyPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+     *isActionAllowed="{action:'ai-search-and-analysis-collections.view.sync'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_synchronize.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_synchronize.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/operations/repeat.svg'"
+      (onClick)="synchronizeManyByQuery()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.add'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_add.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.import'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_import.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.export'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_export.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.delete'}"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_remove.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_remove.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [type]="'primary'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowRowClickPlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #createdTemplate 
+    let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+
+  <ng-template 
+    #updatedTemplate 
+    let-data="data">
+    <aiap-table-cell-updated-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-updated-v1>
+  </ng-template>
+
+  <ng-template 
+    #overflowActionsTemplate 
+    let-data="data">
+    <aiap-button-v1
+      *isActionAllowed="{action:'ai-search-and-analysis-collections.view.edit'}"
+      class="bx--overflow-menu center-horizontal"
+      [text]="'ai_search_and_analysis_collections_table_v1.btn_query.text' | translate"
+      [tooltip]="'ai_search_and_analysis_collections_table_v1.btn_query.tooltip' | translate"
+      [type]="'ghost'"
+      (onClick)="emitShowSearchAndAnalysisCollectionSavePlace($event, data)">
+    </aiap-button-v1>
+  </ng-template>
+
+</aiap-table-v1-container-v1>

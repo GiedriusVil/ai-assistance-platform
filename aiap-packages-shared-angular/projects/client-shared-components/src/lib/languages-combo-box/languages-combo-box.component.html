@@ -1,0 +1,13 @@
+<ibm-combo-box
+  name="languages" 
+  type="single" 
+  required
+  label={{label}} 
+  placeholder={{placeholder}}
+  [autocomplete]="'off'"
+  [appendInline]="true"
+  [dropUp]="false"
+  (selected)="handleSelectedEvent($event)"
+  [(items)]="selections.items">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

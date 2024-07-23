@@ -1,0 +1,27 @@
+<div class="filters-wrapper">
+    <div class="filters-content">
+        <aca-breadcrumb></aca-breadcrumb>
+    </div>
+</div>
+
+<div class="dashboard-wrapper">
+    <div class="dashboard-content">
+        <aiap-tenants-table-v1
+            (onShowSavePlace)="handleTenantSaveView($event)"
+            (onShowImportPlace)="handleShowImportModal($event)" 
+            (onShowRemovePlace)="handleTenantDeleteModal($event)">
+        </aiap-tenants-table-v1>
+    </div>
+</div>
+
+<aiap-tenant-save-modal-v1 
+  #tenantSaveModal>
+</aiap-tenant-save-modal-v1>
+
+<aiap-tenant-delete-modal-v1 
+  #tenantDeleteModal>
+</aiap-tenant-delete-modal-v1>
+
+<aiap-tenants-import-modal-v1 
+  #tenantsImportModal>
+</aiap-tenants-import-modal-v1>

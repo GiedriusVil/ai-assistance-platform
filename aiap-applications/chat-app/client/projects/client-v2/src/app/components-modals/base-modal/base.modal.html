@@ -1,0 +1,20 @@
+<div 
+    class="aca--modal--box"
+    [style.width.px]="width" 
+    [style.height.px]="height"
+    [style.top.px]="top" 
+    [style.left.px]="left"
+    [style.zoom]="zoom"
+    >
+    <div class="aca--modal--content">
+        <ng-content></ng-content>
+    </div>
+</div>
+<div 
+    class="aca--modal--background"
+    [style.width.px]="width" 
+    [style.height.px]="height"
+    [style.top.px]="top" 
+    [style.left.px]="left"
+    [style.zoom]="zoom">
+</div>

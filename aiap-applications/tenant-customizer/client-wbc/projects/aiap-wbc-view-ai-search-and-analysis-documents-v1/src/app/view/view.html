@@ -1,0 +1,61 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [label]="'ai_search_and_analysis_documents_view_v1.fld_service_id.label' | translate"
+            [placeholder]="'ai_search_and_analysis_documents_view_v1.fld_service_id.placeholder' | translate"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [(value)]="aiSearchAndAnalysisServiceId">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [label]="'ai_search_and_analysis_documents_view_v1.fld_project_id.label' | translate"
+            [placeholder]="'ai_search_and_analysis_documents_view_v1.fld_project_id.placeholder' | translate"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [(value)]="aiSearchAndAnalysisProjectId">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [label]="'ai_search_and_analysis_documents_view_v1.fld_collection_id.label' | translate"
+            [placeholder]="'ai_search_and_analysis_documents_view_v1.fld_collection_id.placeholder' | translate"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [(value)]="aiSearchAndAnalysisCollectionId">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-search-and-analysis-documents-table-v1
+      [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId"
+      [aiSearchAndAnalysisProjectId]="aiSearchAndAnalysisProjectId"
+      [aiSearchAndAnalysisCollectionId]="aiSearchAndAnalysisCollectionId"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)">
+    </aiap-ai-search-and-analysis-documents-table-v1>
+  </div>
+</div>
+
+<aiap-ai-search-and-analysis-document-delete-modal-v1
+  #aiSearchAndAnalysisDocumentDeleteModal
+  [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId"
+  [aiSearchAndAnalysisProjectId]="aiSearchAndAnalysisProjectId"
+  [aiSearchAndAnalysisCollectionId]="aiSearchAndAnalysisCollectionId">
+</aiap-ai-search-and-analysis-document-delete-modal-v1>

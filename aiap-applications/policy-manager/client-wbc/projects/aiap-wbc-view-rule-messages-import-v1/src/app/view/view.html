@@ -1,0 +1,139 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters">
+      <div ibmGrid>
+        <div 
+          ibmRow 
+          [leftGutter]="false" 
+          [rightGutter]="false">
+          <div
+            style="text-align: right;"
+            ibmCol 
+            [columnNumbers]="{'lg': 6, 'md': 3, 'sm': 1}">
+            <aiap-button-v1 
+              [type]="'ghost'" 
+              [iconOnly]="'true'" 
+              [icon]="'assets/carbon-icons/16/status/information.svg'"
+              [size]="'sm'" 
+              (onClick)="showMessagesInstructionsModal($event)">
+            </aiap-button-v1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol></div>
+        <div ibmCol [columnNumbers]="{'lg': 4, 'md': 4, 'sm': 8}">
+          <ibm-progress-indicator 
+            [steps]="steps" 
+            [current]="current" 
+            [spacing]="'default'"
+            (stepSelected)="stepSelected($event)">
+          </ibm-progress-indicator>
+          <!-- Step 1 -->
+          <aiap-file-uploader-v1
+            *ngIf="current == 0" 
+            #messagesImportStepOne
+            (onFileUploaded)="onFileUploadedSuccess($event)">
+          </aiap-file-uploader-v1>
+        </div>
+        <div ibmCol></div>
+      </div>
+      <div ibmRow>
+        <div ibmCol *ngIf="current == 1">
+          <!-- Step 2 -->
+          <aiap-rule-messages-table-v1
+            isImport="true" 
+            (onShowSavePlace)="showMessageSaveModal($event)"
+            (onShowRemovePlace)="showMessageDeleteModal($event)">
+          </aiap-rule-messages-table-v1>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+        <div ibmCol *ngIf="current == 2">
+          <!-- Step 3 -->
+          <p>
+            {{'rule_messages_import_v1.instruction_modal_v1.step_3_completion' | translate}}
+            <a (click)="routeToMessagesView()"> {{'rule_messages_import_v1.instruction_modal_v1.step_3_completion_link' | translate}}
+            </a>
+          </p>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div
+        class="messages-import-view-actions-container"
+        ibmRow 
+        [leftGutter]="true" >
+        <div ibmCol [columnNumbers]="{'xlg':6, 'lg':8, 'md':4, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'" 
+            [text]="'rule_messages_import_v1.next_button_text' | translate"
+            [tooltip]="'rule_messages_import_v1.next_button_tooltip' | translate"
+            (onClick)="next()">
+          </aiap-button-v1>
+        </div>
+
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'rule_messages_import_v1.back_button_text' | translate"
+            [tooltip]="'rule_messages_import_v1.back_button_tooltip' | translate"
+            (onClick)="back()">
+          </aiap-button-v1>
+        </div>
+
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'rule_messages_import_v1.view.clear_button_text' | translate"
+            [tooltip]="'rule_messages_import_v1.view.clear_button_tooltip' | translate"
+            (onClick)="showMessageClearModal($event)">
+          </aiap-button-v1>
+        </div>
+
+        <div 
+          ibmCol
+          *ngIf="current == 1" 
+          [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'"
+            [text]="'rule_messages_import_v1.submit_button_text' | translate"
+            [tooltip]="'rule_messages_import_v1.submit_button_tooltip' | translate"
+            (onClick)="import()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aiap-rule-message-save-modal-v1 
+  #saveModal 
+  isMessageImport="true">
+</aiap-rule-message-save-modal-v1>
+
+<aiap-rule-message-delete-modal-v1 
+  #deleteModal
+  isMessageImport="true">
+</aiap-rule-message-delete-modal-v1>
+
+<aiap-rule-message-clear-modal-v1 
+  #clearModal 
+  (onClear)="back()" 
+  isMessageImport="true">
+</aiap-rule-message-clear-modal-v1>
+
+<aiap-rule-messages-instruction-modal-v1
+  #instructionModal 
+  [step]="current">
+</aiap-rule-messages-instruction-modal-v1>
+

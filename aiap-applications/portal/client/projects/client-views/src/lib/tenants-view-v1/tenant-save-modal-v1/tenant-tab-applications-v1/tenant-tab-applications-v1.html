@@ -1,0 +1,21 @@
+<div 
+  ibmGrid 
+  class="tenant-applications-grid">
+    <div ibmRow>
+      <div ibmCol>
+        <h3 ibmModalHeaderHeading>
+          {{ 'tenants_view_v1.save_modal_v1.tenant_tab_applications_v1.header' | translate }}
+        </h3>
+        <aiap-tenant-applications-table-v1
+          [applications]="applications"
+          (onShowSavePlace)="handleApplicationSavePlaceShowEvent($event)"
+          (onShowDeletePlace)="handleApplicationDeleteEvent($event)">
+        </aiap-tenant-applications-table-v1>
+      </div>
+    </div>
+</div>
+
+<aiap-tenant-application-save-modal-v1
+  #applicationSaveModal
+  (onAddApplication)="handleApplicationAddEvent($event)">
+</aiap-tenant-application-save-modal-v1>

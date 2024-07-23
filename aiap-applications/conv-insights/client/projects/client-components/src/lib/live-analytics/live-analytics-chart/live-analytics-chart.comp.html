@@ -1,0 +1,86 @@
+<div class="component-container">
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':11, 'lg':11, 'md':7, 'sm':3}">
+        <h4>{{ chart?.name }}</h4>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg':1, 'lg':1, 'md':1, 'sm':1}">
+        <button 
+          ibmButton="ghost" 
+          [size]="'sm'"
+          [iconOnly]="true" 
+          (click)="handleReloadClick($event)">
+          <aiap-icon-svg-v1
+            class="bx--btn__icon"
+            [src]="'assets/carbon-icons/20/operations/renew.svg'">
+          </aiap-icon-svg-v1>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <aca-live-analytics-metrics-combo
+    [disabled]="chart.metrics && chart.metrics.length === 1"
+    [metrics]="chart.metrics"
+    [metricsSelected]="state.metricsSelected"
+    (onMetricsSelected)="handleMetricsSelectionEvent($event)">
+  </aca-live-analytics-metrics-combo>
+  <aca-intent-slider 
+    *ngIf="state.intentSlider" 
+    [title]="title" 
+    (confidenceChanged)="onConfidenceChange($event)">
+  </aca-intent-slider>
+
+  <div class="loading-container">
+    <ibm-loading
+      *ngIf="state.isLoading && !state.error"
+      [isActive]="state.isLoading" 
+      [size]="'small'" 
+      [overlay]="false">
+    </ibm-loading>
+  </div>
+  <div class="chart-container">
+    <canvas 
+      #canvas 
+      id="canvas"
+      height="300"
+      [ngClass]="canvasClassNames()">
+    </canvas>
+    <aiap-toggle-v1
+      *ngIf="!state.isLoading"
+      [onText]="'live_metrics_view.live_analytics_chart.toggle_show_raw.text_on' | translate"
+      [offText]="'live_metrics_view.live_analytics_chart.toggle_show_raw.text_off' | translate"
+      [isChecked]="state.showRaw"
+      [size]="'sm'"
+      (onChange)="handleShowRawChangeEvent($event)">
+    </aiap-toggle-v1>
+    <aca-json-editor
+      *ngIf="!state.isLoading"
+      [ngClass]="acaJsonEditorClassNames()"
+      [value]="{response: state.response, data: state.data}">
+    </aca-json-editor>
+    <ibm-notification
+      *ngIf="state.error"
+      [notificationObj]="{
+        type: 'error',
+        template: customToastContent,
+        showClose: false,
+        lowContrast: true}">
+    </ibm-notification>
+  </div>
+</div>
+
+<ng-template #customToastContent let-data>
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':12, 'lg':12, 'md':8, 'sm':4}" class="error-column">
+        {{ state?.errorMessage }}
+      </div>
+    </div>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':12, 'lg':12, 'md':8, 'sm':4}" class="error-column">
+        <aca-json-editor [value]="state.error"></aca-json-editor>
+      </div>
+    </div>
+  </div>
+</ng-template>

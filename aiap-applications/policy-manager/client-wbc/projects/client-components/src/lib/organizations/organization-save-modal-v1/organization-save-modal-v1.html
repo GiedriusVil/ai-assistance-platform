@@ -1,0 +1,109 @@
+<ibm-modal
+  size='sm'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'organizations.organization_save_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #organizationSaveForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <ibm-toggle
+              size="sm"
+              [onText]="'organizations.organization_save_modal_v1.toggle.on' | translate"
+              [offText]="'organizations.organization_save_modal_v1.toggle.off' | translate"
+              [checked]="isEditEnabled"
+              (click)="toggleEditMode()">
+            </ibm-toggle>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <ibm-label *ngIf="organization?.id">
+              <label for="organizationId">
+                {{'organizations.organization_save_modal_v1.id_label' | translate}}
+              </label>
+              <ibm-code-snippet display="single">{{ organization.id }}</ibm-code-snippet>
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <ibm-label>
+              <label for="organizationExternalId">
+                {{'organizations.organization_save_modal_v1.external_id_label' | translate}}
+              </label>
+              <input
+                name="organizationExternalId"
+                required
+                ibmText
+                [placeholder]="'organizations.organization_save_modal_v1.external_id_placeholder' | translate"
+                [disabled]="!isEditEnabled"
+                [(ngModel)]="organization.external.id">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <ibm-label>
+              <label for="organizationName">
+                {{'organizations.organization_save_modal_v1.organization_name_label' | translate}}
+              </label>
+              <input
+                name="organizationName"
+                required
+                ibmText
+                [placeholder]="'organizations.organization_save_modal_v1.organization_name_placeholder' | translate"
+                [disabled]="!isEditEnabled"
+                [(ngModel)]="organization.name">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <ibm-checkbox
+          [disabled]="!isEditEnabled"
+          [checked]="organization.isBuyer"
+          (change)="onChangeIsBuyer($event)">
+          {{'organizations.organization_save_modal_v1.is_buyer_checkbox' | translate}}
+        </ibm-checkbox>
+        <ibm-checkbox
+          [disabled]="!isEditEnabled"
+          [checked]="organization.isSeller"
+          (change)="onChangeIsSeller($event)">
+          {{'organizations.organization_save_modal_v1.is_seller_checkbox' | translate}}
+        </ibm-checkbox>
+        <ibm-checkbox
+          [disabled]="!isEditEnabled"
+          [checked]="organization.isAuthorized"
+          (change)="onChangeIsAuthorized($event)">
+          {{'organizations.organization_save_modal_v1.is_authorized_checkbox' | translate}}
+        </ibm-checkbox>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'organizations.organization_save_modal_v1.cancel_button' | translate"
+      [tooltip]="'organizations.organization_save_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'primary'"
+      [disabled]="!isEditEnabled"
+      [text]="'organizations.organization_save_modal_v1.save_button' | translate"
+      [tooltip]="'organizations.organization_save_modal_v1.save_button_tooltip' | translate"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

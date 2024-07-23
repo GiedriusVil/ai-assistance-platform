@@ -1,0 +1,23 @@
+<aiap-modal-v1
+  [size]="'xs'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'lambda_modules_pull_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <span>{{ 'lambda_modules_pull_modal_v1.content.text' | translate }}</span>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'lambda_modules_pull_modal_v1.btn_cancel.text' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [type]="'danger'"
+      [text]="'lambda_modules_pull_modal_v1.btn_pull.text' | translate"
+      (onClick)="pull()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

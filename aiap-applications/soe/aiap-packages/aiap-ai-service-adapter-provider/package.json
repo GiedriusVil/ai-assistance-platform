@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-ai-service-adapter-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap-ai-service-client-provider": "0.0.1"
+  }
+}

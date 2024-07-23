@@ -1,0 +1,61 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aiap-left-panel-open-button {
+  grid-area: button;
+
+  .expand--left--panel {
+    position: absolute;
+    top: calc(50% - 27px);
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+    height: 60px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .expand--left--panel--button {
+      border: 1px solid $aca_primary_color_blue;
+      background-color: #ffffff;
+      width: 45px;
+      height: 45px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      position: relative;
+      left: -21px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      transition: all 0.5s ease 0s;
+
+      &:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+      }
+
+      &:hover {
+        width: 50px;
+        height: 60px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        transition: all 0.5s ease 0s;
+      }
+
+      .expand--left--panel--button--icon {
+        width: 20px;
+        rotate: 270deg;
+        position: relative;
+        left: -5px;
+
+        &-close {
+          rotate: 90deg;
+        }
+      }
+    }
+  }
+}

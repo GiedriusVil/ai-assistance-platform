@@ -1,0 +1,32 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-chat-wds-attachment {
+  
+  .message--list {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: -15px;
+    line-height: 1.6;
+
+  }
+}
+
+.color-black {
+  color: #000000;
+}
+
+.wrap-text {
+  word-wrap: break-word;
+}
+
+.custom--backdrop {
+  background: rgba(70, 70, 70, 0.6) !important;
+}
+
+.text--underline {
+  cursor: pointer;
+  text-decoration: underline;
+}

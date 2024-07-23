@@ -1,0 +1,13 @@
+
+  <ibm-date-picker 
+    #datePicker 
+    dateFormat="Y-m-d" 
+    invalidText="Invalid date format" 
+    placeholder="yyyy-mm-dd"
+    [label]="'Date range'"
+    [rangeLabel]="'Date range'" 
+    range="true" 
+    theme="light" 
+    [value]="_range" 
+    (valueChange)="handleValueChange($event)">
+  </ibm-date-picker>

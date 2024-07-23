@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-memory-store-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "flatted": "2.0.2"
+  }
+}

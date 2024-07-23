@@ -1,0 +1,200 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-footer-panel {
+  .footer--box {
+    min-height: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: $aca_primary_color_white !important;
+    position: fixed;
+    display: block;
+    z-index: 1010;
+    bottom: 0;
+    width: inherit;
+
+    &.animation--focusout {
+      transition: box-shadow 2s ease 0s;
+      box-shadow: $aca_footer_animation_box_shadow;
+
+      &:before {
+        transform: scale(0, 1);
+      }
+    }
+
+    &.animation--focus {
+      transition: box-shadow 0.2s ease 0s;
+      box-shadow: 1px -1px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin-top: -1px;
+      border-top: 2px solid $aca_primary_color_blue;
+      transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    }
+    .input--row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      // padding-right: 12px;
+
+      .text--area-wrapper {
+        min-height: 50px;
+        width: 90%;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 12px;
+
+        textarea {
+          font: 400 normal normal 16px/1.3 Arial, sans-serif !important;
+
+          &::placeholder {
+            color: $aca_secondary_color_blue;
+            font-size: 15px;
+          }
+        }
+
+        .text--area {
+          display: block;
+          padding: 0;
+          resize: none;
+          width: 100%;
+          outline: none;
+          border: none;
+          color: #252525;
+          font-size: 16px;
+          line-height: 1.3;
+
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.25;
+          }
+        }
+      }
+
+      .send--button--wrapper {
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2px;
+
+        .action--button {
+          display: block;
+          height: 40px;
+          width: 30px;
+          color: $aca_primary_color;
+          background-color: $aca_primary_color_white;
+          border: none;
+
+          &:hover {
+            color: lighten($aca_primary_color, 20%);
+          }
+
+          &.disabled {
+            color: $aca_primary_color;
+            cursor: not-allowed;
+            opacity: 0.25;
+          }
+
+          &:focus {
+            outline: $aca_body_outline_focus;
+          }
+        }
+        .send-message {
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      .sound--button--wrapper {
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2px;
+
+        .img--volume {
+          display: block;
+          height: 40px;
+          width: 30px;
+          color: $aca_primary_color;
+
+          &:hover {
+            color: lighten($aca_primary_color, 20%);
+          }
+
+          &.disabled {
+            color: $aca_primary_color;
+            cursor: not-allowed;
+            opacity: 0.25;
+          }
+
+          &:focus {
+            outline: $aca_body_outline_focus;
+          }
+        }
+        .send-message {
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      .download--button--wrapper {
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2px;
+
+        .download--button {
+          display: block;
+          height: 40px;
+          width: 30px;
+          color: $aca_primary_color;
+
+          &:hover {
+            color: lighten($aca_primary_color, 20%);
+          }
+
+          &.disabled {
+            color: $aca_primary_color;
+            cursor: not-allowed;
+            opacity: 0.25;
+          }
+
+          &:focus {
+            outline: $aca_body_outline_focus;
+          }
+        }
+        .download-transcript {
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+}

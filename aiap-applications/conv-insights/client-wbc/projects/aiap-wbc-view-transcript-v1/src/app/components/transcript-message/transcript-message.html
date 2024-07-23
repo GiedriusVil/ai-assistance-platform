@@ -1,0 +1,12 @@
+<ng-container [ngSwitch]="messageType">
+  <aca-transcript-message-wbc
+    *ngSwitchCase="MESSAGE_TYPE.WBC"
+    [value]="value"
+    (valueChange)="valueChange.emit($event)">
+  </aca-transcript-message-wbc>
+  <aca-transcript-message-native
+    *ngSwitchDefault
+    [value]="value"
+    (valueChange)="valueChange.emit($event)">
+  </aca-transcript-message-native>
+</ng-container>

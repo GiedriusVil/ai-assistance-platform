@@ -1,0 +1,28 @@
+<ibm-modal 
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{'rules.rule_enable_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span> {{'rules.rule_enable_modal_v1.content' | translate}} </span>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'" 
+      [text]="'rules.rule_enable_modal_v1.btn.cancel' | translate"
+      [tooltip]="'rules.rule_enable_modal_v1.btn.cancel_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [type]="'primary'" 
+      [text]="'rules.rule_enable_modal_v1.btn.submit' | translate"
+      [tooltip]="'rules.rule_enable_modal_v1.btn.submit_tooltip' | translate"
+      (onClick)="handleEnableSubmitClick()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

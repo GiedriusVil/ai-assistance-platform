@@ -1,0 +1,13 @@
+{
+  "feedback.icon-negative-alt": "Kielteinen palaute",
+  "feedback.icon-negative-selected-alt": "Kielteinen palaute jätetty",
+  "feedback.icon-negative-selected-title": "Kielteinen palaute jätetty",
+  "feedback.icon-negative-title": "Kielteinen palaute",
+  "feedback.icon-positive-alt": "Myönteinen palaute",
+  "feedback.icon-positive-selected-alt": "Myönteinen palaute jätetty",
+  "feedback.icon-positive-selected-title": "Myönteinen palaute jätetty",
+  "feedback.icon-positive-title": "Myönteinen palaute",
+  "wds.modal-article": "Koko artikkeli:",
+  "wds.modal-document": "Dokumentti:",
+  "wds.modal-button-close": "Sulje"
+}

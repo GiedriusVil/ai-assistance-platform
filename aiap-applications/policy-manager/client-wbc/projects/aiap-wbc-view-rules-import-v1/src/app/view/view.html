@@ -1,0 +1,153 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters">
+      <div ibmGrid>
+        <div ibmRow [leftGutter]="false" [rightGutter]="false">
+          <div 
+            *ngIf="current != 1" 
+            ibmCol 
+            [columnNumbers]="{'lg': 2, 'md': 3, 'sm': 1}" 
+            style="align-self: center;">&ensp;
+          </div>
+          <div 
+            *ngIf="current == 1" 
+            ibmCol 
+            [columnNumbers]="{'lg': 2, 'md': 3, 'sm': 1}" 
+            style="align-self: center;">
+            <ibm-checkbox 
+              class="checkbox-margin" 
+              size="sm"
+              [checked]="state.filterByWarning" 
+              (change)="handleWarningFilterCheck($event)">{{'rules_import_v1.modal_v1.show_with_warning_checkbox' | translate}}
+            </ibm-checkbox>
+          </div>
+          <div 
+            ibmCol 
+            [columnNumbers]="{'lg': 1, 'md': 3, 'sm': 1}" 
+            style="text-align: right;">
+            <aiap-button-v1 
+              [type]="'ghost'" 
+              [iconOnly]="'true'" 
+              [size]="'sm'" 
+              [icon]="'assets/carbon-icons/16/status/information.svg'"
+              (onClick)="showRuleInstructionsModal($event)">
+            </aiap-button-v1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol></div>
+        <div ibmCol [columnNumbers]="{'lg': 4, 'md': 4, 'sm': 8}">
+          <ibm-progress-indicator 
+            [steps]="steps" 
+            [current]="current" 
+            [spacing]="'default'"
+            (stepSelected)="stepSelected($event)">
+          </ibm-progress-indicator>
+          <!-- Step 1 -->
+          <aiap-file-uploader-v1
+            *ngIf="current == 0" 
+            #rulesImportStepOne 
+            (onFileUploaded)="onFileUploadedSuccess($event)">
+          </aiap-file-uploader-v1>
+        </div>
+        <div ibmCol></div>
+      </div>
+      <div ibmRow>
+        <div ibmCol *ngIf="current == 1">
+          <!-- Step 2 -->
+          <aiap-rules-table-v1
+            isImport="true" 
+            (onShowSavePlace)="showRuleSaveModal($event)"
+            (onShowRemovePlace)="showRuleDeleteModal($event)"
+            (onShowEnablePlace)="showRuleEnableModal($event)">
+          </aiap-rules-table-v1>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+        <div ibmCol *ngIf="current == 2">
+          <!-- Step 3 -->
+          <p>
+            {{'rules_import_v1.modal_v1.modal_v1.completion' | translate}}
+            <a 
+              (click)="routeToRuleView()">
+              {{'rules_import_v1.modal_v1.modal_v1.completion_link' | translate}}
+            </a>
+          </p>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow [leftGutter]="true" class="rules-import-view-actions-container">
+        <div ibmCol [columnNumbers]="{'xlg':6, 'lg':8, 'md':4, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'" 
+            [text]="'rules_import_v1.modal_v1.modal_v1.next_button' | translate"
+            [tooltip]="'rules_import_v1.modal_v1.modal_v1.next_button_tooltip' | translate"
+            (onClick)="next()">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'rules_import_v1.modal_v1.modal_v1.back_button' | translate"
+            [tooltip]="'rules_import_v1.modal_v1.modal_v1.back_button_tooltip' | translate"
+            (onClick)="back()">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'rules_import_v1.modal_v1.modal_v1.clear_button' | translate"
+            [tooltip]="'rules_import_v1.modal_v1.modal_v1.clear_button_tooltip' | translate"
+            (onClick)="showRuleClearModal($event)">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'" 
+            [text]="'rules_import_v1.modal_v1.modal_v1.submit_button' | translate"
+            [tooltip]="'rules_import_v1.modal_v1.modal_v1.submit_button_tooltip' | translate"
+            [disabled]="!state.ready"
+            (onClick)="import()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aiap-rule-save-modal-v1 
+  #ruleSaveModal 
+  isRuleImport="true">
+</aiap-rule-save-modal-v1>
+
+<aiap-rule-delete-modal-v1
+  #ruleDeleteModal 
+  isRuleImport="true">
+</aiap-rule-delete-modal-v1>
+
+<aiap-rule-enable-modal-v1
+  #ruleEnableModal 
+  isRuleImport="true">
+</aiap-rule-enable-modal-v1>
+
+<aiap-rule-clear-modal-v1
+  #ruleClearModal
+  isRuleImport="true"
+  (onClear)="back()">
+</aiap-rule-clear-modal-v1>
+
+<aiap-rule-instruction-modal-v1 
+  #ruleInstructionModal 
+  [step]="current">
+</aiap-rule-instruction-modal-v1>

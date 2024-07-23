@@ -1,0 +1,32 @@
+<aiap-modal-v1 [open]="isOpen" (overlaySelected)="close()" size="sm">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3>{{ 'classification_catalog_import_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <aiap-file-uploader-v2
+      #fileUploader
+      [title]="'classification_catalog_import_modal_v1.file_uploader_import.title' | translate"
+      [description]="'classification_catalog_import_modal_v1.file_uploader_import.description' | translate"
+      [accept]="['.json']"
+      [multiple]="false"
+      [drop]="true"
+      [dropText]="'classification_catalog_import_modal_v1.file_uploader_import.fld_drop_text' | translate"
+      [disabled]="false"
+      [(files)]="files"
+      (filesChange)="onFileAdd($event)"
+    ></aiap-file-uploader-v2>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'classification_catalog_import_modal_v1.btn_cancel.text' | translate"
+      (onClick)="close()"
+    ></aiap-button-v1>
+    <aiap-button-v1
+      [type]="'primary'"
+      [text]="'classification_catalog_import_modal_v1.btn_import.text' | translate"
+      [disabled]="uploadButtonDisabled"
+      (onClick)="import()"
+    ></aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,25 @@
+<aiap-table-v1-container-v1>
+    <h4 ibmTableHeaderTitle>{{'metrics_summary_table.table_header_title' | translate }}</h4>
+    <div>
+      <aiap-table-v1
+        *ngIf="!isLoading && !isError"
+        [model]="model">
+      </aiap-table-v1>
+    </div>
+    <div 
+      *ngIf="isLoading && !isError" 
+      data-loading-small 
+      class="bx--loading bx--loading--small">
+      <svg class="bx--loading__svg" viewBox="-37.5 -37.5 75 75">
+        <title>{{'metrics_summary_table.loading' | translate }}</title>
+        <circle class="bx--loading__background" cx="0" cy="0" r="26.8125" />
+        <circle class="bx--loading__stroke" cx="0" cy="0" r="26.8125" />
+      </svg>
+  </div>
+
+  <p *ngIf="isError">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{'metrics_summary_table.error' | translate }}
+    <i class="fas fa-exclamation-triangle"></i>
+  </p>
+</aiap-table-v1-container-v1>

@@ -1,0 +1,21 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-services-changes-request-table-v1
+      (onSearchChangeEvent)="handleSearchChangeEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent($event)"
+      (onShowRemovePlace)="handleShowDeleteModal($event)"  
+      (onShowSavePlace)="handleShowChangeRequestModal($event)">
+    </aiap-ai-services-changes-request-table-v1>
+  </div>
+</div>
+
+<ai-services-change-request-modal-v1 #aiServiceChangeRequestModalV1></ai-services-change-request-modal-v1>
+<aiap-ai-services-change-request-delete-modal-v1 #aiServiceChangeRequestDeleteModalV1></aiap-ai-services-change-request-delete-modal-v1>

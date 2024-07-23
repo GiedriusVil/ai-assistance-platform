@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aiap/aiap-soe-bot-socketio",
+  "version": "3.27.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "socket.io": "4.5.4",
+    "socketio-auth": "0.1.1"
+  }
+}

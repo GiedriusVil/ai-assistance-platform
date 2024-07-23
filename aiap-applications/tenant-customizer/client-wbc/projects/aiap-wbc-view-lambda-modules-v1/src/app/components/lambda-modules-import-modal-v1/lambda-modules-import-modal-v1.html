@@ -1,0 +1,35 @@
+<aiap-modal-v1
+  [size]="'sm'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'lambda_modules_import_modal_v1.header.text' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content bx--modal-content--with-form">
+    <aiap-file-uploader-v2
+      #fileUploader
+      [title]="'lambda_modules_import_modal_v1.file_uploader.title' | translate"
+      [description]="'lambda_modules_import_modal_v1.file_uploader.description' | translate"
+      [accept]="['.json']"
+      [multiple]="false"
+      [drop]="true"
+      [dropText]="'lambda_modules_import_modal_v1.file_uploader.drop_text' | translate"
+      [disabled]="false"
+      [(files)]="files"
+      (filesChange)="onFileAdd($event)">
+    </aiap-file-uploader-v2>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'lambda_modules_import_modal_v1.btn_cancel.text' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [type]="'primary'"
+      [text]="'lambda_modules_import_modal_v1.btn_import.text' | translate"
+      [disabled]="uploadButtonDisabled"
+      (onClick)="import()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,16 @@
+{
+  "name": "@ibm-aca/aca-live-analytics-filters-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Arnas Pelikis",
+      "email": "arnas.pelikis@ibm.com"
+    }
+  ],
+  "license": "IBM",
+  "dependencies": {}
+}

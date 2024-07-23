@@ -1,0 +1,40 @@
+.header--zoom--box {
+  position: absolute;
+  top: 51px;
+  display: flex;
+  left: 0;
+  visibility: hidden;
+}
+
+.header--zoom--box--list {
+  list-style: none;
+  padding-left: 0;
+  width: 40px;
+  background-color: #0056b8;
+}
+
+.header--zoom--box--list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 25px;
+
+  }
+  
+  &:last-child img {
+    width: 20px;
+    height: 25px;
+  }
+
+  &:hover {
+    background-color: #2d75fd;
+    text-decoration: underline;
+  }
+}
+
+.open {
+  visibility: visible;
+}

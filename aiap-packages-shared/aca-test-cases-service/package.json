@@ -1,0 +1,13 @@
+{
+    "name": "@ibm-aca/aca-test-cases-service",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+    },
+    "author": "Martynas Stake",
+    "license": "ISC",
+    "dependencies": {
+      "@ibm-aca/aca-test-cases-datasource-provider": "0.0.1"
+    }
+  }

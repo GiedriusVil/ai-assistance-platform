@@ -1,0 +1,13 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./authorization-error-view/authorization-error.view.scss";
+@use "./basket-view/basket.view.scss";
+@use "./main-view/main.view.scss";
+@use "./system-error-view/system-error.view.scss";
+
+.align-text-left {
+   text-align: left;
+ }

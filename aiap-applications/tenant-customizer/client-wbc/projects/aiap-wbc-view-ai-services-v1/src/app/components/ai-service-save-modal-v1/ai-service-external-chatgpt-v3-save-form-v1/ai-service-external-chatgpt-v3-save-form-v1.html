@@ -1,0 +1,136 @@
+<div ibmGrid>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_organization'"
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_organization_id.label' | translate"
+        [labelHelp]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_organization_id.labelHelp' | translate"
+        [(value)]="value.organization"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-label>{{ 'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_api_key.label' | translate }}
+        <div class="password-field-container">
+          <input 
+            ibmText 
+            data-toggle-password-visibility 
+            required 
+            class="bx--password-input"
+            name="ai_service_external_api_key" 
+            placeholder="{{ 'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_api_key.placeholder' | translate }}"
+            type="{{state.isApiKeyVisible ? 'text' : 'password' }}" 
+            [skeleton]="state.isLoading" 
+            [autocomplete]="'off'"
+            [(ngModel)]="value.apiKey" />
+          <button class="ai--service--external--api--key" ibmButton="ghost" [size]="'sm'" [iconOnly]="true"
+            (click)="handleShowApiKeyClickEvent($event)">
+            <ng-container *ngIf="state.isApiKeyVisible; else showPasswordIcon">
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view--off.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_access_key.btn_show.text' | translate }}</span>
+            </ng-container>
+            <ng-template #showPasswordIcon>
+              <aiap-icon-svg-v1
+                class="bx--btn__icon"
+                [src]="'assets/carbon-icons/16/toggle/view.svg'">
+              </aiap-icon-svg-v1>
+              <span class="bx--assistive-text">{{ 'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_access_key.btn_hide.text' | translate }}</span>
+            </ng-template>
+          </button>
+        </div>
+      </ibm-label>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_external_completion_model'"
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_model.label' | translate"
+        [labelHelp]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_model.labelHelp' | translate"
+        [(value)]="value.completion.model"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-number 
+        required 
+        name="ai_service_external_completion_temperature" 
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_temperature.label' | translate"
+        [min]="uiState.temperature.min" 
+        [max]="uiState.temperature.max" 
+        [step]="uiState.temperature.step"
+        [precision]="uiState.temperature.precision" 
+        [(ngModel)]="value.completion.temperature">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-number 
+        required 
+        name="ai_service_external_completion_max_tokens" 
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_max_tokes.label' | translate"
+        [min]="uiState.maxTokens.min" 
+        [max]="uiState.maxTokens.max" 
+        [step]="uiState.maxTokens.step"
+        [(ngModel)]="value.completion.max_tokens">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-number 
+        required 
+        name="ai_service_external_completion_top_p" 
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_top_p.label' | translate" 
+        [min]="uiState.topP.min"
+        [max]="uiState.topP.max" 
+        [step]="uiState.topP.step" 
+        [precision]="uiState.topP.precision"
+        [(ngModel)]="value.completion.top_p">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-number 
+        required 
+        name="ai_service_external_completion_frequency_penalty" 
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_frequency_penalty.label' | translate"
+        [min]="uiState.frequencyPenalty.min" 
+        [max]="uiState.frequencyPenalty.max" 
+        [step]="uiState.frequencyPenalty.step"
+        [precision]="uiState.frequencyPenalty.precision" 
+        [(ngModel)]="value.completion.frequency_penalty">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">&nbsp;</div>
+  <div ibmRow [rightGutter]="uiState.grid.rightGutter" [leftGutter]="uiState.grid.leftGutter">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-number 
+        required 
+        name="ai_service_external_completion_presence_penalty" 
+        [label]="'ai_services_view_v1.save_ai_service_modal_external_chatgpt_v3.fld_presence_penalty.label' | translate"
+        [min]="uiState.presencePenalty.min" 
+        [max]="uiState.presencePenalty.max" 
+        [step]="uiState.presencePenalty.step"
+        [precision]="uiState.presencePenalty.precision" 
+        [(ngModel)]="value.completion.presence_penalty">
+      </ibm-number>
+    </div>
+  </div>
+</div>

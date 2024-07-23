@@ -1,0 +1,34 @@
+<div id="chat-app-language-selection-form" class="language-selection-form">
+  <div class="language-selection-form-content">
+    <h5 class="language-selection-header">
+      {{text?.header}}
+    </h5>
+
+  <div class="language-selection-wrapper">
+    <div id="languages-selection-list"
+      class="list-group">
+      <button *ngFor="let language of text?.languages; let i = index"
+        type="button" class="list-group-item list-group-item-action"
+        [ngClass]="language.selected ? 'language-selected' : ''"
+        (click)="onLanguageSelected(i)">
+        {{language.name}}
+      </button>
+    </div>
+  </div>
+
+  <div class="language-selection-button-wrapper">
+    <button
+      id="language-selection-button-submit"
+      class="language-selection-button language-selection-button-submit"
+      [disabled]="!state.selectedLanguage"
+      (click)="onSubmit()">
+        {{text?.button?.submit}}
+    </button>
+    <button 
+      id="language-selection-button-cancel"
+      class="language-selection-button language-selection-button-cancel"
+      (click)="onCancel()">
+        {{text?.button?.cancel}}
+    </button>
+  </div>
+</div>

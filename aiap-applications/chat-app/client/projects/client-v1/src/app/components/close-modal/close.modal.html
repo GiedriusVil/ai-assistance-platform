@@ -1,0 +1,53 @@
+<ng-template #modalContent let-modal>
+  <div class="app-close-modal">
+    <div class="modal-header">
+      <h5 class="modal-title">{{'close.modal-title'| translate}}</h5>
+      <div
+      class="header-icon-box"
+      role="button"
+      (keydown.enter)="modal['dismiss']()"
+      (click)="modal['dismiss']()">
+        <div
+          class="img--close icon--close"
+          aria-hidden="true"
+          tabindex="0"
+          title="{{'close.modal-cross-title'| translate}}"
+          alt="{{'close.modal-cross-alt'| translate}}">
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="w-100 mb-0">{{'close.modal-description'| translate}}</p>
+    </div>
+    <div class="modal-footer">
+      <div
+        title="{{'close.modal-restart'| translate}}">
+          <a 
+            role="button" (click)="restart();" href="window.acaWidget.__open();" 
+            class="btn btn-primary btn--color">
+            {{'close.modal-restart'| translate}}
+          </a>
+      </div>
+      <div
+        title="{{'close.modal-yes'| translate}}">
+          <button 
+            type="button" 
+            class="btn btn-primary btn--color" 
+            (keydown.enter)="onClick($event)" 
+            (click)="onClick($event)">
+            {{'close.modal-yes'| translate}}
+          </button>
+      </div>
+      <div
+        title="{{'close.modal-no'| translate}}">
+          <button 
+            type="button"
+            class="btn btn-primary btn--color"
+            (keydown.enter)="modal['dismiss']()" 
+            (click)="modal['dismiss']();">
+            {{'close.modal-no'| translate}}
+          </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

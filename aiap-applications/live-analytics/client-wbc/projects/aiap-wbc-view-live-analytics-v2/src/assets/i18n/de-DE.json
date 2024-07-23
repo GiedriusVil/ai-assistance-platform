@@ -1,0 +1,33 @@
+{
+  "live_analytics_chart_component_download_csv.overflow": "CSV-Datei herunterladen",
+
+  "live_analytics_chart.itzBundConversationsOverTimeV1.header.name": "ITZ Bund Gespräche im Laufe der Zeit",
+  "live_analytics_chart.itzBundConversationsOverTimeV1.metrics.0.name": "Gespräche insgesamt",
+  "live_analytics_chart.itzBundTopIntentsV1.header.name": "Top Intents",
+  "live_analytics_chart.itzBundTopIntentsV1.metrics.0.name": "Top Intents",
+  "live_analytics_chart.itzBundVoiceUserAndBotMessagesOvertimeV1.header.name": "ITZ Bund Voicebot STT & TTS Nachrichten",
+  "live_analytics_chart.itzBundVoiceUserAndBotMessagesOvertimeV1.metrics.0.name": "TTS-Nachrichten",
+  "live_analytics_chart.itzBundVoiceUserAndBotMessagesOvertimeV1.metrics.1.name": "STT-Nachrichten",
+  "live_analytics_chart.itzBundConfidenceOvertimeV1.header.name": "Durchschnittliches Konfidenzniveau im Laufe der Zeit",
+  "live_analytics_chart.itzBundConfidenceOvertimeV1.metrics.0.name": "Durchschnittliches Konfidenzniveau",
+  "live_analytics_chart.itzBundVoiceConversationDurationAvgInMinutesV1.header.name": "Durchschnittliche Dauer der Sprachbot-Konversation in Minuten",
+  "live_analytics_chart.itzBundVoiceConversationDurationAvgInMinutesV1.metrics.0.name": "Durchschnittliche Sprachbot-Konversationsdauer in Minuten",
+
+  "live_analytics_tile.itzBundConversationsWithInteractionsV1.name": "ITZ Bund Gespräche mit Interaktionen ",
+  "live_analytics_tile.itzBundFreeTextUserMessagesTotalV1.name": "ITZ Bund Freitext-Benutzernachrichten gesamt ",
+  "live_analytics_tile.itzBundUserActionsMessagesTotalV1.name": "ITZ Bund Benutzeraktionen Nachrichten gesamt",
+  "live_analytics_tile.itzBundUserMessagesTotalV1.name": "ITZ Bund Benutzernachrichten gesamt",
+  "live_analytics_tile.itzBundVoiceConversationsTotalV1.name": "ITZ Bund Sprachanrufe gesamt",
+  "live_analytics_tile.itzBundWebConversationsTotalV1.name": "ITZ Bund Web-Gespräche gesamt",
+  "live_analytics_tile.itzBundTransferCountTotalV1.name": "Weitergeleitete Anrufe an Agenten",
+  "live_analytics_tile.itzBundTrasferOutsideBusinessHoursCountV1.name": "Weiterleitung an Agenten außerhalb der Geschäftszeiten",
+  "live_analytics_tile.itzBundNonTransferedMessagesCountV1.name": "Nicht weitergeleitete Anrufe an Agenten",
+  "live_analytics_tile.itzBundUserFreeTextMessagesPercentageV1.name": "Freitextnachrichten in Prozent",
+  "live_analytics_tile.itzBundQuicklinksUserSelectionPercentageV1.name": "Ausgewählte Quicklinks in Prozent",
+  "live_analytics_tile.itzBundFallbackIntentCountV1.name": " Fallback Intent-Interaktionen",
+  
+  "live_analytics_dashboard.itzBundDashboard.name": "ITZ Bund Dashboard",
+
+  "live-analytics-metrics-combo-v2.placeholder": "Filter",
+  "live-analytics-metrics-combo-v2.label": "Metriken auswählen"
+}

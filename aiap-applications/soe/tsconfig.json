@@ -1,0 +1,278 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-posthtml-parser"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-posthtml-render"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-async"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-async-retry"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-ibm-watson"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-aws-sdk-client-lex-model-building-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-aws-sdk-client-lex-models-v2"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-aws-sdk-client-lex-runtime-v2"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-openai"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-wrapper-joi"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-server"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-datasource"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-datasource"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-audit"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-date"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-common"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-hash"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-file"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-encrypter"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-jwt-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-passport-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-express-session-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-user-session-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-redis-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-event-stream-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-main-event-stream-handler"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-main-event-stream-handler-tenant"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-express-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-adapter-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-providers"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-mongo-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-service-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-services-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-services-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-conv-shadow-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-memory-store-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenant-event-stream-handler"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenant-event-stream-handler-lambda-modules"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenant-event-stream-handler-jobs-queues"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenant-event-stream-handler-data-masking-configurations"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-resources-loader"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-cache-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-memory-store"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-watson-language-translator-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-watsonx-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-translation-service-adapter-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-translation-services-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-translation-services-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-translation-services-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-engagements-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-engagements-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-engagements-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-service"
+    },
+    {
+      "path": "./aiap-packages/aiap--types-soe"
+    },
+    {
+      "path": "./aiap-packages/aiap-utils-soe-update"
+    },
+    {
+      "path": "./aiap-packages/aiap-utils-soe-messages"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-brain"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-engine"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-bot"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-action-tag"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-bot-rest-api"
+    },
+    {
+      "path": "./aiap-packages/aiap-soe-bot-socketio"
+    },
+    {
+      "path": "./aiap-packages/aiap-ai-service-adapter-provider"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-data-masking"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-context-restore"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-user-message-text-replacer"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-ai-service-ensure-default"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-classifier"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-ai-service"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-ai-service-change-loop-handler"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-analytics"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-empty-response"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-retry-tag-handler"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-client-metadata"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-trace"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-context"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-client-profile-session"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-button-skip"
+    },
+    {
+      "path": "./aiap-packages/aiap-middleware-common-log"
+    },
+    {
+      "path": "./packages/configuration"
+    },
+    {
+      "path": "./packages/middlewares"
+    },
+    {
+      "path": "./packages/server"
+    }
+  ]
+}

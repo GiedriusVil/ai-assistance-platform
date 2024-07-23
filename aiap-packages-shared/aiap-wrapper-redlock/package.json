@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-wrapper-redlock",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "redlock": "4.2.0"
+  }
+}

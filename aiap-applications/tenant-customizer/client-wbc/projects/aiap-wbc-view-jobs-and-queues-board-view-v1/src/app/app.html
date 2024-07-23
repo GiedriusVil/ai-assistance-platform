@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-jobs-and-queues-board-view-v1></aiap-jobs-and-queues-board-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

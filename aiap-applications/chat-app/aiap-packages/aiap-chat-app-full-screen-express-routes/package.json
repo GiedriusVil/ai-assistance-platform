@@ -1,0 +1,9 @@
+{
+    "name": "@ibm-aiap/aiap-chat-app-full-screen-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "license": "IBM",
+    "dependencies": {}
+}

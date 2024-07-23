@@ -1,0 +1,19 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved
+
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-engagement-import-modal-v1 {
+  .width50 {
+    width: 50%;
+  }
+
+  .width50 > button {
+    width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+    padding-right: 15px;
+  }
+}

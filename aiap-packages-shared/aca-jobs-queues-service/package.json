@@ -1,0 +1,13 @@
+{
+    "name": "@ibm-aca/aca-jobs-queues-service",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "author": "IBM",
+    "license": "MIT",
+    "dependencies": {
+        "@ibm-aca/aca-jobs-queues-datasource-provider": "0.0.1",
+        "@ibm-aca/aca-jobs-queue-provider": "0.0.1",
+        "compromise": "13.11.2"
+    }
+  }

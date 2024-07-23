@@ -1,0 +1,18 @@
+<div class="home-view-wrapper">
+
+  <h2>{{'home_view_v1.title_greeting' | translate }}</h2>
+  <h1>{{'home_view_v1.title_app_name' | translate }}</h1>
+
+  <p>&nbsp;</p>
+  <h4>{{ 'home_view_v1.title_text' | translate }}</h4>
+</div>
+
+<aiap-generic-modal-v1
+  #disclaimerModal
+  [title]="title"
+  [description]="description"
+  [showCheckbox] = "true"
+  [showConfirmationButton] = "false"
+  [cancelButtonLabel] = "'home_view_v1.btn.label.cancel' | translate"
+  [checkboxLabel] = "'home_view_v1.checkbox.label' | translate">
+</aiap-generic-modal-v1>

@@ -1,0 +1,16 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+@use '@carbon/react';
+health-check {
+  @import "./App.scss";
+
+  > div {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+}

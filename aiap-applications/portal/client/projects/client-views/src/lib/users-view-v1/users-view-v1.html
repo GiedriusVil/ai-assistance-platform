@@ -1,0 +1,17 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aca-breadcrumb></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-users-table-v1
+      (onShowSavePlace)="handleUserSaveModal($event)"
+      (onShowRemovePlace)="showDeleteModal($event)">
+    </aiap-users-table-v1>
+  </div>
+</div>
+
+<aiap-user-save-modal-v1 #userSaveModal></aiap-user-save-modal-v1>
+<aiap-user-delete-modal-v1 #userDeleteModal></aiap-user-delete-modal-v1>

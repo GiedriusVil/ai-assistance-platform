@@ -1,0 +1,25 @@
+<fieldset>
+  <div 
+    class="page-actions-title-container">
+    <ibm-checkbox 
+      class="checkbox-margin" 
+      size="sm" 
+      [disabled]="!actions" 
+      [(ngModel)]="allChecked" 
+      (change)="selectAll($event)"></ibm-checkbox>
+    <legend 
+      class="page-actions-title bx--label">
+      {{ 'access_groups_view_v1.acccess_groups_actions_v1.legend' | translate }}
+    </legend>
+  </div>
+  <div 
+    class="page-actions-container" [style.height.px]="height">
+    <ibm-checkbox 
+      class="checkbox-margin" 
+      *ngFor="let action of actions; let i = index;" 
+      size="sm"
+      [(ngModel)]="actions[i].checked" 
+      (change)="onChange($event)">{{ action?.name | translate }}
+    </ibm-checkbox>
+  </div>
+</fieldset>

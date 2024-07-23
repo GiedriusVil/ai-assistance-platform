@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-answers-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "lego",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aca/aca-answers-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-app-service": "0.0.1"
+  }
+}

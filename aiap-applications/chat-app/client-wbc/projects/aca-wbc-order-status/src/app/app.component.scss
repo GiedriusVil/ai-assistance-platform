@@ -1,0 +1,386 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+
+@import "../../../client-components/src/lib/components/base-modal/base-modal.comp.scss";
+@import "../../../client-components/src/lib/client-components-module-styles.scss";
+
+aca-wbc-base-modal {
+  #aiap-wbc-compliance-self-check-modal-container {
+    div {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .card {
+      border: none;
+      margin-bottom: -1px;
+    }
+
+    .accordion .card:last-child .card-header {
+      margin-bottom: 0px;
+    }
+
+    button:focus,
+    .button:focus-visible {
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+    }
+
+    .card-header {
+      border: 1px solid #0056b8;
+    }
+
+    .close--icon {
+      background-size: 12px;
+      position: relative;
+      padding: 0.75rem;
+    }
+
+    .form--control--buttons {
+      button {
+        width: 30%;
+        height: fit-content;
+        padding: 7px 16px;
+        border: 1px solid #0056b8;
+        display: flex;
+        justify-content: space-evenly;
+        font-family: "IBM Plex Sans";
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .form--refresh--button {
+        color: #0056b8;
+        background: transparent;
+        &:hover {
+          color: white;
+          background: #0056b8;
+          .refresh-icon-path {
+            fill: white;
+          }
+        }
+      }
+
+      .form--finish--button {
+        color: #ffffff;
+        background-color: #0056b8;
+      }
+
+      .refresh--icon,
+      .finish--icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .finish--icon {
+        background: url(./../assets/download-icon.svg) no-repeat;
+      }
+    }
+
+    .kcfr--questions {
+      margin-bottom: 3vh;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .final--message--border {
+      height: 75%;
+      width: 0px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .final--message--icon {
+      width: 24px;
+      height: 26px;
+      background: url(./../assets/defect-icon.svg) no-repeat;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .final--message--content {
+      text-align: center;
+      margin: 10px 0px 10px 7px;
+      width: fit-content;
+    }
+
+    .alert-danger {
+      .final--message--border {
+        border: 3px solid #da1e28;
+      }
+      .final--message--icon {
+        background: url(./../assets/defect-icon.svg) no-repeat;
+      }
+    }
+
+    .alert-success {
+      .final--message--border {
+        border: 3px solid #198038;
+      }
+      .final--message--icon {
+        background: url(./../assets/succesful-icon.svg) no-repeat;
+      }
+    }
+
+    .header--icon--box {
+      display: flex;
+      justify-content: end;
+      padding-top: 2vh;
+      padding-right: 1.5vw;
+
+      &--img--close {
+        width: 25px;
+      }
+    }
+
+    .aca--modal--body {
+      padding-top: 0px;
+    }
+
+    .form--group--box {
+      margin-bottom: 1rem;
+      text-align: center !important;
+    }
+
+    .form--control--buttons {
+      margin-top: 3vh;
+      display: flex;
+      justify-content: center;
+
+      button {
+        border-radius: 0;
+      }
+    }
+
+    .kcfr--title {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.16px;
+      color: #161616;
+      display: flex;
+    }
+
+    .noDefectsFinalMessage:before,
+    .defectFinalMessage:before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 22px;
+      margin-right: 5px;
+    }
+
+    .noDefectsFinalMessage:before {
+      background: url(./../assets/succesful-icon.svg) no-repeat;
+    }
+
+    .defectFinalMessage:before {
+      background: url(./../assets/defect-icon.svg) no-repeat;
+    }
+
+    .contract--id {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0px;
+
+      label {
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.32px;
+        color: #525252;
+      }
+
+      .contract--id--input {
+        background-color: #f4f4f4;
+        border: 1px solid #0056b8;
+        color: #161616;
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+aca-wbc-order-status {
+  .card-header {
+    padding: 0rem;
+  }
+
+  .card-header-tabs {
+    margin: 0;
+  }
+
+  .card-body {
+    border: 1px solid #0056b8;
+  }
+
+  .separator {
+    border: 1px solid #d9d9d9;
+    margin: 15px 0;
+  }
+
+  .nav-link {
+    border-radius: 0px !important;
+  }
+
+  .card-header-tabs .nav-item {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #compliance--selfcheck--tab {
+    flex-grow: 1;
+  }
+
+  .wbc--tab--active {
+    background-color: #f4f4f4;
+    font-weight: 600;
+    color: #161616;
+    border-top: 1px solid #0056b8 !important;
+  }
+
+  .wbc--tab--inactive {
+    background-color: #e0e0e0;
+    font-weight: 400;
+    color: #525252;
+  }
+
+  .wbc--tabs--text {
+    font-family: "IBM Plex Sans";
+    font-style: normal;
+    font-size: 14px;
+    line-height: 18px;
+    width: 100%;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .aiap--wbc--contract--self--check {
+    &--text {
+      text-align: left;
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0.16px;
+      color: #161616;
+      font-size: 12px;
+    }
+
+    &--start--button--container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &--start--button {
+      width: 100px;
+      background-color: #0056b8;
+      padding: 7px 0px;
+      display: flex;
+      justify-content: space-evenly;
+
+      &--text {
+        font-family: "IBM Plex Sans";
+        font-size: 14px;
+        font-weight: 400;
+        color: #ffffff;
+        margin: 0;
+        border-radius: 0px;
+      }
+
+      &--arrow {
+        width: 18px;
+        height: 18px;
+        background: url(./../assets/start-arrow.svg) no-repeat;
+      }
+    }
+  }
+
+  .order--status {
+    padding: 8px;
+    overflow: auto;
+
+    &--component--name {
+      margin: 0;
+      margin-bottom: 8px;
+      text-align: start;
+      color: #0056b8;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &--container {
+      display: flex;
+      padding-bottom: 8px;
+    }
+    &--input {
+      height: 100%;
+      width: 100%;
+      border: 1px solid #0056b8;
+      background-color: transparent;
+      font-size: 12px;
+      padding: 4px;
+      &:disabled {
+        border: 1px solid #d3d3d3;
+      }
+    }
+    &--description--container {
+      width: 40%;
+      min-width: 40%;
+      padding-right: 4px;
+
+      .order--status--name {
+        font-weight: bold;
+        font-size: 12px;
+
+        img {
+          width: 12px;
+        }
+      }
+
+      .order--status--description {
+        margin: 8px 0;
+        font-size: 10px;
+      }
+    }
+
+    &--button {
+      float: right;
+      border: 1px solid #0057b8;
+      color: #0057b8;
+      padding: 0 4px;
+      font-size: 16px;
+
+      &:hover {
+        background-color: #0057b8;
+        color: #fff;
+      }
+    }
+  }
+}

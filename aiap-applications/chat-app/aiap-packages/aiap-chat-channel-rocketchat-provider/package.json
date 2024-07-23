@@ -1,0 +1,16 @@
+{
+  "name": "@ibm-aiap/aiap-chat-channel-rocketchat-provider",
+  "version": "0.0.1",
+  "description": "Conversation channel for Rocketchat!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "private": true,
+  "contributors": [
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis/"
+    }
+  ]
+}

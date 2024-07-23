@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-topic-modeling-view-v1></aiap-topic-modeling-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'topic_modeling_view_v1.loading_text' | translate">
+  </ibm-inline-loading>
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-runtime-source-registry",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org"
+  }
+}

@@ -1,0 +1,76 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aiap-language-selection-form {
+
+  .language-selection-form {
+    background: #f4f4f4;
+    color: #161616;
+    border: 0;
+    white-space: normal;
+    max-width: 240px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  .language-selection-form--expanded {
+    padding: 16px;
+    max-height: 240px;
+    max-width: 600px;
+  }
+
+  .language-selection-header {
+    margin-bottom: 16px;
+  }
+
+  .language-selection-wrapper {
+    height: 120px;
+    overflow-y: scroll;
+    margin-bottom: 16px;
+  }
+
+  // TODO MM: need to find selector with higher specificity to avoid use of important
+  .language-selected {
+    z-index: 2 !important;
+    color: #fff !important;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+  }
+
+  .language-selection-button-wrapper {
+    display: flex;
+  }
+
+  .language-selection-button {
+    align-items: center;
+    border: 0;
+    padding: 8px 16px;
+    flex: 1;
+  }
+
+  .language-selection-button-submit {
+    background: #161616;
+    color: #f4f4f4;
+  }
+
+  .language-selection-button-select:hover {
+    background: #333333;
+  }
+
+  .language-selection-button-cancel {
+    background: #f4f4f4;
+    color: #161616;
+  }
+
+  .language-selection-button-cancel:hover {
+    background: #e5e5e5;
+  }
+
+  button:disabled {
+    background: #525252;
+  }
+}

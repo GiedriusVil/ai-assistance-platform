@@ -1,0 +1,19 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import {
+  ISoeShouldSkipContextV1,
+} from '../should-skip-context';
+
+export interface ISoeMiddlewareIncomingV1 {
+  type: 'incoming',
+  name: string,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  controller: Function,
+  shouldSkip: (context: ISoeShouldSkipContextV1) => boolean,
+  includeEcho: any,
+  includeDelivery: any,
+  includeRead: any
+}

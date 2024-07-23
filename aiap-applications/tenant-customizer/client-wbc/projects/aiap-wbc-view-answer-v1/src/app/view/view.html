@@ -1,0 +1,103 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 3, 'sm': 3}">
+          <aiap-field-input-v1
+            [name]="'answer_store_id'"
+            [label]="'answer_view_v1.fld_answer_store_id.label' | translate"
+            [labelHelp]="'answer_view_v1.fld_answer_store_id.helper_text' | translate"
+            [value]="answerStoreId"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [placeholder]="'answer_view_v1.fld_answer_store_id.placeholder' | translate"
+            [skeleton]="state.isLoading">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 3, 'sm': 3}">
+          <aiap-field-input-v1
+            [name]="'answer_store_name'"
+            [label]="'answer_view_v1.fld_answer_store_name.label' | translate"
+            [labelHelp]="'answer_view_v1.fld_answer_store_name.helper_text' | translate"
+            [value]="answerStoreName"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [skeleton]="state.isLoading"
+            [placeholder]="'answer_view_v1.fld_answer_store_name.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 3, 'sm': 3}">
+          <aiap-field-input-v1
+            [name]="'answer_store_reference'"
+            [label]="'answer_view_v1.fld_answer_store_reference.label' | translate"
+            [labelHelp]="'answer_view_v1.fld_answer_store_reference.helper_text' | translate"
+            [value]="answerStoreName"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [skeleton]="state.isLoading"
+            [placeholder]="'answer_view_v1.fld_answer_store_reference.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 3, 'sm': 3}">
+          <aiap-field-input-v1
+            [name]="'answer_key'"
+            [label]="'answer_view_v1.fld_answer_key.label' | translate"
+            [labelHelp]="'answer_view_v1.fld_answer_key.helper_text' | translate"
+            [(value)]="state.answerKey"
+            [skeleton]="state.isLoading"
+            [placeholder]="'answer_view_v1.fld_answer_key.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow class="justify-content-end">
+        <div
+          ibmCol
+          class="d-flex justify-content-end pl-0"
+          [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-button-v1
+            class="btn-first"
+            [type]="'primary'"
+            [tooltip]="'answer_view_v1.btn_language.helper_text' | translate"
+            [size]="'sm'"
+            [text]="'answer_view_v1.btn_language.text' | translate"
+            (click)="handleAddNewValue()">
+          </aiap-button-v1>
+          <aiap-button-v1
+            [type]="'primary'"
+            [tooltip]="'answer_view_v1.btn_save.helper_text' | translate"
+            [size]="'sm'"
+            [text]="'answer_view_v1.btn_save.text' | translate"
+            [disabled]="isSaveButtonDisabled() || isValid()"
+            (click)="save()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+        <ibm-accordion [align]="'start'">
+          <ibm-accordion-item
+            [title]="state.answerValues[i].languageName"
+            [skeleton]="state.isLoading"
+            [expanded]="state.answerValues[i].expanded"
+            *ngFor="answerValue of state.answerValues; let i = index;">
+              <aiap-answer-value-card-v1
+                [(value)]="state.answerValues[i]"
+                [disabledTranslation]="isTranslationDisabled()"
+                (valueRemove)="handleValueRemoveEvent(i)"
+                (translateValue)="translate($event)">
+              </aiap-answer-value-card-v1>
+          </ibm-accordion-item>
+        </ibm-accordion>
+      </div>
+    </div>
+  </div>
+</div>

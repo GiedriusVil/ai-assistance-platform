@@ -1,0 +1,15 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol class="aiap-monaco-editor-container">
+      <ng-container #actionMonacoEditorContainer></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #actionsMonacoEditor>
+  <ngx-monaco-editor
+    class="aiap-monaco-editor"
+    [options]="state.monacoOptions"
+    [(ngModel)]="value.value">
+  </ngx-monaco-editor>
+</ng-template>

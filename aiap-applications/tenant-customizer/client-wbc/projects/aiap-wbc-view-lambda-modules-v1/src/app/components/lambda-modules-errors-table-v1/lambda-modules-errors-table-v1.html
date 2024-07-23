@@ -1,0 +1,25 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1
+    [skeleton]="skeleton"
+    [showSelectionColumn]="false"
+    [model]="model"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [showPageInput]="false"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template #moduleErrorView let-data="data">
+  <div class="module-error-container">
+    <strong>{{ 'lambda_modules_errors_table_v1.error_type' | translate }}</strong>
+    <br>
+    {{data.type}}
+    <br><br>
+    <strong>{{ 'lambda_modules_errors_table_v1.error_log' | translate }}</strong>
+    <br>
+    {{data.message}}
+  </div>
+</ng-template>

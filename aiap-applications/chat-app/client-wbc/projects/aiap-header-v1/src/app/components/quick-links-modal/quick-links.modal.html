@@ -1,0 +1,19 @@
+<div
+  [style.height]="height"
+  class="quick-links-modal-wrapper">
+  <div class="quick-links-modal--header">
+    <div class="quick-links-modal--title">
+      <h2>{{ modalTitle }}</h2>
+    </div>
+    <div class="quick-links-modal--close" (click)="closeModal()">
+      <img class="img--close" [src]="closeIcon" tabindex="0">
+    </div>
+</div>
+  <div class="quick-links">
+    <ul class="quick-links--list">
+      <li class="quick-links--list--item" *ngFor="let link of links">
+        <a class="quick-links--list--link" (click)="onQuickLinkClick(link)">{{ link.title }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

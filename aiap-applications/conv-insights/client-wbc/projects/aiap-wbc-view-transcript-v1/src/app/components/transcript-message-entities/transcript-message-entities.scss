@@ -1,0 +1,33 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+// $context-color: #00a68f;
+// $darken-context-icon-color: darken($context-color, 5%);
+
+aca-transcript-message-entities {
+  background: transparent;
+
+  .entity-label {
+    max-width: 100%;
+
+    label {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  ibm-tooltip-definition {
+    max-width: 100%;
+    padding-right: 2px;
+
+    .bx--tooltip__trigger {
+      max-width: 100%;
+      border-bottom: 0 !important;
+      color: #525252 !important;
+    }
+  }
+}

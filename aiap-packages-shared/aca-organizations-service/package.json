@@ -1,0 +1,26 @@
+{
+  "name": "@ibm-aca/aca-organizations-service",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-policy-engine-api": "0.0.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:virtual-buy-assistant/vba-conversation-insights.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

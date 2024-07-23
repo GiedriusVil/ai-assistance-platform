@@ -1,0 +1,67 @@
+<form class="aca-form" [formGroup]="form">
+  <div class="container" *ngFor="let element of elements">
+    <input
+      *ngIf="element.tag === 'input' && element.type === 'text'"
+      [type]="element.type"
+      [name]="element.name"
+      [placeholder]="element.title"
+      [formControlName]="element.name"
+      class="form-control form-control-sm w-100 no-resize"
+      [attr.disabled]="element.disabled"
+      autocomplete="off"
+      [ngClass]="{'has-error': isFieldWithErrors(element.name) }"
+    />
+    <input
+      *ngIf="element.tag === 'input' && element.type === 'email'"
+      [type]="element.type"
+      [name]="element.name"
+      [placeholder]="element.title"
+      [formControlName]="element.name"
+      class="form-control form-control-sm w-100 no-resize"
+      [attr.disabled]="element.disabled"
+      autocomplete="off"
+      [ngClass]="{'has-error': isFieldWithErrors(element.name) }"
+    />
+    <div class="input-group" *ngIf="element.tag === 'input' && element.type === 'date'">
+      <input
+        ngbDatepicker
+        #d="ngbDatepicker"
+        [positionTarget]="calendarBtn"
+        type="datepicker"
+        [name]="element.name"
+        [placeholder]="element.title"
+        [formControlName]="element.name"
+        class="form-control form-control-sm w-100 no-resize"
+        aria-describedby="inputGroupCalendarAddon"
+        [ngClass]="{'has-error': isFieldWithErrors(element.name) }"
+      />
+      <div class="input-group-append">
+        <button #calendarBtn class="btn btn-secondary btn-sm" type="button" (click)="d.toggle()" id="inputGroupCalendarAddon"><i class="far fa-calendar-alt"></i></button>
+      </div>
+    </div>
+    <input
+      *ngIf="element.tag === 'input' && element.type === 'submit'"
+      type="button"
+      (click)="onInputButtonSubmit(element)"
+      [value]="element.title"
+      class="form-control btn btn-primary btn-sm w-100"
+      [disabled]="element.disabled"
+    />
+    <input
+      *ngIf="element.tag === 'input' && element.type === 'button'"
+      type="button"
+      (click)="onInputButtonClose(element)"
+      [value]="element.title"
+      class="form-control btn btn-secondary btn-sm w-100"
+      [disabled]="element.disabled"
+    />
+    <input
+      *ngIf="element.tag === 'input' && element.type === 'link'"
+      type="button"
+      (click)="onInputButtonClose(element)"
+      [value]="element.title"
+      class="form-control btn btn-link btn-sm w-100"
+      [disabled]="element.disabled"
+    />
+  </div>
+</form>

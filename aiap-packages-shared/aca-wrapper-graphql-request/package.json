@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-wrapper-graphql-request",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-request": "5.2.0",
+    "graphql": "16.5.0"
+  }
+}

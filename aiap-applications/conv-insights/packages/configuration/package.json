@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "name": "@ibm-aiap/aiap-conv-insights-configuration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-redis-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-app-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-answers-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-answers-service": "0.0.1",
+    "@ibm-aca/aca-conversations-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-analytics-live-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-jwt-provider": "0.0.1",
+    "@ibm-aiap/aiap-memory-store-provider": "0.0.1",
+    "@ibm-aca/aca-auditor-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-lambda-modules-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-event-stream-provider": "0.0.1",
+    "@ibm-aca/aca-jobs-queue-provider": "0.0.1",
+    "@ibm-aca/aca-jobs-queue-board-provider": "0.0.1",
+    "@ibm-aiap/aiap-engagements-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-classifier-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-data-masking-datasource-provider": "0.0.1"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    }
+  ]
+}

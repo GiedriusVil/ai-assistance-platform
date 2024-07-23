@@ -1,0 +1,36 @@
+<main 
+  class="bx--content full-width full-height">
+  <div 
+    class="bx--grid full-height">
+    <div 
+      class="bx--row full-height">
+      <div 
+        class="bx--col-sm-2 cover-image">
+        <div 
+          class="promo-content center-vertically">
+          <h2>
+            {{ 'login_view_v1.welcome' | translate }}
+          </h2>
+          <h1>
+            <span>
+              {{ 'login_view_v1.platform_name' | translate }}
+            </span>
+          </h1>
+          <p></p>
+          <h3></h3>
+        </div>
+      </div>
+      <div class="bx--col-sm-2 content-padding">
+        <div class="center-vertically">
+          <aiap-user-credentials-form-v1
+            *ngIf="!passwordRenewalRequired"
+            (onLocalAuthCompleted)="checkPasswordRotation()">
+          </aiap-user-credentials-form-v1>
+          <aiap-password-renewal-form-v1
+            *ngIf="passwordRenewalRequired">
+          </aiap-password-renewal-form-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

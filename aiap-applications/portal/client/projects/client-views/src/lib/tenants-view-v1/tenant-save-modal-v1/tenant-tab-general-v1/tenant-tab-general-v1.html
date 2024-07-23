@@ -1,0 +1,169 @@
+<div ibmGrid class="tenant-general-grid">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="true"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_id.placeholder' | translate "
+        [name]="'tenant_id'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_id.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_id.helper_text' | translate"
+        [(value)]="tenant.id">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="true"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_external_id.placeholder' | translate "
+        [name]="'tenant_external_id'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_external_id.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_external_id.helper_text' | translate"
+        [(value)]="tenant.external.id">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="true"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_name.placeholder' | translate "
+        [name]="'tenant_name'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_name.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_name.helper_text' | translate"
+        [(value)]="tenant.name">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-dropdown-v1
+        [isRequired]="true"
+        [type]="'single'"
+        [name]="'tenant_env_id'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_environment.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_environment.placeholder' | translate"
+        [items]="selections.environments"
+        (onSelected)="handleEnvironmentSelectionEvent($event)" 
+        [(value)]="selections.environment">
+     </aiap-field-dropdown-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-dropdown-v1
+        [isRequired]="false"
+        [type]="'single'"
+        [name]="'tenant_pull_tenant'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_pull_tenant.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_pull_tenant.placeholder' | translate"
+        [items]="selections.pullTenants"
+        (onSelected)="handlePullTenantSelectionEvent($event)" 
+        [(value)]="selections.pullTenant">
+    </aiap-field-dropdown-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_soe_url.placeholder' | translate "
+        [name]="'tenant_soe_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_soe_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_soe_url.helper_text' | translate"
+        [(value)]="tenant.soeBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_chat_app_url.placeholder' | translate "
+        [name]="'tenant_chat_app_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_chat_app_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_chat_app_url.helper_text' | translate"
+        [(value)]="tenant.chatAppBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_customizer_url.placeholder' | translate "
+        [name]="'tenant_tenant_customizer_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_customizer_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_customizer_url.helper_text' | translate"
+        [(value)]="tenant.tenantCustomizerBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_quality_manager_url.placeholder' | translate "
+        [name]="'tenant_quality_manager_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_quality_manager_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_quality_manager_url.helper_text' | translate"
+        [(value)]="tenant.qualityManagerBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_semantic_search_url.placeholder' | translate "
+        [name]="'tenant_semantic_search_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_semantic_search_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_semantic_search_url.helper_text' | translate"
+        [(value)]="tenant.semanticSearchBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_live_analytics_url.placeholder' | translate "
+        [name]="'tenant_live_analytics_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_live_analytics_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_live_analytics_url.helper_text' | translate"
+        [(value)]="tenant.liveAnalyticsBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow class="input-field-search">
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_insights_url.placeholder' | translate "
+        [name]="'tenant_conv_insights_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_insights_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_conv_insights_url.helper_text' | translate"
+        [(value)]="tenant.convInsightsBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_topic_miner_url.placeholder' | translate "
+        [name]="'tenant_topic_miner_base_url'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_topic_miner_url.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_topic_miner_url.helper_text' | translate"
+        [(value)]="tenant.topicMinerBaseUrl">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-field-textarea-v1
+        [isRequired]="false"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_description.placeholder' | translate "
+        [name]="'tenantDescription'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_description.label' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.tenant_tab_general_v1.fld_tenant_description.helper_text' | translate"
+        [rows]="5"
+        [(value)]="tenant.description">
+      </aiap-field-textarea-v1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<aiap-main-view-native-header-v1 [ngStyle]="{'zoom': currentZoomLevel}"></aiap-main-view-native-header-v1>
+
+<ng-container
+    [ngSwitch]="session?.application?.configuration?.type">
+    <aiap-main-view-wbc-body-v1
+        *ngSwitchCase="'WEB_COMPONENT'" 
+        [ngStyle]="{'zoom': currentZoomLevel}">
+    </aiap-main-view-wbc-body-v1>
+    <aiap-main-view-native-body-v1
+        *ngSwitchDefault
+        [session]="session"
+        [ngStyle]="{'zoom': currentZoomLevel}">
+    </aiap-main-view-native-body-v1>
+</ng-container>
+
+<aiap-session-expiration-modal-v1
+  #sessionExpirationModal>
+</aiap-session-expiration-modal-v1>

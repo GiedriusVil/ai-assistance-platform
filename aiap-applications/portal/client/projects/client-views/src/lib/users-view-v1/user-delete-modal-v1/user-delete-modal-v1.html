@@ -1,0 +1,36 @@
+<aiap-modal-v1 
+  size='md'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+      <p class="bx--modal-header__heading bx--type-beta">
+        {{ 'users_view_v1.delete_modal_v1.header' | translate }}
+      </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #usersDeleteForm="ngForm">
+      <p>
+        {{ 'users_view_v1.delete_modal_v1.content' | translate }}
+      </p>
+      <ul ibmList class="users-list">
+        <ng-container *ngFor="let user of users">
+            <li ibmListItem>{{user}}</li>
+        </ng-container>
+      </ul>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'users_view_v1.delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'users_view_v1.delete_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      [disabled]="usersDeleteForm.invalid"
+      (onClick)="hanldeDeleteManyByIds()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

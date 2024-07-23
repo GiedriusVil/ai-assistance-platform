@@ -1,0 +1,73 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-header-v1>
+    <h4 ibmTableHeaderTitle>{{ 'ai_skills_releases_table_v1.header.title' | translate }}</h4>
+    <p ibmTableHeaderDescription>{{ 'ai_skills_releases_table_v1.header.description' | translate }}</p>
+  </aiap-table-v1-header-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'ai_skills_releases_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)"
+      [placeholder]="'ai_skills_releases_table_v1.toolbar_search.placeholder' | translate">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [text]="translateBtnDeleteText()"
+      [tooltip]="'ai_skills_releases_table_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1 
+
+    [striped]="true"
+    [skeleton]="skeleton"
+    [showSelectionColumn]="true"
+    [sortable]="true"
+    [stickyHeader]="false"
+    
+    (onSort)="handleSortEvent($event)"
+
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    
+    [model]="model">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1 
+    [model]="model" 
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 [value]="data?.created"></aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #deployedTemplate let-data="data">
+    <aiap-table-cell-updated-v1 [value]="data?.deployed"></aiap-table-cell-updated-v1>
+  </ng-template>
+  <ng-template
+    #actionsOverFlowTemplate
+    let-data="data">
+    <aiap-overflow-menu-v1
+      #overflowMenu
+      (click)="_allowActionsClick($event, overflowMenu)">
+      <aiap-overflow-menu-option-v1
+        [text]="'ai_skills_releases_table_v1.col_actions.btn_deploy.text' | translate"
+        [tooltip]="'ai_skills_releases_table_v1.col_actions.btn_deploy.tooltip' | translate"
+        (click)="handleDeployClickEvent(data)"></aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        [text]="'ai_skills_releases_table_v1.col_actions.btn_compare_version.text' | translate"
+        [tooltip]="'ai_skills_releases_table_v1.col_actions.btn_compare_version.tooltip' | translate"
+        (click)="handleCompareClickEvent(data)"></aiap-overflow-menu-option-v1>
+  </aiap-overflow-menu-v1>
+</ng-template>
+
+</aiap-table-v1-container-v1>

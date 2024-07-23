@@ -1,0 +1,11 @@
+<ng-container
+  #container
+  [ngTemplateOutlet]="wbcTemplate">
+</ng-container>
+
+<ng-template #wbcTemplate>
+  <ax-lazy-element
+    *axLazyElementDynamic="data, url: url;"
+    [params]="params">
+  </ax-lazy-element>
+</ng-template>

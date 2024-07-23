@@ -1,0 +1,15 @@
+apiVersion: v2
+name: aiap-portal
+version: 1.0.0
+description: AIAP Portal
+type: application
+home: https://pages.github.ibm.com/cognitivecare/docs/
+sources:
+  - https://github.ibm.com/AIAP/ai-assistance-platform
+keywords:
+  - aca
+  - ibm
+  - aiap
+maintainers:
+- name: IBM ACA DevOps
+  email: aca.devops@lt.ibm.com

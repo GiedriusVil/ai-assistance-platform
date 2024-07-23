@@ -1,0 +1,66 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="true" 
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'topic_modeling_table_v1.table_toolbar_search.placeholder_text' | translate" 
+      [autocomplete]="'off'"
+      [search]="state.search"
+      (search)="emitSearchEvent($event)"
+      (clear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'topic-modeling.view.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'topic_modeling_table_v1.btn_add.text' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [size]="'md'"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)"
+    (onAllDeselect)="handleEventAllDeselect()"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #actionsTemplate let-data="data">
+    <div class="buttonsWrapper">
+      <aiap-button-v1
+        class="bx--overflow-menu center-style"
+        [iconOnly]="true"
+        [icon]="'assets/carbon-icons/20/controls/play--filled.svg'"
+        (onClick)="emitShowExecutePlace($event)">
+      </aiap-button-v1>
+      <aiap-button-v1
+        *ngIf="isJobCompleted(data)"
+        class="bx--overflow-menu center-style"
+        [iconOnly]="true"
+        [icon]="'assets/carbon-icons/20/user/accessibility--color--filled.svg'"
+        (onClick)="emitShowResultPlace($event,data)">
+      </aiap-button-v1>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+  <ng-template #jobDateTemplate let-data="data">
+    <ibm-label>{{ data | toUserLocale }}</ibm-label>
+  </ng-template>
+</aiap-table-v1-container-v1>

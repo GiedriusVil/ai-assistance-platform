@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aca/aiap-release-assistant",
+  "version": "1.2.0",
+  "description": "aiap-release-assistant",
+  "main": "index.js",
+  "scripts": {},
+  "private": true,
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,40 @@
+{
+  "rules_classification.delete_modal.header_text" : "[DE] Delete Classification Rule Classifications",
+
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_type_title" : "[DE] Buying Channel Type",
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_supplier_button_text" : "[DE] Supplier Catalog",
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_free_text_button_text" : "[DE] Free Text",
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_punch_out_button_text" : "[DE] Punch-Out",
+
+  "purchase_rule_outcome.buy_rules_suppliers_delete.header_text" : "[DE]  Delete Buy Rule Suppliers",
+  "purchase_rule_outcome.buy_rules_suppliers_delete.confirmation_text" : "[DE] Do you want to delete buy rule suppliers?",
+  "purchase_rule_outcome.buy_rules_suppliers_delete.cancel_button_text" : "[DE] Cancel",
+  "purchase_rule_outcome.buy_rules_suppliers_delete.delete_button_text" : "[DE] Delete",
+  "purchase_rule_outcome.buy_rules_suppliers_delete.cancel_button_tooltip" : "[DE] Cancel",
+  "purchase_rule_outcome.buy_rules_suppliers_delete.delete_button_tooltip" : "[DE] Delete",
+
+  "purchase_rule_outcome.buy_rules_suppliers_save.header_text" : "[DE] Save Supplier",
+  "purchase_rule_outcome.buy_rules_suppliers_save.cancel_button_text" : "[DE] Cancel",
+  "purchase_rule_outcome.buy_rules_suppliers_save.save_button_text" : "[DE] Save",
+  "purchase_rule_outcome.buy_rules_suppliers_save.cancel_button_tooltip" : "[DE] Cancel",
+  "purchase_rule_outcome.buy_rules_suppliers_save.save_button_tooltip" : "[DE] Save",
+
+  "purchase_rule_outcome.buy_rules_suppliers_table.add_button_text" : "[DE] Add",
+  "purchase_rule_outcome.buy_rules_suppliers_table.add_button_tooltip" : "[DE] Add",
+  "purchase_rule_outcome.buy_rules_suppliers_table.search_placeholder" : "[DE] Search value",
+  "purchase_rule_outcome.buy_rules_suppliers_table.remove_button_tooltip" : "[DE] Remove",
+  "purchase_rule_outcome.buy_rules_suppliers_table.remove_button_text" : "[DE] Remove",
+
+  "form_purchase_rule_outcome_v1.buy_rules_suppliers_table.id_header" : "[DE] ID",
+  "form_purchase_rule_outcome_v1.buy_rules_suppliers_table.name_header" : "[DE] Name",
+  "form_purchase_rule_outcome_v1.buy_rules_suppliers_table.priority_header" : "[DE] Priority",
+
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_supplier_button_tooltip" : "[DE] Supplier Catalog",
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_free_text_button_tooltip" : "[DE] Free Text",
+  "purchase_rule_outcome.buy_rules_chanel_type.channel_punch_out_button_tooltip" : "[DE] Punch-Out",
+
+  "buy_rules.delete_modal.notification.success.title" : "[DE] Buy rule suppliers removed!",
+  "buy_rules.delete_modal.notification.error.title" : "[DE] Buy rule suppliers not removed!",
+
+  "purchase_rule_outcome.buy_rules_suppliers_save.priority_label" : "[DE] Priority*"
+}

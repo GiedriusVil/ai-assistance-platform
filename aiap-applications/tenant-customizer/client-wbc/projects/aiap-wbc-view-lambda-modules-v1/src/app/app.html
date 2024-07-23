@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-lambda-modules-view-v1></aiap-lambda-modules-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'lambda_modules_v1.app.loading' | translate">
+  </ibm-inline-loading>
+</div>

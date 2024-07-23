@@ -1,0 +1,37 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./classifier-model-save-ai-services-tab-v1/classifier-model-save-ai-services-tab-v1.scss";
+@use "./classifier-model-save-classifier-docs-v1/classifier-model-save-classifier-docs-v1.scss";
+@use "./classifier-model-save-classifier-tab-v1/classifier-model-save-classifier-tab-v1.scss";
+@use "./classifier-model-save-ware-tab-v1/classifier-model-save-ware-tab-v1.scss";
+
+aca-classifier-model-save-modal {
+  overflow: hidden;
+
+  .bx--tab-content {
+    padding-left: 0;
+    padding-right: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+}

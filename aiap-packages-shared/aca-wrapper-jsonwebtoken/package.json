@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aca/aca-wrapper-jsonwebtoken",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "dependencies": {
+    "jsonwebtoken": "8.5.1"
+  }
+}

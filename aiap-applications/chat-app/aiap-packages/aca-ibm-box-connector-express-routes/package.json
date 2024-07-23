@@ -1,0 +1,10 @@
+{
+    "name": "@ibm-aca/aca-ibm-box-connector-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "buyatibm",
+    "license": "ISC",
+    "dependencies": {}
+}

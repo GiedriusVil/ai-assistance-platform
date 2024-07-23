@@ -1,0 +1,18 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./audio/audio.scss";
+@use "./auth/auth.scss";
+@use "./close-modal/close.modal.scss";
+@use "./error/error.scss";
+@use "./footer/footer.scss";
+@use "./header/header.scss";
+@use "./header-actions/header-actions.component.scss";
+@use "./prechat/prechat.scss";
+@use "./product-list/product.list.scss";
+@use "./survey-modal/survey.modal.scss";
+@use "./typing-dots/typing-dots.component.scss";
+@use './test-cases-modal/test-cases.modal.scss';
+@use './suggestions/suggestions.component.scss';

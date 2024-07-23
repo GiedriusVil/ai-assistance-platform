@@ -1,0 +1,20 @@
+{
+  "ai_search_and_analysis_documents_view_v1.breadcrumb": "[GB] Documents",
+  "ai_search_and_analysis_documents_view_v1.fld_service_id.label": "[GB] Service Id",
+  "ai_search_and_analysis_documents_view_v1.fld_service_id.placeholder": "[GB] Service Id",
+  "ai_search_and_analysis_documents_view_v1.fld_project_id.label": "[GB] Project Id",
+  "ai_search_and_analysis_documents_view_v1.fld_project_id.placeholder": "[GB] Project Id",
+  "ai_search_and_analysis_documents_view_v1.fld_collection_id.label": "[GB] Collection Id",
+  "ai_search_and_analysis_documents_view_v1.fld_collection_id.placeholder": "[GB] Collection Id",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.header": "[GB] Delete AI Search and Analysis Documents",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.content": "[GB] Confirm deletion of following AI Search and Analysis Documents:",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.btn_cancel.text": "[GB] Cancel",
+  "ai_search_and_analysis_documents_view_v1.delete_modal_v1.btn_delete.text": "[GB] Delete",
+  "ai_search_and_analysis_documents_table_v1.col_name.header": "[GB] Name",
+  "ai_search_and_analysis_documents_table_v1.col_type.header": "[GB] Type",
+  "ai_search_and_analysis_documents_table_v1.col_created.header": "[GB] Created",
+  "ai_search_and_analysis_documents_table_v1.col_updated.header": "[GB] Updated",
+  "ai_search_and_analysis_documents_table_v1.btn_refresh.tooltip": "[GB] Remove",
+  "ai_search_and_analysis_documents_table_v1.btn_remove.text": "[GB] Remove",
+  "ai_search_and_analysis_documents_table_v1.btn_remove.tooltip": "[GB] Remove documents"
+}

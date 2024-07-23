@@ -1,0 +1,37 @@
+<div ibmGrid class="tenant-event-streams-grid">
+  <div ibmRow>
+    <div ibmCol>
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.tenant_tab_event_streams_v1.header_redis_clients' | translate }}
+      </h3>
+      <aiap-tenant-redis-clients-table-v1
+        [clients]="redisClients"
+        (onShowSavePlace)="handleRedisClientSavePlaceShowEvent($event)"
+        (onShowDeletePlace)="handleRedisClientDeleteEvent($event)">
+      </aiap-tenant-redis-clients-table-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.tenant_tab_event_streams_v1.header_event_streams' | translate }}
+      </h3>
+      <aiap-tenant-event-streams-table-v1
+        [eventStreams]="eventStreams"
+        (onShowSavePlace)="handleEventStreamSavePlaceShowEvent($event)"
+        (onShowDeletePlace)="handleEventStreamDeleteEvent($event)">
+      </aiap-tenant-event-streams-table-v1>
+    </div>
+  </div>
+</div>
+
+<aiap-tenant-redis-clients-save-modal-v1
+  #redisClientsSaveModal
+  (onAddRedisClient)="handleRedisClientAddEvent($event)">
+</aiap-tenant-redis-clients-save-modal-v1>
+
+<aiap-tenant-event-streams-save-modal-v1
+  #eventStreamsSaveModal
+  (onAddEventStream)="handleEventStreamAddEvent($event)">
+</aiap-tenant-event-streams-save-modal-v1>

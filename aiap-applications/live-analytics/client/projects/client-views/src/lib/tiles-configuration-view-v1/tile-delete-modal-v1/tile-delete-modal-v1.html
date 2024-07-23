@@ -1,0 +1,28 @@
+<aiap-modal-v1 
+  [size]="'xs'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+  (closeSelect)="close()">
+  <p ibmModalHeaderHeading>
+    {{ 'tiles_configuration_view_v1.tile_delete_modal_v1.fld_delete.header' | translate }}
+  </p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <span>
+      {{'tiles_configuration_view_v1.tile_delete_modal_v1.text' | translate}}
+    </span>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'tiles_configuration_view_v1.tile_delete_modal_v1.btn_cancel' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'tiles_configuration_view_v1.tile_delete_modal_v1.btn_delete' | translate"
+      [type]="'danger'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

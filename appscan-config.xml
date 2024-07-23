@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Configuration>
+  <Targets>
+    <Target path=".">
+      <Exclude>aiap-applications/chat-app/client/external</Exclude>
+      <Exclude>scripts/pipeline/build/</Exclude>
+      <Exclude>flowchart2.js</Exclude>
+      <Exclude>*.spec.js</Exclude>
+      <Exclude>*.spec.ts</Exclude>
+      <Exclude>*.svg</Exclude>
+    </Target>
+  </Targets>
+</Configuration>

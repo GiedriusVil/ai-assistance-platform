@@ -1,0 +1,18 @@
+{
+  "header.icon-cross-alt": "Uždaryti pokalbį",
+  "header.icon-cross-title": "Uždaryti pokalbį",
+  "header.icon-maximize-alt": "Atkurti pokalbio langą",
+  "header.icon-maximize-title": "Atkurti pokalbio langą",
+  "header.icon-minimize-alt": "Sumažinti pokalbio langą",
+  "header.icon-minimize-title": "Sumažinti pokalbio langą",
+  "header.icon-survey-alt": "Palikti atsiliepimą",
+  "header.icon-survey-title": "Palikti atsiliepimą",
+  "header.icon-test-cases-alt": "Testavimo atvejai",
+  "header.icon-test-cases-title": "Testavimo atvejai",
+  "header.icon-volume-up-alt": "Įjungti garsą",
+  "header.icon-volume-up-title": "Įjungti garsą",
+  "header.icon-volume-mute-alt": "Išjungti garsą",
+  "header.icon-volume-mute-title": "Išjungti garsą",
+  "header.logo-alt": "Virtualaus agento logotipas",
+  "header.logo-title": "Virtualaus agento logotipas"
+}

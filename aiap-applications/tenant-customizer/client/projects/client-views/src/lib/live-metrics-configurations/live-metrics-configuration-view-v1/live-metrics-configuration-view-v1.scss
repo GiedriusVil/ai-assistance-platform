@@ -1,0 +1,27 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./live-metrics-configuration-delete-modal-v1/live-metrics-configuration-delete-modal-v1.scss";
+@use "./live-metrics-configuration-import-modal-v1/live-metrics-configuration-import-modal-v1.scss";
+@use "./live-metrics-configuration-save-modal-v1/live-metrics-configuration-save-modal-v1.scss";
+
+aca-live-metrics-configuration-view {
+  .live-metrics-config {
+    overflow: hidden;
+    .bx--grid {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding: 0px;
+    }
+  }
+  .configuration-footer {
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
+  }
+  .ace_editor.ace-jsoneditor {
+    min-height: 50vh;
+  }
+}

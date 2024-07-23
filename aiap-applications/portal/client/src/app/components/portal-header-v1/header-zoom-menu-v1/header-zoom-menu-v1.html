@@ -1,0 +1,16 @@
+<ibm-header-menu 
+  trigger="mouseover"
+  title="{{selectedZoom.label}}">
+  <ibm-header-item 
+    label = "Zoom In"
+    (click)="handleZoomInEvent()"> Zoom In
+  </ibm-header-item>
+  <ibm-header-item 
+    label = "Zoom Out"
+    (click)="handleZoomOutEvent()"> Zoom Out
+  </ibm-header-item>
+  <ibm-header-item 
+    label = "Clear"
+    (click)="handleZoomClearEvent()"> Clear Zoom
+  </ibm-header-item>
+</ibm-header-menu>

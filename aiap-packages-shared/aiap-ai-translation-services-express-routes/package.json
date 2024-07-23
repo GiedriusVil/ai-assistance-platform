@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aiap/aiap-ai-translation-services-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "author": "marekas.molis@ibm.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aiap/aiap-passport-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-data-import": "0.0.1"
+  }
+}

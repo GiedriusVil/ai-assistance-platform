@@ -1,0 +1,93 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ maskingConfiguration.id }} {{ 'data_masking_configuration_save_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 4, 'sm': 2}">
+          <legend class="bx--label">{{ 'data_masking_configuration_save_modal_v1.fld_masking_status.legend' | translate }}</legend>
+          <aiap-toggle-v1
+            [size]="'md'"
+            [onText]="'Enabled'"
+            [offText]="'Disabled'"
+            [isChecked]="maskingConfiguration.enabled"
+            (onChange)="handleMaskingEnabledToggle()">
+          </aiap-toggle-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+          <aiap-field-input-v1
+            [label]="'data_masking_configuration_save_modal_v1.fld_configuration_key.label' | translate"
+            [labelHelp]="'data_masking_configuration_save_modal_v1.fld_configuration_key.label_help' | translate"
+            [skeleton]="isLoading"
+            [isRequired]="true"
+            [(value)]="maskingConfiguration.key">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+          <ibm-label>
+            <label required>{{ 'data_masking_configuration_save_modal_v1.fld_masking_pattern.label' | translate }}</label>
+            <ibm-tooltip-icon [placement]="'top'" [alignment]="'bottom'" [content]="maskingRegexDescription">
+              <aiap-icon-svg-v1
+                [src]="'assets/carbon-icons/16/status/information.svg'">
+              </aiap-icon-svg-v1>
+            </ibm-tooltip-icon>
+            <input
+              required
+              ibmText
+              [(ngModel)]="maskingConfiguration.pattern"
+              [autocomplete]="'off'">
+            </ibm-label>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 4, 'sm': 6}">
+          <aiap-field-combo-box-singular-v1
+            [name]="'pattern-types'"
+            [type]="'single'"
+            [label]="'data_masking_configuration_save_modal_v1.fld_masking_pattern_type.label' | translate"
+            [placeholder]="'Select masking pattern type' | translate"
+            [autocomplete]="'off'"
+            [dropUp]="false"
+            (selected)="onPatternTypeSelected($event)"
+            [(items)]="selections.patternTypes">
+          </aiap-field-combo-box-singular-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'md': 4, 'sm': 6}">
+          <aiap-field-combo-box-singular-v1
+            [type]="'single'"
+            [label]="'data_masking_configuration_save_modal_v1.fld_replace_type.label' | translate"
+            [placeholder]="'data_masking_configuration_save_modal_v1.fld_replace_type_type.placeholder' | translate"
+            [autocomplete]="'off'"
+            [dropUp]="false"
+            (selected)="onReplaceTypeSelected($event)"
+            [(items)]="selections.replaceTypes">
+          </aiap-field-combo-box-singular-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="!isValid()"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

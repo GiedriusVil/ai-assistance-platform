@@ -1,0 +1,47 @@
+<div class="message--buttons message--content w-100">
+  <span class="buttons--wrapper">
+    <div class="button--wrapper container">
+      <span *ngFor="let button of pageOfItems">
+        <button class="btn btn--shape btn-sm btn-outline-primary"
+          type="button"
+          [disabled]="isContentEnabled"
+          (click)="onButtonClick($event, button?.payload)">
+          {{ button?.title }}
+        </button>
+        <div class="break"></div>
+      </span>
+    </div>
+
+    <div class="buttons--wrapper--attributes container">
+      <button *ngFor="let attribute of attributes"
+        class="btn btn-primary btn--color attribute--button"
+        tabindex="0"
+        type="button"
+        [disabled]="isContentEnabled"
+        (click)="onButtonClick($event, attribute?.value)">
+        {{ attribute?.value }}
+      </button>
+      <div class="break"></div>
+    </div>
+    <div class="buttons--wrapper--pagination">
+      <button class="btn btn-primary btn--color"
+        tabindex="0"
+        aria-label="Backward button"
+        [disabled]="isContentEnabled || isPreviousPageEnabled()"
+        (click)="previousPage(selected)">
+        <b>&#60;</b>
+      </button>
+      <span class="pagination-page"
+        [ngClass]="{'content--disabled': isContentEnabled }">
+        {{selected}}/{{lastPage}}
+      </span>
+      <button class="btn btn-primary btn--color"
+        tabindex="0"
+        aria-label="Forward button"
+        [disabled]="isContentEnabled || isNextPageEnabled()"
+        (click)="nextPage(selected)">
+        <b>&#62;</b>
+      </button>
+    </div>
+  </span>
+</div>

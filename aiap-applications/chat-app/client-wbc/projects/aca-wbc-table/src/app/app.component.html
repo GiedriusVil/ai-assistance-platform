@@ -1,0 +1,58 @@
+<div *ngIf="isReady()">
+  <div *ngIf="hasText()" class="table--card">
+    <div class="table--card--text">
+      {{message.text}}
+    </div>
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th class="number"
+            scope="col">#</th>
+          <th *ngFor="let column of _state.columns"
+            scope="col">
+            {{column?.title}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [ngClass]="{'content': _state.content.enabled }"
+          *ngFor="let row of _state.rows; trackBy:trackByFn"
+          (click)="handleRowClick(row)">
+          <ng-template #tipContent>
+            <span *ngIf="row?.payload"
+              [innerHTML]="row?.payload">
+            </span>
+          </ng-template>
+          <th scope="row">{{ row?.id }}</th>
+          <td [ngbTooltip]="tipContent"
+            [disableTooltip]="showTooltip(row?.payload)">
+            {{ row?.payload | partOfText: _state.content.textLimit }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="d-flex justify-content-between">
+      <div 
+        *ngIf="_state.rowsCount > _state.pagination.size"
+        class="pagination--box">
+        <ngb-pagination [collectionSize]="_state.rowsCount"
+          [(page)]="_state.pagination.page"
+          [pageSize]="_state.pagination.size"
+          [disabled]="!_state.content.enabled"
+          (pageChange)="refresh()">
+        </ngb-pagination>
+      </div>
+    </div> -->
+  </div>
+  <div class="pr-0">
+    <button *ngFor="let attribute of _state.attributes"
+      class="btn btn-primary btn--color attribute--button attributes--button"
+      tabindex="0"
+      type="button"
+      [disabled]="!isContentEnabled"
+      (click)="onButtonClick(attribute?.value)">
+      {{ attribute?.value }}
+    </button>
+    <div class="break"></div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "feedback.icon-negative-alt": "Neigiamas įvertinimas",
+  "feedback.icon-negative-selected-alt": "Paliktas neigiamas įvertinimas",
+  "feedback.icon-negative-selected-title": "Paliktas neigiamas įvertinimas",
+  "feedback.icon-negative-title": "Neigiamas įvertinimas",
+  "feedback.icon-positive-alt": "Teigiamas įvertinimas",
+  "feedback.icon-positive-selected-alt": "Paliktas teigiamas įvertinimas",
+  "feedback.icon-positive-selected-title": "Paliktas teigiamas įvertinimas",
+  "feedback.icon-positive-title": "Teigiamas įvertinimas",
+  "feedback.modal-answer-value-incorrect-response": "Neteisingas atsakymas",
+  "feedback.modal-answer-value-misunderstand": "Agentas manęs nesupranta",
+  "feedback.modal-answer-value-other": "Kita",
+  "feedback.modal-answer-value-unresponsive": "Agentas man neatsako",
+  "feedback.modal-comment-placeholder": "Pridėti komentarą",
+  "feedback.modal-cross-alt": "Uždaryti pokalbį",
+  "feedback.modal-cross-title": "Uždaryti pokalbį",
+  "feedback.modal-default-comment": "Nepateikta",
+  "feedback.modal-default-reason": "Agentas manęs nesupranta",
+  "feedback.modal-description": "Kas nutiko ne taip?",
+  "feedback.modal-submit": "Išsiųsta",
+  "feedback.modal-title": "Ups!"
+}

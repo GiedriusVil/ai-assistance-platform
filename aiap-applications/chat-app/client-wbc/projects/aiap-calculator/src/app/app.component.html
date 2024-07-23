@@ -1,0 +1,34 @@
+<table>
+  <tr>
+      <td colspan="3"><input type="text"></td>
+      <td><div>c</div></td>
+  </tr>
+  <tr>
+      <td><div>1</div></td>
+      <td><div>2</div></td>
+      <td><div>3</div></td>
+      <td><div>/</div></td>
+  </tr>
+  <tr>
+    <td><div>4</div></td>
+    <td><div>5</div></td>
+    <td><div>6</div></td>
+    <td><div>*</div></td>
+  </tr>
+  <tr>
+    <td><div>7</div></td>
+    <td><div>8</div></td>
+    <td><div>9</div></td>
+    <td><div>-</div></td>
+  </tr>
+  <tr>
+    <td><div>0</div></td>
+    <td><div>.</div></td>
+    <td (click)="onEqualClick()"><div>=</div></td>
+    <td><div>+</div></td>
+  </tr>
+</table>
+
+<ng-template #modal>
+  <aiap-calculator-modal></aiap-calculator-modal>
+</ng-template>

@@ -1,0 +1,75 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+aiap-answer-slider {
+  .aiap--answer--slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    &--value {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: #000000;
+    }
+
+    &--bar {
+      width: 100%;
+      height: 1.5px;
+      border-radius: 20px;
+      background: #D9D9D9;
+      outline: none;
+      -webkit-appearance: none;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      margin: 0px 15px;
+    }
+  
+    &--bar:hover {
+      opacity: 1;
+    }
+  
+    &--bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer;
+    }
+  
+    &--bar::-moz-range-thumb {
+      box-sizing: border-box;
+      position: absolute;
+      width: 12.05px;
+      height: 12.05px;
+      left: 228.99px;
+      top: 506.39px;
+      background: #0F62FE;
+      border: 1px solid #F4F4F4;
+      box-shadow: 0px 0px 0px 2px #0F62FE;
+      border-radius: 1000px;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      cursor: pointer;
+    }
+
+    .right-line {
+      background: linear-gradient(to right, #F4F4F4 0%, #F4F4F4 50%, #0F62FE 50%, #0F62FE 100%);
+    }
+    
+    .left-line {
+      background: linear-gradient(to left, #F4F4F4 0%, #F4F4F4 50%, #0F62FE 50%, #0F62FE 100%);
+    }
+
+    .no-line {
+      background: #D9D9D9;
+    }
+  }
+}

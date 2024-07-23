@@ -1,0 +1,26 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'lambda_modules_configurations_delete_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <span>{{ 'lambda_modules_configurations_delete_modal_v1.content.text' | translate }}</span>
+    <ul>
+      <li *ngFor="let item of state.items">{{ item?.key }} ({{item?.id}})</li>
+    </ul>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'lambda_modules_configurations_delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'lambda_modules_configurations_delete_modal_v1.btn_cancel.import' | translate"
+      [type]="'danger'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

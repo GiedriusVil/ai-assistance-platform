@@ -1,0 +1,25 @@
+<br *ngIf="!isWbcTable(message?.attachment?.type)">
+<ng-template #loading>
+    <div class="loading-dots">
+        <aca-chat-typing-dots role="status"></aca-chat-typing-dots>
+    </div>
+</ng-template>
+<ng-template #error>
+    <div class="loading-dots">
+        <div class="alert alert-warning" role="alert">
+            <div class="warning-box">
+                <div>
+                    {{state.errorMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ax-lazy-element 
+    (onWbcEvent)="handleWbcEvent($event)" 
+    [message]="message"
+    [isContentEnabled]="messagesService.isContentEnabled(index)"
+    [configs]="state.configs"
+    [session]="session"
+    *axLazyElementDynamic="state.component, url: url(); loadingTemplate: loading; errorTemplate: error;">
+</ax-lazy-element>

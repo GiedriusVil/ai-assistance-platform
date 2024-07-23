@@ -1,0 +1,35 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-authorization-error-view {
+    .aca--error--page {
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+        padding: 15px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
+        h6 {
+            color: #0075c9;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 11px;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (min-width: 375px) {
+            p {
+                font-size: 12px;
+            }
+
+            margin-bottom: 160px;
+        }
+    }
+}

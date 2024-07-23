@@ -1,0 +1,10 @@
+<aiap-field-dropdown-v1
+  [skeleton]="isLoading"
+  [type]="'single'"
+  [name]="'tenant_assistants_dropdown_v1'"
+  [label]="'tenants_view_v1.save_modal_v1.assistants_dropdown_v1.label' | translate"
+  [placeholder]="'tenants_view_v1.save_modal_v1.assistants_dropdown_v1.placeholder' | translate"
+  [items]="selection?.assistants"
+  (onSelected)="handleSelectionEvent($event)"
+  [(value)]="selection.assistant">
+</aiap-field-dropdown-v1>

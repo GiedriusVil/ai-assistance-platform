@@ -1,0 +1,50 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"    
+      [tooltip]="'catalog_rules.catalog_table.refresh_button_tooltip' | translate"  
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'rule_actions_table_v1.search_placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="handleSearchChangeEvent($event)"
+      (onSearchClear)="handleSearchClearEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+
+    <aiap-button-v1
+      *isActionAllowed="{action:'catalog-rules.view.edit.catalogs.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      [text]="'catalog_rules.catalog_table.add_button' | translate"
+      [tooltip]="'catalog_rules.catalog_table.add_button_tooltip' | translate"
+      (onClick)="emitShowSavePlace($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'catalog-rules.view.edit.catalogs.remove'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [text]="('rule_actions_table_v1.remove_button' | translate) + '(' + this.model.selectedRowsCount() + ')'"
+      [tooltip]="'rule_actions_table_v1.remove_button_tooltip' | translate"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onRowSelect)="onSelectRow($event)"
+    (onRowDeselect)="onDeselectRow($event)"
+    (onAllDeselect)="onDeselectAll($event)"
+    (onAllSelect)="onSelectAll($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>

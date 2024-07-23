@@ -1,0 +1,43 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+$aca_default_width: 100%;
+$aca_default_font_size: 16px;
+$aca_default_box_shadow_focus: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+
+$aca_primary_background: #00598f;
+$aca_primary_font_size: 13px;
+
+$aca_primary_color: #252525;
+$aca_primary_color_black: black;
+$aca_primary_color_white: #fff;
+$aca_primary_color_gray: #f4f4f4;
+$aca_primary_color_blue: #0056b8;
+
+$aca_secondary_color_black: #393939;
+$aca_secondary_color_blue: #2d75fd;
+
+$aca_header_text_color: white;
+$aca_header_outline_focus: 2px solid $aca_header_text_color;
+
+$aca_body_outline_focus: 2px solid #0000bf;
+
+$aca_footer_animation_box_shadow: 1px -1px 16px 0px rgba(0, 0, 0, 0.2);
+
+$aca_message_bubble_user_background: #c9dce6;
+$aca_message_bubble_user_color: black;
+$aca_message_bubble_bot_color: white;
+
+// external-dependencies-variables
+// bootstrap
+$font-size-base: 0.875rem !default;
+
+// fortawesome
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+.textareaExpand {
+   min-height: 56px;
+   max-height: 76px;
+}

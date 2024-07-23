@@ -1,0 +1,17 @@
+{
+  "name": "@ibm-aca/aca-etl-transformation-service",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-jsonata": "0.0.1"
+  },
+  "author": "IBM",
+  "license": "IBM",
+  "contributors": [
+    {
+      "name": "Sarunas Ramanauskas",
+      "email": "sarunas.ramanauskas@ibm.com",
+      "url": "https://www.linkedin.com/in/%C5%A1ar%C5%ABnas-ramanauskas-67b9a191"
+    }
+  ]
+}

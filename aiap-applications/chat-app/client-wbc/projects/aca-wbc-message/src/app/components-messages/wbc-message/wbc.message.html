@@ -1,0 +1,19 @@
+<div
+  *ngIf="messagesService.checkForMessageSender(message)"
+  class="message--wbc message--bubble message--content message--float"
+  >
+  <!-- Text -->
+  <i *ngIf="iconsEnabled" [ngClass]="botOrUserIcon(message?.type)" aria-hidden="true"></i>
+  <div 
+    *ngIf="hasText(message) && !isWbcTable(message?.attachment?.type)" 
+    class="message--float" 
+    [ngStyle]="applyStyle(message)"
+    [innerHTML]="message | extractValueMessage | safe: 'html'">
+  </div>
+  <aca-chat-wbc-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleWbc(message)" 
+    [message]="message"
+    [index]="index"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-wbc-attachment>
+</div>

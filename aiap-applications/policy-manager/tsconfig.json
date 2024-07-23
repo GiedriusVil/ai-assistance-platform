@@ -1,0 +1,143 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-async-retry"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-wrapper-joi"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-datasource"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-server"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-domain-app"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-audit"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-date"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-encrypter"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-file"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-hash"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-xlsx"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-passport-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-jwt-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-cache-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-resources-loader"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-express-session-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-user-session-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-redis-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-event-stream-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenant-event-stream-handler"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-main-event-stream-handler"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-main-event-stream-handler-tenant"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-memory-store-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-mongo-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-providers"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-express-midleware-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-organizations-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-validation-engagements-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-rules-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-rules-service-v2"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-adapter-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-ai-services-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-tenants-memory-store"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-service"
+    },
+    {
+      "path": "./aiap-packages/aca-rule-actions-service"
+    },
+    {
+      "path": "./packages/server"
+    },
+    {
+      "path": "./packages/configuration"
+    }
+  ]
+}

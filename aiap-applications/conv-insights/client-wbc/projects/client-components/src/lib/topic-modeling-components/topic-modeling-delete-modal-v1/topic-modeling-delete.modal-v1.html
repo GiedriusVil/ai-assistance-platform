@@ -1,0 +1,33 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{ 'topic_modeling_view_v1.delete_modal_v1.modal_header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section 
+    ibmModalContent>
+    <span>{{ 'topic_modeling_view_v1.delete_modal_v1.section.span' | translate }}</span>
+    <div ibmGrid>
+      <div ibmRow *ngFor="let id of ids">
+        <div ibmCol>{{id}}</div>
+      </div>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button
+        ibmButton="secondary"
+        (click)="close()">
+        {{ 'topic_modeling_view_v1.delete_modal_v1.btn_cancel.text' | translate }}
+    </button>
+    <button
+        ibmButton="danger"
+        (click)="delete()">
+        {{ 'topic_modeling_view_v1.delete_modal_v1.btn_delete.text' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

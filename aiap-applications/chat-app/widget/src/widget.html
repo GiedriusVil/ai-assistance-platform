@@ -1,0 +1,16 @@
+<div id="aca--widget-frame" role="region" aria-roledescription="Virtual assistant" >
+  <div id="resizer" alt="Drag to resize chat window" title="Drag to resize chat window"></div>
+  <div id="draggable" alt="Drag to move chat window" title="Drag to move chat window"></div>
+  <div id="aca--widget-content">
+    <div id="aca--widget-content-loader">
+      <span id="aca--widget-spinner"></span>
+    </div>
+    <iframe 
+      aria-atomic="true" 
+      aria-live="assertive" 
+      title="open chat" 
+      role="application" 
+      id="aca--widget-iframe" frameborder="0" onload="window.acaWidget.__iframeLoaded(true);"
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-popups allow-same-origin allow-downloads allow-forms"></iframe>
+  </div>
+</div>

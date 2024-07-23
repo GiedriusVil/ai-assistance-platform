@@ -1,0 +1,72 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'lg': 4}">
+      <ibm-label>
+        {{'rules_v2.view.tab_general_v2.key_label' | translate}}
+        <input
+          ibmText
+          required
+          name="key"
+          [(ngModel)]="value.key">
+      </ibm-label>
+    </div>
+    <div ibmCol [columnNumbers]="{'lg': 4}">
+      <ibm-label>
+        {{'rules_v2.view.tab_general_v2.name_label' | translate}}
+        <input
+          ibmText
+          required
+          name="name"
+          [(ngModel)]="value.name">
+      </ibm-label>
+    </div>
+    <div ibmCol [columnNumbers]="{'lg': 4}">
+      <aiap-validation-engagements-combobox-v1
+        [label]="'rules_v2.view.save_modal.tab_general_v2.validation_engagements_label' | translate"
+        [value]="value.engagement"
+        (valueChange)="handleValidationEngagementChange($event)">
+      </aiap-validation-engagements-combobox-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'lg': 6}">
+      <aiap-date-picker-v1
+        name="effective"
+        [label]="'rules_v2.view.tab_general_v2.effective_label' | translate"
+        class="effective-date-picker"
+        dateFormat="Y-m-d"
+        placeholder="yyyy-mm-dd"
+        theme="light"
+        [(value)]="value.effective">
+      </aiap-date-picker-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'lg': 6}">
+      <aiap-date-picker-v1
+        name="expires"
+        [label]="'rules_v2.view.tab_general_v2.expires_label' | translate"
+        class="due-date-picker"
+        dateFormat="Y-m-d"
+        placeholder="yyyy-mm-dd"
+        theme="light"
+        [(value)]="value.expires">
+      </aiap-date-picker-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <ibm-label>
+        {{'rules_v2.view.tab_general_v2.description_label' | translate}}
+        <textarea
+          ibmTextArea
+          [rows]="15"
+          name="description"
+          [placeholder]="'rules_v2.view.tab_general_v2.description_placeholder' | translate"
+          [(ngModel)]="value.description">
+        </textarea>
+      </ibm-label>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+</div>

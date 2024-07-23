@@ -1,0 +1,24 @@
+<ng-template #loading>
+  <div class="aiap-wbc-view-loader-wrapper">
+      <div class="aiap-wbc-view-loader-content">
+        <ibm-inline-loading
+          [state]="'active'"
+          [loadingText]="applicationLoadingText()">
+        </ibm-inline-loading>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="aiap-wbc-view-loader-wrapper">
+      <div class="aiap-wbc-view-loader-content" style="color: red;">
+          Sorry, we are unable to load application {{context?.wbc?.tag}} from {{context?.wbc?.host}}{{context?.wbc?.path}}!
+      </div>
+  </div>
+</ng-template>
+
+<ax-lazy-element
+  [(context)]="context"
+  [(params)]="params"
+  *axLazyElementDynamic="context?.wbc?.tag, url: url(); loadingTemplate: loading; errorTemplate: error;">
+</ax-lazy-element>

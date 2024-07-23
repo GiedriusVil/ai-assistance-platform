@@ -1,0 +1,14 @@
+{
+    "name": "@ibm-aca/aca-jobs-queue-provider",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+    },
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {
+      "bullmq":"1.50.5"
+    }
+  }
+  

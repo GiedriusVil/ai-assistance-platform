@@ -1,0 +1,31 @@
+<div class="queries-wrapper">
+  <div class="queries-content">
+    <aiap-bread-crumb-v2
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+    <div class="page-queries" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1
+            [value]="state.query.filter.dateRange"
+            (onChange)="handleEventDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-queries-models-changes-table-v1
+      (onShowSavePlace)="handleEventShowTransaction($event)"
+      (onSearchChangeEvent)="handleEventSearchChange($event)"
+      (onSearchClearEvent)="handleEventSearchClear($event)">
+    </aiap-queries-models-changes-table-v1>
+  </div>
+</div>
+
+<aiap-queries-model-change-view-modal-v1
+  #queriesModelChangeViewModalV1>
+</aiap-queries-model-change-view-modal-v1>

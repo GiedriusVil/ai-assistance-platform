@@ -1,0 +1,83 @@
+<div 
+  *ngIf="isReady()"
+  class="message--content w-100">
+  <p></p>
+  <div class="aca-wbc-double-date-picker">
+    <div class="row">
+      <div class="col">
+        <span class="title">{{dateFromTitle}}</span>
+        <div class="input-group">
+            <div class="dp-hidden position-absolute">
+              <div class="input-group">
+                <input name="datepickerFromDate"
+                       class="form-control"
+                       ngbDatepicker
+                       #datepickerFromDate="ngbDatepicker"
+                       [autoClose]="true"
+                       (dateSelect)="onFromDateSelection($event)"
+                       [displayMonths]="1"
+                       outsideDays="hidden"
+                       [startDate]="fromDate!"
+                       tabindex="-1">
+              </div>
+            </div>
+            <input #dpFromDate
+                   class="form-control" placeholder="dd-mm-yyyy"
+                   name="dpFromDate"
+                   [value]="formatter.format(fromDate)"
+                   (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+            <button class="btn btn-outline-secondary calendar" 
+                    (click)="datepickerFromDate.toggle()" 
+                    type="button"
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <span class="title">{{dateToTitle}}</span>
+          <div class="input-group">
+            <div class="dp-hidden position-absolute">
+              <div class="input-group">
+                <input name="datepickerToDate"
+                       class="form-control"
+                       ngbDatepicker
+                       #datepickerToDate="ngbDatepicker"
+                       [autoClose]="true"
+                       (dateSelect)="onToDateSelection($event)"
+                       [displayMonths]="1"
+                       outsideDays="hidden"
+                       [startDate]="fromDate!"
+                       tabindex="-1">
+              </div>
+            </div>
+            <input #dpToDate
+                   class="form-control" placeholder="dd-mm-yyyy"
+                   name="dpToDate"
+                   [value]="formatter.format(toDate)"
+                   (input)="toDate = validateInput(toDate, dpToDate.value)">
+            <button class="btn btn-outline-secondary calendar" 
+                    (click)="datepickerToDate.toggle()" 
+                    type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                </button>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding-top: 5px;">
+        <div class="col-6">
+          <div class="select-button">
+            <button type="button" class="btn btn-primary btn-block btn--color" [disabled]="!isDateSelected() || !this._state.content.enabled"
+            (keydown.enter)="handleDateSelect()"
+            (click)="handleDateSelect()">Select</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>  

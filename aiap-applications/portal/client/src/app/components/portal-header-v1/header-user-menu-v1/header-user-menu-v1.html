@@ -1,0 +1,24 @@
+<ibm-header-menu 
+  trigger="mouseover" 
+  [icon]="userIcon">
+  <ibm-header-item 
+    *isViewAllowed="'PersonalProfileViewV1'" 
+    (click)="handleShowUserProfile($event)">{{user?.displayName || user?.username }}
+  </ibm-header-item>
+  <ibm-header-item 
+    (click)="handleViewDocumentationEvent($event)">
+    {{ 'portal_header_v1.user_menu_v1.item_documentation' | translate}}
+  </ibm-header-item>
+  <ibm-header-item 
+    (click)="handleLogoutEvent($event)">
+    {{ 'portal_header_v1.user_menu_v1.item_logout' | translate }}
+  </ibm-header-item>
+</ibm-header-menu>
+
+<ng-template #userIcon>
+  <aiap-icon-svg-v1 
+    class="bx--btn__icon"
+    [src]="'assets/carbon-icons/20/user/user--avatar.svg'"></aiap-icon-svg-v1>
+</ng-template>
+
+<aiap-user-save-modal-v1 #userSaveModal></aiap-user-save-modal-v1>

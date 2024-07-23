@@ -1,0 +1,24 @@
+<div id="chat-app-consent-form" class="consent-form">
+  <div class="consent-form-content">
+    <h5 class="consent-header">
+      {{text?.consent?.header}}
+    </h5>
+    <div class="consent-text">
+      {{text?.consent?.description}}
+    </div>
+    <div class="consent-button-wrapper">
+      <button
+        id="consent-button-agree"
+        class="consent-button consent-button-agree" 
+        (click)="onAgree()">
+          {{text?.consent?.button?.agree}}
+      </button>
+      <button 
+        id="consent-button-discard"
+        class="consent-button consent-button-discard"
+        (click)="onDiscard()">
+          {{text?.consent?.button?.discard}}
+      </button>
+    </div>
+  </div>
+</div>

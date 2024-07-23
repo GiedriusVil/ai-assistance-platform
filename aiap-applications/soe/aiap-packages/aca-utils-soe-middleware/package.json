@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-utils-soe-middleware",
+  "version": "0.0.1",
+  "description": "Utils for soe middlewares",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aca/aca-utils-errors": "0.0.1",
+    "@ibm-aca/aca-lambda-modules-executor": "0.0.1",
+    "@ibm-aiap/aiap-utils-soe-update": "0.0.1",
+    "@ibm-aca/aca-wrapper-lodash": "0.0.1"
+  }
+}

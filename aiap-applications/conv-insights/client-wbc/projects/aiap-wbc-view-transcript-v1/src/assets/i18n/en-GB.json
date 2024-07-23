@@ -1,0 +1,64 @@
+{
+  "transcript_view_v1.exclamation_button.message_error_modal.header": "Message Errors",
+  "transcript_view_v1.exclamation_button.table_type.header_span": "Type",
+  "transcript_view_v1.exclamation_button.table_value.header_span": "Value",
+  "transcript_view_v1.exclamation_button.btn_close.text": "Close",
+
+  "transcript_view_v1.ms_survey_results_card.h6_answer.text": "Answer:",
+  "transcript_view_v1.ms_survey_results_card.p_comment.text": "Comment:",
+
+  "transcript_view_v1.ms_wsd_results_card.h6_filename.text": "Filename:",
+  "transcript_view_v1.ms_wsd_results_card.p_url.text": "URL:",
+  "transcript_view_v1.ms_wsd_results_card.p_subtitle.text": "Subtitle:",
+
+  "transcript_view_v1.transcript_component_v1.col_conversations.label": "Conversation:",
+  "transcript_view_v1.transcript_component_v1.col_last_review.label": "Last review:",
+  "transcript_view_v1.transcript_component_v1.col_intents.label": "Intents",
+  "transcript_view_v1.transcript_component_v1.col_last_entities.label": "Entities",
+  "transcript_view_v1.transcript_component_v1.fld_system_messages.text_on": "Hide system messages",
+  "transcript_view_v1.transcript_component_v1.fld_system_messages.text_off": "Show system messages",
+  "transcript_view_v1.transcript_component_v1.fld_review.text_on": "Remove review",
+  "transcript_view_v1.transcript_component_v1.fld_review.text_off": "Review",
+
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.btn_mask_message.text": "Mask message",
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.btn_close.text": "Close",
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.title": "Confirm to mask message of the transcript",
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.text": "Do you want to mask the whole message?",
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.mask_template": "Mask template:",
+  "transcript_view_v1.transcript_message_wbc.confirm_modal.message": "Message:",
+
+  "transcript_view_v1.transcript_message_native.confirm_modal.btn_mask_message.text": "Mask message",
+  "transcript_view_v1.transcript_message_native.confirm_modal.btn_close.text": "Close",
+  "transcript_view_v1.transcript_message_native.confirm_modal.title": "Confirm to mask message of the transcript",
+  "transcript_view_v1.transcript_message_native.confirm_modal.text": "Do you want to mask the whole message?",
+  "transcript_view_v1.transcript_message_native.confirm_modal.mask_template": "Mask template:",
+  "transcript_view_v1.transcript_message_native.confirm_modal.message": "Message:",
+
+  "transcript_view_v1.transcript_message_entities.no_entities.label": "No entities",
+
+  "transcript_view_v1.transcript_message_intents.irrelevant.label": "Irrelavant",
+  "transcript_view_v1.transcript_message_intents.fld_false_positive.text_on": "False Positive",
+  "transcript_view_v1.transcript_message_intents.fld_false_positive.text_off": "Correct",
+  "transcript_view_v1.fld_chips_v1.placeholder": "Add tags",
+  "transcript_view_v1.fld_chips_v1.secondary_placeholder": "Add tags",
+  "transcript_view_v1.loading_text": "Loading...",
+
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_save.text": "[GB] Save",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_close.text": "[GB] Close",
+  "transcript_view_v1.ai_service_change_view_modal_v1.fld_aiService_id.label": "[GB] Ai Service Id",
+  "transcript_view_v1.ai_service_change_view_modal_v1.fld_skill_id.label": "[GB] Ai Skill Id",
+  "transcript_view_v1.ai_service_change_view_modal_v1.aiService.labelHelp": "[GB] Ai Service Id",
+  "transcript_view_v1.ai_service_change_view_modal_v1.skill.labelHelp": "[GB] Ai Skill Id",
+  "transcript_view_v1.ai_service_change_view_modal_v1.header.title": "[GB] Ai Service Change Request",
+  "transcript_view_v1.ai_service_change_view_modal_v1.fld_new_examples.label": "[GB] New Examples",
+  "transcript_view_v1.ai_service_change_view_modal_v1.fld_existing_examples.label": "[GB] Existing Examples",
+  "transcript_view_v1.ai_service_change_view_modal_v1.fld_deleted_examples.label": "[GB] Deleted Examples",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_delete.label": "[GB] Delete",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_add.label": "[GB] Add",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_change.label": "[GB] Change",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_cancel.label": "[GB] Cancel",
+  "transcript_view_v1.ai_service_change_view_modal_v1.btn_will_change_to.label": "[GB] Will change to",
+
+  "transcript_view_v1.transcript_message_intents.btn_request_changes": "[GB] Request Changes",
+  "transcript_view_v1.transcript_message_intents.btn_update_changes": "[GB] Update Changes"
+}

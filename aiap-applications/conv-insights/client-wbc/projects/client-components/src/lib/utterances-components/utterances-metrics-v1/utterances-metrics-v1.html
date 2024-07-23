@@ -1,0 +1,76 @@
+<div ibmGrid>
+  <div ibmRow [gutter]="false" [condensed]="true">
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-metrics-tile-v1
+        [type]="'action'"
+        [isSelected]="_isMetricSelected('action')"
+        [displayData]="response?.actionNeeded"
+        [headerText]="'utterances.utterance_metrics.column_header_text.actions_needed' | translate"
+        [showTooltip]="true"
+        [tooltipText]="'utterances.utterance_metrics.column_tooltip_text.actions_needed' | translate"
+        (onSelected)="handleMetricSelectedEvent($event)">
+        <aiap-icon-svg-v1
+          class="icon-metric-tile"
+          [src]="'assets/carbon-icons/20/status/warning.svg'">
+        </aiap-icon-svg-v1>
+      </aiap-metrics-tile-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-metrics-tile-v1
+        [type]="'falsePositiveIntents'"
+        [isSelected]="_isMetricSelected('falsePositiveIntents')"
+        [displayData]="response?.falsePositiveIntents"
+        [headerText]="'utterances.utterance_metrics.column_header_text.false_positive' | translate"
+        [showTooltip]="true"
+        [tooltipText]="taggedAsFalsePositiveDesc"
+        (onSelected)="handleMetricSelectedEvent($event)">
+        <aiap-icon-svg-v1
+          class="icon-metric-tile"
+          [src]="'assets/carbon-icons/20/status/warning--alt.svg'">
+        </aiap-icon-svg-v1>
+      </aiap-metrics-tile-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-metrics-tile-v1
+        [type]="'positive'"
+        [isSelected]="_isMetricSelected('positive')"
+        [displayData]="response?.positiveFeedback"
+        [headerText]="'utterances.utterance_metrics.column_header_text.positive_feedback' | translate"
+        [showTooltip]="true"
+        [tooltipText]="'utterances.utterance_metrics.column_tooltip_text.positive_feedback' | translate"
+        (onSelected)="handleMetricSelectedEvent($event)">
+        <aiap-icon-svg-v1
+          class="icon-metric-tile"
+          [src]="'assets/carbon-icons/20/toggle/thumbs-up.svg'">
+        </aiap-icon-svg-v1>
+      </aiap-metrics-tile-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-metrics-tile-v1
+        [type]="'negative'"
+        [isSelected]="_isMetricSelected('negative')"
+        [displayData]="response?.negativeFeedback"
+        [headerText]="'utterances.utterance_metrics.column_header_text.negative_feedback' | translate"
+        [showTooltip]="true"
+        [tooltipText]="'utterances.utterance_metrics.column_tooltip_text.negative_feedback' | translate"
+        (onSelected)="handleMetricSelectedEvent($event)">
+        <aiap-icon-svg-v1
+          class="icon-metric-tile"
+          [src]="'assets/carbon-icons/20/toggle/thumbs-down.svg'">
+        </aiap-icon-svg-v1>
+      </aiap-metrics-tile-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-metrics-tile-v1
+        [type]="'all'"
+        [isSelected]="_isMetricSelected('all')"
+        [displayData]="response?.allUtterances"
+        [headerText]="'utterances.utterance_metrics.column_header_text.all_utterances' | translate"
+        [showTooltip]="true"
+        [tooltipText]="'utterances.utterance_metrics.column_tooltip_text.all_utterances' | translate"
+        (onSelected)="handleMetricSelectedEvent($event)">
+      </aiap-metrics-tile-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 1, 'sm': 2}"></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aca/aca-classification-catalog-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "martynas.stake@lt.ibm.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aca/aca-classification-catalog-service": "0.0.1",
+    "@ibm-aiap/aiap-express-session-provider": "0.0.1",
+    "@ibm-aiap/aiap-passport-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-express-routes": "0.0.1"
+  }
+}

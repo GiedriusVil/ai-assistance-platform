@@ -1,0 +1,12 @@
+{
+    "name": "@ibm-aca/aca-classification-catalog-service",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "author": "martynas.stake@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aca/aca-classification-catalog-datasource-provider": "0.0.1",
+        "compromise": "13.11.2"
+    }
+  }

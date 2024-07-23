@@ -1,0 +1,28 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  (overlaySelected)="close()"
+  size='sm'>
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_delete_modal_v1.deleteJob' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <div class="confirm-deletion-modal">
+      <p>{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_delete_modal_v1.confirmDeletion' | translate }}:</p>
+      <ul ibmList>
+        <ng-container *ngFor="let job of jobs">
+          <li ibmListItem>{{job}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button
+        ibmButton="secondary"
+        (click)="close()">{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_delete_modal_v1.confirmDeletion.cancel' | translate }}</button>
+    <button
+        ibmButton="danger"
+        (click)="handleDeleteManyByIds()">{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_delete_modal_v1.confirmDeletion.delete' | translate }}</button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

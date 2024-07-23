@@ -1,0 +1,49 @@
+<ibm-sidenav 
+  #sideNav 
+  allowExpansion="false" 
+  class="aca-wbc-ibm-sidenav" 
+  [rail]="true" 
+  [expanded]="isExpanded"
+  (click)="setExpansion()">
+  <ng-container 
+    *ngFor="let view of views" 
+    [ngSwitch]="view.type">
+    <ng-container *ngSwitchCase="'SINGLE_VIEW'">
+      <ibm-sidenav-item
+        *ngIf="isSingleViewEnabled(view)"
+        (click)="handleShowViewClickEvent(view)">
+        <aiap-icon-svg-v1 
+          icon 
+          [src]="view?.icon">
+        </aiap-icon-svg-v1>
+        <span>{{view?.name | translate}}</span>
+      </ibm-sidenav-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'MULTI_VIEW'">
+      <ibm-sidenav-menu 
+        *ngIf="isMultiViewEnabled(view)"
+        [title]="view?.name | translate">
+        <aiap-icon-svg-v1 
+          icon 
+          [src]="view?.icon">
+        </aiap-icon-svg-v1>
+        <ng-container *ngFor="let childView of view?.views">
+          <ibm-sidenav-item
+            *ngIf="isSingleViewEnabled(childView)"
+            (click)="handleShowViewClickEvent(childView)">
+            <span>{{childView?.name | translate}}</span>
+          </ibm-sidenav-item>
+        </ng-container>
+      </ibm-sidenav-menu>
+    </ng-container>
+  </ng-container>
+</ibm-sidenav>
+<main class="bx--content">
+  <div 
+    style="position:fixed; z-index: 10000; right: 10px;" 
+    class="notification-container">
+  </div>
+  <div class="main-view-container">
+    <router-outlet></router-outlet>
+  </div>
+</main>

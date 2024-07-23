@@ -1,0 +1,41 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol>
+      <button
+        class="btn-delete-answer-language"
+        ibmButton="tertiary"
+        [size]="'sm'"
+        [iconOnly]="true"
+        (click)="handleRemoveValueClickEvent()">
+        <aiap-icon-svg-v1
+          class="bx--btn__icon"
+          [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+        </aiap-icon-svg-v1>
+      </button>
+    </div>
+  </div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+      <aca-languages-combo-box
+        [label]="'Language*'"
+        [placeholder]="'Select language'"
+        [(value)]="value">
+      </aca-languages-combo-box>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+      <ibm-label>Value*
+        <input 
+          ibmText 
+          required 
+          name="ai_skill_display_name"
+          placeholder="Enter value..."
+          [autocomplete]="'off'"
+          [(ngModel)]="value.value">
+      </ibm-label>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+</div>

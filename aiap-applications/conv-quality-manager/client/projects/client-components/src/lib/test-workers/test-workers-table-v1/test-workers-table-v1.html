@@ -1,0 +1,89 @@
+
+<ibm-table-container>
+    <ibm-table-toolbar-content>
+        <button
+            ibmButton="ghost"
+            [iconOnly]="true"
+            (click)="handleRefreshClickEvent($event)">
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/operations/renew.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+        <ibm-table-toolbar-search
+            (search)="emitSearchPlace($event)"
+            (clear)="emitClearPlace($event)"
+            [value]="state.search"
+            [autocomplete]="'off'"
+            >
+        </ibm-table-toolbar-search>
+        <button
+            ibmButton="primary"
+            size="sm"
+            (click)="emitShowSavePlace()">
+            {{ 'test_workers_table_v1.btn_add.text' | translate }}
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/navigation/add.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+        <button
+            ibmButton="danger"
+            size="sm"
+            [disabled]="isRemoveDisabled()"
+            (click)="emitRemovePlace()">
+            {{ 'test_workers_table_v1.btn_remove.text' | translate }}({{this.selectedRows.length}})
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/formatting/trash-can.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+    </ibm-table-toolbar-content>
+    <ibm-table
+        class="cursor-pointer"
+        size="md"
+        (rowClick)="emitShowSavePlace($event)"
+        (deselectAll)="deselectAllRows()"
+        (selectAll)="selectAllRows($event)"
+        (selectRow)="rowSelect($event)"
+        (deselectRow)="rowDeselect($event)"
+        [striped]="true"
+        [skeleton]="skeletonState"
+        [showSelectionColumn]="true"
+        [sortable]="true"
+        [stickyHeader]="false"
+        [model]="model"
+        (sort)="handleSortEvent($event)">
+    </ibm-table>
+    <ibm-pagination
+        [model]="model"
+        [showPageInput]="true"
+        (selectPage)="handleSelectPageEvent($event)">
+    </ibm-pagination>
+
+    <ng-template #overflowMenuItemTemplate let-data="data">
+        <ibm-overflow-menu
+        [flip]="true"
+        (click)="_allowActionsClick($event)">
+            <ibm-overflow-menu-option 
+                (selected)="emitShowSavePlace(data)">
+                {{ 'test_workers_table_v1.btn_edit.text' | translate }}
+            </ibm-overflow-menu-option>
+        </ibm-overflow-menu>
+    </ng-template>
+    <ng-template #createdAndChangedTime let-data="data">
+        {{ timezoneService.getTimeByUserTimezone(data) }}
+    </ng-template>
+    <ng-template #rowExpandTemplate let-data="data">
+        <div ibmGrid>
+            <div ibmRow>
+                <div ibmCol>
+                    <ibm-tag
+                        *ngFor="let instance of data"
+                        [type]="workerInstanceStatus(instance)">{{ jsonToString(instance) }}
+                    </ibm-tag>
+                </div>
+            </div>  
+        </div>
+    </ng-template>
+</ibm-table-container>

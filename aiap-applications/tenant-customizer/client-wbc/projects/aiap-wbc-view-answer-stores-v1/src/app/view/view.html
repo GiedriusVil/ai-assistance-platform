@@ -1,0 +1,41 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-answer-stores-table-v1
+      [config]="tableConfig"
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowSavePlace)="handleAnswerStoreSaveModal($event)"
+      (onShowRemovePlace)="handleAnswerStoreDeleteModal($event)"
+      (onShowAnswerPlace)="handleShowAnswerStorePlaceEvent($event)"
+      (onShowPullPlace)="handleShowPullPlaceEvent($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()">
+    </aiap-answer-stores-table-v1>
+  </div>
+</div>
+
+<aiap-answer-stores-save-modal-v1 #answerStoreSaveModal></aiap-answer-stores-save-modal-v1>
+<aiap-answer-stores-delete-modal-v1 #answerStoreDeleteModal></aiap-answer-stores-delete-modal-v1>
+<aiap-answers-stores-import-modal-v1 #answersStoresImportModal></aiap-answers-stores-import-modal-v1>
+<aiap-answer-stores-pull-modal-v1 #answersStoresPullModal></aiap-answer-stores-pull-modal-v1>
+
+<aiap-right-side-filter-panel-v1
+  *ngIf="!filterConfig.isLoading"
+  [config]="filterConfig"
+  [data]="filterData"
+  (onFilterChange)="handleFilterChange()"
+  (onResetFilter)="handleFilterReset()">
+  <div class="aiap-right-side-filter--content_item">
+    <aiap-date-range-picker-v1
+      [value]="filterData.dateRange"
+      [flow]="'vertical'"
+      (onChange)="handleDateRangeChange($event)">
+    </aiap-date-range-picker-v1>
+  </div>
+</aiap-right-side-filter-panel-v1>

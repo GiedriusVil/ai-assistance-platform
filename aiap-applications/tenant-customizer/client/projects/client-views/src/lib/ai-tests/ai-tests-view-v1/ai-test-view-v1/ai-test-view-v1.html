@@ -1,0 +1,30 @@
+<div>
+  <div class="filters-wrapper">
+    <div class="filters-content no-filters">
+      <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+      <h2>K-Fold test name: {{ data?.testName }}</h2>
+      <p>Test Threshold: {{ data?.threshold }}</p>
+      <ibm-notification *ngIf='data?.errorMessage' [notificationObj]="{
+				type: 'error',
+				title: 'Error:',
+				message: errorMessage,
+				showClose: false,
+				lowContrast: true}">
+			</ibm-notification>
+      <ibm-notification *ngIf='checkForWarnings(data)' [notificationObj]="{
+				type: 'warning',
+				title: unhittedIntents,
+				message: 'Intents were not hit and will not appear in test results',
+				showClose: false,
+				lowContrast: true}">
+			</ibm-notification>
+    </div>
+  </div>
+</div>
+<div class="dashboard-wrapper">
+  <div *ngIf="!data?.errorMessage" class="dashboard-content">
+    <aca-ai-test-table 
+    (onShowSavePlace)="handleRowClick($event)">
+    </aca-ai-test-table>
+  </div>
+</div>

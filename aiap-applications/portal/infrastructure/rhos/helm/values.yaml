@@ -1,0 +1,13 @@
+app:
+  port: 8080
+  replicaCount: 1
+  cpuRequest: 100m
+  cpuLimit: 500m
+  memoryRequest: 512Mi
+  memoryLimit: 1024Mi
+service:
+  port: 8080
+route:
+  enabled: true
+ingress:
+  enabled: false

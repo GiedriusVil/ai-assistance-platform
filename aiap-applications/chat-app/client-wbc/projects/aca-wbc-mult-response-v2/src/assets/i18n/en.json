@@ -1,0 +1,22 @@
+{
+  "feedback.icon-negative-alt": "Negative feedback",
+  "feedback.icon-negative-selected-alt": "Negative feedback left",
+  "feedback.icon-negative-selected-title": "Negative feedback left",
+  "feedback.icon-negative-title": "Negative feedback",
+  "feedback.icon-positive-alt": "Positive feedback",
+  "feedback.icon-positive-selected-alt": "Positive feedback left",
+  "feedback.icon-positive-selected-title": "Positive feedback left",
+  "feedback.icon-positive-title": "Positive feedback",
+  "feedback.modal-answer-value-incorrect-response": "Incorrect response",
+  "feedback.modal-answer-value-misunderstand": "The bot does not understand me",
+  "feedback.modal-answer-value-other": "Other",
+  "feedback.modal-answer-value-unresponsive": "The bot is unresponsive",
+  "feedback.modal-comment-placeholder": "Add a comment",
+  "feedback.modal-cross-alt": "Close chat",
+  "feedback.modal-cross-title": "Close chat",
+  "feedback.modal-default-comment": "Not Provided",
+  "feedback.modal-default-reason": "The bot does not understand me",
+  "feedback.modal-description": "What went wrong?",
+  "feedback.modal-submit": "Send",
+  "feedback.modal-title": "Oops!"
+}

@@ -1,0 +1,142 @@
+<div 
+  *ngIf="!hasPiAgreementModal(message)">
+    <aca-chat-default-notification 
+      *ngIf="hasText(message) && isNotification(message)" 
+      [message]="message">
+    </aca-chat-default-notification>
+    <aca-chat-bot-notification 
+      *ngIf="hasText(message) && isBotNotification(message)" 
+      [message]="message">
+    </aca-chat-bot-notification>
+    <aca-chat-error-notification 
+      *ngIf="notificationService.isNotificationVisibleAcaError(message)" 
+      [message]="message">
+    </aca-chat-error-notification>
+    <aca-chat-debug-notification 
+      *ngIf="notificationService.isNotificationVisibleAcaDebug(message)" 
+      [message]="message">
+    </aca-chat-debug-notification>
+  <div 
+    *ngIf="(!hasPiAgreementModal(message) && messagesService.checkForMessageSender(message, isTranscript))"
+    class="message--content message--float"
+    [ngClass]="applyClass(message)">
+    <i *ngIf="iconsEnabled" [ngClass]="botOrUserIcon(message.type)" aria-hidden="true"></i>
+
+    <div 
+      *ngIf="isTranscript && !hasText(message)"
+      class="message--bubble message-float message"
+      [innerHTML]="emptyMessageContents(message)">
+    </div>
+
+    <!-- Text -->
+    <div 
+      *ngIf="hasText(message)" 
+      class="message--bubble message--float message"
+      [ngStyle]="applyStyle(message)"
+      [innerHTML]="message | extractValueMessage | safe: 'html'">
+    </div>
+    <!-- Feedback -->
+    <aca-wbc-feedback
+      [message]="message"
+      [assetsUrl]="assetsUrl"
+      *ngIf="attachmentsService.isAttachmentVisibleFeedback(message)" 
+      (onFeedbackClickEvent)="handleFeedbackClickEvent($event)"
+      suffix="-wbc-message">
+    </aca-wbc-feedback>
+  </div>
+
+  <div *ngIf="isWdsResult(message.attachment)" class="message">
+    <table>
+      <tbody>
+        <tr *ngFor="let item of message.attachment.attachments">
+          <ms-wds-results-card [title]="item.title" [filename]="item.filename" [documentUrl]="item.url"
+            [passageText]="item.data[0]">
+          </ms-wds-results-card>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="isSurvey(message.attachment)">
+    <br>
+    <ms-survey-questions-card class="message">
+    </ms-survey-questions-card>
+  </div>
+  <div *ngIf="isSurvey(message.sender_action)">
+    <br>
+    <ms-survey-results-card class="message" [score]="message.sender_action.data.survey.score"
+      [comment]="message.sender_action.data.survey.comment">
+    </ms-survey-results-card>
+  </div>
+
+  <aca-chat-form-attachment
+    *ngIf="attachmentsService.isAttachmentVisibleForm(message)" 
+    #formComponent
+    class="message--form message--float w-100" 
+    [message]="message" 
+    [index]="i"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-form-attachment>
+  <aca-chat-dropdown-attachment
+    *ngIf="attachmentsService.isAttachmentVisibleDropdown(message)" 
+    [message]="message"
+    [isContentEnabled]="!messagesService.isContentEnabled(index, 'dropdown')"
+    [isLastMessage]="messagesService.isLastMessage(index)"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-dropdown-attachment>
+  <aca-chat-buttons-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleButtons(message)" 
+    [message]="message"
+    [isContentEnabled]="!messagesService.isContentEnabled(index, 'buttons')" 
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-buttons-attachment>
+  <aca-chat-ai-service-suggestions-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleAiServiceSuggestions(message)"
+    [message]="message" 
+    [disabled]="!messagesService.isContentEnabled(index, 'aiServiceSuggestions')" 
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-ai-service-suggestions-attachment>
+  <aca-chat-buttons-list-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleButtonsList(message)"
+    [message]="message" 
+    [isContentEnabled]="!messagesService.isContentEnabled(index, 'buttonList')"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-buttons-list-attachment>
+  <aca-chat-image-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleImage(message)" 
+    [message]="message">
+  </aca-chat-image-attachment>
+  <aca-chat-video-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleVideo(message)" 
+    [message]="message">
+  </aca-chat-video-attachment>
+  <aca-chat-intents-menu-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleIntentsMenu(message)"
+    [message]="message" 
+    [isContentEnabled]="!messagesService.isContentEnabled(index, 'intentsMenu')" 
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-intents-menu-attachment>
+  <aca-chat-table-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleTable(message)" 
+    [message]="message"
+    [isContentEnabled]="!messagesService.isContentEnabled(index, 'table')" 
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-table-attachment>
+  <aca-chat-product-list-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleProductList(message)"
+    class="message-content message--float w-100" 
+    [message]="message"
+    [index]="index"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-product-list-attachment>
+  <aca-chat-basket-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleBasket(message)"
+    class="message-content message--float w-100" 
+    [message]="message" 
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-basket-attachment>
+  <aca-chat-wds-attachment 
+    *ngIf="attachmentsService.isAttachmentVisibleWds(message)" 
+    [message]="message"
+    [wbcAssetsUrl]="assetsUrl">
+  </aca-chat-wds-attachment>
+</div>

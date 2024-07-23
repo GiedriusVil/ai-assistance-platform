@@ -1,0 +1,16 @@
+{
+  "name": "@ibm-aca/aca-structured-content-liveperson",
+  "version": "3.27.0",
+  "description": "Liveperson structured content library",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org"
+  }
+}

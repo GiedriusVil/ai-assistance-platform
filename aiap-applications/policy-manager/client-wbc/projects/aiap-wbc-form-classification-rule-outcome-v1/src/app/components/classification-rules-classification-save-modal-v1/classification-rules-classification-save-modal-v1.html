@@ -1,0 +1,70 @@
+<ibm-modal [open]="isOpen" size="sm" (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <h2>{{'rules_classification.save_modal.header_text' | translate}}</h2>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #classificationRulesClassificationForm="ngForm" class="height-100">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aca-external-classification-segment-combobox
+              #segmentComboBox
+              [(value)]="value.external.segment">
+            </aca-external-classification-segment-combobox>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aca-external-classification-family-combobox
+              [segment]="value.external.segment"
+              [(value)]="value.external.family">
+            </aca-external-classification-family-combobox>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aca-external-classification-class-combobox
+              [segment]="value.external.segment"
+              [family]="value.external.family"
+              [(value)]="value.external.class">
+            </aca-external-classification-class-combobox>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+          <aca-external-classification-commodity-combobox
+            [segment]="value.external.segment"
+            [family]="value.external.family"
+            [class]="value.external.class"
+            [(value)]="value.external.commodity">
+          </aca-external-classification-commodity-combobox>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'rules_classification.save_modal.cancel_button_text' | translate"
+      [tooltip]="'rules_classification.save_modal.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'classification-rules.view.edit.classifications.edit'}"
+      [type]="'primary'"
+      [disabled]="classificationRulesClassificationForm.invalid"
+      [text]="'rules_classification.save_modal.save_button_text' | translate"
+      [tooltip]="'rules_classification.save_modal.save_button_tooltip' | translate"
+      (onClick)="handleSaveClickEvent($event)">
+    </aiap-button-v1>
+    
+  </ibm-modal-footer>
+</ibm-modal>

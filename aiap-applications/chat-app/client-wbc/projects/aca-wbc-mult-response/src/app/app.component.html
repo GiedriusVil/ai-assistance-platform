@@ -1,0 +1,37 @@
+<div *ngIf="isReady()" [ngClass]="getActiveClassNames()">
+  <div class="aca-wbc-mult-response card">
+    <div class="card-body">
+      <aca-wbc-feedback 
+        [assetsUrl]="assetsUrl" 
+        [message]="message"
+        (onFeedbackClickEvent)="handleFeedbackClickEvent($event)"
+        suffix="-multi-answer">
+      </aca-wbc-feedback>
+      <ng-container *ngFor="let answer of message?.attachment?.answersPrimary">
+        <aiap-answer-comp 
+          [answer]="answer" 
+          (onBtnClickEvent)="handleAnswerBtnClickEvent($event)">
+        </aiap-answer-comp>
+        <aiap-multimedia-box 
+          [multimedia]="answer?.multimedia">
+        </aiap-multimedia-box>
+      </ng-container>
+      <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel *ngFor="let answer of message?.attachment?.answersSecondary">
+          <ng-template ngbPanelTitle>
+            <span>{{answer?.title}}</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <aiap-answer-comp 
+              [answer]="answer" 
+              (onBtnClickEvent)="handleAnswerBtnClickEvent($event)">
+            </aiap-answer-comp>
+            <aiap-multimedia-box 
+              [multimedia]="answer?.multimedia">
+            </aiap-multimedia-box>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+  </div>
+</div>

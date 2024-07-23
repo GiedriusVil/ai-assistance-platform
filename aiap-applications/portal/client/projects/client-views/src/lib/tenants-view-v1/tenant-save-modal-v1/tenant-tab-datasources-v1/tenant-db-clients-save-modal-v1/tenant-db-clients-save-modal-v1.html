@@ -1,0 +1,115 @@
+<aiap-modal-v1 size="lg" [open]="isOpen" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form #dbClientForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_name.placeholder' | translate "
+              [name]="'client_name'"
+              [label]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_name.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_name.helper_text' | translate"
+              [(value)]="client.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'single'"
+              [name]="'client_db_type'"
+              [label]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_type.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_type.placeholder' | translate"
+              [items]="selections.dbTypes"
+              [(value)]="selections.dbType">
+           </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_name.placeholder' | translate "
+              [name]="'client_db_name'"
+              [label]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_name.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_name.helper_text' | translate"
+              [(value)]="client.options.name">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_uri.placeholder' | translate "
+              [name]="'client_db_uri'"
+              [label]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_uri.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_database_uri.helper_text' | translate"
+              [(value)]="client.options.uri">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+            <aiap-toggle-v1
+              [onText]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_tls_flag.text_on' | translate"
+              [offText]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_tls_flag.text_off' | translate"
+              [isChecked]="isTlsEnabled()"
+              (onChange)="handleTlsFlagClickEvent($event)">
+            </aiap-toggle-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow class="textarea">
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-textarea-v1
+              [isDisabled]="!isTlsEnabled()"
+              [isRequired]="false"
+              [placeholder]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_tls_cert.placeholder' | translate"
+              [name]="'tenantDescription'"
+              [label]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_tls_cert.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.fld_tls_cert.helper_text' | translate"
+              [rows]="10"
+              [(value)]="client.options.ssl.cert">
+            </aiap-field-textarea-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-button-v1
+              [tooltip]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.btn_test.text' | translate"
+              [size]="'md'"
+              [text]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.btn_test.text' | translate"
+              [type]="'primary'"
+              (onClick)="handleTestConnectionClickEvent($event)">
+            </aiap-button-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="dbClientForm.invalid"
+      [text]="'tenants_view_v1.save_modal_v1.db_clients_save_modal_v1.btn_add.text' | translate"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,19 @@
+<div class="message--content w-100">
+    <aca-chat-product-list
+        [products]="_state.products"
+        [configuration]="_state.configuration"
+        (onProductEvent)="handleProductEvent($event)"
+        >
+    </aca-chat-product-list>
+    <div class="pr-0">
+      <button *ngFor="let attribute of _state.attributes"
+        class="btn btn-primary btn--color attribute--button attributes--button"
+        tabindex="0"
+        type="button"
+        [disabled]="!messagesService.isContentEnabled(index)"
+        (click)="onButtonClick(attribute?.value)">
+        {{ attribute?.value }}
+      </button>
+      <div class="break"></div>
+    </div>
+</div>

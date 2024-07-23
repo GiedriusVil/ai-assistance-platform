@@ -1,0 +1,22 @@
+<main #main id="main" class="float-start w-100 clearfix">
+  <div aria-live="polite" #container class="container-lg clearfix">
+    <aca-chat-messages
+      [messages]="conversationMessages"
+      (userActionEvent)="handleUserActionEvent($event)">
+    </aca-chat-messages>
+    <!-- Bot Typing -->
+    <div *ngIf="isBotTyping && !isSessionEnded" [class]="isBotOrAgentTyping()">
+      <div class="message--bubble message--content message--float">
+        <i *ngIf="state.iconsEnabled" [ngClass]="isBotOrAgentTypingIcon()" aria-hidden="true"></i>
+        <aca-chat-typing-dots></aca-chat-typing-dots>
+      </div>
+    </div>
+    <!-- Session Ended -->
+    <div *ngIf="isSessionEnded" class="message--row message--float clearfix message--session--ended">
+      <p class="mb-0 text-center" aria>{{'main.session-ended'| translate}}</p>
+    </div>
+  </div>
+</main>
+<app-suggestions></app-suggestions>
+<!-- Footer Component -->
+<app-footer *ngIf="footerEnabled" [config]="config"></app-footer>

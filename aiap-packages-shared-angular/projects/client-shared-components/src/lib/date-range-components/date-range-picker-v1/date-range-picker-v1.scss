@@ -1,0 +1,56 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-date-range-picker-v1 {
+
+  .date-range-vertical-grid {
+    padding: 0;
+  }
+
+  .date-range-picker-row {
+    justify-content: flex-start;
+  }
+
+  .date-range-picker-col {
+    padding-left: 1.4rem;
+  }
+
+  .date-range-move-value {
+    padding-left: 0.7rem;
+  }
+
+  .date-range-mode-col {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+    padding-left: 1.4rem;
+  }
+
+  .bx--btn--field.bx--btn--icon-only,
+  .bx--btn--md.bx--btn--icon-only {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    aiap-icon-svg-v1 {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .date-range-inline-flex {
+    display: inline-flex;
+
+
+    button.bx--btn--field.bx--btn--icon-only {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+
+      aiap-icon-svg-v1 {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

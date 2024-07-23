@@ -1,0 +1,12 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol>
+      <json-editor 
+      class="aca-override"
+      [options]="jsonEditorOptions" 
+      [data]="jsonValue"
+      (change)="emitEditorValue($event)">
+      </json-editor>
+    </div>
+  </div>
+</div>

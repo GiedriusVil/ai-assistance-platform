@@ -1,0 +1,8 @@
+<ibm-overflow-menu-option
+  ngbTooltip="{{ state?.tooltip?.value ? state.tooltip.value: null }}"
+  [openDelay]="state.tooltip.delay?.open"
+  [closeDelay]="state.tooltip.delay?.close"
+  [disabled]="state.disabled"
+  (click)="handleEventClick($event)">
+  {{ state.text }}
+</ibm-overflow-menu-option>

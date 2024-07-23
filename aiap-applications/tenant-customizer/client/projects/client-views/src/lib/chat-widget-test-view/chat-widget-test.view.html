@@ -1,0 +1,107 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <form #chatWidgetTestForm="ngForm">
+      <div ibmGrid>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-label>Hostname*
+                      <input 
+                          ibmText
+                          required
+                          name="hostname"
+                          placeholder="Hostname"
+                          [(ngModel)]="state.hostname"/>
+                  </ibm-label>
+              </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-label>Language*
+                      <input 
+                          ibmText
+                          required
+                          name="language"
+                          placeholder="Language"
+                          [(ngModel)]="state.language" />
+                  </ibm-label>
+              </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-label>Tenant ID*
+                      <input 
+                          ibmText
+                          required
+                          name="tenant_id"
+                          placeholder="Tenant ID"
+                          [(ngModel)]="state.tenantId" />
+                  </ibm-label>
+              </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-label>Engagement ID*
+                      <input 
+                          ibmText
+                          required
+                          name="engagement_id"
+                          placeholder="Engagement ID"
+                          [(ngModel)]="state.engagementId" />
+                  </ibm-label>
+              </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-label>Assistant ID*
+                      <input 
+                          ibmText
+                          required
+                          name="assistant_id"
+                          placeholder="Assistant ID"
+                          [(ngModel)]="state.assistantId" />
+                  </ibm-label>
+              </div>
+          </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+            <div ibmCol>
+                <ibm-label>Access Token*
+                  <textarea 
+                    ibmTextArea
+                    required
+                    name="access_token"
+                    placeholder="Access Token"
+                    [rows]="7"
+                    [(ngModel)]="state.accessToken">
+                  </textarea>
+                </ibm-label>
+            </div>
+        </div>
+          <div ibmRow>&nbsp;</div>
+          <div ibmRow>
+            <div ibmCol>
+              <button 
+                ibmButton="primary"
+                [disabled]="chatWidgetTestForm.invalid" 
+                (click)="handleReloadChatWidgetClickEvent($event)">Reload
+              </button>
+            </div>
+          </div>
+      </div>
+  </form>
+
+
+  </div>
+</div>
+
+<aca-widget-chat-app-v2 [credentials]="state"></aca-widget-chat-app-v2>

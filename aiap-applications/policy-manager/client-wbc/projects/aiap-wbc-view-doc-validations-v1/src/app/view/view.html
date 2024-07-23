@@ -1,0 +1,57 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1 
+            [value]="state.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'lg': 4}">
+          <ibm-dropdown
+            [label]="'doc_validations_v1.view.dropdown_action_label' | translate"
+            (selected)="onActionSelect($event)">
+            <ibm-dropdown-list 
+              [items]="state.actions">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 4}">
+          <ibm-dropdown
+            [label]="'doc_validations_v1.view.dropdown_doc_type_label' | translate"
+            (selected)="onDocTypeSelect($event)">
+            <ibm-dropdown-list 
+              [items]="state.docTypes">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 4}">
+          <ibm-dropdown
+            [label]="'doc_validations_v1.view.dropdown_organization_label' | translate"
+            (selected)="onOrganizationSelect($event)">
+            <ibm-dropdown-list 
+              [items]="state.organizations">
+            </ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-doc-validations-table-v1 
+      (onShowSavePlace)="handleShowChangeEvent($event)">
+    </aiap-doc-validations-table-v1>
+  </div>
+</div>
+
+<aiap-doc-validation-modal-v1 
+  #docValidationModal>
+</aiap-doc-validation-modal-v1>

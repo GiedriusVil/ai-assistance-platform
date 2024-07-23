@@ -1,0 +1,23 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='sm'>
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      Train Classifier Model
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <div class="confirm-model-div">
+      <p>Please confirm Classifier Model -> {{model?.name}} train!</p>
+    </div>
+  </section>
+  <ibm-modal-footer>
+    <button
+        ibmButton="secondary"
+        (click)="close()">Cancel</button>
+    <button
+        ibmButton="danger"
+        (click)="train()">Train</button>
+  </ibm-modal-footer>
+</ibm-modal>

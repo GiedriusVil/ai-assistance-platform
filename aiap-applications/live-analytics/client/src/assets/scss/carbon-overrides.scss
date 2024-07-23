@@ -1,0 +1,28 @@
+$backgroundColorTheme: #f4f4f4;
+
+.bx--btn--primary:hover {
+  background-color: #133980;
+  color: white;
+}
+
+.bx--btn--primary {
+  background-color: #01579b;
+  color: white;
+}
+
+.bx--file-browse-btn {
+  max-width: 100%;
+}
+
+.bx--file__selected-file {
+  max-width: 100%;
+}
+
+.bx--file__drop-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.bx--toggle-input:disabled+.bx--toggle-input__label>.bx--toggle__switch::before {
+  background-color: darken($backgroundColorTheme, 50%);
+}

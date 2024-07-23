@@ -1,0 +1,72 @@
+<ng-template #modalContent let-modal>
+  <div class="app-test-cases-modal">
+    <div class="modal-header">
+      <h5 class="modal-title">{{'test-cases.modal-title'| translate}}</h5>
+      <div
+      class="header-icon-box"
+      role="button"
+      (keydown.enter)="modal['dismiss']()"
+      (click)="modal['dismiss']()">
+        <div
+          class="img--close icon--close"
+          aria-hidden="true"
+          tabindex="0"
+          title="{{'test-cases.modal-title'| translate}}"
+          alt="{{'test-cases.modal-cross-alt'| translate}}">
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="w-100 mb-0">{{'test-cases.modal-description'| translate}}</p>
+      <form [formGroup]="testCasesForm">
+        <div class="form-group">
+          <div style="margin-top: 1rem;">
+            <div>
+              <div>
+                <input
+                  tabindex="0"
+                  type="text" 
+                  formControlName="key" 
+                  class="form-control"
+                  placeholder="{{'test-cases.modal-key-placeholder'| translate}}"
+                  />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div style="margin-top: 1rem;">
+            <div>
+              <div>
+                <input
+                  tabindex="0"
+                  type="text" 
+                  formControlName="name" 
+                  class="form-control"
+                  placeholder="{{'test-cases.modal-name-placeholder'| translate}}"
+                  />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea id="textArea"
+            class="form-control textareaExpand"
+            formControlName="description"
+            placeholder="{{'test-cases.modal-description-placeholder'| translate}}"
+            rows="2"
+            maxlength="1000">
+          </textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <small
+      style="position: absolute; left: 0px; padding: 1rem; color: red;"
+      *ngIf="error"
+      >{{errorText}}</small>
+      <button type="button" [disabled]="!testCasesForm.valid" class="btn btn-primary btn--color" (click)="onClick()" >{{'test-cases.modal-yes'| translate}}</button>
+      <button type="button" class="btn btn-primary btn--color" (click)="modal['dismiss']()">{{'test-cases.modal-no'| translate}}</button>
+    </div>
+  </div>
+</ng-template>

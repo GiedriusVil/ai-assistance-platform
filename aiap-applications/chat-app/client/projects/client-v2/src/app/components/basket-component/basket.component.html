@@ -1,0 +1,22 @@
+<div 
+  *ngIf="!isBasketEmpty()" 
+  class="basket-container">
+  <div class="basket-header"></div>
+  <div class="basket-body">
+    <aca-chat-product-list 
+      [products]="_state?.basket?.items"
+      [configuration]="_configuration?.productList">
+    </aca-chat-product-list>
+  </div>
+  <div *ngIf="isSubmitVisible()" class="basket-footer">
+    <button
+      (click)="handleBasketCancelEvent()">Cancel</button>
+    <button
+      (click)="handleSubmitSubmitEvent()">Submit</button>
+  </div>
+</div>
+<div 
+  *ngIf="isBasketEmpty()" 
+  class="basket-container-empty">
+  <p>Empty</p>
+</div>

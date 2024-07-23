@@ -1,0 +1,68 @@
+<aiap-modal-v1 
+  [size]="'sm'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p ibmModalHeaderHeading>
+      {{ 'ai_search_and_analysis_collections_view_v1.query_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <form ngForm #aiSearchAndAnalysisCollectionsQuery="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <ibm-label>
+            {{ 'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_query_from.label' | translate }} {{ this.ids.length > 0 ? '(' + this.ids.length + ')' : 'all' }} {{ 'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_collections.label' | translate }}
+          </ibm-label>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-textarea-v1
+              [name]="'test_phrase'"
+              [label]="'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_test_phrase.label' | translate"
+              [labelHelp]="'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_test_phrase.label' | translate"
+              [placeholder]="'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_test_phrase.placeholder' | translate"
+              [isDisabled]="state.testing"
+              [rows]="5"
+              (onKeyDown)="handleKeyCtrlDownEvent($event)"
+              [(value)]="state.query">
+            </aiap-field-textarea-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-tile>
+              <ibm-loading
+                *ngIf="state.testing"
+                [isActive]="true" 
+                [size]="'sm'">
+              </ibm-loading>
+              <div *ngIf="!state.testing">
+                <ibm-label>{{ 'ai_search_and_analysis_collections_view_v1.query_modal_v1.fld_result.label' | translate }}</ibm-label>
+                <json-editor 
+                  class="aca-override" 
+                  [options]="jsonEditorOptions" 
+                  [data]="state.response">
+                </json-editor>
+              </div>
+            </ibm-tile>
+          </div>
+        </div>
+      </div>
+    </form>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_collections_view_v1.query_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_collections_view_v1.query_modal_v1.btn_query.text' | translate"
+      [type]="'ghost'"
+      [disabled]="aiSearchAndAnalysisCollectionsQuery.invalid" 
+      (onClick)="handleEventQueryMany($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

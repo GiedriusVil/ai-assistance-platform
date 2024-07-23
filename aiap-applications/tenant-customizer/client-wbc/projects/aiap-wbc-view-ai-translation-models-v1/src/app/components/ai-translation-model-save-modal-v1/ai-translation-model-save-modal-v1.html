@@ -1,0 +1,86 @@
+<aiap-modal-v1
+  size="lg"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'ai_translation_models_v1.save_modal_v1.header.title' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+      <form #aiTranslationModelSaveModal="ngForm">
+        <div ibmGrid>
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+                <aiap-field-input-v1
+                  [isRequired]="true"
+                  [name]="'ai_translation_model_name'"
+                  [label]="'ai_translation_models_v1.save_modal_v1.fld_name.label' | translate"
+                  [labelHelp]="'ai_translation_models_v1.save_modal_v1.fld_name.labelHelp' | translate"
+                  [(value)]="aiTranslationModel.name"
+                  [isDisabled]="false"
+                  [placeholder]="'ai_translation_models_v1.save_modal_v1.fld_name.placeholder' | translate"
+                  [skeleton]="isLoading">
+                </aiap-field-input-v1>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+                <aiap-field-dropdown-v1
+                  [isRequired]="true"
+                  [type]="'single'"
+                  [size]="'lg'"
+                  [name]="'ai_translation_model_type'"
+                  [label]="'ai_translation_models_v1.save_modal_v1.fld_type.label' | translate"
+                  [placeholder]="'ai_translation_models_v1.save_modal_v1.fld_type.placeholder' | translate"
+                  [items]="selections?.types"
+                  [(value)]="selections.type"
+                  (onSelected)="onTypeSelected()">
+                </aiap-field-dropdown-v1>
+            </div>
+          </div>
+
+          <div ibmRow>&nbsp;</div>
+
+          <div ibmRow>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+                <aiap-field-combo-box-singular-v1
+                  [isRequired]="true"
+                  [name]="'ai_translation_model_source_language'"
+                  [label]="'ai_translation_models_v1.save_modal_v1.fld_source_lang.label' | translate"
+                  [placeholder]="'ai_translation_models_v1.save_modal_v1.fld_source_lang.placeholder' | translate"
+                  [items]="selections.sources"
+                  (onSelected)="onSourceLanguageSelected($event)">
+                </aiap-field-combo-box-singular-v1>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+                <aiap-field-combo-box-singular-v1
+                  [isRequired]="true"
+                  [name]="'ai_translation_model_target_language'"
+                  [label]="'ai_translation_models_v1.save_modal_v1.fld_target_lang.label' | translate"
+                  [placeholder]="'ai_translation_models_v1.save_modal_v1.fld_target_lang.placeholder' | translate"
+                  [items]="selections.targets"
+                  (onSelected)="onTargetLanguageSelected($event)">
+                </aiap-field-combo-box-singular-v1>
+            </div>
+          </div>
+
+        </div>
+      </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_models_v1.save_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_translation_models_v1.save_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_models_v1.save_modal_v1.btn_save.text' | translate"
+      [tooltip]="'ai_translation_models_v1.save_modal_v1.btn_save.tooltip' | translate"
+      [skeleton]="isLoading"
+      [disabled]="isSaveDisabled()"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

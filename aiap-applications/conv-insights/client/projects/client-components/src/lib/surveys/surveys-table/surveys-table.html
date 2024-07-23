@@ -1,0 +1,33 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      (onClick)="handleRefreshClickEvent($event)"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'surveys_view_v1.surveys_table.fld_search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [skeleton]="loading"
+    [showSelectionColumn]="false"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template 
+  #timestamp 
+  let-data="data">{{ timezoneService.getTimeByUserTimezone(data) }}
+</ng-template>

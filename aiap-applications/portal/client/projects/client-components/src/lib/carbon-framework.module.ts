@@ -1,0 +1,86 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import { NgModule } from '@angular/core';
+
+import {
+  ButtonModule,
+  BreadcrumbModule,
+  NotificationModule,
+  DatePickerModule,
+  DatePickerInputModule,
+  DialogModule,
+  DropdownModule,
+  ModalModule,
+  RadioModule,
+  TableModule,
+  PaginationModule,
+  ToggleModule,
+  InputModule,
+  GridModule,
+  ListModule,
+  CheckboxModule,
+  UIShellModule,
+  SearchModule,
+  SliderModule,
+  TabsModule,
+  TilesModule,
+  TagModule,
+  IconModule,
+} from 'client-shared-carbon';
+
+@NgModule({
+  imports: [
+    ButtonModule,
+    BreadcrumbModule,
+    NotificationModule,
+    DatePickerModule,
+    DatePickerInputModule,
+    DialogModule,
+    DropdownModule,
+    ModalModule,
+    RadioModule,
+    TableModule,
+    PaginationModule,
+    ToggleModule,
+    InputModule,
+    GridModule,
+    ListModule,
+    CheckboxModule,
+    UIShellModule,
+    SliderModule,
+    SearchModule,
+    TabsModule,
+    TilesModule,
+    TagModule,
+    IconModule,
+  ],
+  exports: [
+    ButtonModule,
+    BreadcrumbModule,
+    NotificationModule,
+    DatePickerModule,
+    DatePickerInputModule,
+    DialogModule,
+    DropdownModule,
+    ModalModule,
+    RadioModule,
+    TableModule,
+    PaginationModule,
+    ToggleModule,
+    InputModule,
+    GridModule,
+    ListModule,
+    CheckboxModule,
+    UIShellModule,
+    SliderModule,
+    SearchModule,
+    TabsModule,
+    TilesModule,
+    TagModule,
+    IconModule,
+  ]
+})
+export class CarbonFrameworkModule { }

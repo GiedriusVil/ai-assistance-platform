@@ -1,0 +1,19 @@
+<ibm-modal [open]="isOpen"
+  (overlaySelected)="hide()"
+  size='md'>
+  <ibm-modal-header (closeSelect)="hide()">
+    <h3 ibmModalHeaderHeading>
+      <ng-content select=".title"></ng-content>
+    </h3>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <ng-content></ng-content>
+  </section>
+  <ibm-modal-footer>
+    <button class="bx--btn bx--btn--secondary"
+      (click)="hide()">Cancel</button>
+    <button class="bx--btn bx--btn--danger"
+      modal-primary-focus
+      (click)="confirm()">Confirm</button>
+  </ibm-modal-footer>
+</ibm-modal>

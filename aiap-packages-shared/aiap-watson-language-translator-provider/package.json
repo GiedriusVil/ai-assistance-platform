@@ -1,0 +1,16 @@
+{
+  "name": "@ibm-aiap/aiap-watson-language-translator-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Marekas Molis",
+      "email": "marekas.molis@ibm.com",
+      "url": "https://www.linkedin.com/in/marekas-molis-918295168/"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "doc_validation_modal_v1.action_id_label_text" : "Action ID",
+  "doc_validation_modal_v1.header_text" : "Transaction details",
+  "doc_validation_modal_v1.action_label_text" : "Action",
+  "doc_validation_modal_v1.doc_ext_id_label_text" : "Document External ID",
+  "doc_validation_modal_v1.doc_ext_number_label_text" : "Document External Number",
+  "doc_validation_modal_v1.created_by_label_text" : "Created by",
+  "doc_validation_modal_v1.created_date_label_text" : "Created",
+  "doc_validation_modal_v1.close_button_text" : "Close",
+  "doc_validations_v1.view.dropdown_action_label" : "Action",
+  "doc_validations_v1.view.dropdown_doc_type_label" : "Doc Type",
+  "doc_validations_v1.view.dropdown_organization_label" : "Organization",
+  "doc_validations_v1.app.loading_text" : "Loading...",
+
+  "doc_validations.doc_validation_table_v1.download_button" : "Download Report",
+  "doc_validations.doc_validation_table_v1.download_button_tooltip" : "Download Report",
+  "doc_validations.doc_validation_summary_table_v1.header" : "Purchase request validation frequency",
+  "doc_validations.doc_validation_summary_table_v1.retrieve_data_error" : "Error occured while retrieving data",
+
+  "doc_validations.doc_validation_table_v1.refresh_button_tooltip" : "Refresh",
+  "doc_validations.table_v1.document_external_id_header" : "Document External ID",
+  "doc_validations.table_v1.document_external_number_header" : "Document External Number",
+  "doc_validations.table_v1.action_header" : "Action",
+  "doc_validations.table_v1.document_type_header" : "Document Type",
+  "doc_validations.table_v1.organization_header" : "Organization",
+  "doc_validations.table_v1.created_header" : "Created",
+  "doc_validation_modal_v1.close_button_tooltip" : "Close",
+  "doc_validations.doc_validation_table_v1.search.placeholder" : "Search"
+  
+
+}

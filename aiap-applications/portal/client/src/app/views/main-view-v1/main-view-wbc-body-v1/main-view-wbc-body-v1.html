@@ -1,0 +1,14 @@
+<main 
+  class="bx--content">
+  <div 
+  style="position:fixed; z-index: 10000; right: 10px;" 
+  class="notification-container">
+  </div>
+  <div 
+    class="main-view-container">
+    <router-outlet 
+      (activate)="onActivate($event)" 
+      (deactivate)="onDeactivate($event)">
+    </router-outlet>
+  </div>
+</main>

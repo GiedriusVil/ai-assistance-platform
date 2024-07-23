@@ -1,0 +1,52 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-answers-compare-modal-v1 {
+  aiap-button-v1 {
+    display: contents;
+  }
+
+  overflow: hidden;
+
+  form {
+    height: 100%;
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--modal-footer {
+    background-color: #f4f4f4;
+    min-width: 100%;
+    position: absolute;
+    z-index: 222;
+    bottom: 0;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+    padding-right: 15px;
+  }
+
+  .answers-difference {
+    ngx-monaco-diff-editor {
+      .editor-container {
+        height: 85vh;
+      }
+    }
+
+    .aca-monaco-editor-col {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-search-and-analysis-services-table-v1
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)">
+    </aiap-ai-search-and-analysis-services-table-v1>
+  </div>
+</div>
+
+<aiap-ai-search-and-analysis-service-save-modal-v1 
+  #aiSearchAndAnalysisServiceSaveModal>
+</aiap-ai-search-and-analysis-service-save-modal-v1>
+
+<aiap-ai-search-and-analysis-service-delete-modal-v1 
+  #aiSearchAndAnalysisServiceDeleteModal>
+</aiap-ai-search-and-analysis-service-delete-modal-v1>
+
+<aiap-ai-search-and-analysis-service-import-modal-v1 
+  #aiSearchAndAnalysisServiceImportModal>
+</aiap-ai-search-and-analysis-service-import-modal-v1>

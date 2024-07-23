@@ -1,0 +1,12 @@
+<tag-input 
+  [placeholder]="state?.placeholder"
+  [secondaryPlaceholder]="state?.secondaryPlaceholder"
+  [editable]="state?.isEditable"
+  [removable]='state?.isRemovable' 
+  [maxItems]='state?.maxItems'
+  [theme]='state?.theme'
+  (onTextChange)="handleEventValueChange($event)"
+  (onAdd)="handleEventAddTags($event)"
+  (onRemove)="handleEventRemoveTags($event)"
+  [(ngModel)]="state.value" >
+</tag-input>

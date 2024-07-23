@@ -1,0 +1,9 @@
+{
+    "name": "@ibm-aca/aca-main-event-stream-handler-test-worker",
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "private": true,
+    "version": "0.0.1",
+    "description": "aca-main-event-stream-handler-test-worker",
+    "main": "index.js",
+    "dependencies": {}
+}

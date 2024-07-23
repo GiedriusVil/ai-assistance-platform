@@ -1,0 +1,87 @@
+<ibm-modal
+  size="sm"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <h2>
+      {{'rules_v2.view.conditions_save_modal_v2.header' | translate}}
+    </h2>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form 
+      #conditionForm="ngForm"
+      class="height-100"
+      isConditionValueAllowed>
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <ibm-combo-box
+            ibmCol
+            required
+            [placeholder]="'rules_v2.view.conditions_save_modal_v2.select_path_placeholder' | translate"
+            name="path"
+            type="single"
+            theme="light"
+            [helperText]="conditionContext?.path?.helperText ?? ''"
+            [dropUp]="false"
+            [label]="'rules_v2.view.conditions_save_modal_v2.path_label' | translate"
+            [autocomplete]="'off'"
+            (selected)="handlePathSelect($event)"
+            [(items)]="selections.paths"
+            [(ngModel)]="selections.selectedPath">
+            <ibm-dropdown-list></ibm-dropdown-list>
+          </ibm-combo-box>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <ibm-combo-box
+            ibmCol
+            required
+            name="operator"
+            [placeholder]="'rules_v2.view.conditions_save_modal_v2.select_operator_placeholder' | translate"
+            type="single"
+            theme="light"
+            [helperText]="conditionContext?.operator?.helperText ?? ''"
+            [dropUp]="false"
+            [label]="'rules_v2.view.conditions_save_modal_v2.operator_label' | translate"
+            [autocomplete]="'off'"
+            (selected)="handleOperatorSelect($event)"
+            [(items)]="selections.conditions"
+            [(ngModel)]="selections.selectedCondition">
+            <ibm-dropdown-list></ibm-dropdown-list>
+          </ibm-combo-box>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-wrapper-v1
+              #conditionValueFieldWrapper
+              [context]="conditionContext.value"
+              (contextChange)="handleConditionContextChange($event)"
+              [value]="condition.value"
+              (valueChange)="handleConditionValueChange($event)">
+            </aiap-field-wrapper-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'rules_v2.view.conditions_save_modal_v2.cancel_button' | translate"
+      [tooltip]="'rules_v2.view.conditions_save_modal_v2.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'rules-v2.view.edit.conditions.edit'}"
+      [type]="'primary'"
+      [text]="'rules_v2.view.conditions_save_modal_v2.save_button' | translate"
+      [tooltip]="'rules_v2.view.conditions_save_modal_v2.save_button_tooltip' | translate"
+      [disabled]="conditionForm?.invalid || !conditionValueFieldWrapper.isValid()"
+      (onClick)="handleSaveClickEvent()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

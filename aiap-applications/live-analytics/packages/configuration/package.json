@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "name": "@ibm-aiap/aiap-live-analytics-configuration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-redis-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-app-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-conversations-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-conv-shadow-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-engagements-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-analytics-live-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-jwt-provider": "0.0.1",
+    "@ibm-aiap/aiap-memory-store-provider": "0.0.1",
+    "@ibm-aca/aca-auditor-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-event-stream-provider": "0.0.1",
+    "@ibm-aca/aca-live-analytics-datasource-provider": "0.0.1"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis/"
+    },
+    {
+      "name": "Jevgenij Golobokin",
+      "email": "jevgenij.golobokin@ibm.com",
+      "url": "https://www.linkedin.com/in/jevgenij-golobokin/"
+    }
+  ]
+}

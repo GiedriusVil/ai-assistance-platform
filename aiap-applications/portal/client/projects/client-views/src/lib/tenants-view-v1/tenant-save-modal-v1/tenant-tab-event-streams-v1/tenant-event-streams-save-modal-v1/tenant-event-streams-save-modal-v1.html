@@ -1,0 +1,96 @@
+<aiap-modal-v1 [size]="'lg'" [open]="isOpen" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form #eventStreamForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_name.placeholder' | translate "
+              [name]="'event_stream_name'"
+              [label]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_name.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_name.helper_text' | translate"
+              [(value)]="eventStream.name">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'single'"
+              [name]="'event_stream_type'"
+              [label]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_type.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_type.placeholder' | translate"
+              [items]="selections?.eventStreamTypes"
+              [(value)]="selections.eventStreamType">
+           </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+            <aiap-field-input-v1
+              [isRequired]="true"
+              [placeholder]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_scope.placeholder' | translate "
+              [name]="'event_stream_scope'"
+              [label]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_scope.label' | translate"
+              [labelHelp]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_scope.helper_text' | translate"
+              [(value)]="eventStream.scope">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 10}">
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'single'"
+              [name]="'event_stream_emitter'"
+              [label]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_emitter.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_emitter.placeholder' | translate"
+              [items]="selections?.emitters"
+              [(value)]="selections.emitter">
+           </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8, 'sm': 10}">
+            <aiap-field-dropdown-v1
+              [isRequired]="true"
+              [type]="'single'"
+              [name]="'event_stream_receiver'"
+              [label]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_receiver.label' | translate"
+              [placeholder]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.fld_receiver.placeholder' | translate"
+              [items]="selections?.receivers"
+              [(value)]="selections.receiver">
+           </aiap-field-dropdown-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="eventStreamForm.invalid"
+      [text]="'tenants_view_v1.save_modal_v1.event_streams_save_modal_v1.btn_add.text' | translate"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

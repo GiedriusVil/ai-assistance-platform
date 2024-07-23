@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aca/aca-pdf-generator",
+  "version": "0.0.1",
+  "description": "PDF file generator",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM",
+  "scripts": {}
+}

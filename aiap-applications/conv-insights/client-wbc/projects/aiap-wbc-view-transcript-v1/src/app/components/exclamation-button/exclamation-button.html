@@ -1,0 +1,43 @@
+<div class="exclamation-container" (click)="onExclamationClick()">
+    <i class="fas fa-exclamation-circle fa-lg icon-color"></i>
+</div>
+
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+    <aiap-modal-v1-header-v1
+      (closeSelect)="close()">
+      <p
+        class="bx--modal-header__heading bx--type-beta">
+        {{ 'transcript_view_v1.exclamation_button.message_error_modal.header' | translate }}
+      </p>
+    </aiap-modal-v1-header-v1>
+    <div class="bx--modal-content">
+      <table class="bx--data-table  bx--data-table--short">
+        <thead>
+          <tr>
+            <th><span class="bx--table-header-label">
+              {{ 'transcript_view_v1.exclamation_button.table_type.header_span' | translate }}
+            </span></th>
+            <th><span class="bx--table-header-label">
+              {{ 'transcript_view_v1.exclamation_button.table_value.header_span' | translate }}
+            </span></th>
+          </tr>
+        </thead>
+      <tbody>
+        <ng-container *ngFor="let error of errorMessageData">
+          <tr>
+            <td>{{ error.type }}</td>
+            <td>{{ error.url }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+      </table>
+    </div>
+    <aiap-modal-v1-footer-v1>
+      <button class="bx--btn bx--btn--primary" modal-primary-focus (click)="close()">
+        {{ 'transcript_view_v1.exclamation_button.btn_close.text' | translate }}
+      </button>
+    </aiap-modal-v1-footer-v1>
+  </aiap-modal-v1>

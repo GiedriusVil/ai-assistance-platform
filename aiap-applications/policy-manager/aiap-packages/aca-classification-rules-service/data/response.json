@@ -1,0 +1,47 @@
+{
+    "data": {
+      "data": [
+        {
+          "classificationName": "First Classification",
+          "supplierId": "first-supplier",
+          "supplierName": "supplier-one"
+        },
+        {
+          "classificationName": "First Classification",
+          "supplierId": "second-supplier",
+          "supplierName": "supplier-two"
+        },
+        {
+            "classificationName": "First Classification",
+            "supplierId": "third-classification",
+            "supplierName": "supplier-three"
+        },
+        {
+            "classificationName": "Second Classification",
+            "supplierId": "first-supplier",
+            "supplierName": "supplier-one"
+        },
+        {
+            "classificationName": "Third Classification",
+            "supplierId": "first-supplier",
+            "supplierName": "supplier-one"
+        },
+        {
+            "classificationName": "Fourth Classification",
+            "supplierId": "fourth-classification",
+            "supplierName": "supplier-four"
+        },
+        {
+            "classificationName": "Fourth Classification",
+            "supplierId": "fifth-classification",
+            "supplierName": "supplier-five"
+        }
+      ],
+      "page": 0,
+      "size": 0,
+      "totalPages": 0,
+      "totalRecords": 0
+    },
+    "respCode": 0,
+    "respMsg": "string"
+}

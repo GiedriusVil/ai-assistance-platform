@@ -1,0 +1,47 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-chart-save-modal-v1 {
+  overflow: hidden;
+
+  .bx--loading.bx--loading--small {
+    position: relative;
+    top: 50%;
+    left: 50%;
+  }
+
+  .bx--label {
+    vertical-align: bottom;
+    width: 100%;
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+    padding: 0px;
+  }
+
+  .bx--modal-content {
+    margin-bottom: 0px;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .jsoneditor {
+    &.jsoneditor {
+      border-color: black;
+      height: 600px;
+
+      .jsoneditor-menu {
+        border-color: black;
+        background-color: black;
+      }
+    }
+  }
+}

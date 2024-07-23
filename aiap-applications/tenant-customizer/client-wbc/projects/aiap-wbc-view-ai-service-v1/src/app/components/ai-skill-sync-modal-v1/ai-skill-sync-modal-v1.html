@@ -1,0 +1,51 @@
+<aiap-modal-v1
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'ai_service_v1.sync_modal_v1.header.title' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <ibm-notification 
+      [notificationObj]="notification">
+    </ibm-notification>
+
+    <p class="mb-3">{{ 'ai_service_v1.sync_modal_v1.content.text' | translate }}</p>
+    <ul ibmList>
+      <li ibmListItem *ngFor="let id of ids">{{id}}</li>
+    </ul>
+    <br>
+    <fieldset class="bx--fieldset">
+      <legend class="bx--label">{{ 'ai_service_v1.sync_modal_v1.fieldset.legend' | translate }}</legend>
+      <ibm-checkbox
+        id="sync-intent-checkbox"
+        (change)="onChangeIntents($event)">{{ 'ai_service_v1.sync_modal_v1.fieldset.checkbox.intents' | translate }}
+      </ibm-checkbox>
+      <ibm-checkbox
+        id="sync-entities-checkbox"
+        (change)="onChangeEntities($event)">{{ 'ai_service_v1.sync_modal_v1.fieldset.checkbox.entities' | translate }}
+      </ibm-checkbox>
+      <ibm-checkbox
+        id="sync-dialog-nodes-checkbox"
+        (change)="onChangeDialogNodes($event)">{{ 'ai_service_v1.sync_modal_v1.fieldset.checkbox.dialogNodes' | translate }}
+      </ibm-checkbox>
+    </fieldset>
+
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_service_v1.sync_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_service_v1.sync_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_service_v1.sync_modal_v1.btn_synchronise.text' | translate"
+      [tooltip]="'ai_service_v1.sync_modal_v1.btn_synchronise.tooltip' | translate"
+      [type]="'primary'"
+      (onClick)="synchronise()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

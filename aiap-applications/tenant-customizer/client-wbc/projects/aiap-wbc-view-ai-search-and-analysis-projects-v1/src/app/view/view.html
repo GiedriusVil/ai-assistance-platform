@@ -1,0 +1,54 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <ibm-label>{{ 'ai_search_and_analysis_projects_view_v1.fld_service_id.label' | translate }}
+            <input 
+              ibmText 
+              required 
+              name="ai_search_and_analysis_service_id" 
+              [placeholder]="'ai_search_and_analysis_projects_view_v1.fld_service_id.placeholder' | translate"
+              [disabled]="true"
+              [autocomplete]="'off'" 
+              [(ngModel)]="aiSearchAndAnalysisServiceId">
+          </ibm-label>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-search-and-analysis-projects-table-v1
+      [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)">
+    </aiap-ai-search-and-analysis-projects-table-v1>
+  </div>
+</div>
+
+<aiap-ai-search-and-analysis-project-save-modal-v1
+  #aiSearchAndAnalysisProjectSaveModal
+  [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId">
+</aiap-ai-search-and-analysis-project-save-modal-v1>
+
+<aiap-ai-search-and-analysis-project-delete-modal-v1
+  #aiSearchAndAnalysisProjectDeleteModal
+  [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId">
+</aiap-ai-search-and-analysis-project-delete-modal-v1>
+
+<aiap-ai-search-and-analysis-project-import-modal-v1
+  #aiSearchAndAnalysisProjectImportModal
+  [aiSearchAndAnalysisServiceId]="aiSearchAndAnalysisServiceId">
+</aiap-ai-search-and-analysis-project-import-modal-v1>

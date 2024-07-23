@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aca/aca-watson-discovery-v2-client-provider",
+  "version": "3.27.0",
+  "description": "Watson Watson Discovery support for Advanced Conversation Asset with v2 api implementation",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM",
+  "dependencies": {}
+}

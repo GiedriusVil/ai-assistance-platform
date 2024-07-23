@@ -1,0 +1,13 @@
+{
+  "feedback.icon-negative-alt": "Rétroaction négative",
+  "feedback.icon-negative-selected-alt": "Rétroaction négative laissée",
+  "feedback.icon-negative-selected-title": "Rétroaction négative laissée",
+  "feedback.icon-negative-title": "Rétroaction négative",
+  "feedback.icon-positive-alt": "Rétroaction positive",
+  "feedback.icon-positive-selected-alt": "Rétroaction positive laissée",
+  "feedback.icon-positive-selected-title": "Rétroaction positive laissée",
+  "feedback.icon-positive-title": "Rétroaction positive",
+  "wds.modal-article": "Article complet",
+  "wds.modal-document": "Document:",
+  "wds.modal-button-close": "Fermer"
+}

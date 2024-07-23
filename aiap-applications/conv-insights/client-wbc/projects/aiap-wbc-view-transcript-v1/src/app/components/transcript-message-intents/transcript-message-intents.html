@@ -1,0 +1,91 @@
+<div ibmGrid 
+  *ngIf="!hasIntents() && isUserMessage()">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{xlg: 12, lg: 12, md: 8, sm: 4}">
+      <ibm-label>
+        {{ 'transcript_view_v1.transcript_message_intents.irrelevant.label' | translate }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+
+<div ibmGrid 
+  *ngIf="hasIntents() && isUserMessage() && checkAiServiceType('WA')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveIntents(); let i = index"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 9, 'lg': 9, 'md': 6, 'sm': 3}">
+      <ibm-tooltip-definition
+        [content]="'#' + item.intent">
+        <ibm-label class="intent-label">
+          #{{ item.intent }}
+        </ibm-label>
+      </ibm-tooltip-definition>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 2, 'sm': 1}">
+      <ibm-label>{{ item.confidence | number: '1.3-3' }}
+      </ibm-label>
+      <p></p>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-toggle-v1
+        *ngIf="value?.context?.aiapConfidenceLevel && item.confidence > value?.context?.aiapConfidenceLevel"
+        [size]="'sm'"
+        [onText]="'transcript_view_v1.transcript_message_intents.fld_false_positive.text_on' | translate"
+        [offText]="'transcript_view_v1.transcript_message_intents.fld_false_positive.text_off' | translate"
+        [isChecked]="value.topIntentFalsePositive === true"
+        (onChange)="onFalsePositiveCheckClicked(value.utteranceId, $event)">
+      </aiap-toggle-v1>
+    </div>
+  </div>
+</div>
+
+
+
+<div ibmGrid 
+  *ngIf="hasIntents() && isUserMessage() && checkAiServiceType('WA_V2')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveIntents(); let i = index"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 9, 'lg': 9, 'md': 6, 'sm': 3}">
+      <ibm-tooltip-definition
+        [content]="'#' + item.intent">
+        <ibm-label class="intent-label">
+          #{{ item.intent }}
+        </ibm-label>
+      </ibm-tooltip-definition>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 2, 'sm': 1}">
+      <ibm-label>{{ item.confidence | number: '1.3-3' }}
+      </ibm-label>
+      <p></p>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-toggle-v1
+        *ngIf="value?.context?.aiapConfidenceLevel && item.confidence > value?.context?.aiapConfidenceLevel"
+        [size]="'sm'"
+        [onText]="'transcript_view_v1.transcript_message_intents.fld_false_positive.text_on' | translate"
+        [offText]="'transcript_view_v1.transcript_message_intents.fld_false_positive.text_off' | translate"
+        [isChecked]="value.topIntentFalsePositive === true"
+        (onChange)="onFalsePositiveCheckClicked(value.utteranceId, $event)">
+      </aiap-toggle-v1>
+    </div>
+    <div class="change-button-div" ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-button-v1
+      [text]="buttonName"
+      [disabled]="isRequestChangeDisabled()"
+      [type]="'primary'"
+      [size]="'sm'"
+      (onClick)="handleShowChangeRequestEvent(item.intent)">
+    </aiap-button-v1>
+    </div>
+  </div>
+</div>
+
+<ai-services-change-request-modal-v1 #aiServiceChangeRequestModalV1></ai-services-change-request-modal-v1>

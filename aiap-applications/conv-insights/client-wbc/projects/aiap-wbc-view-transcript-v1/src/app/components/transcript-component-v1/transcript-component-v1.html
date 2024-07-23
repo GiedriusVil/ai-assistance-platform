@@ -1,0 +1,96 @@
+<div ibmGrid *ngIf="state.isLoading">
+  <div ibmRow>
+    <ibm-skeleton-text 
+      [lines]="25"
+      [minLineWidth]="200"
+	    [maxLineWidth]="600">
+    </ibm-skeleton-text>
+  </div>
+</div>
+<div ibmGrid *ngIf="!state.isLoading">
+  <div>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-table-v1-pagination-v1
+			  [model]="state.model"
+        [options]="state.modelPageSizeOption"
+			  (onPageSelect)="handlePageSelection($event)">
+		  </aiap-table-v1-pagination-v1>
+    </div>
+  </div>
+  <div>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol 
+      [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+      <ibm-label>{{ 'transcript_view_v1.transcript_component_v1.col_conversations.label' | translate }} {{ state?.transcript?.conversationId }}</ibm-label>
+    </div>
+    <div ibmCol 
+      [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+      <ibm-label>{{ 'transcript_view_v1.transcript_component_v1.col_last_review.label' | translate }} {{ state?.transcript?.lastReview?.date | date: 'y-MM-dd HH:mm:ss' }} [{{ state?.transcript?.lastReview?.user?.id }}]
+      </ibm-label>
+    </div>
+    <div ibmCol 
+      [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+      <ibm-label>{{ 'transcript_view_v1.transcript_component_v1.col_intents.label' | translate }}</ibm-label>
+    </div>
+    <div ibmCol 
+      [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+      <ibm-label>{{ 'transcript_view_v1.transcript_component_v1.col_last_entities.label' | translate }}</ibm-label>
+    </div>
+  </div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 3, 'md': 4, 'sm': 2}">
+      <aiap-toggle-v1
+        [size]="'sm'"
+        [onText]="'transcript_view_v1.transcript_component_v1.fld_system_messages.text_on' | translate"
+        [offText]="'transcript_view_v1.transcript_component_v1.fld_system_messages.text_off' | translate"
+        [isChecked]="state.showSystemMessages"
+        (onChange)="handleShowSystemMessagesEvent($event)">
+      </aiap-toggle-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 3, 'md': 4, 'sm': 2}">
+      <aiap-toggle-v1
+        [size]="'sm'"
+        [onText]="'transcript_view_v1.transcript_component_v1.fld_review.text_on' | translate"
+        [offText]="'transcript_view_v1.transcript_component_v1.fld_review.text_off' | translate"
+        [isChecked]="state.reviewed"
+        (onChange)="handleMarkTranscriptReviewStateEvent($event)">
+      </aiap-toggle-v1>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 8, 'lg': 6}">&nbsp;</div>
+  </div>
+  <ng-container *ngFor="let message of state?.transcript?.messages; let i = index; trackBy: handleTranscriptMessageTrackBy">
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow *ngIf="isAiServiceDetailsVisible(i)">
+      <div ibmCol [columnNumbers]="{'xlg':12, 'lg': 12, 'md': 8, 'sm': 4}">
+        <aca-transcript-ai-service-details [aiService]="message?.aiService">
+        </aca-transcript-ai-service-details>
+      </div>
+    </div>
+    <div ibmRow>
+      <div ibmCol 
+        [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 8, 'sm': 4}">
+        <aca-transcript-message [(value)]="state?.transcript?.messages[i]">
+        </aca-transcript-message>
+      </div>
+      <div ibmCol 
+        [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+        <aca-transcript-message-intents [value]="message"></aca-transcript-message-intents>
+      </div>
+      <div ibmCol 
+        [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 2}">
+        <aca-transcript-message-entities [value]="message"></aca-transcript-message-entities>
+      </div>
+    </div>
+  </ng-container>
+  <div>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-table-v1-pagination-v1
+			  [model]="state.model"
+        [options]="state.modelPageSizeOption"
+			  (onPageSelect)="handlePageSelection($event)">
+		  </aiap-table-v1-pagination-v1>
+    </div>
+  </div>
+</div>

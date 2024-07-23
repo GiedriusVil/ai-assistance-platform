@@ -1,0 +1,113 @@
+<aiap-modal-v1
+  size='lg'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3
+      ibmModalHeaderHeading>
+      {{ 'topic_modeling_view_v1.save_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form ngForm #topicModelingSaveForm>
+      <ibm-tabs>
+        <ibm-tab heading="Basic">
+          <div class="wrapper">
+            <div class="left-side">
+              <div ibmGrid>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <ibm-label>
+                      <label for="model_name">
+                        {{ 'topic_modeling_view_v1.save_modal_v1.col_name.label' | translate }}
+                      </label>
+                      <input ibmText required name="model_name" [(ngModel)]="topic.name" [autocomplete]="false">
+                    </ibm-label>
+                  </div>
+                </div>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <ibm-label>
+                      <label for="miner_url">
+                        {{ 'topic_modeling_view_v1.save_modal_v1.col_topic_miner_url.label' | translate }}
+                      </label>
+                      <input ibmText required name="miner_url" [(ngModel)]="topic.topicMinerUrl" [autocomplete]="false">
+                    </ibm-label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="right-side">
+              <div ibmGrid>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <aca-date-range 
+                    [value]="topic?.dateRange"
+                    [checkInitialValue]="false"
+                    (onChange)="handleDateRangeChange($event)">
+                    </aca-date-range >
+                  </div>
+                </div>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <ibm-label>
+                      <label for="model_confidence">
+                        {{ 'topic_modeling_view_v1.save_modal_v1.col_confidence_rate.label' | translate }}
+                      </label>
+                      <input ibmText required name="model_confidence" [(ngModel)]="topic.confidence" type="number" [autocomplete]="false">
+                    </ibm-label>
+                  </div>
+                </div>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <button
+                    [disabled]="isSummaryDisabled()"
+                    ibmButton="primary"
+                    (click)="getSummary()"
+                    size="md">
+                    {{ 'topic_modeling_view_v1.save_modal_v1.col_summary.btn_summary.text' | translate }}
+                  </button>
+                  </div>
+                </div>
+                <div ibmRow>&nbsp;</div>
+                <div ibmRow>
+                  <div ibmCol>
+                    <div>
+                      <ibm-loading
+                      *ngIf="summary?.retrievingData"
+                      [isActive]="true" 
+                      [size]="'sm'">
+                    </ibm-loading>
+                    </div>
+                    <div *ngIf="summary?.isLoaded">
+                      <p>{{ 'topic_modeling_view_v1.save_modal_v1.col_transcripts_found' | translate }} {{summary?.totalTranscripts}}</p>
+                      <p>{{ 'topic_modeling_view_v1.save_modal_v1.col_messages_found' | translate }} {{summary?.totalMessages}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ibm-tab>
+      </ibm-tabs>
+
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button ibmButton="secondary" (click)="close()">
+      {{ 'topic_modeling_view_v1.save_modal_v1.btn_close.text' | translate }} {{summary?.totalMessages}}
+    </button>
+    <button ibmButton="primary" 
+    (click)="save()"
+    [disabled]="isInvalid()">
+    {{ 'topic_modeling_view_v1.save_modal_v1.btn_save.text' | translate }} {{summary?.totalMessages}}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+

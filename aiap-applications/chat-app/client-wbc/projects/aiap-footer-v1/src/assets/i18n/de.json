@@ -1,0 +1,15 @@
+{
+  "footer.button-alt": "Ihre Frage an mich",
+  "footer.button-send": "Senden",
+  "footer.button-title": "Ihre Frage an mich",
+  "footer.button-title-download-transcript": "[DE] Download transcript",
+  "footer.button-title-download-transcript-alt": "[DE] Download transcript",
+  "footer.input-aria-label": "[DE] New message",
+  "footer.input-placeholder": "[DE] Type something…",
+  "footer.button-title-end-session-with-agent": "[DE] End session with agen",
+  "footer.alt-title-end-session-with-agent": "[DE] End session with agent",
+  "footer.icon-volume-up-title": "[DE] Sound on",
+  "footer.icon-volume-up-alt": "[DE] Sound on",
+  "footer.icon-volume-mute-title": "[DE] Sound off",
+  "footer.icon-volume-mute-alt": "[DE] Sound off"
+}

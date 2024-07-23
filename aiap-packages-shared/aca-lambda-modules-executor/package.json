@@ -1,0 +1,21 @@
+{
+    "name": "@ibm-aca/aca-lambda-modules-executor",
+    "version": "0.0.1",
+    "description": "> TODO: description",
+    "author": "IBM",
+    "homepage": "",
+    "license": "MIT",
+    "directories": {
+      "lib": "lib"
+    },
+    "files": [
+      "lib"
+    ],
+    "scripts": {
+      "test": "echo \"Error: run tests from root\" && exit 1"
+    }, 
+    "dependencies": {
+      "require-from-string": "2.0.2"
+    }
+  }
+  

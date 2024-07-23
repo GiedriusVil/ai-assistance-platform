@@ -1,0 +1,98 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_model_id'"
+            [label]="'ai_translation_model_examples_v1.fld_id.label' | translate"
+            [labelHelp]="'ai_translation_model_examples_v1.fld_id.labelHelp' | translate"
+            [(value)]="aiTranslationModelId"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_model_examples_v1.fld_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_model_status'"
+            [label]="'ai_translation_model_examples_v1.fld_status.label' | translate"
+            [labelHelp]="'ai_translation_model_examples_v1.fld_status.labelHelp' | translate"
+            [(value)]="aiTranslationModelStatus"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_model_examples_v1.fld_status.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_model_source'"
+            [label]="'ai_translation_model_examples_v1.fld_source.label' | translate"
+            [labelHelp]="'ai_translation_model_examples_v1.fld_source.labelHelp' | translate"
+            [(value)]="aiTranslationModelSourceLanguage"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_model_examples_v1.fld_source.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_model_target'"
+            [label]="'ai_translation_model_examples_v1.fld_target.label' | translate"
+            [labelHelp]="'ai_translation_model_examples_v1.fld_target.labelHelp' | translate"
+            [(value)]="aiTranslationModelTargetLanguage"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_model_examples_v1.fld_target.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-translation-model-examples-table-v1
+      [aiTranslationModelId]="aiTranslationModelId"
+      [aiTranslationServiceId]="aiTranslationServiceId"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onTrainModel)="handleTrainModel()"
+      (onTestModel)="handleTestModel()">
+    </aiap-ai-translation-model-examples-table-v1>
+  </div>
+</div>
+
+<aiap-ai-translation-model-example-save-modal-v1
+  [aiTranslationModelId]="aiTranslationModelId" 
+  [aiTranslationServiceId]="aiTranslationServiceId" 
+  #aiTranslationModelExampleSaveModal>
+</aiap-ai-translation-model-example-save-modal-v1>
+
+<aiap-ai-translation-model-example-delete-modal-v1 
+  #aiTranslationModelExampleDeleteModal>
+</aiap-ai-translation-model-example-delete-modal-v1>
+
+<aiap-ai-translation-model-example-import-modal-v1
+  [aiTranslationModelId]="aiTranslationModelId" 
+  [aiTranslationServiceId]="aiTranslationServiceId" 
+  #aiTranslationModelExampleImportModal>
+</aiap-ai-translation-model-example-import-modal-v1>
+
+<aiap-translation-model-train-modal-v1 
+  #aiTranslationModelTrainModal>
+</aiap-translation-model-train-modal-v1>
+
+<aiap-translation-model-test-modal-v1 
+  #aiTranslationModelTestModal>
+</aiap-translation-model-test-modal-v1>

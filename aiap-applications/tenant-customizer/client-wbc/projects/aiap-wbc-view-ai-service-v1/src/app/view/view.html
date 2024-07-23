@@ -1,0 +1,93 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_service_id'"
+            [label]="'ai_service_view_v1.fld_ai_service_id.label' | translate"
+            [labelHelp]="'ai_service_view_v1.fld_ai_service_id.labelHelp' | translate"
+            [value]="aiService?.id"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_view_v1.fld_ai_service_id.placeholder' | translate"
+            [skeleton]="state.isLoading">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_service_name'"
+            [label]="'ai_service_view_v1.fld_ai_service_name.label' | translate"
+            [labelHelp]="'ai_service_view_v1.fld_ai_service_name.labelHelp' | translate"
+            [value]="aiService?.name"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_view_v1.fld_ai_service_name.placeholder' | translate"
+            [skeleton]="state.isLoading">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_service_type'"
+            [label]="'ai_service_view_v1.fld_ai_service_type.label' | translate"
+            [labelHelp]="'ai_service_view_v1.fld_ai_service_type.labelHelp' | translate"
+            [value]="aiService?.type"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_view_v1.fld_ai_service_type.placeholder' | translate"
+            [skeleton]="state.isLoading">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+
+<ng-container [ngSwitch]="aiService?.type">
+  <aiap-ai-service-wa-v1-content-v1 
+    *ngSwitchCase="'WA'"
+    [tableConfig]="tableConfig"
+    [aiService]="aiService"
+    [assistantId]="assistantId"
+    [pullConfiguration]="pullConfiguration"
+    (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()"></aiap-ai-service-wa-v1-content-v1>
+  <aiap-ai-service-wa-v2-content-v1 
+    *ngSwitchCase="'WA_V2'"
+    [tableConfig]="tableConfig"
+    [aiService]="aiService"
+    [assistantId]="assistantId"
+    [pullConfiguration]="pullConfiguration"
+    (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()"></aiap-ai-service-wa-v2-content-v1>
+  <aiap-ai-service-chatgpt-v3-content-v1 
+    *ngSwitchCase="'CHAT_GPT_V3'"
+    [tableConfig]="tableConfig"
+    [aiService]="aiService"
+    [assistantId]="assistantId"
+    [pullConfiguration]="pullConfiguration"
+    (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()"></aiap-ai-service-chatgpt-v3-content-v1>
+  <aiap-ai-service-aws-lex-v3-content-v1 
+    *ngSwitchCase="'AWS_LEX_V2'"
+    [tableConfig]="tableConfig"
+    [aiService]="aiService"
+    [assistantId]="assistantId"
+    [pullConfiguration]="pullConfiguration"
+    (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()"></aiap-ai-service-aws-lex-v3-content-v1>
+</ng-container>
+
+<aiap-right-side-filter-panel-v1
+  *ngIf="!filterConfig.isLoading"
+  [config]="filterConfig"
+  [data]="filterData"
+  (onFilterChange)="handleFilterChange()"
+  (onResetFilter)="handleFilterReset()">
+  <div class="aiap-right-side-filter--content_item">
+    <aiap-date-range-picker-v1
+      [value]="filterData.dateRange"
+      [flow]="'vertical'"
+      (onChange)="handleDateRangeChange($event)">
+    </aiap-date-range-picker-v1>
+  </div>
+</aiap-right-side-filter-panel-v1>

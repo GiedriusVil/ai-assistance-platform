@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-object-storage-client-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "minio": "7.1.1"
+  }
+}

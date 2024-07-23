@@ -1,0 +1,101 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+//@import "~bootstrap/scss/bootstrap";
+
+aca-chat-typing-dots {
+    .message--bubble {
+        color: $aca_primary_color_black;
+    }
+
+    .loading {
+        display: block;
+        clear: both;
+        float: left;
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            margin: 0 0 0 4px;
+
+            border-radius: 50%;
+            background: #c1c1c1;
+            display: block;
+            float: left;
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &.one {
+                -webkit-animation: cycleOne 1s ease-in-out infinite;
+                animation: cycleOne 1s ease-in-out infinite;
+                -webkit-animation-direction: normal;
+                animation-direction: normal;
+            }
+            &.two {
+                -webkit-animation: cycleTwo 1s ease-in-out infinite;
+                animation: cycleTwo 1s ease-in-out infinite;
+                -webkit-animation-direction: normal;
+                animation-direction: normal;
+            }
+            &.three {
+                -webkit-animation: cycleThree 1s ease-in-out infinite;
+                animation: cycleThree 1s ease-in-out infinite;
+                -webkit-animation-direction: normal;
+                animation-direction: normal;
+            }
+        }
+
+        height: 16px;
+        padding: 4px 0;
+    }
+
+    @keyframes cycleOne {
+      0% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      33.333% {
+        background: rgba(150, 150, 150, 1);
+      }
+      66.6667% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      100% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+    }
+  
+    @keyframes cycleTwo {
+      0% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      33.333% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      66.6667% {
+        background: rgba(150, 150, 150, 1);
+      }
+      100% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+    }
+  
+    @keyframes cycleThree {
+      0% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      33.333% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      66.6667% {
+        background: rgba(150, 150, 150, 0.4);
+      }
+      100% {
+        background: rgba(150, 150, 150, 1);
+      }
+    }
+}

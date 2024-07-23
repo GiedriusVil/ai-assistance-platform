@@ -1,0 +1,7 @@
+{
+  "name": "@ibm-aca/aca-utils-console",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM"
+}

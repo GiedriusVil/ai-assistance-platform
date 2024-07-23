@@ -1,0 +1,50 @@
+<aiap-table-v1-container-v1>
+    <aiap-table-v1-toolbar-content-v1>
+      <aiap-table-v1-toolbar-search-v1
+        [placeholder]="'classification_synonyms_table_v1.btn_refresh.text' | translate"
+        [tooltip]="'classification_synonyms_table_v1.btn_refresh.tooltip' | translate"
+        [search]="_state.search"
+        (onSearchChange)="handleSearchEvent($event)"
+        (onSearchClear)="handleSearchClearEvent($event)">
+      </aiap-table-v1-toolbar-search-v1>
+      <aiap-button-v1
+        [text]="('classification_synonyms_table_v1.btn_remove.text' | translate) + '(' + (selectedSynonymsQty()) + ')'"
+        [tooltip]="'classification_synonyms_table_v1.btn_remove.tooltip' | translate"
+        [type]="'danger'"
+        [size]="'sm'"
+        (onClick)="handleRowRemoveManyEvent($event)">s
+      </aiap-button-v1>
+      <aiap-button-v1
+        [icon]="'assets/carbon-icons/20/navigation/add.svg'"
+        [iconOnly]="true"
+        [tooltip]="'classification_synonyms_table_v1.btn_add.tooltip' | translate"
+        [type]="'primary'"
+        [size]="'sm'"
+        (onClick)="handleRowAddEvent($event)">
+      </aiap-button-v1>
+    </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [striped]="false"
+    [skeleton]="false"
+    [showSelectionColumn]="true"
+    [sortable]="false"
+    [stickyHeader]="false"
+    [model]="model"
+    (onAllDeselect)="handleAllRowsDeselectEvent($event)"
+    (onAllSelect)="hadleRowSelectAllEvent($event)"
+    (onRowSelect)="handleRowSelectEvent($event)"
+    (onRowDeselect)="handleRowDeSelectEvent($event)"
+    (onRowClick)="handleRowSelectEvent($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+    <ng-template #synonymRowTemplate let-data="data">
+      <aiap-field-input-v1
+        [placeholder]="'classification_synonyms_table_v1.fld_provide_synonym.placeholder'"
+        [id]="'_synonym-value'"
+        [type]="'text'"
+        [name]="'synonym'"
+        [(value)]="synonyms[data._index].en">
+      </aiap-field-input-v1>
+    </ng-template>
+</aiap-table-v1-container-v1>

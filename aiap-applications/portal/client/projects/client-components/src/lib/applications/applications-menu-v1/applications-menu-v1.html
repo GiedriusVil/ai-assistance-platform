@@ -1,0 +1,14 @@
+<ibm-header-global
+    class="applications-menu">
+    <ibm-header-navigation>
+        <ibm-header-menu
+            trigger="mouseover" 
+            [title]="applicationName">
+            <ibm-header-item
+                *ngFor="let application of applications"
+                (click)="emitApplicationChange(application)">
+                {{application.name}}
+            </ibm-header-item>
+        </ibm-header-menu>
+    </ibm-header-navigation>
+</ibm-header-global>

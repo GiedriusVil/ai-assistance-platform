@@ -1,0 +1,87 @@
+<ibm-table-container>
+  <ibm-table-toolbar-content>
+    <button 
+      ibmButton="ghost" 
+      [iconOnly]="true" 
+      (click)="handleRefreshClickEvent($event)">
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/operations/renew.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+    <ibm-table-toolbar-search
+      (search)="emitSearchPlace($event)"
+      (clear)="emitClearPlace($event)"
+      [autocomplete]="'off'"
+      [value]="state.search">
+    </ibm-table-toolbar-search>
+    <button
+      *isActionAllowed="{action: 'live-metrics-configurations.view.add'}"
+      ibmButton="primary"
+      size="sm"
+      (click)="emitShowSavePlace()">Add
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/navigation/add.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+    <button
+      *isActionAllowed="{action: 'live-metrics-configurations.view.import'}"
+      ibmButton="primary"
+      size="sm"
+      (click)="emitShowImportPlace()">Import
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/file/document--import.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+    <button
+      *isActionAllowed="{action: 'live-metrics-configurations.view.export'}"
+      ibmButton="primary"
+      size="sm"
+      (click)="exportMany()">Export
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/technology/cloud--download.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+    <button
+      *isActionAllowed="{action: 'live-metrics-configurations.view.delete'}"
+      ibmButton="danger"
+      size="sm"
+      [disabled]="isRemoveDisabled()"
+      (click)="emitRemovePlace()">Remove({{this.selectedRows.length}})
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+  </ibm-table-toolbar-content>
+  <ibm-table
+      class="cursor-pointer"
+      size="md"
+      [striped]="true"
+      [skeleton]="false"
+      [showSelectionColumn]="true"
+      [sortable]="true"
+      [stickyHeader]="false"
+      [model]="model"
+      (deselectAll)="deselectAllRows()"
+      (selectAll)="selectAllRows($event)"
+      (selectRow)="rowSelect($event)"
+      (deselectRow)="rowDeselect($event)"
+      (rowClick)="emitShowSavePlace($event)"
+      (sort)="handleSortEvent($event)">
+  </ibm-table>
+  <ibm-pagination
+      [model]="model"
+      [showPageInput]="true"
+      (selectPage)="handleSelectPageEvent($event)">
+  </ibm-pagination>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+</ibm-table-container>

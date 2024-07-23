@@ -1,0 +1,149 @@
+<!-- Ai Service change -->
+<aiap-modal-v1 [open]="isOpen" size="lg" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'transcript_view_v1.ai_service_change_view_modal_v1.header.title' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section class="pr-0">
+    <form #auditViewForm="ngForm">
+      <div ibmGrid class="margin-bottom-30">
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1 
+              [isDisabled]="true" 
+              [name]="'aiServiceId'"
+              [label]="'transcript_view_v1.ai_service_change_view_modal_v1.fld_aiService_id.label' | translate"
+              [(value)]="aiService.id">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1 
+              [isDisabled]="true" 
+              [name]="'aiSkillId'"
+              [label]="'transcript_view_v1.ai_service_change_view_modal_v1.fld_skill_id.label' | translate"
+              [(value)]="aiService.aiSkill.id">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1 
+            [isDisabled]="true" 
+            [name]="'aiServiceName'" 
+            [label]="'Ai Service Name'"
+            [(value)]="aiService.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1 
+            [isDisabled]="true" 
+            [name]="'aiSkillName'" 
+            [label]="'Ai Skill Name'"
+            [(value)]="aiService.aiSkill.name">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <ibm-accordion *ngFor="let intent of state?.intents; let intentIndex = index; trackBy: trackBy">
+          <ibm-accordion-item
+          [expanded]="isExpanded(intent)"
+          [title]="intent?.intentName"
+          >
+          <p class="examples-label">{{'transcript_view_v1.ai_service_change_view_modal_v1.fld_new_examples.label' | translate}}</p>
+          <div class="intents-examples">
+            <div class="new-examples-div" ibmRow *ngFor="let newExample of intent?.newExamples; let newExamplesIndex = index">
+              <div ibmCol [columnNumbers]="{'xlg': 11, 'lg': 11, 'md': 8}">
+                <aiap-field-input-v1 
+                [isDisabled]="false"
+                [size]="'sm'"
+                [name]="'new_example' + newExamplesIndex"
+                [(value)]="state.intents[intentIndex].newExamples[newExamplesIndex].text">
+                </aiap-field-input-v1>
+              </div>
+              <div class="button-div" ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 1}">
+                <p
+                class="delete-existing-example-button"
+                (click)="deleteNewExample(newExample, intentIndex)"
+                >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_delete.label' | translate}}</p>
+              </div>
+            </div>
+            <div class="add-button-div" ibmCol [columnNumbers]="{'xlg': 2, 'lg': 2, 'md': 2}">
+              <p
+              class="add-example-button"
+              (click)="addNewExample(intentIndex)"
+              >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_add.label' | translate}}</p>
+            </div>
+          </div>
+          <p *ngIf="arrayHasElements(state?.intents[intentIndex]?.existingExamples)" class="examples-label">{{'transcript_view_v1.ai_service_change_view_modal_v1.fld_existing_examples.label' | translate}}</p>
+          <div class="intents-examples">
+            <div ibmRow *ngFor="let existingExample of intent?.existingExamples; let existingExamplesIndex = index">
+              <div class="existing-examples-div" ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8}">
+                <aiap-field-input-v1 
+                [isDisabled]="true"
+                [name]="'existing_example' + existingExamplesIndex"
+                [(value)]="state.intents[intentIndex].existingExamples[existingExamplesIndex].text">
+                </aiap-field-input-v1>
+                <div class="button-div">
+                  <p
+                  class="change-example-button"
+                  (click)="changeExample(existingExamplesIndex,intentIndex)"
+                  >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_change.label' | translate}}</p>
+                  <p
+                  class="delete-existing-example-button"
+                  (click)="deletExistingExample(existingExample, intentIndex)"
+                  >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_delete.label' | translate}}</p>
+                </div>
+              </div>
+              <div class="will-change-to-div" *ngIf="isChangeExampleExists(existingExamplesIndex, intentIndex)" ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8}">
+                <p class="will-change-to-text">{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_will_change_to.label' | translate}}</p>
+                <aiap-field-input-v1 
+                [isDisabled]="false"
+                [size]="'sm'"
+                [name]="'will_change_to_example' + existingExamplesIndex"
+                [(value)]="state.intents[intentIndex].existingExamples[existingExamplesIndex].newText">
+                </aiap-field-input-v1>
+                <div class="button-div" ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 1}">
+                  <p
+                  class="cancel-change-button"
+                  (click)="cancelChangeExample(existingExamplesIndex, intentIndex)"
+                  >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_cancel.label' | translate}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p *ngIf="arrayHasElements(state?.intents[intentIndex]?.deletedExamples)" class="examples-label">{{'transcript_view_v1.ai_service_change_view_modal_v1.fld_deleted_examples.label' | translate}}</p>
+          <div class="intents-examples">
+            <div class="deleted-examples-div" ibmRow *ngFor="let deletedExample of intent?.deletedExamples; let deletedExamplesIndex = index">
+              <div ibmCol [columnNumbers]="{'xlg': 10, 'lg': 10, 'md': 8}">
+                <aiap-field-input-v1 
+                [isDisabled]="true"
+                [name]="'deleted_example' + deletedExamplesIndex"
+                [(value)]="state.intents[intentIndex].deletedExamples[deletedExamplesIndex].text">
+                </aiap-field-input-v1>
+              </div>
+              <div class="button-div" ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 1}">
+                <p
+                class="cancel-deleted-example-button"
+                (click)="cancelDeletedExample(deletedExample, intentIndex)"
+                >{{'transcript_view_v1.ai_service_change_view_modal_v1.btn_cancel.label' | translate}}</p>
+              </div>
+            </div>
+          </div>
+          </ibm-accordion-item>
+        </ibm-accordion>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+    [type]="'secondary'" 
+    [size]="'md'"
+    [text]="'transcript_view_v1.ai_service_change_view_modal_v1.btn_close.text' | translate" (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+    [type]="'primary'" 
+    [size]="'md'"
+    [text]="'transcript_view_v1.ai_service_change_view_modal_v1.btn_save.text' | translate" (click)="save()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</aiap-modal-v1>

@@ -1,0 +1,29 @@
+<aiap-modal-v1 
+  size='sm'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <p
+      class="bx--modal-header__heading bx--type-beta">
+      {{ 'topic_modeling_view_v1.execute_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <div class="confirm-model-div">
+      <p>{{ 'topic_modeling_view_v1.execute_modal_v1.section.text' | translate: { name: topicModel?.name } }}</p>
+    </div>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <button
+        ibmButton="secondary"
+        (click)="close()">
+        {{ 'topic_modeling_view_v1.execute_modal_v1.btn_cancel.text' | translate }}
+      </button>
+    <button
+        ibmButton="danger"
+        (click)="executeJob()">
+        {{ 'topic_modeling_view_v1.execute_modal_v1.btn_delete.text' | translate }}
+      </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

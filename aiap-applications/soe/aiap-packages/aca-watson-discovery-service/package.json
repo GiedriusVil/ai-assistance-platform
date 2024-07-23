@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-watson-discovery-service",
+  "version": "3.27.0",
+  "description": "Watson Watson Discovery support for Advanced Conversation Asset",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ibm-aiap/aiap-soe-brain": "3.27.0",
+    "@ibm-aca/aca-common-logger": "3.27.0"
+  }
+}

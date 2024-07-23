@@ -1,0 +1,54 @@
+<ibm-modal 
+  [open]="isOpen" 
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'validation_engagements_v1.view.save_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section class="margin-top-20">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol>
+          <ibm-tabs>
+            <ibm-tab heading="General">
+              <aiap-wbc-validation-engagements-general-tab-v1 
+                #generalTab
+                [(validationEngagement)]="value">
+              </aiap-wbc-validation-engagements-general-tab-v1>
+            </ibm-tab>
+            <ibm-tab heading="Schema">
+              <aiap-wbc-validation-engagements-schema-tab-v1 
+                #schemaTab
+                [(schema)]="value.schema">
+              </aiap-wbc-validation-engagements-schema-tab-v1>
+            </ibm-tab>
+            <ibm-tab heading="Actions">
+              <aiap-wbc-validation-engagements-actions-tab-v1 
+                #actionsTab
+                [(value)]="state.actions">
+              </aiap-wbc-validation-engagements-actions-tab-v1>
+            </ibm-tab>
+          </ibm-tabs>
+        </div>
+      </div>
+    </div>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'validation_engagements_v1.view.save_modal_v1.cancel_button' | translate"
+      [tooltip]="'validation_engagements_v1.view.save_modal_v1.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [disabled]="!isValid()" 
+      [type]="'primary'" 
+      [text]="'validation_engagements_v1.view.save_modal_v1.save_button' | translate"
+      [tooltip]="'validation_engagements_v1.view.save_modal_v1.save_button_tooltip' | translate"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

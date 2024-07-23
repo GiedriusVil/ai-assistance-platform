@@ -1,0 +1,21 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'lambda_module_help_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <markdown ngPreserveWhitespaces 
+      [data]="markdown">
+    </markdown>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'lambda_module_help_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      [size]="'md'"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

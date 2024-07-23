@@ -1,0 +1,68 @@
+<aiap-modal-v1 
+  [open]="isOpen"
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <div style="display: table-row;">
+      <div style="display: table-cell;vertical-align: top; padding-right: 10px;">
+        <aiap-button-v1
+          [text]="'queries_configuration_view_v1.save_modal_v1.btn_help.text' | translate"
+          [type]="'ghost'"
+          [icon]="'assets/carbon-icons/20/status/help.svg'"
+          [size]="'sm'"
+          (onClick)="help()"
+          [disabled]="isLoading">
+        </aiap-button-v1>
+      </div>
+      <div class="bx--modal-header__heading bx--type-beta">
+        {{ 'queries_configuration_view_v1.save_modal_v1.header' | translate }}
+      </div>
+    </div>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <form #queryForm="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4}">
+            <aiap-field-input-v1
+              [name]="'queryRef'"
+              [isDisabled]="isLoading"
+              [isRequired]="true"
+              [label]="'queries_configuration_view_v1.save_modal_v1.fld_reference.label' | translate"
+              [labelHelp]="'queries_configuration_view_v1.save_modal_v1.fld_reference.helper_text' | translate "
+              [(value)]="query.ref">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol class="aca-monaco-editor-col">
+            <ngx-monaco-editor
+              name="model_code"
+              (onInit)="handleMonacoEditorInitEvent($event)"
+              [ngClass]="[state.editor.small ? 'editorSmall' : 'editor']" 
+              [options]="state.monacoOptions"
+              [(ngModel)]="query.code">
+            </ngx-monaco-editor>
+          </div>
+        </div>
+      </div>
+    </form>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1 class="aca-modal-footer">
+    <aiap-button-v1
+      [text]="'queries_configuration_view_v1.save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      [disabled]="isLoading"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'queries_configuration_view_v1.save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="queryForm.invalid || isLoading"
+      (onClick)="handleEventSave($event)">
+    </aiap-button-v1> 
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<aiap-query-help-modal-v1 #queryHelpModalV1></aiap-query-help-modal-v1>

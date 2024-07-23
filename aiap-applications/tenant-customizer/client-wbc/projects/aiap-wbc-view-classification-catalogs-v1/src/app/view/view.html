@@ -1,0 +1,22 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2  [outlet]="outlet"></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-classification-catalogs-table-v1
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowCategories)="handleShowCategoriesEvent($event)"
+      (onShowRemovePlace)="handleDeleteEvent($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)">
+    </aiap-classification-catalogs-table-v1>
+  </div>
+</div>
+
+<aiap-classification-catalog-save-modal-v1 #classificationCatalogSaveModal></aiap-classification-catalog-save-modal-v1>
+<aiap-classification-catalog-delete-modal-v1 #classificationCatalogDeleteModal></aiap-classification-catalog-delete-modal-v1>
+<aiap-classification-catalog-import-modal-v1 #classificationCatalogImportModal></aiap-classification-catalog-import-modal-v1>

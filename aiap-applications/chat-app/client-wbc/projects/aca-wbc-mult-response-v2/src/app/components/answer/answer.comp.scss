@@ -1,0 +1,86 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-answer-comp {
+  background-color: transparent;
+
+  #box-container {
+    height: 300px;
+  }
+  
+  .aca-wbc-mult-response-v2--wrapper {
+    .aca-wbc-mult-response-v2--main {
+      display: flex;
+
+      .multimedia--wrapper {
+        float: right;
+        margin-left: 4px;
+        display: flex;
+        aiap-multimedia-box {
+          transform-origin: left top;
+          margin-right: 4px;
+        }
+        .multimedia--actions {
+          position: relative;
+      
+          img {
+            display: block;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+
+      .aca-wbc-mult-response-v2--title {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .aca-wbc-mult-response-v2--text {
+        font-size: 10px;
+      }
+    }
+
+    
+    .aca--wbc-mult-response-v2--feedback {
+      display: flex;
+      align-items: center;
+      i.persona-icon.icon--bot {
+        position: unset !important;
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+      p {
+        font-size: 12px;
+        margin: auto 4px;
+      }
+      aca-wbc-feedback {
+        height: 22px;
+        .message--feedback {
+          position: unset;
+
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    #box-container {
+      min-width: 300px;
+    }
+  
+    .icon--wrapper {
+      i.persona-icon.icon--bot {
+        position: unset !important;
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin-right: 8px;
+      }
+    }
+  }
+}

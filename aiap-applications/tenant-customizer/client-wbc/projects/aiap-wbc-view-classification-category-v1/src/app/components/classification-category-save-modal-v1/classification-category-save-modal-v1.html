@@ -1,0 +1,105 @@
+<ibm-modal [open]="isOpen" (overlaySelected)="close()" size="lg">
+  <ibm-modal-header (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'classification_category_save_modal_v1.header' | translate }}</h3>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #classificationCategoryForm="ngForm">
+      <ibm-accordion [align]="'start'">
+        <ibm-accordion-item [title]="'classification_category_save_modal_v1.fld_audit_trail.title' | translate">
+          <div ibmGrid>
+            <div ibmRow>
+              <div ibmCol>
+                <aiap-field-input-v1
+                  [label]="'classification_category_save_modal_v1.fld_created_by.label' | translate"
+                  [isDisabled]="true"
+                  [(value)]="state.category.createdBy">
+                </aiap-field-input-v1>
+              </div>
+              <div ibmCol>
+                <aiap-field-input-v1
+                  [label]="'classification_category_save_modal_v1.fld_created_at.label' | translate"
+                  [isDisabled]="true"
+                  [(value)]="state.category.created">
+                </aiap-field-input-v1>
+              </div>
+              <div ibmCol>
+                <aiap-field-input-v1
+                  [label]="'classification_category_save_modal_v1.fld_modified_by.label' | translate"
+                  [isDisabled]="true"
+                  [(value)]="state.category.updatedBy">
+                </aiap-field-input-v1>
+              </div>
+              <div ibmCol>
+                <aiap-field-input-v1
+                  [label]="'classification_category_save_modal_v1.fld_modified_at.label' | translate"
+                  [isDisabled]="true"
+                  [(value)]="state.category.updated">
+                </aiap-field-input-v1>
+              </div>
+            </div>
+          </div>
+        </ibm-accordion-item>
+      </ibm-accordion>
+      <div ibmGrid>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'category_id'"
+              [label]="'classification_category_save_modal_v1.fld_category_id.label' | translate"
+              [labelHelp]="'classification_category_save_modal_v1.fld_category_id.label_help' | translate"
+              [placeholder]="'classification_category_save_modal_v1.fld_category_id.placeholder' | translate"
+              [(value)]="state.category.code">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'title.en'"
+              [label]="'classification_category_save_modal_v1.fld_title.label' | translate"
+              [labelHelp]="'classification_category_save_modal_v1.fld_title.label_help' | translate"
+              [placeholder]="'classification_category_save_modal_v1.fld_title.placeholder' | translate"
+              [(value)]="state.category.title.en">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'supplierName'"
+              [label]="'classification_category_save_modal_v1.fld_supplier_name.label' | translate"
+              [labelHelp]="'classification_category_save_modal_v1.fld_supplier_name.label_help' | translate"
+              [placeholder]="'classification_category_save_modal_v1.fld_supplier_name.placeholder' | translate"
+              [(value)]="state.category.supplierName">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-classification-synonyms-table-v1
+              [(synonyms)]="state.category.synonyms"
+            >
+            </aiap-classification-synonyms-table-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'classification_category_save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_category_save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="classificationCategoryForm.invalid"
+      (onClick)="handleClassificationCategorySaveEvent($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</ibm-modal>

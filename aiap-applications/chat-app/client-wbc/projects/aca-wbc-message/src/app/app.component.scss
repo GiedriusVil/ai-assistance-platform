@@ -1,0 +1,214 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+
+@use "./components/components.scss";
+@use "./components-attachments/components-attachments.scss";
+@use "./components-messages/components-messages.scss";
+@use "./components-notifications/components-notifications.scss";
+
+@import "../../../client-components/src/lib/components/base-modal/base-modal.comp.scss";
+
+aca-wbc-message {
+  @import "../../../client-components/src/lib/client-components-module-styles.scss";
+
+  aca-chat-message {
+    aca-wbc-feedback {
+      .message--feedback {
+        bottom: -19px;
+        right: 10px;
+
+        .feedback-icon-box {
+          img {
+            height: 20px;
+            width: 20px;
+            padding: 1px;
+          }
+        }
+      }
+    }
+  }
+
+  .message--row {
+    padding: 1px 0 1px 0;
+    margin-bottom: 20px;
+
+    &.message--float,
+    .message--float {
+      clear: both;
+      a {
+        color: #2d75fd;
+        text-decoration: underline;
+      }
+    }
+
+    &.bot {
+      &.sender-icon {
+        padding-right: 34px;
+        padding-left: 34px;
+      }
+
+      &.message--float,
+      .message--float {
+        float: left;
+
+        .persona-icon {
+          position: absolute;
+          left: -34px;
+          top: 0px;
+          width: 34px;
+          height: 34px;
+        }
+
+        .icon--bot {
+          background-image: url("../assets/va-logo-blue.svg");
+          top: -5px;
+        }
+      }
+
+      .message--bubble {
+        color: black;
+      }
+    }
+
+    &.agent {
+      padding-right: 34px;
+      padding-left: 34px;
+
+      &.message--float,
+      .message--float {
+        float: left;
+
+        .persona-icon {
+          position: absolute;
+          left: -34px;
+          top: 0px;
+          width: 30px;
+          height: 30px;
+        }
+
+        .icon--agent {
+          background-image: url("../assets/help-desk.svg");
+        }
+      }
+
+      .message--bubble {
+        color: black;
+      }
+    }
+
+    &.system,
+    &.user {
+      &.sender-icon {
+        padding-right: 34px;
+        padding-left: 34px;
+      }
+      &.message--float,
+      .message--float {
+        float: right;
+
+        .persona-icon {
+          position: absolute;
+          right: -34px;
+          top: 2px;
+          width: 30px;
+          height: 30px;
+        }
+
+        .icon--user {
+          background-image: url("../assets/user.svg");
+        }
+      }
+
+      .message--bubble {
+        &.button-selected {
+          color: #393939;
+          border: 1px solid #393939;
+          background-color: unset;
+        }
+
+        color: #fff;
+        background-color: #393939;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px 10px 0px 10px;
+      }
+    }
+
+    &:first-child {
+      padding-top: 15px;
+    }
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+
+    &.message--break {
+      padding-bottom: 10px;
+    }
+
+    &.message--first-of-type {
+      padding-bottom: 10px;
+    }
+
+    .message--content {
+      position: relative;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .message--bubble {
+      overflow-wrap: break-spaces;
+      word-wrap: break-spaces;
+      -ms-word-break: break-spaces;
+      word-break: break-word;
+      -ms-hyphens: none;
+      -moz-hyphens: none;
+      -webkit-hyphens: none;
+      hyphens: none;
+      padding: 0.5em;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .message--image {
+      margin-top: 4px;
+
+      @media screen and (max-width: 575px) {
+        max-width: 75%;
+      }
+
+      @media screen and (min-width: 576px) {
+        max-width: 50%;
+      }
+
+      img {
+        clear: both;
+        float: left;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 100%;
+      }
+    }
+
+    .message--timestamp {
+      padding-top: 4px;
+      color: #0056b8;
+      font-size: 12px;
+      line-height: 11px;
+    }
+
+    .message--notification {
+      padding-bottom: 10px;
+
+      p {
+        color: #0056b8;
+        font-size: 12px;
+        line-height: 11px;
+      }
+    }
+  }
+}

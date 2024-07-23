@@ -1,0 +1,33 @@
+<aiap-modal-v1
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='md'>
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+      <p class="bx--modal-header__heading bx--type-beta">
+        {{ 'tenants_view_v1.save_modal_v1.assistants_delete_modal_v1.header' | translate}}
+      </p>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content">
+      <p class="mb-3">
+        {{ 'tenants_view_v1.save_modal_v1.assistants_delete_modal_v1.content' | translate }}
+      </p>
+      <ul ibmList class="assistants-list">
+        <ng-container *ngFor="let assistant of assistants">
+          <li ibmListItem>{{assistant}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  <aiap-modal-v1-footer-v1>
+      <aiap-button-v1
+        [text]="'tenants_view_v1.save_modal_v1.assistants_delete_modal_v1.btn_cancel.text' | translate"
+        [type]="'secondary'"
+        (onClick)="close()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        [text]="'tenants_view_v1.save_modal_v1.assistants_delete_modal_v1.btn_delete.text' | translate"
+        [type]="'danger'"
+        (onClick)="handleDeleteManyByIds()">
+      </aiap-button-v1>
+    </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

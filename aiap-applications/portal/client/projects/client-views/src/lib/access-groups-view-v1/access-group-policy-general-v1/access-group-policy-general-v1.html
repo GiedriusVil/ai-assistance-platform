@@ -1,0 +1,45 @@
+<form #generalPolicyForm="ngForm">
+  <!-- Cross-Site Request Forgery [START] -->
+  <input
+    type="hidden"
+    name="csrftoken"
+    value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+  <!-- Cross-Site Request Forgery [END] -->
+  <div ibmGrid>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+      <div ibmCol>
+        <aiap-field-input-v1
+          [placeholder]="'access_groups_view_v1.policy_general_v1.fld_name.helper_text' | translate "
+          [name]="'accessGroupName'"
+          [labelHelp]="'access_groups_view_v1.policy_general_v1.fld_name.placeholder' | translate"
+          [label]="'access_groups_view_v1.policy_general_v1.fld_name.label' | translate"
+          [(value)]="accessGroup.name">
+        </aiap-field-input-v1>
+      </div>
+      <div ibmCol>
+        <aiap-field-input-v1
+          [placeholder]="'access_groups_view_v1.policy_general_v1.fld_external_id.placeholder' | translate "
+          [name]="'accessGroup.externalId'"
+          [labelHelp]="'access_groups_view_v1.policy_general_v1.fld_external_id.helper_text' | translate"
+          [label]="'access_groups_view_v1.policy_general_v1.fld_external_id.label' | translate"
+          [(value)]="accessGroup.externalId">
+        </aiap-field-input-v1>
+      </div>
+    </div>
+    <div class="empty-row" ibmRow>&nbsp;</div>
+    <div ibmRow>
+      <div ibmCol>
+        <aiap-field-textarea-v1
+          [isRequired]="true"
+          [placeholder]="'access_groups_view_v1.policy_general_v1.fld_description.placeholder' | translate"
+          [name]="'accessGroupDescription'"
+          [label]="'access_groups_view_v1.policy_general_v1.fld_description.label' | translate"
+          [labelHelp]="'access_groups_view_v1.policy_general_v1.fld_description.helper_text' | translate"
+          [rows]="3"
+          [(value)]="accessGroup.description">
+      </aiap-field-textarea-v1>
+      </div>
+    </div>
+  </div>
+</form>

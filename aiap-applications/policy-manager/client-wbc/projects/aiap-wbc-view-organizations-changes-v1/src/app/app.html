@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-organizations-changes-view-v1></aiap-organizations-changes-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+		[state]="'active'"
+		[loadingText]="'Loading...'">
+	</ibm-inline-loading>
+</div>

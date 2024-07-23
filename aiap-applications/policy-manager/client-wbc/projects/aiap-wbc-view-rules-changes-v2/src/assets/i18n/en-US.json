@@ -1,0 +1,19 @@
+{
+  "rule_changes_v2.modal_v2.id_label" : "ID",
+  "rule_changes_v2.modal_v2.timestamp_label" : "Timestamp",
+  "rule_changes_v2.modal_v2.type_label" : "Type",
+  "rule_changes_v2.modal_v2.action_label" : "Action",
+  "rule_changes_v2.modal_v2.user_id_label" : "User ID",
+  "rule_changes_v2.modal_v2.rule_key_label" : "Rule V2 Key",
+  "rule_changes_v2.modal_v2.close_button" : "Close",
+  "rules_changes_v2.view.search_placeholder" : "Search",
+  "rules_changes_v2.table.view.export_button_text" : "Export",
+  "view_rules_changes_v2.table_v2.id_header" : "ID",
+  "view_rules_changes_v2.table_v2.type_header" : "Type",
+  "view_rules_changes_v2.table_v2.action_header" : "Action",
+  "view_rules_changes_v2.table_v2.user_id_header" : "User ID",
+  "view_rules_changes_v2.table_v2.rule_v2_key_header" : "Rule V2 Key",
+  "view_rules_changes_v2.table_v2.timestamp_header" : "Timestamp",
+  "rules_changes_v2.table.view.export_button_tooltip" : "Export",
+  "rule_changes_v2.modal_v2.close_button_tooltip" : "Close"
+}

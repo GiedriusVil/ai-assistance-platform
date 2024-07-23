@@ -1,0 +1,45 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      [tooltip]="'organizations.organizations_changes_table_v1.refresh_button_tooltip' | translate"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)"
+      [search]="state.search">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'organizations.organizations_changes_table_v1.export_button' | translate"
+      [tooltip]="'organizations.organizations_changes_table_v1.export_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/export.svg'"
+      (onClick)="export()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <div>
+    <aiap-table-v1
+      [model]="model"
+      (onRowClick)="emitShowSavePlace($event)"
+      (onSort)="handleSortEvent($event)">
+    </aiap-table-v1>
+  </div>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template #dateColumnTemplate let-data="data">
+  <div>
+    <ibm-label>{{data?.context?.user?.username}}</ibm-label>
+  </div>
+  <div>
+    <ibm-label>{{data?.timestamp | toUserLocale}}</ibm-label>
+  </div>
+</ng-template>

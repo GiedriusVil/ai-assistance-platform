@@ -1,0 +1,15 @@
+<div>
+    <div class="filters-wrapper">
+      <div class="filters-content no-filters">
+        <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+        <h2>Intents Results Table</h2>
+      </div>
+    </div>
+  </div>
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-ai-test-intents-table
+    [intentsData]="data?.classificationReport"
+    ></aca-ai-test-intents-table>
+  </div>
+</div>

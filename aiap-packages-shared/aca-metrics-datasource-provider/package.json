@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aca/aca-metrics-datasource-provider",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {}
+}

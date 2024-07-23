@@ -1,0 +1,13 @@
+{
+  "view_doc_validation_metrics_v2.view.refresh_button_text" : "Refresh",
+  "view_doc_validation_metrics_v2.view.total_validation_count_title" : "Completed validations",
+  "view_doc_validation_metrics_v2.view.catalog_rules_frequency_title" : "Most frequently violated Catalog Rules",
+  "view_doc_validation_metrics_v2.view.classification_rules_frequency_title" : "Most frequently violated Classification Rules",
+  "view_doc_validation_metrics_v2.view.buy_rules_frequency_title" : "Most frequently violated Buy Rules",
+
+  "report_chart_v1.loading_text" : "Loading",
+  "report_chart_v1.header_label_name" : "Name",
+  "report_chart_v1.header_label_total" : "Total",
+  "report_chart_v1.data_retrieve_error" : "Error occured while retrieving data",
+  "view_doc_validation_metrics_v2.view.refresh_button_tooltip" : "Refresh"
+}

@@ -1,0 +1,25 @@
+<ng-container *ngIf="_initialized">
+    <app-header></app-header>
+    <!-- Buy Header -->
+    <aca-header-actions></aca-header-actions>
+    <!-- Content Router -->
+    <router-outlet></router-outlet>
+    <!-- Overlay Components -->
+    <app-prechat></app-prechat>
+    <app-survey-modal></app-survey-modal>
+    <app-test-cases-modal></app-test-cases-modal>
+    <app-close-modal></app-close-modal>
+    <app-audio></app-audio>
+</ng-container>
+<ng-container *ngIf="!_initialized">
+    <div 
+        style="height: 100vh;"
+        class="d-flex justify-content-center">
+        <div 
+            style="margin: auto;"
+            class="spinner-border spinner-border-lg" 
+            role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</ng-container>

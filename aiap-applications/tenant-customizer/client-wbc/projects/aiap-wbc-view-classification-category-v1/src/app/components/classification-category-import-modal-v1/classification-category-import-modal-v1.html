@@ -1,0 +1,36 @@
+<aiap-modal-v1
+    [open]="isOpen"
+    (overlaySelected)="close()"
+    size='sm'>
+    <aiap-modal-v1-header-v1 (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>{{ 'classification_category_import_modal_v1.title' | translate }}</h3>
+    </aiap-modal-v1-header-v1>
+    <section ibmModalContent>
+        <form #classificationCategoryImportForm="ngForm">
+          <aiap-file-uploader-v2
+            #fileUploader
+            [title]="'classification_category_import_modal_v1.file_uploader_import.title' | translate"
+            [description]="'classification_category_import_modal_v1.file_uploader_import.description' | translate"
+            [multiple]="false"
+            [drop]="true"
+            [dropText]="'classification_category_import_modal_v1.file_uploader_import.fld_drop_text' | translate"
+            [disabled]="false"
+            [(files)]="state.files"
+            (filesChange)="handleFilesChange($event)">
+          </aiap-file-uploader-v2>
+        </form>
+    </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'classification_category_import_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'classification_category_import_modal_v1.btn_import.text' | translate"
+      [type]="'primary'"
+      [disabled]="isDataInvalid()"
+      (onClick)="handleClassificationCategoryImportClickEvent($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

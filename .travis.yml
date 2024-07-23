@@ -1,0 +1,44 @@
+vm:
+  size: 2x-large
+  
+language: node_js
+branches:
+  only:
+    - aiap/dev
+    - aiap/master
+
+env:
+  global:
+    - APP_DIR=aiap-applications
+  matrix:
+    - APPLICATION=portal
+    - APPLICATION=conv-insights
+    - APPLICATION=tenant-customizer
+    - APPLICATION=conv-quality-manager
+    - APPLICATION=live-analytics
+    - APPLICATION=policy-engine
+    - APPLICATION=policy-gateway
+    - APPLICATION=policy-manager
+    - APPLICATION=chat-app
+    - APPLICATION=soe
+
+services:
+  - docker
+
+install: skip
+
+script:
+  - ./.scripts/images/api/docker-build-one-by-id.sh --aiap-image-build-file-path ./$APP_DIR/$APPLICATION/Dockerfile --aiap-application-id $APPLICATION
+
+deploy:
+  provider: script
+  script: ./.scripts/images/api/image-push-one-by-id.sh --aiap-application-id $APPLICATION --aiap-image-push-url $HARBOR_URL --aiap-image-push-username $HARBOR_ROBOT_USERNAME --aiap-image-push-password $HARBOR_ROBOT_SECRET
+  on:
+    all_branches: true
+
+notifications:
+  slack:
+    rooms:
+      secure: I/UcIc0Quz6/BalVdWjBtMU3GKzAVKhnsDQMkqoAzL9RmnSGLEeBThjWSGiLkFlVuwR2aHA4xe4pE2AqkaoPu9VGvTxwwW9l2UFGbTrAtLdMFtsdKX5pDIWjV66pXDf/zQ43o0VuI1WyhxxM8zqZludtBXIw2ZrgKTF62+uq1fao/tqMGXr1DIs4l8u/ASuoJEljGP41I6PJHBFLqzGJfu9ho/VC34fi1+/WS/ypQ2Wt7DL8THq3IF/MHvq7llwKEkQu2yK0S/wSqJGPryHPUYBKh3ecMvqGuIHbrT1Kp8hBOYibTGBlAVBRQkStnSwNltadwNBns0KiOKPAQo9VWBQf/qzsoWLo7DLPtI4IXUvEEvNN/EGagkL218j3gB8d+SBihamO7OHEJr1erKKNMqyXrf+7J4utvl3XIrltsqZkbMS6LXGDXnAyo928GZSmZ4yzJhIRIU2CVnFzDdaGoHivXBi7KokNBjjqkYEMOM1Z/I8kus0sd14S7kwdf9m/a3WGpYEO324x/368BwHteh82zNFlmFb8oyC6Ui9eOBjJqmKnJIsGsNSsKqo2egX75aNADfn7E/Dmdcn2TNNVN5mlAxxHNTHwZLwngVf6D6wbiT5aAkEWaPcc7TecyO4XzCJoQgXjrcImVFKd3ka4N4dDtLNsYkWZ8VG/GGCdzo0=
+    on_success: never
+    on_failure: always

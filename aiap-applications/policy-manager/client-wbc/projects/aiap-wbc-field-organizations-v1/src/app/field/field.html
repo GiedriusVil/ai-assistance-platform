@@ -1,0 +1,18 @@
+<ibm-combo-box
+  [appendInline]="state.appendInline"
+  [disabled]="state.disabled"
+  [helperText]="state.helperText"
+  [invalid]="state.invalid"
+  [invalidText]="state.invalidText"
+  [label]="state.label"
+  [size]="state.size"
+  [skeleton]="state.skeleton"
+  (selected)="handleSelected($event)"
+  (submit)="handleSubmit($event)"
+  (search)="handleSearch($event)"
+  [theme]="state.theme"
+  [warn]="state.warn"
+  [warnText]="state.warnText"
+  [items]="state.items">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

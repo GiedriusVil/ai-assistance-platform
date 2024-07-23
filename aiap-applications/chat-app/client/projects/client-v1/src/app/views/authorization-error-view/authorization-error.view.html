@@ -1,0 +1,8 @@
+<div class="aca--error--page">
+    <h6>Authorization error</h6>
+    <p>Please reach out for virtual assistant support team!</p>
+    <div *ngIf="param.showError && error" class="aca-json-viewer align-text-left">
+        <ngx-json-viewer [json]="error" [depth]="1">
+        </ngx-json-viewer>
+    </div>
+</div>

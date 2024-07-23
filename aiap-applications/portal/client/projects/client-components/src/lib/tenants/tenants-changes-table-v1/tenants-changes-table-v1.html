@@ -1,0 +1,37 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'tenant_changes_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{ action: 'tenants-changes.view.export' }"
+      [text]="('tenant_changes_table_v1.btn_export.text' | translate) + '(' + (this.selectedRows.length > 0 ? this.selectedRows.length: 'all') + ')'"
+      [tooltip]="'tenant_changes_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>

@@ -1,0 +1,60 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+const MODULE_ID = 'aiap-ai-service-adapter-provider-adapter-aws-lex-v2-response-retrieve-confidence';
+const logger = require('@ibm-aca/aca-common-logger')(MODULE_ID);
+
+import lodash from '@ibm-aca/aca-wrapper-lodash';
+
+import {
+  formatIntoAcaError,
+} from '@ibm-aca/aca-utils-errors';
+
+import {
+  IAiServiceResponseExternalV1AwsLexV2,
+} from '@ibm-aiap/aiap--types-server';
+
+import {
+  ISoeContextV1,
+} from '@ibm-aiap/aiap--types-soe';
+
+import {
+  IRetrieveConfidenceParamsV1,
+  IRetrieveConfidenceResponseV1,
+} from '../../../types';
+
+export const retrieveConfidence = async (
+  context: ISoeContextV1,
+  params: IRetrieveConfidenceParamsV1,
+): Promise<IRetrieveConfidenceResponseV1> => {
+
+  let external: IAiServiceResponseExternalV1AwsLexV2;
+
+  let interpretations;
+  const RET_VAL: IRetrieveConfidenceResponseV1 = {
+    confidence: 0.0,
+  };
+  try {
+    external = params?.aiServiceResponse?.external as IAiServiceResponseExternalV1AwsLexV2;
+    interpretations = external?.interpretations;
+
+    if (
+      !lodash.isEmpty(interpretations) &&
+      lodash.isArray(interpretations)
+    ) {
+      interpretations = lodash.orderBy(
+        interpretations,
+        [(interpretation) => { return interpretation?.nluConfidence?.score || 0 }],
+        ['desc']
+      );
+      RET_VAL.confidence = interpretations[0]?.nluConfidence?.score || 0.0;
+    }
+    return RET_VAL;
+  } catch (error) {
+    const ACA_ERROR = formatIntoAcaError(MODULE_ID, error);
+    logger.error(retrieveConfidence.name, { ACA_ERROR });
+    throw ACA_ERROR;
+  }
+}

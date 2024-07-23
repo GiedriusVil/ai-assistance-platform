@@ -1,0 +1,42 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [text]="'tenants_view_v1.datasource_table_v1.btn_add.text' | translate"
+      [tooltip]="'tenants_view_v1.datasource_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+   </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    size="md"
+    [striped]="true"
+    [skeleton]="false"
+    [showSelectionColumn]="false"
+    [sortable]="true"
+    [stickyHeader]="false"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    (onPageSelect)="handleSelectPageEvent($event)"
+    [model]="model">
+  </aiap-table-v1-pagination-v1>
+  <ng-template
+    #actionsTemplate
+    let-data="data">
+    <ibm-overflow-menu
+      [flip]="true"
+      (click)="_allowActionsClick($event)">
+      <ibm-overflow-menu-option
+        (selected)="emitShowSavePlace(data)">{{ 'tenants_view_v1.datasource_table_v1.btn_edit.text' | translate }}
+      </ibm-overflow-menu-option>
+      <ibm-overflow-menu-option
+        type="danger"
+        (selected)="emitShowDeletePlace(data)">{{ 'tenants_view_v1.datasource_table_v1.btn_delete.text' | translate }}
+      </ibm-overflow-menu-option>
+    </ibm-overflow-menu>
+  </ng-template>
+</aiap-table-v1-container-v1>

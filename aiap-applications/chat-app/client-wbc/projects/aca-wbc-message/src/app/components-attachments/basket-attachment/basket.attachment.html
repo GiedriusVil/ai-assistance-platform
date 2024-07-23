@@ -1,0 +1,104 @@
+<div class="message--content w-100">
+    <div class="basket-message">
+        <div class="header">
+            <div>You added <strong>{{quantity}} Items</strong> in your buying request.</div>
+            <button [attr.id]="'expandButton'" (click)="onExpandProducts('expandButton')" class="plus-button" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">+</button>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="products-body">
+                <aca-chat-basket-component [basket]="_state.basket" [configuration]="_configuration"
+                    (onSubmit)="handleBasketSubmitEvent($event)" (onCancel)="handleBasketCancelEvent($event)">
+                </aca-chat-basket-component>
+            </div>
+        </div>
+        <div class="body">
+            <p class="title">Request Summary</p>
+            <div class="container request-details-container">
+                <div class="row">
+                    <div class="col labels-column">
+                        <p class="request-details-label">
+                            Total cost:
+                        </p>
+                    </div>
+                    <div class="col">
+                        <div class="request-details-text">
+                            <span class="total-price">
+                                {{total}}
+                            </span>
+                            {{currency}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col labels-column">
+                        <p class="request-details-label">
+                            Ship to:
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="request-details-text">
+                            {{basketDetails.address || ''}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="collapseDetails">
+                <div class="more-details-box">
+                    <div *ngIf="basketDetails.needByDate">
+                        <div class="details-row-label">
+                            <p>Need by date</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.needByDate}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="basketDetails.purchasingUnit">
+                        <div class="details-row-label">
+                            <p>Purchasing Unit</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.purchasingUnit}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="basketDetails.companyCode">
+                        <div class="details-row-label">
+                            <p>Company Code</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.companyCode}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="basketDetails.reqProfitCenter">
+                        <div class="details-row-label">
+                            <p>Requestor Profit Center</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.reqProfitCenter}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="basketDetails.deliverToAttention">
+                        <div class="details-row-label">
+                            <p>Deliver To Attention</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.deliverToAttention}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="basketDetails.onBehalfOf">
+                        <div class="details-row-label">
+                            <p>On Behalf Of</p>
+                        </div>
+                        <div class="details-row-text">
+                            <p>{{basketDetails.onBehalfOf}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button [attr.id]="'seeAllButton'" (click)="onExpandDetails('seeAllButton')" class="plus-button" type="button" data-toggle="collapse" data-target="#collapseDetails"
+                aria-expanded="false" aria-controls="collapseDetails">See All</button>
+        </div>
+    </div>
+</div>

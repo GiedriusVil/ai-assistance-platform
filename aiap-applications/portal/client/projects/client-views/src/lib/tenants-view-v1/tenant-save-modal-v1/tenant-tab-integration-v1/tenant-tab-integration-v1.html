@@ -1,0 +1,80 @@
+<div ibmGrid class="tenant-integration-grid">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <div class="aca-input-field-container">
+        <aiap-field-input-v1
+          [isRequired]="true"
+          [placeholder]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_apikey.placeholder' | translate "
+          [name]="'value_api_key'"
+          [label]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_apikey.text' | translate"
+          [labelHelp]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_apikey.helper_text' | translate"
+          [(value)]="value.apiKey">
+        </aiap-field-input-v1>
+        <aiap-button-v1
+          [size]="'sm'"
+          [text]="'cards_panel_v1.btn_add.text' | translate"
+          [tooltip]="'cards_panel_v1.btn_add.tooltip' | translate"
+          [type]="'ghost'"
+          [icon]="'assets/carbon-icons/16/status/information.svg'"
+          (onClick)="handleApiKeyRefreshEvent($event)">
+        </aiap-button-v1>
+      </div>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="true"
+        [placeholder]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_token_refresh_secret.placeholder' | translate "
+        [name]="'value_token_refresh_secret'"
+        [label]="uiState.tokenRefresh.secret.label"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_token_refresh_secret.helper_text' | translate"
+        [(value)]="value.tokenRefresh.secret">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <ibm-number
+        required
+        name="value_token_refresh_expiry_length_ms"
+        [label]="uiState.tokenRefresh.expiryLengthMs.label"
+        [helperText]="uiState.tokenRefresh.expiryLengthMs.helperText"
+        [min]="uiState.tokenRefresh.expiryLengthMs.min"
+        [size]="uiState.tokenRefresh.expiryLengthMs.size"
+        [step]="uiState.tokenRefresh.expiryLengthMs.step"
+        [(ngModel)]="value.tokenRefresh.expiryLengthMs">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [isRequired]="true"
+        [placeholder]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_token_access_secret.placeholder' | translate "
+        [name]="'value_token_access_secret'"
+        [label]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_token_access_secret.text' | translate"
+        [labelHelp]="'tenants_view_v1.save_modal_v1.integration_save_modal_v1.fld_name_token_access_secret.helper_text' | translate"
+        [(value)]="value.tokenAccess.secret">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <ibm-number
+        required
+        name="value_token_access_expiry_length_ms"
+        [label]="uiState.tokenAccess.expiryLengthMs.label"
+        [helperText]="uiState.tokenAccess.expiryLengthMs.helperText"
+        [min]="uiState.tokenAccess.expiryLengthMs.min"
+        [size]="uiState.tokenAccess.expiryLengthMs.size"
+        [step]="uiState.tokenAccess.expiryLengthMs.step"
+        [(ngModel)]="value.tokenAccess.expiryLengthMs">
+      </ibm-number>
+    </div>
+  </div>
+</div>

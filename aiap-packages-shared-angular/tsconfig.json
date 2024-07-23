@@ -1,0 +1,61 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
+  },
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "useDefineForClassFields": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ES2022"
+    ],
+    "paths": {
+      "client-shared-carbon": [
+        "dist/client-shared-carbon/client-shared-carbon",
+        "dist/client-shared-carbon"
+      ],
+      "client-shared-utils": [
+        "dist/client-shared-utils/client-shared-utils",
+        "dist/client-shared-utils"
+      ],
+      "client-shared-services": [
+        "dist/client-shared-services/client-shared-services",
+        "dist/client-shared-services"
+      ],
+      "client-shared-components": [
+        "dist/client-shared-components/client-shared-components",
+        "dist/client-shared-components"
+      ],
+      "client-shared-views": [
+        "dist/client-shared-views/client-shared-views",
+        "dist/client-shared-views"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
+    }
+  }
+}

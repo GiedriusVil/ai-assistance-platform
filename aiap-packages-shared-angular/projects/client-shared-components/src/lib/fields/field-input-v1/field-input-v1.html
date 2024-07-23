@@ -1,0 +1,28 @@
+<!-- <ibm-label>
+  {{ state.label }}
+  <input
+    ibmText
+    required
+    name="{{ state.name }}"
+    [autocomplete]="false"
+    [helperText]="state?.labelHelp"
+    [(ngModel)]="state.value"
+    (ngModelChange)="handleEventValueChange($event)">
+</ibm-label> -->
+
+<ibm-label 
+  [helperText]="state?.labelHelp">
+  {{ state.label }}
+  <input
+    ibmText
+    [size]="state?.size"
+    [type]="state?.type"
+    [name]="state?.name"
+    [placeholder]="state?.placeholder"
+    [autocomplete]="'off'"
+    [required]="state?.isRequired"
+    [disabled]="state?.isDisabled"
+    [skeleton]="state.skeleton"
+    (ngModelChange)="handleEventValueChange($event)"
+    [(ngModel)]="state.value" />
+</ibm-label>

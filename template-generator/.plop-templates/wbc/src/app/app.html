@@ -1,0 +1,9 @@
+<div *ngIf="isReady()">
+  <aiap-{{dashCase name}}-view-v{{version}}></aiap-{{dashCase name}}-view-v{{version}}>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

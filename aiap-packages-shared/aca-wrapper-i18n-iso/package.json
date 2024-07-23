@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aca/aca-wrapper-i18n-iso",
+  "author": "IBM",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "i18n-iso-countries": "7.5.0",
+    "@cospired/i18n-iso-languages": "4.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@ibm-aca/aca-organizations-express-routes",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "license": "IBM",
+  "main": "index.js"
+}

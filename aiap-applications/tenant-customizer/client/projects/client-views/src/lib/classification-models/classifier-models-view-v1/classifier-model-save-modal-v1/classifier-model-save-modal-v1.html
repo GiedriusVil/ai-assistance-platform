@@ -1,0 +1,109 @@
+<ibm-modal 
+    size='lg'
+    [open]="isOpen" 
+    (overlaySelected)="close()">
+    <ibm-modal-header 
+        (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>Save Classifier Model</h3>
+    </ibm-modal-header>
+    <section ibmModalContent>
+        <form ngForm #classifierModelForm="ngForm">
+            <div ibmGrid>
+                <div ibmRow>
+                    <div ibmCol>
+                        <ibm-tabs>
+                            <ibm-tab heading="General">
+                                <div ibmGrid>
+                                    <div ibmRow>&nbsp;</div>
+                                    <div ibmRow>
+                                        <div ibmCol>
+                                            <ibm-label>
+                                                <label for="id">ID*</label>
+                                                <input ibmText required name="id" [(ngModel)]="model.id"
+                                                    [autocomplete]="false">
+                                            </ibm-label>
+                                        </div>
+                                        <div ibmCol>
+                                            <ibm-label>
+                                                <label for="model_name">Name*</label>
+                                                <input ibmText required name="model_name" [(ngModel)]="model.name"
+                                                    [autocomplete]="false">
+                                            </ibm-label>
+                                        </div>
+                                    </div>
+                                    <div ibmRow>&nbsp;</div>
+                                    <div ibmRow>
+                                        <div ibmCol>
+                                            <ibm-label>
+                                                <label for="trainer_url">Trainer URL*</label>
+                                                <input ibmText required name="trainer_url"
+                                                    [(ngModel)]="model.trainerUrl" [autocomplete]="false">
+                                            </ibm-label>
+                                        </div>
+                                    </div>
+                                    <div ibmRow>&nbsp;</div>
+                                    <div ibmRow>
+                                        <div ibmCol>
+                                            <ibm-label>
+                                                <label for="service_url">Service URL*</label>
+                                                <input ibmText required name="service_url"
+                                                    [(ngModel)]="model.serviceUrl" [autocomplete]="false">
+                                            </ibm-label>
+                                        </div>
+                                    </div>
+                                    <div ibmRow>&nbsp;</div>
+                                    <div ibmRow>
+                                      <div ibmCol>
+                                        <ibm-toggle
+                                          [onText]="'Disable Suggestions'"
+                                          [offText]="'Enable Suggestions'"
+                                          [checked]="model.suggestionsEnabled"
+                                          (click)="handleApplicationFlagClickEvent($event)">
+                                        </ibm-toggle>
+                                      </div>
+                                    </div>
+                                    <div ibmRow>&nbsp;</div>
+                                    <div ibmRow>
+                                        <ibm-notification [notificationObj]="{
+                                            type: 'warning',
+                                            title: 'Please use AI Service tab for managing AI Services && AI Skills of classifier model!',
+                                            message: 'Sample warning message',
+                                            showClose: false,
+                                            lowContrast: true}">
+                                        </ibm-notification>
+                                    </div>
+                                </div>
+                            </ibm-tab>
+                            <ibm-tab heading="AI Services">
+                                <aca-classifier-model-save-ai-services-tab #aiServicesTab
+                                    [(selections)]="selections">
+                                </aca-classifier-model-save-ai-services-tab>
+                            </ibm-tab>
+                            <ibm-tab heading="Middleware">
+                                <aca-classifier-model-save-ware-tab #wareTab
+                                    [value]="model?.ware">
+                                </aca-classifier-model-save-ware-tab>
+                            </ibm-tab>
+                            <ibm-tab heading="Classifier">
+                                <aca-classifier-model-save-classifier-tab #classifierTab
+                                    [value]="model?.classifier">
+                                </aca-classifier-model-save-classifier-tab>
+                            </ibm-tab>
+                        </ibm-tabs>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <ibm-modal-footer>
+        <button 
+            ibmButton="secondary" 
+            (click)="close()">Close
+        </button>
+        <button 
+            ibmButton="primary" 
+            [disabled]="classifierModelForm.invalid || isInvalid()"
+            (click)="save()">Save
+        </button>
+    </ibm-modal-footer>
+</ibm-modal>

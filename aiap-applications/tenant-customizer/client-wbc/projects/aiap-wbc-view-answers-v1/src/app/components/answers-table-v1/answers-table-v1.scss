@@ -1,0 +1,63 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-answers-table-v1 {
+  aiap-button-v1 {
+    button.bx--btn {
+      width: max-content;
+    }
+  }
+
+  .bx--search--lg .bx--search-input,
+  .bx--search--md .bx--search-input,
+  .bx--search--sm .bx--search-input {
+    height: 3rem;
+  }
+
+  .bx--search--lg .bx--search-close,
+  .bx--search--md .bx--search-close,
+  .bx--search--sm .bx--search-close {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .answer-skills-amount-zero {
+    margin-left: 0.75rem;
+  }
+
+  .answer-skills-amount-positive {
+    border-bottom: 0.0625rem dotted #525252;
+  }
+
+  .answer-skills-amount-tag {
+    cursor: pointer;
+    background: none;
+    min-height: 2rem;
+    outline: 0px !important;
+    padding: 0px 0.5rem !important;
+    transition: 110ms cubic-bezier(0, 0, 0.38, 0.9);
+    min-width: 0px;
+
+    &:hover {
+      background-color: #cacaca;
+    }
+  }
+}
+
+#answer-skills-tooltip {
+  margin: -16px;
+  padding: 16px 0px;
+
+  .answer-skills-tooltip-row {
+    margin: 1px 0px;
+    padding: 0px 16px;
+    cursor: pointer;
+    transition: 110ms cubic-bezier(0, 0, 0.38, 0.9);
+
+    &:hover {
+      background-color: #303030;
+    }
+  }
+}

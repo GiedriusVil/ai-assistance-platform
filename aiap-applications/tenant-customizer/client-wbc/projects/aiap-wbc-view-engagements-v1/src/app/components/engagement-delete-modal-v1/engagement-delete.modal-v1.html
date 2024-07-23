@@ -1,0 +1,22 @@
+<ibm-modal [open]="isOpen" (overlaySelected)="close()" size='xs'>
+    <ibm-modal-header (closeSelect)="close()">
+      <p class="bx--modal-header__heading bx--type-beta">{{ 'engagement_delete_modal_v1.header' | translate }}</p>
+    </ibm-modal-header>
+    <section ibmModalContent>
+      <span>{{ 'engagement_delete_modal_v1.content' | translate }}</span>
+    </section>
+    <ibm-modal-footer>
+      <aiap-button-v1
+        class="width50"
+        [text]="'engagement_delete_modal_v1.btn_cancel.text' | translate"
+        [type]="'secondary'"
+        (onClick)="close()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        class="width50"
+        [text]="'engagement_delete_modal_v1.btn_delete.text' | translate"
+        [type]="'danger'"
+        (onClick)="delete()">
+      </aiap-button-v1>
+    </ibm-modal-footer>
+</ibm-modal>

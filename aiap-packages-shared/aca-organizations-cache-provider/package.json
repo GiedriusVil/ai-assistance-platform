@@ -1,0 +1,16 @@
+{
+    "name": "@ibm-aca/aca-organizations-cache-provider",
+    "version": "0.0.1",
+    "description": "aca-organizations-cache-provider",
+    "main": "index.js",
+    "author": "IBM",
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {
+    },
+    "publishConfig": {
+      "access": "restricted",
+      "registry": "https://registry.npmjs.org"
+    }
+}
+  

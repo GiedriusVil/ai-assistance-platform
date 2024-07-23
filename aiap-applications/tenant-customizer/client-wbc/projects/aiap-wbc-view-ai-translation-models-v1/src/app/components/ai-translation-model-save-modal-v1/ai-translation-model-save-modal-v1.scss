@@ -1,0 +1,32 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aca-ai-translation-model-save-modal {
+  
+  .password-field-container {
+    width: 100%;
+
+    button:hover {
+      background-color: transparent;
+    }
+
+    ::-ms-reveal {
+      display: none;
+    }
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+
+  .width50 {
+    width: 50%;
+  }
+
+  .width50 > button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1 
+            [value]="state.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <ibm-search 
+            [placeholder]="'validation_engagements_changes.search.placeholder' | translate" 
+            [autocomplete]="'on'" 
+            [value]="state.search"
+            (search)="handleSearchEvent($event)"
+            (clear)="hanleClearSearchEvent($event)">
+          </ibm-search>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-wbc-validation-engagements-changes-table-v1
+      (onShowSavePlace)="handleShowTransactionEvent($event)">
+    </aiap-wbc-validation-engagements-changes-table-v1>
+  </div>
+</div>
+
+<aiap-wbc-validation-engagements-changes-modal-v1 
+  #validationEngagementsChangesModalV1>
+</aiap-wbc-validation-engagements-changes-modal-v1>

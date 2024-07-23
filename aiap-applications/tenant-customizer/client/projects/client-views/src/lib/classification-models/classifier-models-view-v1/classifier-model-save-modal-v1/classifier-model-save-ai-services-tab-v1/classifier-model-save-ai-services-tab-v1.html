@@ -1,0 +1,45 @@
+<div ibmGrid>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+          <aca-ai-services-skills-combo-box
+            name="fallback_ai_services_skill"
+            [label]="'Fallback AI Service && AI Skill*'"
+            [placeholder]="'Select Fallback AI Skill'"
+            [type]="'single'"
+            [(value)]="selections.fallbackAiServices"
+            (valuesChanged)="updateSelection($event)">
+          </aca-ai-services-skills-combo-box>
+        </div>
+    </div>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 10, 'lg':10, 'md': 6, 'sm': 2}">
+            <h4 ibmModalHeaderHeading>AI Services && AI Skills</h4>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2, 'sm': 2}">
+            <button
+                ibmButton="primary"
+                [size]="'sm'"
+                (click)="handleAddAiServicesEvent($event)">AI Services
+                <aiap-icon-svg-v1
+                  class="bx--btn__icon"
+                  [src]="'assets/carbon-icons/16/navigation/add.svg'">
+                </aiap-icon-svg-v1>
+            </button>
+        </div>
+    </div>
+    <ng-container 
+        *ngFor="let aiService of selections?.aiServicesSelected; let i = index">
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+                <aca-classifier-model-save-ai-service-card
+                    (onAiServiceRemove)="handleAiServiceRemoveEvent($event)"
+                    [(value)]="selections?.aiServicesSelected[i]">
+                </aca-classifier-model-save-ai-service-card>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<aca-classifier-model-add-ai-skill-modal #classifierModelAddAiSkillModal [(selections)]="selections"></aca-classifier-model-add-ai-skill-modal>

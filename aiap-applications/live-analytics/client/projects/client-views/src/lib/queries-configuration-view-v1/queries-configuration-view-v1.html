@@ -1,0 +1,23 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2 
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+      <aiap-queries-configuration-table-v1
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowRemovePlace)="handleQuerydeleteModal($event)"
+      (onShowImportPlace)="handleShowImportModal($event)">
+      </aiap-queries-configuration-table-v1>
+  </div>
+</div>
+
+<aiap-query-save-modal-v1 #aiapQuerySaveModalV1 ></aiap-query-save-modal-v1>
+<aiap-query-delete-modal-v1 #aiapQueryDeleteModalV1></aiap-query-delete-modal-v1>
+<aiap-queries-import-modal-v1 #aiapQueryImportModalV1></aiap-queries-import-modal-v1>

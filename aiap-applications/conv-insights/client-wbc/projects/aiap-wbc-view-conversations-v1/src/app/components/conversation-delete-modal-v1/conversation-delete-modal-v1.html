@@ -1,0 +1,38 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <p
+      class="bx--modal-header__heading bx--type-beta">
+      {{ 'conversations_view_v1.delete_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+
+  <form #conversationDeleteForm="ngForm">
+    <div class="bx--modal-content">
+      <p class="mb-3">
+        {{ 'conversations_view_v1.delete_modal_v1.delete_form' | translate }}
+      </p>
+      <ul ibmList class="conversation-id-list">
+        <ng-container *ngFor="let conversationId of conversationIds">
+          <li ibmListItem>{{conversationId}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  </form>
+
+  <aiap-modal-v1-footer-v1>
+    <button class="bx--btn bx--btn--secondary" (click)="close()">
+      {{ 'conversations_view_v1.delete_modal_v1.btn_cancel' | translate }}
+    </button>
+    <button 
+      class="bx--btn bx--btn--danger" 
+      modal-primary-focus 
+      [disabled]="conversationDeleteForm.invalid" 
+      (click)="handleDeleteManyByIds()">
+      {{ 'conversations_view_v1.delete_modal_v1.btn_delete' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

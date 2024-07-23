@@ -1,0 +1,10 @@
+<div ibmGrid>
+  <div ibmRow [gutter]="false" [condensed]="true">
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aca-metrics-tile 
+        [displayData]="!error ? (avgNps | number: '1.0-1') : 'N/A'" 
+        [headerText]="'Average NPS'">
+      </aca-metrics-tile>
+    </div>
+  </div>
+</div>

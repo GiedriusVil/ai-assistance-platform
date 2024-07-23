@@ -1,0 +1,10 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-validation-engagegments-changes-view-v1>
+  </aiap-wbc-validation-engagegments-changes-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

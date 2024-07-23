@@ -1,0 +1,253 @@
+{
+    "items": [
+        {
+            "id": "1000452030",
+            "name": "ASM TECHNOLOGIES GmbH"
+        },
+        {
+            "id": "1000003309",
+            "name": "ASM TECHNOLOGIES LIMITED"
+        },
+        {
+            "id": "1000382531",
+            "name": "BEIJING GOLDEN WINON INTERNATIONAL"
+        },
+        {
+            "id": "1000219219",
+            "name": "CANCOM Deutschland GmbH"
+        },
+        {
+            "id": "1000120134",
+            "name": "CHG GREAT BRITAIN TEST VENDOR"
+        },
+        {
+            "id": "1000091959",
+            "name": "COMPLETE BOOK & MEDIA SUPPLY INC TE"
+        },
+        {
+            "id": "1000013911",
+            "name": "CONRAD ELECTRONIC SE"
+        },
+        {
+            "id": "1000001344",
+            "name": "E2E Austria Vendor AT country"
+        },
+        {
+            "id": "1000120190",
+            "name": "E2E Switzerland Vendor CH country"
+        },
+        {
+            "id": "1000500107",
+            "name": "E2E Wave3 US Supplier 1"
+        },
+        {
+            "id": "1000500108",
+            "name": "E2E Wave3 US Supplier 2"
+        },
+        {
+            "id": "1000234429",
+            "name": "EXPERTEACH GESELLSCHAFT FUER"
+        },
+        {
+            "id": "1000154476",
+            "name": "Eurest Deutschland GmbH"
+        },
+        {
+            "id": "1090012062",
+            "name": "FI GOLDEN TEST SUPPLIER DOMESTIC"
+        },
+        {
+            "id": "1000331789",
+            "name": "Fast Lane Institute for Knowledge"
+        },
+        {
+            "id": "1000310174",
+            "name": "INGRAM MICRO INC"
+        },
+        {
+            "id": "1000114360",
+            "name": "JUNIPER NETWORKS"
+        },
+        {
+            "id": "1000328331",
+            "name": "LENOVO AUSTRALIA NEW ZEALAND PTy"
+        },
+        {
+            "id": "1000448819",
+            "name": "LENOVO GLOBAL TECHNOLOGY ITALY SRL"
+        },
+        {
+            "id": "1000299328",
+            "name": "LENOVO GROUP LTD"
+        },
+        {
+            "id": "1000306765",
+            "name": "LENOVO INTERNATIONAL BV"
+        },
+        {
+            "id": "1000306754",
+            "name": "LENOVO ITALY SRL"
+        },
+        {
+            "id": "1000307897",
+            "name": "LENOVO SCHWEIZ GMBH"
+        },
+        {
+            "id": "1000307182",
+            "name": "LENOVO SPAIN SL"
+        },
+        {
+            "id": "1000117880",
+            "name": "LEXAIR ELECTRONICS SALES CORP"
+        },
+        {
+            "id": "1000449308",
+            "name": "Lenovo Beijing Information"
+        },
+        {
+            "id": "1000305859",
+            "name": "Lenovo Deutschland GmbH"
+        },
+        {
+            "id": "1000322150",
+            "name": "Lenovo Global Technology"
+        },
+        {
+            "id": "1000433417",
+            "name": "Lenovo Global Technology Austria"
+        },
+        {
+            "id": "1000322913",
+            "name": "Lenovo Global Technology Germany Gm"
+        },
+        {
+            "id": "1000432939",
+            "name": "Lenovo Global Technology Ireland"
+        },
+        {
+            "id": "1000322521",
+            "name": "Lenovo Global Technology UK Limited"
+        },
+        {
+            "id": "1000429386",
+            "name": "Lenovo Global Technology United TES"
+        },
+        {
+            "id": "1000318054",
+            "name": "Lenovo Technology BV"
+        },
+        {
+            "id": "1000303873",
+            "name": "Lenovo Technology United Kingdom"
+        },
+        {
+            "id": "1000084265",
+            "name": "MANPOWER GROUP INC - TEST"
+        },
+        {
+            "id": "1000093781",
+            "name": "MEDIA RECOVERY CN INC"
+        },
+        {
+            "id": "1000107287",
+            "name": "NetApp Inc"
+        },
+        {
+            "id": "1000017436",
+            "name": "OFFICE DEPOT DEUTSCHLAND GMBH"
+        },
+        {
+            "id": "1000019769",
+            "name": "SAMSUNG SEMICONDUCTOR INC"
+        },
+        {
+            "id": "1000087961",
+            "name": "SCHOENECKERS INC TEST"
+        },
+        {
+            "id": "1000194354",
+            "name": "SHI INTERNAT CORP"
+        },
+        {
+            "id": "1000404851",
+            "name": "SHI International Corp Ltd"
+        },
+        {
+            "id": "1000065506",
+            "name": "SHI UK"
+        },
+        {
+            "id": "1000119892",
+            "name": "SIGMA ALDRICH INC"
+        },
+        {
+            "id": "1000088492",
+            "name": "STAPLES CONTRACT COMMERCIAL INC - T"
+        },
+        {
+            "id": "1000324409",
+            "name": "SUPER MICRO COMPUTER INC"
+        },
+        {
+            "id": "1090012238",
+            "name": "Spain domestic supplier-TEST"
+        },
+        {
+            "id": "1000402332",
+            "name": "Staples Austria GmbH"
+        },
+        {
+            "id": "1000285188",
+            "name": "Staples Belgium"
+        },
+        {
+            "id": "1000396383",
+            "name": "Staples Denmark AS"
+        },
+        {
+            "id": "1000014069",
+            "name": "Staples Deutschland GmbH & Co KG"
+        },
+        {
+            "id": "1000258309",
+            "name": "Staples Nederland BV"
+        },
+        {
+            "id": "1000075684",
+            "name": "Staples Norway AS"
+        },
+        {
+            "id": "1000193865",
+            "name": "Staples Sweden AB"
+        },
+        {
+            "id": "1000003839",
+            "name": "Staples UK Ltd"
+        },
+        {
+            "id": "1000006694",
+            "name": "TRANSPUTEC COMPUTERS LTD"
+        },
+        {
+            "id": "1000118995",
+            "name": "WOI IE Test Vendor 1-A"
+        },
+        {
+            "id": "1000118974",
+            "name": "WOI US Test Vender 1-AB"
+        },
+        {
+            "id": "1000268461",
+            "name": "Westcon Group European Operations"
+        },
+        {
+            "id": "1000448855",
+            "name": "Westcon Group Italia SRL"
+        },
+        {
+            "id": "1000379701",
+            "name": "Winc Australia Pty Limited"
+        }
+    ],
+    "total": 100
+}

@@ -1,0 +1,108 @@
+<header id="header" class="float-start w-100 clearfix">
+  <div #headerBar class="container-lg clearfix">
+    <div #headerBarButtonsLeft class="header--logo float-start mb-0">
+      <div
+        class="header--logo header--logo--img" 
+        aria-hidden="true"
+        title="{{'header.logo-title'| translate}}">
+      </div>
+    </div>
+    <h2 
+      #headerBarTitle 
+      class="header--title float-start mb-0">{{ state?.header?.title }}
+    </h2>
+    <div #headerBarButtonsRight class="header--buttons float-start position--right">
+      
+      <!-- Survey icom -->
+      <div 
+      *ngIf="isFeatureEnabled('survey')"
+      class="header-icon-box float-start"
+      role="button"
+      (keydown.enter)="showSurvey()" 
+      (click)="showSurvey()">
+        <div 
+          class="img--survey icon--survey" 
+          tabindex="0"
+          aria-hidden="true"
+          title="{{'header.icon-survey-title'| translate}}" 
+          alt="{{'header.icon-survey-alt'| translate}}">
+        </div>
+      </div>
+      <!-- Test cases icon -->
+      <div
+      *ngIf="isFeatureEnabled('transcriptTransform')" 
+      class="header-icon-box float-start"
+      role="button"
+      (click)="showTranscriptTransform()">
+        <div 
+          class="img--transform icon--transform" 
+          tabindex="0"
+          aria-hidden="true"
+          title="{{'header.icon-test-cases-title'| translate}}" >
+        </div>
+      </div>
+      <!-- Sound icon -->
+      <div 
+        *ngIf="audioEnabled && isFeatureEnabled('audio')"
+        class="header-icon-box float-start"
+        role="button"
+        (click)="onAudio($event)">
+        <div 
+            class="img--volume icon--volume--on"
+            tabindex="0"
+            aria-hidden="true"
+            title="{{'header.icon-volume-up-title'| translate}}"
+            alt="{{'header.icon-volume-up-alt'| translate}}">
+          </div>
+      </div>
+      <div *ngIf="!audioEnabled && isFeatureEnabled('audio')"
+        class="header-icon-box float-start"
+        role="button"
+        (click)="onAudio($event)">
+        <div class="img--volume icon--volume--off"
+            tabindex="0"
+            aria-hidden="true"
+            title="{{'header.icon-volume-mute-title'| translate}}"
+            alt="{{'header.icon-volume-mute-alt'| translate}}">
+          </div>
+      </div>
+
+      <!-- Minimize icon -->
+      <div
+        #minimizeButton
+        class="header-icon-box float-start"
+        *ngIf="isWidget()"
+        role="button"
+        (keydown.enter)="onMinimize($event)"
+        (click)="onMinimize($event)">
+      <div
+      class="img--minimize icon--minimize"
+      aria-hidden="true"
+      tabindex="0"
+      title="{{CHAT_WINDOW_STATE_TEXT.TITLE | translate}}"
+      alt="{{CHAT_WINDOW_STATE_TEXT.ALT  | translate}}">
+    </div>
+      </div>
+
+      <!-- <a *ngIf="isWidget()" href="javascript:void(0)" (click)="onMinimize($event)" class="float-left"><i class="material-icons">minimize</i></a> -->
+      <!-- <a #headerBarExpandButton *ngIf="isWidget() && expandWidget" href="javascript:void(0)" (click)="onExpand($event)" style="display: none;" class="float-left"><i class="material-icons">unfold_more</i></a> -->
+      <!-- <a #headerBarCollapseButton *ngIf="isWidget() && expandWidget" href="javascript:void(0)" (click)="onCollapse($event)" style="display: none;" class="float-left"><i class="material-icons">unfold_less</i></a> -->
+
+      <!-- Close icon -->
+      <div
+        class="header-icon-box float-start"
+        *ngIf="isWidget()"
+        role="button"
+        (keydown.enter)="onClose($event)"
+        (click)="onClose($event)">
+      <div
+      class="img--close icon--close"
+      aria-hidden="true"
+      tabindex="0"
+      title="{{'header.icon-cross-title'| translate}}"
+      alt="{{'header.icon-cross-alt'| translate}}">
+    </div>
+      </div>
+    </div>
+  </div>
+</header>

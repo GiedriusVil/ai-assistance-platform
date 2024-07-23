@@ -1,0 +1,154 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [tooltip]="'lambda_modules_table_v1.btn_refresh.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'lambda_modules_table_v1.toolbar_search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchChangeEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules.view.pull'}"
+      [text]="'lambda_modules_table_v1.btn_pull.text' | translate"
+      [tooltip]="'lambda_modules_table_v1.btn_pull.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [disabled]="true"
+      [icon]="'assets/carbon-icons/16/operations/redo.svg'"
+      (onClick)="emitShowPullPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules.view.add'}"
+      [text]="'lambda_modules_table_v1.btn_add.text' | translate"
+      [tooltip]="'lambda_modules_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules.view.import'}"
+      [text]="'lambda_modules_table_v1.btn_import.text' | translate"
+      [tooltip]="'lambda_modules_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'lambda-modules.view.export'}"
+      [text]="getExportButtonText()"
+      [tooltip]="'lambda_modules_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'lambda-modules.view.delete'}"
+      [text]="('lambda_modules_table_v1.btn_remove.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'lambda_modules_table_v1.btn_remove.tooltip' | translate"
+      [type]="'danger'"
+      [size]="'sm'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="selectAllRows($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+<aiap-table-v1-container-v1>
+  <ng-template
+    #actionsTemplate
+    let-data="data">
+    <aiap-overflow-menu-v1
+      (onClick)="_allowActionsClick($event)">
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{action: 'lambda-modules.view.edit'}"
+        [text]="'lambda_modules_table_v1.overflow_menu_option.edit' | translate"
+        (onClick)="emitShowSavePlace(data)">
+      </aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{action: 'lambda-modules.view.export'}"
+        [text]="'lambda_modules_table_v1.overflow_menu_option.export_to_json' | translate"
+        (onClick)="exportOne(data)">
+      </aiap-overflow-menu-option-v1>
+    </aiap-overflow-menu-v1>
+  </ng-template>
+  <ng-template #healthCheckIcon let-data="data">
+    <ibm-tooltip-icon *ngIf="!basePaths"  [placement]="'top'" [alignment]="'bottom'" [content]="data | HealthCheckError">
+      <aiap-icon-svg-v1
+        class="fill-gray"
+        [src]="'assets/carbon-icons/20/controls/settings.svg'">
+      </aiap-icon-svg-v1>
+    </ibm-tooltip-icon>
+    <ibm-tooltip-icon *ngIf="data?.data?.apiError && basePaths"  [placement]="'top'" [alignment]="'bottom'" [content]="data | HealthCheckError">
+      <aiap-icon-svg-v1
+        class="fill-black"
+        [src]="'assets/carbon-icons/20/technology/plug.svg'">
+      </aiap-icon-svg-v1>
+    </ibm-tooltip-icon>
+    <ibm-tooltip-icon *ngIf="data?.message && basePaths && !data?.data?.apiError" [placement]="'top'" [alignment]="'bottom'" [content]="data | HealthCheckError">
+      <aiap-icon-svg-v1
+        class="fill-red"
+        [src]="'assets/carbon-icons/20/status/error.svg'">
+      </aiap-icon-svg-v1>
+    </ibm-tooltip-icon>
+    <div class="positive-health-check">
+      <aiap-icon-svg-v1
+        *ngIf="!data?.message && basePaths"
+        class="fill-green"
+        [src]="'assets/carbon-icons/20/status/checkmark.svg'">
+      </aiap-icon-svg-v1>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>
+
+<ng-template #answersAndSkillsTemplate let-data="data">
+  <div class="action-tag-answers-amount-wrapper">
+    <div
+      *ngIf="!isModuleHasAnswers(data) && !isModuleHasSkills(data)"
+      class="action-tag-answers-amount-zero">
+      {{countSkillsAndAnswersByModuleType(data)}}
+    </div>
+    <button
+      *ngIf="isModuleHasAnswers(data) || isModuleHasSkills(data)"
+      class="action-tag-answers-amount-tag"
+      (click)="onAnswerSkillButtonClick($event, data)">
+      <div
+        class="action-tag-answer-amount-positive">
+        {{countSkillsAndAnswersByModuleType(data)}}
+      </div>
+    </button>
+  </div>
+</ng-template>
+
+<aiap-lambda-modules-usage-modal-v1 #lambdaModuleUsageModal></aiap-lambda-modules-usage-modal-v1>

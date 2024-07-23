@@ -1,0 +1,59 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+const MODULE_ID = 'aiap-app-express-routes-controllers-access-groups-import-many-from-file';
+const logger = require('@ibm-aca/aca-common-logger')(MODULE_ID);
+
+import lodash from '@ibm-aca/aca-wrapper-lodash';
+
+import {
+  IExpressRequestWithFileV1,
+  IExpressResponseV1,
+} from '@ibm-aiap/aiap--types-server';
+
+import {
+  ACA_ERROR_TYPE,
+  formatIntoAcaError,
+  throwAcaError,
+} from '@ibm-aca/aca-utils-errors';
+
+import {
+  constructActionContextFromRequest,
+} from '@ibm-aiap/aiap-utils-express-routes';
+
+import {
+  accessGroupsService,
+} from '@ibm-aiap/aiap-app-service';
+
+export const importManyFromFile = async (
+  request: IExpressRequestWithFileV1,
+  response: IExpressResponseV1,
+) => {
+  const ERRORS = [];
+  let result;
+  try {
+    const FILE = request?.file;
+    if (
+      lodash.isEmpty(FILE)
+    ) {
+      const ERROR_MESSAGE = 'Missing access groups file!';
+      throwAcaError(MODULE_ID, ACA_ERROR_TYPE.VALIDATION_ERROR, ERROR_MESSAGE);
+    }
+    const CONTEXT = constructActionContextFromRequest(request);
+    const PARAMS = {
+      file: FILE,
+    };
+    result = await accessGroupsService.importMany(CONTEXT, PARAMS);
+  } catch (error) {
+    const ACA_ERROR = formatIntoAcaError(MODULE_ID, error);
+    ERRORS.push(ACA_ERROR);
+  }
+  if (lodash.isEmpty(ERRORS)) {
+    response.status(200).json(result);
+  } else {
+    logger.error(importManyFromFile.name, { errors: ERRORS });
+    response.status(500).json({ errors: ERRORS });
+  }
+}

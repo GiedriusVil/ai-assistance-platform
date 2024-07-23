@@ -1,0 +1,16 @@
+<div class="title-wrapper">
+  <div class="title-content">
+    <h2>{{state?.configuration?.name}}</h2>
+  </div>
+</div>
+<div *ngIf="isReady()">
+  <aca-live-analytics-filters-panel
+    [configuration]="state?.configuration">
+  </aca-live-analytics-filters-panel>
+  <aca-live-analytics-tile-metrics-panel
+    [configuration]="state?.configuration">
+  </aca-live-analytics-tile-metrics-panel>
+  <aca-live-analytics-charts-panel
+    [configuration]="state?.configuration">
+  </aca-live-analytics-charts-panel> 
+</div>

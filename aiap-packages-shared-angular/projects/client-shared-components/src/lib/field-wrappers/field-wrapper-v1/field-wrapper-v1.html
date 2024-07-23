@@ -1,0 +1,51 @@
+<ng-container 
+  [ngSwitch]="state?.context?.type">
+
+  <ng-container *ngSwitchCase="'number'">
+    <ibm-number
+      [helperText]="state?.context?.number?.helperText"
+      [label]="state?.context?.number?.label"
+      [min]="state?.context?.number?.min" 
+      [max]="state?.context?.number?.max"
+      [(ngModel)]="state.value"
+      (ngModelChange)="handleValueChange($event)"
+      [step]="state?.context?.number?.step"
+      [precision]="state?.context?.number?.precision">
+    </ibm-number>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'date'">
+    <ibm-date-picker
+      theme="light"
+      [dateFormat]="state?.context?.date?.dateFormat"
+      [helperText]="state?.context?.date?.helperText"
+      [label]="state?.context?.date?.label"
+      [(ngModel)]="state.value"
+      (ngModelChange)="handleValueChange($event)"
+      [placeholder]="state?.context?.date?.placeholder">
+    </ibm-date-picker>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'wbc'">
+    <aiap-wbc-field-loader-v1
+      [(context)]="state.context"
+      (contextChange)="handleContextChange($event)"
+      [(value)]="state.value"
+      (valueChange)="handleValueChange($event)">
+    </aiap-wbc-field-loader-v1>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>
+    <ibm-label>{{ state?.context?.string?.label }}
+      <input
+        ibmText
+        [helperText]="state?.context?.string?.helperText"
+        [(ngModel)]="state.value"
+        (ngModelChange)="handleValueChange($event)">
+    </ibm-label>
+  </ng-container>
+</ng-container>
+
+
+
+

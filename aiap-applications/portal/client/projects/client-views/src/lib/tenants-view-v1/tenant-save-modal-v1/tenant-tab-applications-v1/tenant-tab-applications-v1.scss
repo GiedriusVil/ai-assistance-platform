@@ -1,0 +1,14 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+@use "./tenant-application-save-modal-v1/tenant-application-save-modal-v1.scss";
+
+aiap-tenant-tab-applications-v1 {
+  .tenant-applications-grid {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 0px;
+  }
+}

@@ -1,0 +1,53 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-table-attachment {
+  :host {
+    table {
+      font-size: $aca_primary_font_size;
+    }
+    .number {
+      width: 30px;
+    }
+
+    tbody > tr.content:hover {
+      background-color: $aca_secondary_color_blue;
+      color: $aca_primary_color_white;
+      cursor: pointer;
+    }
+
+    .content--disabled {
+      cursor: not-allowed;
+      opacity: 0.25;
+    }
+
+    ngb-pagination {
+      font-size: $aca_primary_font_size;
+
+      &::ng-deep ul > li.active > a {
+        background-color: $aca_secondary_color_blue;
+        color: $aca_primary_color_white !important;
+      }
+    }
+  }
+
+  .btn {
+    color: $aca_secondary_color_blue;
+    border: 1.5px solid $aca_secondary_color_blue;
+    background-color: $aca_primary_color_white;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.25;
+    }
+
+    &:hover {
+      background-color: $aca_secondary_color_blue;
+      color: $aca_primary_color_white;
+    }
+  }
+}

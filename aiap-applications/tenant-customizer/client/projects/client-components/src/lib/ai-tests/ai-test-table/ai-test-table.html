@@ -1,0 +1,13 @@
+<ibm-table-container>
+    <ibm-table
+      class="cursor-pointer"
+      size="md"
+      [striped]="true"
+      [skeleton]="skeleton"
+      [showSelectionColumn]="false"
+      [sortable]="true"
+      [stickyHeader]="false"
+      [model]="model"
+      (rowClick)="emitShowSavePlace($event)">
+  </ibm-table>
+  </ibm-table-container>

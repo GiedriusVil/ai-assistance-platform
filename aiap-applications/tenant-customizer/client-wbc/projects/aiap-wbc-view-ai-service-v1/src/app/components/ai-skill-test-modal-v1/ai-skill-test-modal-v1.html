@@ -1,0 +1,88 @@
+<aiap-modal-v1 [open]="isOpen" size="sm" (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'ai_service_v1.test_modal_v1.header.title' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content bx--modal-content--with-form">
+    <form [formGroup]="testModal" #saveModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <ibm-label>
+              <label>{{ 'ai_service_v1.release_test_modal_v1.fld_test_name.label' | translate }}</label>
+              <input
+                ibmText
+                type="text"
+                formControlName="testName"
+                [autocomplete]="false">
+              </ibm-label>
+              <small class="text-danger" *ngIf="testName.invalid && testName.touched">{{ERROR_MESSAGES.NAME}}</small>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <ibm-dropdown
+              formControlName="testType"
+              label="Test Type">
+              <ibm-dropdown-list [items]="testTypes"></ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <ibm-label>
+              <label for="kfoldNumber">{{ 'ai_service_v1.test_modal_v1.fld_k_fold_number.label' | translate }}</label>
+              <ibm-tooltip-icon [placement]="'top'" [alignment]="'bottom'" [content]="foldsNumberDescription">
+                <aiap-icon-svg-v1
+                  class="bx--btn__icon"
+                  [src]="'assets/carbon-icons/16/status/information.svg'">
+                </aiap-icon-svg-v1>
+              </ibm-tooltip-icon>
+              <input
+                ibmText
+                type="number"
+                formControlName="kfoldNumber"
+                [autocomplete]="false">
+            </ibm-label>
+            <small class="text-danger" *ngIf="kfoldNumber.invalid && kfoldNumber.touched">{{ERROR_MESSAGES.KFOLD_NUMBER}}</small>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <ibm-label>
+              <label for="threshold" >{{ 'ai_service_v1.test_modal_v1.fld_threshold.label' | translate }}</label>
+              <ibm-tooltip-icon [placement]="'top'" [alignment]="'bottom'" [content]="'ai_service_v1.test_modal_v1.fld_threshold.tooltip' | translate">
+                <aiap-icon-svg-v1
+                  class="bx--btn__icon"
+                  [src]="'assets/carbon-icons/16/status/information.svg'">
+                </aiap-icon-svg-v1>
+              </ibm-tooltip-icon>
+              <input
+                ibmText
+                type="number"
+                formControlName="threshold"
+                [autocomplete]="false">
+            </ibm-label>
+            <small class="text-danger" *ngIf="threshold.invalid && threshold.touched">{{ERROR_MESSAGES.THRESHOLD}}</small>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_service_v1.test_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_service_v1.test_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_service_v1.test_modal_v1.btn_save.text' | translate"
+      [tooltip]="'ai_service_v1.test_modal_v1.btn_save.tooltip' | translate"
+      [skeleton]="isLoading"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+    </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

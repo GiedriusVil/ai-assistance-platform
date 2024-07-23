@@ -1,0 +1,16 @@
+<ibm-date-picker
+  [name]="name"
+  [required]="required"
+  [ngModel]="state.range"
+  [label]="label"
+  [dateFormat]="dateFormat"
+  [placeholder]="placeholder"
+  [theme]="theme"
+  [invalidText]="invalidText"
+  [invalid]="invalid"
+  [disabled]="disabled"
+  [warn]="warn"
+  [warnText]="warnText"
+  [size]="size"
+  (ngModelChange)="handleValueChange($event)">
+</ibm-date-picker>

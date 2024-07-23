@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aiap/aiap-soe-bot",
+  "version": "3.27.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap-utils-common": "0.0.1",
+    "@ibm-aiap/aiap-soe-engine": "3.27.0"
+  }
+}

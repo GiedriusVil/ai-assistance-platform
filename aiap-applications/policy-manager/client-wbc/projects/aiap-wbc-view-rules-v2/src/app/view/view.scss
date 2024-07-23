@@ -1,0 +1,22 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./delete-modal/rules-delete-modal-v2.scss";
+@use "./import-modal/rules-import-modal-v2.scss";
+@use "./save-modal/rules-save-modal-v2.scss";
+
+aiap-wbc-rules-view-v2 {
+  ibm-date-picker {
+    .bx--form-item {
+      align-items: unset;
+    }
+    .bx--date-picker {
+      display: unset;
+    }
+  }
+  .bx--date-picker.bx--date-picker--single .bx--date-picker__input {
+    width: 100%;
+  }
+}

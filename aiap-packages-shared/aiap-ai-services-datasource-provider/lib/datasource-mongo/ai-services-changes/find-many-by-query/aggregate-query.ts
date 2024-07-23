@@ -1,0 +1,83 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import {
+  IQueryPaginationV1,
+  IQuerySortV1,
+} from '@ibm-aiap/aiap--types-server';
+
+import {
+  addSortCondition,
+  addPagination,
+  matchAttributeByRegex,
+  matchFieldBetween2Dates,
+} from '@ibm-aiap/aiap-utils-mongo';
+
+const _matcher = (
+  query: {
+    filter: {
+      search?: any,
+      dateRange?: any,
+    },
+  },
+) => {
+  const RET_VAL = {
+    $match: {
+      $and: [
+        matchFieldBetween2Dates('timestamp', query?.filter),
+        {
+          $or: [
+            matchAttributeByRegex('docName', query?.filter?.search),
+            matchAttributeByRegex('docId', query?.filter?.search),
+            matchAttributeByRegex('id', query?.filter?.search),
+          ]
+        }
+      ]
+    },
+  };
+  return RET_VAL;
+}
+
+export const aggregateQuery = (
+  query: {
+    filter: {
+      search?: any,
+      dateRange?: any,
+    },
+    sort: IQuerySortV1,
+    pagination: IQueryPaginationV1,
+  }
+) => {
+  const RET_VAL: Array<any> = [
+    _matcher(query),
+  ];
+  RET_VAL.push({
+    $facet: {
+      items: [
+        ...addSortCondition(query),
+        ...addPagination(query)
+      ],
+      total: [
+        {
+          $count: 'count',
+        }
+      ]
+    }
+  });
+  RET_VAL.push(
+    {
+      $set: { tempTotal: { $arrayElemAt: ['$total', 0] } }
+    }
+  );
+  RET_VAL.push(
+    {
+      $project: {
+        items: 1,
+        total: { $ifNull: ['$tempTotal.count', 0] },
+      }
+    }
+  );
+  return RET_VAL;
+}

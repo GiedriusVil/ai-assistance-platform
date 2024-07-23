@@ -1,0 +1,38 @@
+<ibm-modal 
+    [open]="isOpen" 
+    (overlaySelected)="close()" 
+    size='sm'>
+    <ibm-modal-header 
+        (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>
+          {{ 'test_cases_view_v1.import_modal_v1.header' | translate }}
+        </h3>
+    </ibm-modal-header>
+    <div class="bx--modal-content bx--modal-content--with-form">
+        <ibm-file-uploader
+            #fileUploader
+            drop="true" 
+            [title]="'test_cases_view_v1.import_modal_v1.fld_file_upload.title' | translate" 
+            [description]="'test_cases_view_v1.import_modal_v1.fld_file_upload.description' | translate" 
+            [accept]="['.json']"
+            [multiple]="false" 
+            [dropText]="'test_cases_view_v1.import_modal_v1.fld_file_upload.drop_text' | translate" 
+            [disabled]="false"
+            [(files)]="files"
+            (filesChange)="onFileAdd($event)">
+        </ibm-file-uploader>
+    </div>
+    <ibm-modal-footer>
+        <button 
+            ibmButton="secondary" 
+            (click)="close()">
+            {{ 'test_cases_view_v1.import_modal_v1.btn_cancel.text' | translate }}
+        </button>
+        <button 
+            ibmButton="primary"
+            [disabled]="uploadButtonDisabled"
+            (click)="import()">
+            {{ 'test_cases_view_v1.import_modal_v1.btn_import.text' | translate }}
+        </button>
+    </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,15 @@
+<div style="padding: 10px;">
+  <ibm-tile 
+    class="metric-wrapper">
+    <ibm-tooltip-icon *ngIf="showTooltip" 
+      [placement]="placement" 
+      [alignment]="alignment" 
+      [content]="text">
+      <svg ibmIconInformation size="16"></svg>
+    </ibm-tooltip-icon>
+    <div class="metric-header">{{headerText}}</div>
+    <div class="metric-value">{{displayData}}</div>
+    <div class="separator"></div>
+    <div class="metric-footer"></div>
+  </ibm-tile >
+</div>

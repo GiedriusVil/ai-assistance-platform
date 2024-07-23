@@ -1,0 +1,24 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-lambda-modules-table-v1
+      (onSearchChangeEvent)="handleSearchChangeEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent($event)"
+      (onShowImportPlace)="handleShowImportModal($event)"
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onShowPullPlace)="handleShowPullModal($event)"
+      (onShowRemovePlace)="handleShowDeleteModal($event)">
+    </aiap-lambda-modules-table-v1>
+  </div>
+</div>
+
+<aiap-lambda-module-delete-modal-v1 #lambdaModuleDeleteModal></aiap-lambda-module-delete-modal-v1>
+<aiap-lambda-module-save-modal-v1 #lambdaModuleSaveModal></aiap-lambda-module-save-modal-v1>
+
+<aiap-lambda-modules-pull-modal-v1 #lambdaModulesPullModal> </aiap-lambda-modules-pull-modal-v1>
+<aiap-lambda-modules-import-modal-v1 #lambdaModulesImportModal></aiap-lambda-modules-import-modal-v1>

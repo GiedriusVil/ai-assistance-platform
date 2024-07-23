@@ -1,0 +1,25 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ state.headerText }}</p>
+  </aiap-modal-v1-header-v1>
+  <section>
+    <form #moduleForm="ngForm">
+      <aca-json-difference #jsonDiff
+        class="ai-skill-difference"
+        [source]="sourceSkill"
+        [target]="targetSkill"
+        [detailedDiff]="false">
+      </aca-json-difference>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'ai_service_v1.compare_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_service_v1.compare_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

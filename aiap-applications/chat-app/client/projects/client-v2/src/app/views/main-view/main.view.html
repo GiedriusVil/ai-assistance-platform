@@ -1,0 +1,33 @@
+<main #main id="main" class="float-start clearfix" [style.width]="getWidth()">
+  <div aria-live="polite" #container class="container-lg clearfix" [ngClass]="state.isLeftPanelEnabled && isLeftPanelButtonVisible() ? 'left-panel-button-visible' : ''">
+    <aca-chat-messages
+      [messages]="conversationMessages"
+      (userActionEvent)="handleUserActionEvent($event)">
+    </aca-chat-messages>
+    <!-- Bot Typing -->
+    <div *ngIf="state.isBotTyping && !state.isSessionEnded" [class]="isBotOrAgentTyping()">
+      <div class="message--bubble message--content message--float">
+        <i *ngIf="state.iconsEnabled"[ngClass]="isBotOrAgentTypingIcon()" aria-hidden="true"></i>
+        <aca-chat-typing-dots></aca-chat-typing-dots>
+      </div>
+    </div>
+    <!-- Session Ended -->
+    <div *ngIf="state.isSessionEnded" class="message--row message--float clearfix message--session--ended">
+      <p class="mb-0 text-center" aria>{{'main.session-ended'| translate}}</p>
+    </div>
+  </div>
+  <app-suggestions></app-suggestions>
+  <div class="header--not-found" *ngIf="!isGridPlacementEnabled('header')">
+    <div>
+      Header not found
+    </div>
+    <div role="button" (click)="onClose($event)">
+      <img [src]="closeIcon" tabindex="0">
+    </div>
+  </div>
+  <aca-chat-footer-panel
+    *ngIf="state.footerEnabled && !isGridPlacementEnabled('footer')"
+    [config]="config"
+    [style.width]="getWidth()">
+  </aca-chat-footer-panel>
+</main>

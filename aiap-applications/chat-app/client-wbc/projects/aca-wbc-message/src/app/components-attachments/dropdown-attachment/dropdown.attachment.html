@@ -1,0 +1,37 @@
+<div class="message--buttons message--content message--float w-100">
+  <div ngbDropdown
+    #dropdown="ngbDropdown"
+    placement="bottom-left"
+    class="d-inline-block w-100"
+    (openChange)="onOpenChange($event)"
+    autoClose="true">
+    <button class="btn btn-outline-primary"
+      id="dropdownBasic1"
+      ngbDropdownToggle
+      [disabled]="isContentEnabled && !isTranscript">
+      {{ message?.attachment.buttonName}}
+    </button>
+    <div ngbDropdownMenu
+      #dropdownMenu
+      aria-labelledby="dropdownBasic1"
+      class="dropdown-menu">
+      <div *ngFor="let button of message?.attachment?.attachments">
+        <ng-template #tipContent>
+          <span *ngIf="button.tooltip"
+            [innerHTML]="button.tooltip">
+          </span>
+        </ng-template>
+        <button ngbDropdownItem
+          (click)="onButtonClick(button)"
+          [disabled]="button.disabled || isTranscript"
+          placement="top"
+          [ngbTooltip]="tipContent"
+          container="body"
+          [disableTooltip]="!button.tooltip"
+          [ngClass]="{'separator': button.type == 'separator'}">
+          {{ button.title | partOfText:40 }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

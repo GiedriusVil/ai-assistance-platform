@@ -1,0 +1,158 @@
+<aiap-modal-v1 
+  [open]="isOpen" 
+  size="sm" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ (user.id ? 'users_view_v1.save_modal_v1.header_update' : 'users_view_v1.save_modal_v1.header_create') | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <div 
+    class="bx--modal-content  bx--modal-content--with-form">
+    <form 
+      #userSaveModal="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input 
+        type="hidden" 
+        name="csrftoken" 
+        value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <aiap-field-input-v1
+              [placeholder]="'users_view_v1.save_modal_v1.fld_username.placeholder' | translate "
+              [name]="'username'"
+              [label]="'users_view_v1.save_modal_v1.fld_username.label' | translate">
+           </aiap-field-input-v1>
+            <small 
+              class="text-danger" 
+              *ngIf="username?.invalid && username?.touched">
+              {{ 'users_view_v1.save_modal_v1.fld_username.err_msg_empty' | translate }}
+            </small>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <ibm-label>
+              <div class="password-field-container width-100">
+                <aiap-field-input-v1
+                  data-toggle-password-visibility
+                  [type]="isPasswordShown? 'text': 'password'"
+                  [placeholder]="'users_view_v1.save_modal_v1.fld_password.placeholder' | translate "
+                  [name]="'password'"
+                  [label]="'users_view_v1.save_modal_v1.fld_password.label' | translate">
+                 </aiap-field-input-v1>
+                <button 
+                  class="password-visibility-button" 
+                  ibmButton="ghost" 
+                  [size]="'sm'" 
+                  [iconOnly]="true"
+                  (click)="togglePasswordVisibility()">
+                  <ng-container 
+                    *ngIf="isPasswordShown; else showPasswordIcon">
+                    <aiap-icon-svg-v1 
+                      class="bx--btn__icon"
+                      [src]="'assets/carbon-icons/16/toggle/view.svg'">
+                    </aiap-icon-svg-v1>
+                    <span 
+                      class="bx--assistive-text">
+                      {{ 'users_view_v1.save_modal_v1.fld_password.assist_text_hide' | translate }}
+                    </span>
+                  </ng-container>
+                  <ng-template #showPasswordIcon>
+                    <aiap-icon-svg-v1 
+                      class="bx--btn__icon"
+                      [src]="'assets/carbon-icons/16/toggle/view--off.svg'">
+                    </aiap-icon-svg-v1>
+                    <span 
+                      class="bx--assistive-text">
+                      {{ 'users_view_v1.save_modal_v1.fld_password.assist_text_show' | translate }}
+                    </span>
+                  </ng-template>
+                </button>
+                <small class="text-danger"
+                  *ngIf="password?.invalid && password?.touched">
+                  {{ 'users_view_v1.save_modal_v1.fld_password.policy_text' | translate }}
+                </small>
+              </div>
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <aiap-field-dropdown-v1
+              [type]="'single'"
+              [name]="'userStatus'"
+              [label]="'users_view_v1.save_modal_v1.fld_status.label' | translate"
+              [placeholder]="'users_view_v1.save_modal_v1.fld_status.placeholder' | translate"
+              [items]="userStatuses"
+              (onSelected)="handleUserStatusSelectedEvent($event)" 
+              [(value)]="selections.userStatus">
+          </aiap-field-dropdown-v1>
+          </div>
+        </div>
+        <div 
+          ibmRow
+          *isActionAllowed="{ action: changeTenantsAction }">
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <aiap-field-combo-box-singular-v1
+              [type]="'multi'"
+              [label]="'users_view_v1.save_modal_v1.fld_tenants.label' | translate" 
+              [placeholder]="'users_view_v1.save_modal_v1.fld_tenants.placeholder' | translate" 
+              [name]="'tenants'" 
+              [isDropUp]="false" 
+              [items]="tenants">
+            </aiap-field-combo-box-singular-v1>
+          </div>
+        </div>
+        <div 
+          ibmRow
+          *isActionAllowed="{ action:'users.view.change.accessGroup' }">
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <aiap-field-combo-box-singular-v1
+              [type]="'multi'"
+              [label]="'users_view_v1.save_modal_v1.fld_access_groups.label' | translate" 
+              [placeholder]="'users_view_v1.save_modal_v1.fld_access_groups.placeholder' | translate" 
+              [name]="'accessGroups'"
+              [isDropUp]="false" 
+              [items]="accessGroups">
+          </aiap-field-combo-box-singular-v1>
+            <small 
+              class="text-danger" 
+              *ngIf="groups?.invalid && groups?.touched">
+              {{ 'users_view_v1.save_modal_v1.fld_access_groups.err_msg_invalid' | translate }}
+            </small>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'md': 8}">
+            <aiap-field-dropdown-v1
+              [type]="'single'"
+              [name]="'timezone'"
+              [label]="'users_view_v1.save_modal_v1.fld_timezone.label' | translate"
+              [placeholder]="'users_view_v1.save_modal_v1.fld_timezone.placeholder' | translate"
+              [items]="timezones">
+          </aiap-field-dropdown-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [text]="'users_view_v1.save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [size]="'md'"
+      [disabled]="userSaveModal.invalid"
+      [text]="(user.id ? 'users_view_v1.save_modal_v1.btn_update.text' : 'users_view_v1.save_modal_v1.btn_create.text') | translate "
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aiap/aiap-app-datasource-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap--types-domain-app": "0.0.1",
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1",
+    "@ibm-aiap/aiap-utils-encrypter": "0.0.1", 
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aca/aca-data-transformer": "0.0.1"
+  }
+}

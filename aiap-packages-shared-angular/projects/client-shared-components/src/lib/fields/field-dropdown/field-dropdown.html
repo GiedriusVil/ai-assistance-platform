@@ -1,0 +1,60 @@
+<div class="bx--form-item">
+  <label class="bx--label" for="data-dropdown">{{ dropdownLabel }}</label>
+
+  <!-- This html shall be used for dropdowns without checklists. -->
+  <div *ngIf="!implementsChecklist" class="bx--select">
+    <div class="bx--select-input__wrapper">
+      <select name="intent" [(ngModel)]="inputData" (ngModelChange)="refreshOnChange($event)" id="data-dropdown"
+        class="bx--select-input bx--select-input--sm">
+        <option class="bx--select-option" *ngFor="let intent of dataSource" [value]="intent.value">{{ intent.name }}
+        </option>
+      </select>
+      <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
+        <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- This html shall be used for dropdowns with checklists. -->
+  <ul *ngIf="implementsChecklist" id="data-dropdown" class="bx--dropdown bx--dropdown--sm bx--multi-select bx--list-box"
+    [ngClass]="{'bx--dropdown--open': dataExpanded}" tabindex="0" #dataFilter>
+    <li id="dataFilter" class="bx--list-box__field" (click)="changeDropdown(!dataExpanded)">
+      <div role="button" *ngIf="counter > 0" (click)="uncheckItems($event)"
+        class="bx--list-box__selection bx--list-box__selection--multi" tabindex="0" title="Clear all selected items">
+        {{ counter }}
+        <svg focusable="false" preserveAspectRatio="xMidYMid meet" class="will-change-transform"
+          xmlns="http://www.w3.org/2000/svg" aria-label="Clear selection" width="16" height="16" viewBox="0 0 16 16"
+          role="img">
+          <path d="M12 4.7L11.3 4 8 7.3 4.7 4 4 4.7 7.3 8 4 11.3 4.7 12 8 8.7 11.3 12 12 11.3 8.7 8z"></path>
+        </svg>
+      </div>
+      <span class="bx--list-box__label responsive-span">{{ placeholder }}</span>
+      <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
+        <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+      </svg>
+    </li>
+    <li *ngIf="dataExpanded && (component.name === 'UtterancesComponent' || component.name === 'ReportsComponent')">
+      <ul class="bx--list-box__menu w-125">
+        <li class="bx--dropdown-item" *ngFor="let service of dataSource; let i = index">
+          <div class="bx--list-box__menu-item not-clickable">
+            <div class="bx--form-item bx--checkbox-wrapper">
+              <span class="bx--checkbox-label-text">{{ service.serviceId }}</span>
+            </div>
+          </div>
+          <ng-container *ngFor="let skill of service.skills">
+            <div class="bx--list-box__menu-item" (click)="toggleItems(i, skill.name)">
+              <div class="bx--form-item bx--checkbox-wrapper" (click)="$event.stopPropagation()">
+                <input id="{{ skill.workspaceId }}" type="checkbox" name="{{ skill.name }}" class="bx--checkbox"
+                  checked="{{ skill.checked === true ? true : ''}}" (change)="toggleItems(i, skill.name)">
+                <label for="{{ skill.workspaceId }}" title="{{ skill.name }}" class="bx--checkbox-label">
+                  <span class="bx--checkbox-appearance"></span>
+                  <span class="bx--checkbox-label-text">{{ skill.name }}</span>
+                </label>
+              </div>
+            </div>
+          </ng-container>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

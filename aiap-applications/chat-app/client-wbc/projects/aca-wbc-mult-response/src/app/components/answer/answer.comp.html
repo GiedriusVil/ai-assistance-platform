@@ -1,0 +1,10 @@
+<div>
+    <p [innerHTML]="answer?.text | safe: 'html'" style="margin-top: 2rem;"></p>
+    <br>
+    <button 
+        *ngFor="let button of answer?.buttons" 
+        type='button' 
+        class='btn btn-primary'
+        (click)='emitBtnClickEmitEvent(button?.value)'>{{button?.title}}
+    </button>
+</div>

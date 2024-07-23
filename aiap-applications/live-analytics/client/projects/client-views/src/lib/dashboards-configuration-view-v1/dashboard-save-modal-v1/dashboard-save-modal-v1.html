@@ -1,0 +1,64 @@
+<aiap-modal-v1 
+  [size]="'xs'"
+  [open]="isOpen" 
+  (overlaySelected)="close()" >
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p ibmModalHeaderHeading>
+      {{ 'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_save.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form #chartSaveModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-label>
+              <aiap-field-input-v1
+                [name]="'dashboardRef'"
+                [label]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_reference.label' | translate"
+                [labelHelp]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_reference.helper_text' | translate"
+                [(value)]="dashboard.ref">
+              </aiap-field-input-v1>
+            </ibm-label>
+          </div>
+          <div ibmCol>
+            <ibm-label>
+              <aiap-field-input-v1
+                [name]="'dashboardName'"
+                [label]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_name.label' | translate"
+                [labelHelp]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_name.helper_text' | translate"
+                [(value)]="dashboard.name">
+              </aiap-field-input-v1>
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmCol>
+          <ibm-tabs>
+            <ibm-tab [heading]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_elements.tab' | translate">
+              <aca-dashboard-elements-tab #elementsTab [value]="dashboard?.elements">
+              </aca-dashboard-elements-tab>
+            </ibm-tab>
+            <ibm-tab [heading]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.fld_configurations.tab' | translate">
+              <aca-dashboard-configurations-tab #configurationsTab [value]="dashboard?.configurations">
+              </aca-dashboard-configurations-tab>
+            </ibm-tab>
+          </ibm-tabs>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.btn_cancel' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'dashboards_configuration_view_v1.dashboard_save_modal_v1.btn_save' | translate"
+      [type]="'primary'"
+      [disabled]="isInvalid()" 
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

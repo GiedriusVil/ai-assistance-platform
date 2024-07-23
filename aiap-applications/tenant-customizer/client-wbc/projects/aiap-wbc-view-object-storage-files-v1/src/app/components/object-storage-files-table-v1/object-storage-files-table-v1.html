@@ -1,0 +1,65 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'object_storage_files_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleEventClickRefresh($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      [placeholder]="'object_storage_files_table_v1.fld_search.placeholder' | translate"
+      (onSearchChange)="handleEventSearchChange($event)"
+      (onSearchClear)="handleEventSearchClear($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{ action: 'object_storage_buckets.view.add' }"
+      [size]="'md'"
+      [text]="'object_storage_files_table_v1.btn_add.text' | translate"
+      [tooltip]="'object_storage_files_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'object_storage_buckets.view.delete'}"
+      [size]="'md'"
+      [text]="('object_storage_files_table_v1.btn_delete.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'object_storage_files_table_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template 
+  #createdTemplate 
+  let-data="data">
+  <aca-table-cell-created 
+    [value]="data?.created">
+  </aca-table-cell-created>
+</ng-template>
+
+<ng-template 
+  #updatedTemplate 
+  let-data="data">
+  <aca-table-cell-updated 
+    [value]="data?.updated">
+  </aca-table-cell-updated>
+</ng-template>

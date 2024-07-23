@@ -1,0 +1,27 @@
+aiap-audio-voice-services-table-v1 {
+
+  .buttonsWrapper {
+    display: inline-flex;
+  }
+
+  .table-cell-created-grid {
+    margin-top: 5px;
+  }
+
+  .bx--btn__icon {
+    fill: black;
+  }
+
+  .bx--search--lg .bx--search-input,
+  .bx--search--md .bx--search-input,
+  .bx--search--sm .bx--search-input {
+    height: 3rem;
+  }
+
+  .bx--search--lg .bx--search-close,
+  .bx--search--md .bx--search-close,
+  .bx--search--sm .bx--search-close {
+    width: 3rem;
+    height: 3rem;
+  }
+}

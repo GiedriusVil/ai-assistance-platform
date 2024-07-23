@@ -1,0 +1,79 @@
+<header class="header">
+
+  <div class="header--buttons--box" *ngIf="leftPanelService.isLeftPanelVisible()">
+    <!-- Left panel close icon -->
+    <div class="header--icon--box" role="button" (click)="closeLeftPanel()">
+      <img class="img--left--panel--close"
+      tabindex="0"
+      role="button"
+      title="{{'header.left-panel-close-title'| translate}}"
+      alt="{{'header.left-panel-close-alt'| translate}}"
+      [src]="icons['closeLeftPanelIcon']">
+    </div>
+  </div>
+
+  <div class="header--logo--title--box">
+
+    <!-- Bot icom -->
+    <div class="header--logo">
+      <img class="header--logo--img" tabindex="0" title="{{'header.logo-title'| translate}}"
+        alt="{{'header.logo-alt'| translate}}" aria-hidden="true" [src]="icons['vaLogo']">
+    </div>
+
+     <!-- Chat title -->
+    <h2 class="header--title">{{ state?.header?.title }}</h2>
+  </div>
+  <div class="header--buttons--box">
+
+    <!-- Survey icom -->
+    <div *ngIf="isFeatureEnabled('survey')" class="header--icon--box" role="button"
+      (keydown.enter)="showSurvey()" (click)="showSurvey()">
+      <img class="img--survey" tabindex="0" role="button" [src]="icons['surveyPenIcon']"
+        title="{{'header.icon-survey-title'| translate}}" alt="{{'header.icon-survey-alt'| translate}}">
+    </div>
+
+    <div *ngIf="isFeatureEnabled('transcriptTransform')" class="header--icon--box" role="button"
+    (click)="showTranscriptTransform()">
+    <img class="img--transform" tabindex="0" [src]="icons['transcriptTransform']"
+      title="{{'header.icon-test-cases-title'| translate}}" alt="{{'header.icon-test-cases-alt'| translate}}" />
+    </div>
+
+    <!-- Sound icon -->
+    <div *ngIf="audioEnabled && isFeatureEnabled('audio')" class="header--icon--box" role="button"
+      (click)="onAudio($event)">
+      <img class="img--volume" tabindex="0" [src]="icons['volumeUp']"
+        title="{{'header.icon-volume-up-title'| translate}}" alt="{{'header.icon-volume-up-alt'| translate}}">
+    </div>
+    <div *ngIf="!audioEnabled && isFeatureEnabled('audio')" class="header--icon--box" role="button"
+      (click)="onAudio($event)">
+      <img class="img--volume" tabindex="0" [src]="icons['volumeMute']"
+        title="{{'header.icon-volume-mute-title'| translate}}" alt="{{'header.icon-volume-mute-alt'| translate}}">
+    </div>
+
+    <!-- Minimize and maximize icon -->
+    <div
+      class="header--icon--box"
+      *ngIf="!isMinimized()"
+      role="button"
+      (keydown.enter)="onMinimizeMaximize($event)"
+      (click)="onMinimizeMaximize($event)">
+      <img class="img--minimize" [src]="icons['minimize']" tabindex="0"
+        title="{{CHAT_WINDOW_STATE_TEXT.MINIMIZE.TITLE | translate}}" alt="{{CHAT_WINDOW_STATE_TEXT.MINIMIZE.ALT | translate}}">
+    </div>
+    <div
+      class="header--icon--box"
+      *ngIf="isMinimized()"
+      role="button"
+      (keydown.enter)="onMinimizeMaximize($event)"
+      (click)="onMinimizeMaximize($event)">
+      <img class="img--minimize" [src]="icons['maximize']" tabindex="0"
+        title="{{CHAT_WINDOW_STATE_TEXT.RESTORE.TITLE | translate}}" alt="{{CHAT_WINDOW_STATE_TEXT.RESTORE.ALT  | translate}}">
+    </div>
+
+    <!-- Close icon -->
+    <div class="header--icon--box" role="button" (click)="onClose($event)">
+      <img class="img--close" [src]="icons['close']" tabindex="0"
+        title="{{'header.icon-cross-title'| translate}}" alt="{{'header.icon-cross-alt'| translate}}">
+    </div>
+  </div>
+</header>

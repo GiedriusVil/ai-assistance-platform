@@ -1,0 +1,85 @@
+{
+  "files": [],
+  "references": [
+    // packages-shared
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-posthtml-parser"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-posthtml-render"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-redlock"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-async-retry"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-ibm-watson"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-wrapper-openai"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap--types-server"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap--types-datasource"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap--types-domain-app"
+    },
+    {
+      "path": "./aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "./aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-utils-audit"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-redis-client-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-event-stream-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-mongo-client-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-app-datasource-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-object-storage-datasource-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-object-storage-client-provider"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-object-storage-service"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-object-storage-express-routes"
+    },
+    {
+      "path": "./aiap-packages-shared/aiap-lambda-modules-datasource-provider"
+    },
+    // applications
+    {
+      "path": "./aiap-applications/portal"
+    },
+    {
+      "path": "./aiap-applications/tenant-customizer"
+    },
+    {
+      "path": "./aiap-applications/soe"
+    },
+    {
+      "path": "./aiap-applications/chat-app"
+    }
+  ]
+}

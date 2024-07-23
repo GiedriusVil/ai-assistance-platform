@@ -1,0 +1,40 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-lambda-modules-configurations-save-modal {
+  overflow: hidden;
+
+  .values-container {
+    margin-top: 5vh;
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .jsoneditor {
+    &.jsoneditor {
+      border-color: black;
+      height: 600px;
+
+      .jsoneditor-menu {
+        border-color: black;
+        background-color: black;
+      }
+    }
+  }
+
+  .bx--btn {
+    justify-content: center;
+    padding-right: 15px;
+  }
+}

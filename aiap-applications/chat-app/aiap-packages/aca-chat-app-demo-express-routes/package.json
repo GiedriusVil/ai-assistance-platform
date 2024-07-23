@@ -1,0 +1,14 @@
+{
+    "name": "@ibm-aca/aca-chat-app-demo-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "license": "IBM",
+    "dependencies": {},
+    "author": {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376"
+    }
+}

@@ -1,0 +1,71 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb [outlet]="outlet"></aca-breadcrumb>
+    <div ibmGrid class="page-filters padding-0 min-width-100">
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 11, 'lg': 11, 'md': 7, 'sm': 4}">
+          <aca-date-range-picker
+            [value]="state?.dateRange"
+            (onChange)="handleDateRangeChange($event)">
+          </aca-date-range-picker>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 1, 'sm': 1}" class="padding-0">
+          <button 
+            class="renew-button"
+            [ibmButton]="'ghost'" 
+            [size]="'sm'"
+            [iconOnly]="true" 
+            (click)="handleRefreshClick()">
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/operations/renew.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 2, 'sm':1}">
+          <ibm-dropdown
+            type="multi"
+            label="{{ 'live_metrics_view.dropdown_filter_by_assistants.label' | translate }}"
+            placeholder="{{ 'live_metrics_view.dropdown_filter_by_assistants.placeholder' | translate }}"
+            [size]= "'sm'"
+            [(ngModel)]="state.assistantsSelected"
+            (selected)="handleAssistantSelectionEvent($event)">
+            <ibm-dropdown-list [items]="state.assistants"></ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 7, 'sm':3 }">
+          <aiap-toggle-v1
+            *ngIf="isFeatureEnabled('showSystemMessagesToggle')"
+            [size]="'sm'"
+            [onText]="'live_metrics_view.toggle_system_messages.text_on' | translate"
+            [offText]="'live_metrics_view.toggle_system_messages.text_off' | translate"
+            [isChecked]="state.isSystemMessagesVisible"
+            (onChange)="handleSystemMessagesVisibility($event)">
+          </aiap-toggle-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- // -->
+<aca-live-analytics-tile-metrics-panel
+  [configuration]="state?.configuration"
+  [query]="state?.query"
+  [_cancelMetricsRequests$]="_cancelMetricsRequests$">
+</aca-live-analytics-tile-metrics-panel>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-live-analytics-charts-panel
+      [configuration]="state?.configuration"
+      [query]="state?.query"
+      [_cancelMetricsRequests$]="_cancelMetricsRequests$">
+    </aca-live-analytics-charts-panel>
+  </div>
+</div>

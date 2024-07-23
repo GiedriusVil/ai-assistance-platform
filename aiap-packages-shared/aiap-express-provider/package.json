@@ -1,0 +1,20 @@
+{
+  "name": "@ibm-aiap/aiap-express-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@ibm-aiap/aiap-utils-common": "0.0.1",
+    "@ibm-aca/aca-wrapper-cookie-parser": "0.0.1",
+    "body-parser": "1.19.0",
+    "compression": "1.7.4",
+    "connect-redis": "4.0.4",
+    "cors": "2.8.5",
+    "express-rate-limit": "3.5.1",
+    "express-secure-only": "0.2.1",
+    "express-session": "1.16.1",
+    "helmet": "3.18.0",
+    "uid-safe": "2.1.5"
+  }
+}

@@ -1,0 +1,40 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='sm'>
+  <ibm-modal-header 
+  (closeSelect)="close()">
+  <h3 ibmModalHeaderHeading>
+    {{'rules_v2.view.import_modal_v2.header' | translate}}
+  </h3>
+  </ibm-modal-header>
+  <div class="bx--modal-content bx--modal-content--with-form">
+    <ibm-file-uploader 
+      #fileUploader
+      [title]="'rules_v2.view.import_modal_v2.file_upload_title' | translate" 
+      [description]="'rules_v2.view.import_modal_v2.file_upload_description' | translate" 
+      [accept]="['.json']"
+      [multiple]="false" 
+      drop="true" 
+      [dropText]="'rules_v2.view.import_modal_v2.file_upload_drop_text' | translate" 
+      [disabled]="false"
+      [(files)]="files"
+      (filesChange)="onFileAdd($event)">
+    </ibm-file-uploader>
+  </div>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'rules_v2.view.import_modal_v2.cancel_button' | translate"
+      [tooltip]="'rules_v2.view.import_modal_v2.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'primary'"
+      [text]="'rules_v2.view.import_modal_v2.import_button' | translate"
+      [tooltip]="'rules_v2.view.import_modal_v2.import_button_tooltip' | translate"
+      [disabled]="uploadButtonDisabled"
+      (onClick)="import()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,26 @@
+<div 
+  ibmGrid 
+  class="tenant-assistants-grid">
+  <div ibmRow>
+    <div ibmCol>
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.tenant_tab_assistants_v1.header' | translate }}
+      </h3>
+      <aiap-tenant-assistants-table-v1
+        [assistants]="assistants"
+        (onShowSavePlace)="showSaveAssistantModal($event)"
+        (onShowRemovePlace)="handleAssistantDeleteModal($event)">
+      </aiap-tenant-assistants-table-v1>
+    </div>
+  </div>
+</div>
+
+<aiap-tenant-assistants-save-modal-v1
+  #tenantAssistantsSaveModal
+  (onAddAssistant)="handleAssistantAddEvent($event)">
+</aiap-tenant-assistants-save-modal-v1>
+
+<aiap-tenant-assistants-delete-modal-v1
+  #tenantAssistantsDeleteModal
+  (onRemoveAssistants)="handleAssistantRemoveEvent($event)">
+</aiap-tenant-assistants-delete-modal-v1>

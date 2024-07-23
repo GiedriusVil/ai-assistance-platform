@@ -1,0 +1,8 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-message-outgoing-emitter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {}
+}

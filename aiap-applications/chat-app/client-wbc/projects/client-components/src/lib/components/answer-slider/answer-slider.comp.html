@@ -1,0 +1,13 @@
+<div class="aiap--answer--slider">
+  <div class="aiap--answer--slider--value">No</div>
+  <input 
+    type="range" 
+    #answerBar 
+    [ngClass]="'aiap--answer--slider--bar background ' + barBackground"
+    [formControl]="inputSlider"
+    [value]="initValue"
+    min="0" 
+    max="100" 
+    step="50" >
+  <div class="aiap--answer--slider--value">Yes</div>
+</div>

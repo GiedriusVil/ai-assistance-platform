@@ -1,0 +1,12 @@
+<aiap-modal-v1 
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'ai_service_v1.dialog_tree_modal_v1.header.title' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <max-graph-ai-skill-editor [configuration]="{}" [value]="state.aiSkill">
+    </max-graph-ai-skill-editor>
+  </aiap-modal-v1-content-v1>
+</aiap-modal-v1>

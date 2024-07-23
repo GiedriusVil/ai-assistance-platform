@@ -1,0 +1,28 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-chat-error-notification {
+  background: transparent;
+
+  .message--notification.message--float.w-100 {
+    padding-bottom: 0px;
+  }
+
+  .aca-chat-error-notification-text {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+  }
+
+  .aca-chat-error-notification-text:hover {
+    border-bottom: 1px solid red;
+  }
+
+  .aca-json-viewer {
+    border: solid 1px red;
+    padding: 10px;
+    margin-top: 10px;
+  }
+}

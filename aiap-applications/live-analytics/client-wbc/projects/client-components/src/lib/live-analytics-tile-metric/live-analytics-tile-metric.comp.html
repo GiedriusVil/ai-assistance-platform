@@ -1,0 +1,30 @@
+<div style="max-width: 5%; min-width: 5%; margin: auto;">
+  <ibm-loading
+    *ngIf="state.isLoading"
+    [isActive]="state.isLoading" 
+    [size]="'normal'" 
+    [overlay]="false">
+  </ibm-loading>
+</div>
+
+<aca-metrics-tile
+  *ngIf="!tile?.valueType && !state.isLoading"
+  [displayData]="state?.response"
+  [headerText]="tile?.name"
+  [showTooltip]="tile?.tooltip"
+  [tooltipText]="tile?.tooltip?.text"
+  [tooltipTextPlacement]="tile?.tooltip?.position"
+  [tooltipAlignment]="tile?.tooltip?.allignment"
+  (onExportData)="handleExportDataEvent()"
+  >
+</aca-metrics-tile>
+
+<aca-metrics-tile
+  *ngIf="tile?.valueType === 'percentage' && !state.isLoading"
+  [displayData]="state?.response/100 | percent"
+  [headerText]="tile?.name"
+  [showTooltip]="tile?.tooltip"
+  [tooltipText]="tile?.tooltip?.text"
+  [tooltipTextPlacement]="tile?.tooltip?.position"
+  [tooltipAlignment]="tile?.tooltip?.allignment">
+</aca-metrics-tile>

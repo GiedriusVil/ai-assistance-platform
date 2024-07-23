@@ -1,0 +1,72 @@
+<div class="chart-wrapper">
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':11, 'lg':11, 'md':7, 'sm':3}">
+        <h4>{{ state?.chartName | translate }}</h4>
+      </div>
+      <div ibmCol [columnNumbers]="{'xlg':1, 'lg':1, 'md':1, 'sm':1}">
+        <button 
+          ibmButton="ghost" 
+          [size]="'sm'"
+          [iconOnly]="true" 
+          (click)="handleReloadClick($event)">
+          <svg class="bx--btn__icon" ibmIconRenew size="20"></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <aiap-live-analytics-metrics-combo-v2
+    *ngIf="chart?.metrics && chart?.metrics.length > 1"
+    [disabled]="chart?.metrics && chart?.metrics.length === 1"
+    [metrics]="chart?.metrics"
+    [metricsSelected]="state.metricsSelected"
+    (onMetricsSelected)="handleMetricsSelectionEvent($event)">
+  </aiap-live-analytics-metrics-combo-v2>
+
+  <div class="loading">
+    <ibm-loading
+      *ngIf="state.isLoading && !state.error"
+      [isActive]="state.isLoading" 
+      [size]="'small'" 
+      [overlay]="false">
+    </ibm-loading>
+  </div>
+  <div style="margin-top: 10px; width:600px; height:400px;">
+    <canvas 
+      #canvas
+      id="canvas"
+      height="300">
+    </canvas>
+    <ibm-notification
+      *ngIf="state.error"
+      [notificationObj]="{
+        type: 'error',
+        template: customToastContent,
+        showClose: false,
+        lowContrast: true}">
+    </ibm-notification>
+    <ibm-overflow-menu style="float: right;">
+      <ibm-overflow-menu-option
+        (selected)="handleExportDataEvent()">{{'live_analytics_chart_component_download_csv.overflow'| translate}}
+      </ibm-overflow-menu-option>
+    </ibm-overflow-menu>
+  </div>
+</div>
+
+<ng-template #customToastContent let-data>
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':12, 'lg':12, 'md':8, 'sm':4}" style="line-height: 30px;">
+        {{ state?.errorMessage }}
+      </div>
+    </div>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg':12, 'lg':12, 'md':8, 'sm':4}" style="line-height: 30px;">
+        <aca-json-editor [value]="state.error"></aca-json-editor>
+      </div>
+    </div>
+  </div>
+</ng-template>

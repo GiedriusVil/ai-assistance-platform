@@ -1,0 +1,16 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol class="aca-monaco-editor-container">
+      <ng-container #monacoContainer>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #schemaEditor>
+  <ngx-monaco-editor
+    class="aca-monaco-editor"
+    [options]="state.monacoOptions"
+    [(ngModel)]="schema.value">
+  </ngx-monaco-editor>
+</ng-template>

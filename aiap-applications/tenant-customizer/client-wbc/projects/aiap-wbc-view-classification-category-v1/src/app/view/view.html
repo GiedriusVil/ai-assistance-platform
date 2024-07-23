@@ -1,0 +1,86 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2  [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div class="content-row" ibmCol [columnNumbers]="{ 'xlg': 11, 'lg': 11, 'md': 7, 'sm': 3}">ID: {{selection?.catalogId}}
+        </div>
+        <div class="content-row" ibmCol [columnNumbers]="{ 'xlg': 11, 'lg': 11, 'md': 7, 'sm': 3}">Created: {{catalogDetails?.created}}
+        </div>
+        <div class="content-row" ibmCol [columnNumbers]="{ 'xlg': 11, 'lg': 11, 'md': 7, 'sm': 3}">Created By: {{catalogDetails?.createdBy}}
+        </div>
+        <div ibmCol [columnNumbers]="{ 'xlg':  1, 'lg':  1, 'md': 1, 'sm': 1}">
+          <aiap-button-v1
+            [text]="'classification_category_view_v1.btn_import.text' | translate"
+            [type]="'primary'"
+            (onClick)="handleClassificationCategoryImportClickEvent($event)">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-content">
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol>
+        <aiap-classification-category-list-v1
+          [label]="'Segments'"
+          [type]="'SEGMENT'"
+          [selection]="selection"
+          (onShowSavePlace)="handleClassificationCategoryShowEvent($event)"
+          (onShowDeletePlace)="handleCategoryShowDeletePlaceEvent($event)"
+          (onSelect)="handleCategorySelectEvent($event)"
+          (onSearch)="handleSearchEvent($event)">
+        </aiap-classification-category-list-v1>
+      </div>
+      <div ibmCol>
+        <aiap-classification-category-list-v1
+          [label]="'Families'"
+          [type]="'FAMILY'"
+          [selection]="selection"
+          (onShowSavePlace)="handleClassificationCategoryShowEvent($event)"
+          (onShowDeletePlace)="handleCategoryShowDeletePlaceEvent($event)"
+          (onSelect)="handleCategorySelectEvent($event)"
+          (onSearch)="handleSearchEvent($event)">
+        </aiap-classification-category-list-v1>
+      </div>
+      <div ibmCol>
+        <aiap-classification-category-list-v1
+          [label]="'Classes'"
+          [type]="'CLASS'"
+          [selection]="selection"
+          (onShowSavePlace)="handleClassificationCategoryShowEvent($event)"
+          (onShowDeletePlace)="handleCategoryShowDeletePlaceEvent($event)"
+          (onSelect)="handleCategorySelectEvent($event)"
+          (onSearch)="handleSearchEvent($event)">
+        </aiap-classification-category-list-v1>
+      </div>
+      <div ibmCol>
+        <aiap-classification-category-list-v1
+          [label]="'Sub-Classes'"
+          [type]="'SUB_CLASS'"
+          [selection]="selection"
+          (onShowSavePlace)="handleClassificationCategoryShowEvent($event)"
+          (onShowDeletePlace)="handleCategoryShowDeletePlaceEvent($event)"
+          (onSelect)="handleCategorySelectEvent($event)"
+          (onSearch)="handleSearchEvent($event)">
+        </aiap-classification-category-list-v1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aiap-classification-category-delete-modal-v1
+  #classificationCategoryDeleteModal>
+</aiap-classification-category-delete-modal-v1>
+
+<aiap-classification-category-save-modal-v1
+  #classificationCategorySaveModal>
+</aiap-classification-category-save-modal-v1>
+
+<aiap-classification-category-import-modal-v1
+  #classificationCategoryImportModal>
+</aiap-classification-category-import-modal-v1>

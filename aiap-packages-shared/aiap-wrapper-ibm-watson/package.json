@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-wrapper-ibm-watson",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "ibm-watson": "8.0.0"
+  }
+}

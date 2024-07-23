@@ -1,0 +1,21 @@
+{
+  "validation_engagements_changes_v1.table.export_button" : "Export",
+  "validation_engagements_changes_v1.view.changes_modal_v1.header" : "Audits",
+  "validation_engagements_changes_v1.view.changes_modal_v1.id_label" : "ID",
+  "validation_engagements_changes_v1.view.changes_modal_v1.timestamp_label" : "Timestamp",
+  "validation_engagements_changes_v1.view.changes_modal_v1.type_label" : "Type",
+  "validation_engagements_changes_v1.view.changes_modal_v1.action_label" : "Action",
+  "validation_engagements_changes_v1.view.changes_modal_v1.user_id_label" : "User ID",
+  "validation_engagements_changes_v1.view.changes_modal_v1.valid_engagement_key_label" : "Validation Engagement key",
+  "validation_engagements_changes_v1.view.changes_modal_v1.close_button" : "Close",
+  "view_validation_engagements_changes_v1.changes_table_v1.id_header" : "ID",
+  "view_validation_engagements_changes_v1.changes_table_v1.type_header" : "Type",
+  "view_validation_engagements_changes_v1.changes_table_v1.action_header" : "Action",
+  "view_validation_engagements_changes_v1.changes_table_v1.user_id_header" : "User ID",
+  "view_validation_engagements_changes_v1.changes_table_v1.validation_engagement_key_header" : "Validation Engagement key",
+  "view_validation_engagements_changes_v1.changes_table_v1.timestamp_header" : "Timestamp",
+  "validation_engagements_changes_v1.table.export_button_tooltip" : "Export",
+  "validation_engagements_changes_v1.view.changes_modal_v1.close_button_tooltip" : "Close",
+  "validation_engagements_changes.search.placeholder" : "Search"
+
+}

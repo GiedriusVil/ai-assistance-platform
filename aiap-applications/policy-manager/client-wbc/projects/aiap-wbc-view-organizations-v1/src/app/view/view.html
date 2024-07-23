@@ -1,0 +1,21 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-organizations-table-v1
+      (onShowSavePlace)="handleShowOrganizationModal($event)"
+      (onShowPullPlace)="handleShowPullModal($event)" 
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)" 
+      (onShowRemovePlace)="handleShowOrganizationDeleteModal($event)">
+    </aiap-organizations-table-v1>
+  </div>
+</div>
+
+<aiap-organization-save-modal-v1 #organizationSaveModalV1></aiap-organization-save-modal-v1>
+<aiap-organization-delete-modal-v1 #organizationDeleteModalV1></aiap-organization-delete-modal-v1>
+<aiap-organizations-pull-modal-v1 #organizationsPullModalV1></aiap-organizations-pull-modal-v1>

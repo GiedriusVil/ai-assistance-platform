@@ -1,0 +1,17 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "../../../../../../../aiap-packages-shared-angular/projects/client-shared-components/src/lib/client-shared-components-module-styles.scss";
+@use "../../../../../../../aiap-packages-shared-angular/projects/client-shared-views/src/lib/client-shared-views-module-styles.scss";
+
+@use "../../../client-components/src/lib/client-components-module-styles.scss";
+@use "../../../client-views/src/lib/client-views-module-styles.scss";
+
+@use "./components/components-styles.scss";
+@use "./form/form.scss";
+
+aiap-wbc-form-root-template-v1 {
+  background-color: transparent;
+}

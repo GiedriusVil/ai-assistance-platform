@@ -1,0 +1,91 @@
+<aiap-modal-v1 
+  [open]="isOpen" 
+  size="lg" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{ 'access_groups_changes_view_v1.changes_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+    <form #applicationsChangesViewForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input 
+        type="hidden" 
+        name="csrftoken" 
+        value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid class="margin-bottom-30">
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.id"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_id.placeholder' | translate "
+              [name]="'id'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_id.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.created.date"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_timestamp.placeholder' | translate "
+              [name]="'timestamp'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_timestamp.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.docType"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_type.placeholder' | translate "
+              [name]="'timestamp'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_type.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.action"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_action.placeholder' | translate "
+              [name]="'action'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_action.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.created.user.id"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_user_id.placeholder' | translate "
+              [name]="'userId'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_user_id.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="'true'" 
+              [(value)]="changeLog.docId"
+              [placeholder]="'access_groups_changes_view_v1.changes_modal_v1.fld_access_group_id.placeholder' | translate "
+              [name]="'userName'"
+              [label]="'access_groups_changes_view_v1.changes_modal_v1.fld_access_group_id.label' | translate">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'access_groups_changes_view_v1.changes_modal_v1.bt_close_text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

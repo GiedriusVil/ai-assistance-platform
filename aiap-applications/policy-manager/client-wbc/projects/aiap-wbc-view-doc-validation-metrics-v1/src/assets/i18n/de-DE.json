@@ -1,0 +1,33 @@
+{
+  "view_doc_validation_metrics_v1.view.refresh_button_text" : "Aktualisieren",
+  "view_doc_validation_metrics_v1.view.dropdown_label_text" : "Organisationen",
+  "view_doc_validation_metrics_v1.view.dropdown_placeholder_text" : "Nach Organisationen filtern",
+  "view_doc_validation_metrics_v1.view.total_received_validations_header_text" : "Anzahl an erhaltenen Validierungen",
+  "view_doc_validation_metrics_v1.view.total_completed_validations_header_text" : "Anzahl an vollständigen Validierungen",
+  "view_doc_validation_metrics_v1.view.total_approved_validations_header_text" : "Anzahl an genehmigten Validierungen",
+  "view_doc_validation_metrics_v1.view.total_rejected_validations_header_text" : "An Assistenz weitergeleitete Validierungen",
+  "view_doc_validation_metrics_v1.view.total_failed_validations_header_text" : "Anzahl an fehlgeschlagenen Validierungen",
+  "view_doc_validation_metrics_v1.view.total_validated_prs_header_text" : "[DE] Total validated purchase requests",
+  "view_doc_validation_metrics_v1.view.total_approved_prs_header_text" : "[DE] Total approved purchase requests",
+  "view_doc_validation_metrics_v1.view.total_rejected_prs_header_text" : "[DE] Purchase requests sent to Assistance",
+  "view_doc_validation_metrics_v1.view.unique_buyers_header_text" : "[DE] Unique Buyers",
+  "view_doc_validation_metrics_v1.view.dashboard.chart_title" : "[DE] Completed validations",
+  "view_doc_validation_metrics_v1.view.dashboard.summary_table_title" : "[DE] Most frequently violated Rules",
+  "view_doc_validation_metrics_v1.view.loading_text" : "Lädt",
+  "view_doc_validation_metrics_v1.app.loading_text" : "Lädt...",
+  
+  "doc_validations.doc_validation_summary_table_v1.header" : "[DE] Purchase request validation frequency",
+  "doc_validations.doc_validation_summary_table_v1.retrieve_data_error" : "Beim Laden der Daten ist ein Fehler aufgetreten.",
+
+  "report_chart_v1.loading_text" : "Lädt",
+  "report_chart_v1.header_label_name" : "Name",
+  "report_chart_v1.header_label_total" : "Gesamt",
+  "report_chart_v1.data_retrieve_error" : "Beim Laden der Daten ist ein Fehler aufgetreten.",
+
+  "doc_validations.summary_table_v1.buyer_header" : "Organisation",
+
+  "view_doc_validation_metrics_v1.view.apply_button_tooltip" : "Anwenden",
+  "view_doc_validation_metrics_v1.view.apply_button_text" : "Anwenden"
+
+
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Užsakymų būsena",
+  "pr-number": "PR Numeris",
+  "pr-number-description": "Įveskite Pirkimo Rekvizicijos numėrį, kad gauti jo būseną.",
+  "po-number": "PO Numeris",
+  "po-number-description": "Įveskite Pirkimo Užsakymo numerį, kad gauti jo būseną ir pristatymo informaciją.",
+  "invoice-number": "Sąskaitos Faktūros Numeris",
+  "invoice-number-description": "Įveskite Sąskaitos Faktūros numerį, kad gauti išrašymo ir apmokėjimo būsenas.",
+  "send": "Siųsti"
+}

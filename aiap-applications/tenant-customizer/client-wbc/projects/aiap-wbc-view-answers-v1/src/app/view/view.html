@@ -1,0 +1,83 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'answer_store_id'"
+            [label]="'answers_view_v1.fld_answer_store_id.label' | translate"
+            [labelHelp]="'answers_view_v1.fld_answer_store_id.helper_text' | translate"
+            [value]="answerStore?.id"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [placeholder]="'answers_view_v1.fld_answer_store_id.placeholder' | translate"
+            [skeleton]="state.isLoading">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'answer_store_name'"
+            [label]="'answers_view_v1.fld_answer_store_name.label' | translate"
+            [labelHelp]="'answers_view_v1.fld_answer_store_name.helper_text' | translate"
+            [value]="answerStore?.name"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [skeleton]="state.isLoading"
+            [placeholder]="'answers_view_v1.fld_answer_store_name.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'answer_store_reference'"
+            [label]="'answers_view_v1.fld_answer_store_reference.label' | translate"
+            [labelHelp]="'answers_view_v1.fld_answer_store_reference.helper_text' | translate"
+            [value]="answerStore?.reference"
+            [isRequired]="true"
+            [isDisabled]="true"
+            [skeleton]="state.isLoading"
+            [placeholder]="'answers_view_v1.fld_answer_store_reference.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-answers-table-v1
+      [config]="tableConfig"
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowSavePlace)="handleShowAnswerPlaceEvent($event)"
+      (onShowRemovePlace)="handleAnswerDeleteModal($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowPullPlace)="showPullModal()"
+      (onShowRollbackPlace)="showRollbackModal()"
+      (onFilterPanelOpenEvent)="handleFilterPanelOpenEvent()">
+    </aiap-answers-table-v1>
+  </div>
+</div>
+
+<aiap-answer-delete-modal-v1 #answerDeleteModal></aiap-answer-delete-modal-v1>
+<aiap-answer-store-import-modal-v1 #answerStoreImportModal></aiap-answer-store-import-modal-v1>
+<aiap-answers-pull-modal-v1 #answersPullModal></aiap-answers-pull-modal-v1>
+<aiap-answers-rollback-modal-v1 #answersRollbackModal></aiap-answers-rollback-modal-v1>
+
+<aiap-right-side-filter-panel-v1
+  *ngIf="!filterConfig.isLoading"
+  [config]="filterConfig"
+  [data]="filterData"
+  (onFilterChange)="handleFilterChange()"
+  (onResetFilter)="handleFilterReset()">
+  <div class="aiap-right-side-filter--content_item">
+    <aiap-date-range-picker-v1
+      [value]="filterData.dateRange"
+      [flow]="'vertical'"
+      (onChange)="handleDateRangeChange($event)">
+    </aiap-date-range-picker-v1>
+  </div>
+</aiap-right-side-filter-panel-v1>

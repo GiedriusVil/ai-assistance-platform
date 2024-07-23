@@ -1,0 +1,70 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import { Component, Input, OnInit } from '@angular/core';
+import { _debugX } from 'client-utils';
+
+import {
+  ChatWidgetServiceV1,
+  HTMLDependenciesServiceV1,
+} from 'client-services';
+
+@Component({
+  selector: 'aca-wbc-multimedia-box',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+})
+export class AppComponent implements OnInit {
+
+  static getClassName() {
+    return 'AppComponent';
+  }
+
+  static getElementTag() {
+    return 'aca-wbc-multimedia-box';
+  }
+
+  @Input() message: any;
+
+  _state: any = {
+    content: {
+      enabled: true
+    },
+  }
+
+  constructor(
+    private chatWidgetService: ChatWidgetServiceV1,
+    private htmlDependenciesService: HTMLDependenciesServiceV1,
+  ) { }
+
+  ngOnInit() {
+    this.loadHTMLDependencies();
+  }
+
+  getActiveClassNames() {
+    let retVal = 'message--content w-100';
+    if (
+      !this._state.content.enabled
+    ) {
+      retVal = `${retVal} content--disabled`;
+    }
+    return retVal;
+  }
+
+  isReady() {
+    const RET_VAL = this.htmlDependenciesService.idLoadedCSSDependency(this.elCSSLinkId());
+    return RET_VAL;
+  }
+
+  private elCSSLinkId() {
+    return AppComponent.getElementTag();
+  }
+
+  private async loadHTMLDependencies() {
+    const CLIENT_WBC_URL = this.chatWidgetService.getClientWbcUrl();
+    this.htmlDependenciesService.loadCSSDependency(this.elCSSLinkId(), `${CLIENT_WBC_URL}/${this.elCSSLinkId()}/styles.css`);
+  }
+
+}

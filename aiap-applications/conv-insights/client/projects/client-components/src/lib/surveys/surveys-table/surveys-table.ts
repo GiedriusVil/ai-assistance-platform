@@ -1,0 +1,178 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+import { Component, OnInit, EventEmitter, Output, ViewChild, TemplateRef, AfterViewInit } from '@angular/core';
+import { catchError, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+
+import {
+  TableItem,
+  TableHeaderItem,
+} from 'carbon-components-angular';
+
+import {
+  _debugX,
+} from 'client-shared-utils';
+
+import {
+  SessionServiceV1,
+  EventsServiceV1,
+  TimezoneServiceV1,
+  QueryServiceV1,
+  NotificationServiceV2,
+  TranslateHelperServiceV1,
+} from 'client-shared-services';
+
+import {
+  SurveyService,
+} from 'client-services';
+
+import {
+  BaseTable,
+} from 'client-shared-components';
+
+import {
+  DEFAULT_TABLE,
+  SURVEYS_MESSAGES,
+} from 'client-utils';
+
+@Component({
+  selector: 'aca-surveys-table',
+  templateUrl: './surveys-table.html',
+  styleUrls: ['./surveys-table.scss'],
+})
+export class SurveysTable extends BaseTable implements OnInit, AfterViewInit {
+
+  static getClassName() {
+    return 'SurveysTable';
+  }
+
+  @ViewChild("timestamp", { static: true }) timestamp: TemplateRef<any>;
+
+  @Output() showTranscript = new EventEmitter<any>();
+  @Output() onSearchEvent = new EventEmitter<any>();
+  @Output() onSearchClearEvent = new EventEmitter<any>();
+
+  isOpen = false;
+
+  loading = false;
+  state: any = {
+    queryType: DEFAULT_TABLE.SURVEYS.TYPE,
+    search: '',
+  };
+
+  constructor(
+    protected eventsService: EventsServiceV1,
+    private notificationService: NotificationServiceV2,
+    private surveyService: SurveyService,
+    protected timezoneService: TimezoneServiceV1,
+    protected queryService: QueryServiceV1,
+    protected sessionService: SessionServiceV1,
+    private translateService: TranslateHelperServiceV1,
+  ) {
+    super(sessionService, queryService, eventsService);
+  }
+
+  ngOnInit() {
+    super.setQueryType(this.state.queryType);
+    this.setSearch();
+    super.ngOnInit();
+  }
+
+  ngAfterViewInit() { }
+
+  setSearch() {
+    const QUERY = this.queryService.query(this.state.queryType);
+    this.state.search = QUERY?.filter?.search || '';
+  }
+
+  addFilterEventHandler() {
+    let defaultQuery = this.queryService.query(this.state.queryType);
+    this.eventsService.filterEmitter.pipe(
+      tap(() => {
+        this.eventsService.loadingEmit(true);
+        this.loading = true;
+      }),
+      switchMap(query => {
+        _debugX(SurveysTable.getClassName(), `addFilterEventHandler`, { query });
+        if (query) {
+          defaultQuery = query;
+        }
+
+        return this.surveyService.findManyByQuery(defaultQuery).pipe(
+          catchError((error) => this.handleSurveysError(error))
+        );
+      }),
+      takeUntil(this._destroyed$)
+    ).subscribe((response: any) => {
+      _debugX(SurveysTable.getClassName(), `addFilterEventHandler`, { response });
+      this.response = response;
+      this.loading = false;
+      this.eventsService.loadingEmit(false);
+      this.refreshTableModel();
+    });
+  }
+
+  handleSurveysError(error) {
+    this.eventsService.loadingEmit(false);
+    this.loading = false;
+    this.notificationService.showNotification(SURVEYS_MESSAGES.ERROR.FIND_MANY_BY_QUERY);
+    return of()
+  }
+
+
+  constructTableHeader() {
+    const TABLE_HEADER = [];
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_created.header'),
+      field: 'created'
+    }));
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_assistant_id.header'),
+      field: 'assistantId'
+    }));
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_conversation_id.header'),
+      field: 'conversationId'
+    }));
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_score.header'),
+      field: 'score'
+    }));
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_status.header'),
+      field: 'status'
+    }));
+    TABLE_HEADER.push(new TableHeaderItem({
+      data: this.translateService.instant('surveys_view_v1.surveys_table.col_comment.header'),
+      field: 'comment'
+    }));
+    this.model.header = TABLE_HEADER;
+  }
+
+  transformResponseItemToRow(item) {
+    const RET_VAL = [];
+    RET_VAL.push(new TableItem({ data: item?.created, template: this.timestamp }));
+    RET_VAL.push(new TableItem({ data: item?.assistantId }));
+    RET_VAL.push(new TableItem({ data: item?.conversationId }));
+    RET_VAL.push(new TableItem({ data: item?.score }));
+    RET_VAL.push(new TableItem({ data: '' }));
+    RET_VAL.push(new TableItem({ data: item?.comment }));
+    return RET_VAL;
+  }
+
+  isShowRowSavePlaceAllowed() {
+    const RET_VAL = this.sessionService.isActionAllowed({ action: 'conversations.view.view-transcript' });
+    return RET_VAL;
+  }
+
+  emitSearchEvent(event: any) {
+    this.onSearchEvent.emit(event);
+  }
+
+  emitSearchClearEvent() {
+    this.onSearchClearEvent.emit();
+  }
+}

@@ -1,0 +1,49 @@
+<ng-container>
+  <form #applicationPolicyForm="ngForm">
+    <!-- Cross-Site Request Forgery [START] -->
+    <input
+      type="hidden"
+      name="csrftoken"
+      value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+    <!-- Cross-Site Request Forgery [END] -->
+    <div ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <aiap-checkbox-tree-v1
+        #policyPlatformCheckboxTree
+        [items]="selection.views"
+        [useDefaultSearch]="false"
+        (onSearch)="handleSearch($event)">
+      </aiap-checkbox-tree-v1>
+      <div ibmRow>&nbsp;</div>
+    </div>
+  </form>
+  <div ibmRow [leftGutter]="false" [rightGutter]="false">
+    <div ibmCol>
+      <aiap-button-v1
+        [size]="'md'"
+        [text]="'access_groups_view_v1.policy_platform_v1.btn_clear_all.text' | translate"
+        [tooltip]="'access_groups_view_v1.policy_platform_v1.btn_clear_all.tooltip' | translate"
+        [type]="'secondary'"
+        (onClick)="handleClearPolicies($event)">
+      </aiap-button-v1>
+    </div>
+    <div ibmCol>
+      <aiap-button-v1
+        [size]="'md'"
+        [text]="'access_groups_view_v1.policy_platform_v1.btn_add_selected.text' | translate"
+        [tooltip]="'access_groups_view_v1.policy_platform_v1.btn_add_selected.tooltip' | translate"
+        [type]="'primary'"
+        (onClick)="handleAddPolicies($event)">
+      </aiap-button-v1>
+    </div>
+    <div ibmCol>
+      <aiap-button-v1
+        [size]="'md'"
+        [text]="'access_groups_view_v1.policy_platform_v1.btn_add_all.text' | translate"
+        [tooltip]="'access_groups_view_v1.policy_platform_v1.btn_add_all.tooltip' | translate"
+        [type]="'primary'"
+        (onClick)="handleAddPolicies($event, true)">
+      </aiap-button-v1>
+    </div>
+  </div>
+</ng-container>

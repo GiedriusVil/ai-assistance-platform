@@ -1,0 +1,38 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved.
+
+  SPDX-License-Identifier: EPL-2.0
+*/
+
+aiap-answer-view-v1 {
+  background: transparent;
+
+  .dashboard-content .bx--row {
+    padding-right: 24px;
+  }
+
+  aiap-answer-value-card-v1 .bx--row {
+    padding-right: 0;
+  }
+
+  aiap-button-v1 {
+    button.bx--btn {
+      min-width: 152px;
+    }
+  }
+
+  .btn-first {
+    button.bx--btn {
+      margin-right: 16px;
+    }
+  }
+
+  .bx--accordion__content {
+    padding-right: 0;
+  }
+
+  .bx--grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

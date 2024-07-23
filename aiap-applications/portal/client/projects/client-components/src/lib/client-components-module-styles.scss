@@ -1,0 +1,76 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+// access-groups
+@use "./access-groups/access-groups-components.scss";
+
+// applications
+@use "./applications/applications-components.scss";
+
+// check-box-tree-v1
+@use "./checkbox-tree-v1/checkbox-tree-v1.scss";
+
+// cards-panel-v1
+@use "./cards-panel-v1/cards-panel-v1.scss";
+
+// tenants
+@use "./tenants/tenants-components.scss";
+
+// users
+@use "./users/users-components.scss";
+
+// //To delay the carbon tooltip
+// ::ng-deep .bx--tooltip {
+//   animation: tooltipkeys 2s 1; //here just change the 1s to you desired delay time!
+//   opacity: 1;
+// }
+
+// @-webkit-keyframes tooltipkeys {
+//   0% {
+//     opacity: 0;
+//   }
+//   75% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @-moz-keyframes tooltipkeys {
+//   0% {
+//     opacity: 0;
+//   }
+//   75% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @-o-keyframes tooltipkeys {
+//   0% {
+//     opacity: 0;
+//   }
+//   75% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes tooltipkeys {
+//   0% {
+//     opacity: 0;
+//   }
+//   75% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }

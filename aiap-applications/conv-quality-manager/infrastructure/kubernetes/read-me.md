@@ -1,0 +1,1 @@
+# This is placeholder reminder - that kubernetes deployment related configuration - should be placed here!!!

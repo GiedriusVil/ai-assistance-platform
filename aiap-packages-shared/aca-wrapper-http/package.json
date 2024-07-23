@@ -1,0 +1,21 @@
+{
+  "name": "@ibm-aca/aca-wrapper-http",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "IBM",
+  "dependencies": {
+    "got": "9.6.0"
+  },
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    },
+    {
+      "name": "Marekas Molis",
+      "email": "marekas.molis@ibm.com",
+      "url": "https://www.linkedin.com/in/marekas-molis-918295168"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+<aiap-table-v1-container-v1 
+  #ruleConditionTableContainer>
+  <ibm-table-header>
+    <h4 ibmTableHeaderTitle>
+      {{'rules.rules_conditions_table_v1.header' | translate}}
+    </h4>
+  </ibm-table-header>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      [type]="'primary'" 
+      [size]="'sm'" 
+      [disabled]="!rule.type" 
+      [text]="'rules.rules_conditions_table_v1.add_button' | translate"
+      [tooltip]="'rules.rules_conditions_table_v1.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/20/navigation/add.svg'"
+      (onClick)="addCondition()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    #ruleConditionTable
+    [model]="conditionModel">
+  </aiap-table-v1>
+  <div 
+    *ngIf="containsInvalidRows()" 
+    class="invalid-notification-wrapper">
+    <ibm-notification 
+      [notificationObj]="invalidValueNotification">
+    </ibm-notification>
+  </div>
+</aiap-table-v1-container-v1>
+
+<ng-template 
+  #actionsOverFlowTemplate 
+  let-data="data">
+  <button 
+    ibmButton="tertiary" 
+    size="sm" 
+    [iconOnly]="true" 
+    [hasAssistiveText]="true" 
+    assistiveTextPlacement="bottom"
+    assistiveTextAlignment="start" 
+    (click)="removeCondition(data, $event)">
+    <aiap-icon-svg-v1 
+      class="bx--btn__icon"
+      [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+    </aiap-icon-svg-v1>
+    <ibm-icon-trash-can 
+      size="16">
+    </ibm-icon-trash-can>
+    <span class="bx--assistive-text">
+      {{'rules.rules_conditions_table_v1.remove_button' | translate}}
+    </span>
+  </button>
+</ng-template>
+
+<ng-template 
+  #conditionRootElementTemplate 
+  let-data="data">
+  <ibm-dropdown 
+    [placeholder]="'rules_conditions_table_v1.dropdown.fact_placeholder' | translate"
+    name="Fact"
+    [disabled]="selections.conditions[data.index]?.facts && selections.conditions[data.index]?.facts?.length < 2"
+    (selected)="handleFactSelect($event, data)">
+    <ibm-dropdown-list 
+      [items]="selections.conditions[data.index].facts">
+    </ibm-dropdown-list>
+  </ibm-dropdown>
+</ng-template>
+
+<ng-template 
+  #conditionPathTemplate 
+  let-data="data">
+  <ibm-dropdown 
+    [placeholder]="'rules_conditions_table_v1.dropdown.path_placeholder' | translate"
+    name="Path"
+    [disabled]="!selections.conditions[data.index]?.fact || selections.conditions[data.index]?.paths?.length < 1"
+    (selected)="handlePathSelect($event, data)">
+    <ibm-dropdown-list 
+      [items]="selections.conditions[data.index].paths">
+    </ibm-dropdown-list>
+  </ibm-dropdown>
+</ng-template>
+
+<ng-template 
+  #conditionOperatorTemplate 
+  let-data="data">
+  <ibm-dropdown 
+    [placeholder]="'rules_conditions_table_v1.dropdown.operator_placeholder' | translate"
+    name="ruleActions"
+    [disabled]="!selections.conditions[data.index].fact" 
+    (selected)="handleOperatorSelect($event, data)">
+    <ibm-dropdown-list 
+      [items]="selections.conditions[data.index].operators">
+    </ibm-dropdown-list>
+  </ibm-dropdown>
+</ng-template>
+
+<ng-template 
+  #conditionValueTemplate 
+  let-data="data">
+  <input 
+    ibmText 
+    required 
+    name="valAsString" 
+    id="text-input-value" 
+    type="text" 
+    class="bx--text-input"
+    [placeholder]="'rules_conditions_table_v1.input.placeholder' | translate"
+    [disabled]="!selections.conditions[data.condition.index].operator" 
+    [attr.required]="true"
+    [invalid]="rule.conditions[data.arrayIndex].invalid" 
+    (change)="validateArray(rule.conditions[data.arrayIndex])"
+    [(ngModel)]="rule.conditions[data.arrayIndex].valAsString" />
+</ng-template>

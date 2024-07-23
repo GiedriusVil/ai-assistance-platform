@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-utils-transcript",
+  "author": "IBM (aca.devops@lt.ibm.com)",
+  "private": true,
+  "version": "0.0.1",
+  "description": "aca-utils-transcript",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "@ibm-aca/aca-utils-session": "0.0.1"
+  }
+}

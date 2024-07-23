@@ -1,0 +1,35 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+:host {
+  div {
+    height: 100%;
+    border-bottom: 1px solid gray;
+
+    display: grid;
+
+    padding: 4px 2px;
+    display: flex;
+  }
+
+  h1 {
+    color: black;
+  }
+  
+  button {
+    margin-left: auto;
+    display: block;
+
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+
+    align-self: center;
+    border: 1px solid blue;
+    color: blue;
+    background-color: white;
+
+  }
+}

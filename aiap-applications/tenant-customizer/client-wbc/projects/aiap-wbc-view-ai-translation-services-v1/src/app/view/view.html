@@ -1,0 +1,32 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-translation-services-table-v1
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowImportPlace)="handleShowImportModalEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowPlaceEvent($event)">
+    </aiap-ai-translation-services-table-v1>
+  </div>
+</div>
+
+<aiap-ai-translation-service-save-modal-v1
+  #aiTranslationServiceSaveModal>
+</aiap-ai-translation-service-save-modal-v1>
+
+<aiap-ai-translation-service-delete-modal-v1 
+  #aiTranslationServiceDeleteModal>
+</aiap-ai-translation-service-delete-modal-v1>
+
+<aiap-ai-translation-service-import-modal-v1 
+  #aiTranslationServiceImportModal>
+</aiap-ai-translation-service-import-modal-v1>

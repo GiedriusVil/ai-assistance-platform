@@ -1,0 +1,185 @@
+<div class="product-box" *ngFor=" let product of _state.products; let i = index">
+    <div class="row flex-nowrap">
+        <div *ngIf="isCheckboxVisible()" class="col checkbox-column">
+            <div class="checkbox">
+                <label><input type="checkbox" value="" (click)="handleProductSelectionEvent()"></label>
+            </div>
+        </div>
+        <div class="col image-column">
+            <div class="image-box">
+                <img src="{{product.image}}" />
+            </div>
+        </div>
+        <div class="col details-column">
+            <div class="container details-box">
+                <div class="row">
+                    <div class="title">
+                        {{product.itemName}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="description">
+                        {{ product.itemDescription }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngIf="!product.availability" class="availability">
+                        No availability info
+                    </div>
+                    <div *ngIf="product.availability" class="availability">
+                        Available in <strong>{{product.availability}}</strong> days
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isQuantityVisible()" class="container quantity-box">
+                <div class="row">
+                    <div class="price">
+                        <p><strong>{{product.unitPrice || '--'}}</strong> {{product.currency ||
+                            ' '}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="date-time">
+                        {{formatDateTime(product.selectedTimestamp)}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col actions-column">
+            <div class="actions-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="add-remove-icon">
+                            <p *ngIf="isProductStatusVisible(product)">SELECTED</p>
+                            <button *ngIf="isAddBtnVisible()" (click)="handleProductSelectEvent(product)">
+                                <div class="cart-icon"></div>
+                            </button>
+
+                            <button *ngIf="isRemoveBtnVisible()" (click)="handleProductRemoveEvent(product)">
+                                <div class="bin-icon"></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="!isQuantityVisible()">
+                        <div class="row">
+                            <div class="price">
+                                <p>
+                                    <strong>
+                                        {{product.unitPrice || '--'}}
+                                    </strong>
+                                    {{product.currency || ' '}}
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="details">
+                                <button type="button" data-toggle="collapse" [attr.data-target]="'#collapseExample' + i"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isQuantityVisible()">
+                <div class="row">
+                    <div class="col quantity-buttons-box">
+                        <div class=" container quantity-buttons-row">
+                            <div class="row">
+                                <div class="col minus-button-box">
+                                    <button (click)="handleProductQtyReduceEvent(product)">-</button>
+                                </div>
+                                <div class="col quantity-text-box">
+                                    <p>{{product.quantity || 1}}</p>
+                                </div>
+                                <div class="col plus-button-box">
+                                    <button (click)="handleProductQtyIncreaseEvent(product)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" [attr.id]="'collapseExample' + i">
+        <div class="more-details">
+            <div *ngIf="product.supplierPartId">
+                <div class="details-row-label">
+                    <p>Supplier part no.:</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.supplierPartId}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.manufacturerName">
+                <div class="details-row-label">
+                    <p>Manufacturer</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.manufacturerName}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.manufacturerPartId">
+                <div class="details-row-label">
+                    <p>Manufacturer Part #:</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.manufacturerPartId}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.purchaseType">
+                <div class="details-row-label">
+                    <p>Purchase Type:</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.purchaseType}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.teritorry">
+                <div class="details-row-label">
+                    <p>Teritorry:</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.teritorry}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.url">
+                <div class="details-row-label">
+                    <p>Information from Supplier:</p>
+                </div>
+                <div class="details-row-text">
+                    <a href="{{product.url}}">{{product.url}}</a>
+                </div>
+            </div>
+            <div *ngIf="product.contact">
+                <div class="details-row-label">
+                    <p>Contact:</p>
+                </div>
+                <div class="details-row-text">
+                    <p>{{product.contact}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngb-pagination 
+    *ngIf="isPaginationVisible()" 
+    [collectionSize]="_state.productsTotalQty" 
+    [(page)]="_state.pagination.page"
+    [pageSize]="_state.pagination.size"
+    [directionLinks]="false"
+    [disabled]="isContentEnabled" 
+    (pageChange)="refresh()">
+</ngb-pagination>
+<button class="btn btn-sm btn-outline-primary"
+    *ngIf="isNotInCatalogBtnVisible()"
+    type="button"
+    [disabled]="!_state.enable.notInCatalogBtn"
+    (click)="handleNotInCatalogBtnEvent()"
+    >
+    {{ _state.notInCatalogMessage }}
+</button>

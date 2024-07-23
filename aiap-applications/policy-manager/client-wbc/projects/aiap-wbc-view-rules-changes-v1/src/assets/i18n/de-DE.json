@@ -1,0 +1,31 @@
+{
+  "rule_messages_v1.template_table_v1.header" : "Vorlagen *",
+  "rule_messages_v1.template_table_v1.add_template_button" : "Vorlage hinzufügen",
+  "rule_messages_v1.template_table_v1.remove_template_button" : "Vorlage entferne",
+  "rule_changes_v1.modal_v1.header" : "Regeländerung",
+  "rule_changes_v1.modal_v1.transaction_id_label" : "Transaktions-ID",
+  "rule_changes_v1.modal_v1.action_label" : "Aktion",
+  "rule_changes_v1.modal_v1.initiator_id_label" : "Initiator-ID",
+  "rule_changes_v1.modal_v1.initiator_name_label" : "Initiatorenname",
+  "rule_changes_v1.modal_v1.document_id_label" : "Dokument-ID",
+  "rule_changes_v1.modal_v1.document_type_label" : "Dokumententyp",
+  "rule_changes_v1.modal_v1.timestamp_label" : "Zeitstempel",
+  "rule_changes_v1.modal_v1.close_button" : "Schließen",
+
+  "rules.rules_changes_table_v1.export_button" : "Exportieren",
+  "rules.rules_changes_table_v1.refresh_button_tooltip" : "Aktualisieren",
+  "rules.rules_changes_table_v1.export_button_tooltip" : "Exportieren",
+  "rules.rule_changes_table_v1.transaction_id_header" : "Transaktions-ID",
+  "rules.rule_changes_table_v1.document_id_header" : "Dokument-ID",
+  "rules.rule_changes_table_v1.document_type_header" : "Dokumententyp",
+  "rules.rule_changes_table_v1.action_header" : "Aktion",
+  "rules.rule_changes_table_v1.changed_header" : "Geändert",
+  "difference_table_v1.table.field_header" : "Feld",
+  "difference_table_v1.table.old_value_header" : "Alter Wert",
+  "difference_table_v1.table.new_value_header" : "Neuer Wert",
+  "rule_changes_v1.modal_v1.close_button_tooltip" : "Schließen",
+  "rules.rule_changes_table_v1.notification.error.title" : "[DE] Unable to retrieve rule changes!",
+  "rules.rule_changes_table_v1.notification.warning.title" : "[DE] Export rules changes",
+  "rules.rule_changes_table_v1.notification.warning.message" : "[DE] Nothing to export!"
+
+}

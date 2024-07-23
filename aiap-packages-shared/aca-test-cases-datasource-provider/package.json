@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-test-cases-datasource-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Martynas Stake",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1",
+    "@ibm-aca/aca-data-transformer": "0.0.1",
+    "@ibm-aca/aca-runtime-source-registry": "0.0.1"
+  }
+}

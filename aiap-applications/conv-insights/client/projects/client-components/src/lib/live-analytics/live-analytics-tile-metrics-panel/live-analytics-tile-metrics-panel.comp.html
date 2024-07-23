@@ -1,0 +1,18 @@
+<div 
+  *ngIf="configuration && configuration.tiles"
+  class="totals-content">
+  <div ibmGrid>
+    <div ibmRow [gutter]="false" [condensed]="true">
+      <ng-container *ngFor="let tile of configuration?.tiles">
+        <div ibmCol [columnNumbers]="tile?.columns? tile.columns: {'xlg': 2, 'lg': 4, 'md': 4, 'sm': 4}" >
+          <aca-live-analytics-tile-metric
+            [tile]="tile"
+            [query]="query"
+            [configuration]="configuration"
+            [_cancelMetricsRequests$]="_cancelMetricsRequests$">
+          </aca-live-analytics-tile-metric>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

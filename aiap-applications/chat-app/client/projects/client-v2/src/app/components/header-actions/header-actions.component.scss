@@ -1,0 +1,108 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+// @import "~bootstrap/scss/bootstrap";
+
+aca-chat-header-actions {
+  grid-area: header;
+
+  .buy-header {
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgb(195, 195, 195);
+    font-size: 13px;
+    overflow-x: hidden;
+
+    .button-box {
+      min-height: 50px;
+      padding-left: 0;
+      padding-right: 0;
+
+      button {
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+
+        p {
+          margin-bottom: auto;
+        }
+
+        .chat-icon {
+          margin-top: 4px;
+          height: 20px;
+          width: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/chat-left-dots.svg") !important;
+          background-size: contain;
+          -o-background-size: contain;
+          -webkit-background-size: contain;
+        }
+
+        .cart-icon {
+          margin-top: 4px;
+          height: 20px;
+          width: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/cart.svg") !important;
+          background-size: contain;
+          -o-background-size: contain;
+          -webkit-background-size: contain;
+        }
+
+        .filled-cart-icon {
+          margin-top: 4px;
+          height: 20px;
+          width: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/cart-fill.svg") !important;
+          background-size: contain;
+          -o-background-size: contain;
+          -webkit-background-size: contain;
+        }
+
+        .survey-icon {
+          margin-top: 4px;
+          height: 20px;
+          width: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/file-text.svg") !important;
+          background-size: contain;
+          -o-background-size: contain;
+          -webkit-background-size: contain;
+        }
+
+        .profile-icon {
+          margin-top: 4px;
+          height: 20px;
+          width: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/person.svg") !important;
+          background-size: contain;
+          -o-background-size: contain;
+          -webkit-background-size: contain;
+        }
+      }
+    }
+  }
+
+  .btn-active {
+    border-bottom: 3px solid rgb(70, 130, 247);
+  }
+
+  .btn-default {
+    padding-bottom: 3px;
+  }
+}

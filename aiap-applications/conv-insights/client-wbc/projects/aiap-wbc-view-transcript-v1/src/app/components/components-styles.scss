@@ -1,0 +1,16 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./exclamation-button/exclamation-button.scss";
+@use "./ms-survey-questions-card/ms-survey-questions-card.scss";
+@use "./ms-survey-results-card/ms-survey-results-card.scss";
+@use "./ms-wds-results-card/ms-wds-results-card.scss";
+@use "./transcript-ai-service-details/transcript-ai-service-details.scss";
+@use "./transcript-component-v1/transcript-component-v1.scss";
+@use "./transcript-message-entities/transcript-message-entities.scss";
+@use "./transcript-message-intents/transcript-message-intents.scss";
+@use "./transcript-message/transcript-message.scss";
+@use "./wbc-attachment/wbc-attachment.scss";
+@use "./ai-service-change-request-modal-v1/ai-services-change-request-modal-v1.scss";

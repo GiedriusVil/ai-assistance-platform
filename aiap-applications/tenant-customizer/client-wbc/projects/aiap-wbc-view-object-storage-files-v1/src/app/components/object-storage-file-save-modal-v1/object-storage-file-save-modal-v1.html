@@ -1,0 +1,72 @@
+<aiap-modal-v1
+  [size]="'lg'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'object_storage_files_view_v1.save_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <form #objectStorageFileSaveModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-combo-box-singular-v1
+              [name]="'object_storage_bucket'"
+              [label]="'object_storage_files_view_v1.save_modal_v1.fld_bucket.label' | translate"
+              [placeholder]="'object_storage_files_view_v1.save_modal_v1.fld_bucket.placeholder' | translate"
+              [items]="state.buckets"
+              (onSelected)="handleEventBucketSelected($event)"
+              [(value)]="state.bucket">
+            </aiap-field-combo-box-singular-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'object_storage_bucket_reference'"
+              [label]="'object_storage_files_view_v1.save_modal_v1.fld_reference.label' | translate"
+              [labelHelp]="'object_storage_files_view_v1.save_modal_v1.fld_reference.labelHelp' | translate"
+              [placeholder]="'object_storage_files_view_v1.save_modal_v1.fld_reference.placeholder' | translate"
+              [skeleton]="isLoading"
+              [isRequired]="true"
+              [isDisabled]="!value?.bucketId"
+              [(value)]="value.reference">
+            </aiap-field-input-v1>  
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-files-uploader-singular-v1
+              [title]="'object_storage_files_view_v1.save_modal_v1.fld_files_uploader.title' | translate"
+              [description]="'object_storage_files_view_v1.save_modal_v1.fld_files_uploader.description' | translate"
+              [dropText]="'object_storage_files_view_v1.save_modal_v1.fld_files_uploader.dropText' | translate"
+              [tooltipRemove]="'object_storage_files_view_v1.save_modal_v1.fld_files_uploader.tooltipRemove' | translate "
+              [accept]="['.png', '.mov', '.jpeg', '.pdf']"
+              [isDisabled]="!value?.bucketId"
+              [(value)]="state.file">
+            </aiap-field-files-uploader-singular-v1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'object_storage_files_view_v1.save_modal_v1.btn_close.text' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'object_storage_files_view_v1.save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [skeleton]="isLoading"
+      [disabled]="objectStorageFileSaveModal.invalid || !value?.bucketId || !state?.file"
+      (onClick)="handleEventSave($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,65 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "module": "es2020",
+    "target": "es6",
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "es2020"
+    ],
+    "paths": {
+      "aca-client-shared": [
+        "dist/aca-client-shared/aca-client-shared",
+        "dist/aca-client-shared"
+      ],
+      "aca-client-components": [
+        "dist/aca-client-components/aca-client-components",
+        "dist/aca-client-components"
+      ],
+      "aca-client-services": [
+        "dist/aca-client-services/aca-client-services",
+        "dist/aca-client-services"
+      ],
+      "aca-client-views": [
+        "dist/aca-client-views/aca-client-views",
+        "dist/aca-client-views"
+      ],
+      "client-shared-utils": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-utils/client-shared-utils",
+        "../../../aiap-packages-shared-angular/dist/client-shared-utils/",
+      ],
+      "client-shared-services": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-services/client-shared-services",
+        "../../../aiap-packages-shared-angular/dist/client-shared-services/",
+      ],
+      "client-shared-components": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-components/client-shared-components",
+        "../../../aiap-packages-shared-angular/dist/client-shared-components/",
+      ],
+      "client-shared-views": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-views/client-shared-views",
+        "../../../aiap-packages-shared-angular/dist/client-shared-views/",
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
+    }
+  }
+}

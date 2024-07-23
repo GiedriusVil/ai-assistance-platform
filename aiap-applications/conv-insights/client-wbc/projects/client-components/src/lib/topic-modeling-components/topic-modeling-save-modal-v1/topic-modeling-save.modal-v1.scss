@@ -1,0 +1,46 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+@use './topic-modeling-save-data-tab-v1/topic-modeling-save-data.tab-v1.scss';
+
+aiap-topic-modeling-save-modal-v1 {
+  overflow: hidden;
+
+  .bx--tab-content {
+    padding-left: 0;
+    padding-right: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+
+  .wrapper {
+    display: flex;
+
+    .left-side {
+      width: 50%;
+    }
+    .right-side {
+      width: 50%;
+    }
+  }
+}

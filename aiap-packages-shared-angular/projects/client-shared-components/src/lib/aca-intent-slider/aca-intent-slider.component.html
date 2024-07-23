@@ -1,0 +1,31 @@
+<ul #dataaccordion data-accordion class="bx--accordion">
+  <li data-accordion-item class="bx--accordion__item">
+    <button class="bx--accordion__heading" aria-expanded="false" aria-controls="pane1">
+      <svg focusable="false" preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16"
+        aria-hidden="true">
+        <path d="M11 8l-5 5-.7-.7L9.6 8 5.3 3.7 6 3z"></path>
+      </svg>
+      <div class="bx--accordion__title">
+        <h4>{{ title }}</h4>
+      </div>
+    </button>
+    <div id="pane1" class="bx--accordion__content">
+      <div class="bx--form-item">
+        <ibm-slider
+            #slider
+            label="Confidence Level"
+            min="0"
+            max="1"
+            step="0.01"
+            [(value)]="value"
+            aria-Label="Confidence Level"
+            (valueChange)="onConfidenceChange($event)">
+          <span minLabel>0</span>
+          <span maxLabel>1</span>
+          <input class="'bx--text-input--light'"/>
+        </ibm-slider>
+      </div>
+    </div>
+  </li>
+</ul>

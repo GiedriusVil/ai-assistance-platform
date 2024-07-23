@@ -1,0 +1,81 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug server ${input:app}",
+      "request": "launch",
+      "runtimeArgs": [
+        "server:start",
+        "--app",
+        "${input:app}",
+        "--local",
+        "--configDir",
+        "${input:configDir}"
+      ],
+      "runtimeExecutable": "yarn",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "outFiles": [
+        "${workspaceFolder}/aiap-applications/*/packages/*/dist/**/*.js.map",
+        "${workspaceFolder}/aiap-packages-shared/*/dist/**/*.js.map"
+      ],
+      "outputCapture": "std",
+    },
+    {
+      "name": "Attach by Process ID",
+      "processId": "${input:processId}",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "outFiles": [
+        "${workspaceFolder}/aiap-applications/*/packages/*/dist/**/*.js.map",
+        "${workspaceFolder}/aiap-packages-shared/*/dist/**/*.js.map"
+      ],
+    },
+    {
+      "name": "Attach By Port",
+      "port": "${input:port}",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "outFiles": [
+        "${workspaceFolder}/aiap-applications/*/packages/*/dist/**/*.js.map",
+        "${workspaceFolder}/aiap-packages-shared/*/dist/**/*.js.map"
+      ],
+    },
+  ],
+  "inputs": [
+    {
+      "id": "configDir",
+      "description": "Configuration directory:",
+      "default": "../aiap-configuration",
+      "type": "promptString",
+    },
+    {
+      "id": "processId",
+      "description": "Process Id:",
+      "type": "promptString",
+    },
+    {
+      "id": "port",
+      "description": "Port:",
+      "type": "promptString",
+    },
+    {
+      "id": "app",
+      "description": "Application Name:",
+      "default": "portal",
+      "type": "pickString",
+      "options": ["portal", "chat-app", "conv-insights", "conv-quality-manager", "live-analytics", "policy-engine", "policy-gateway", "policy-manager", "soe", "tenant-customizer"]
+    },
+  ]
+}

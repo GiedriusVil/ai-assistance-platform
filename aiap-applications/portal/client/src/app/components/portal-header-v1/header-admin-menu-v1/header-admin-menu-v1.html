@@ -1,0 +1,49 @@
+<ibm-header-menu 
+  trigger="mouseover" 
+  [icon]="viewIcon" 
+  *ngIf="state.isAtLeastOneViewEnabled">
+  <ng-container
+    *ngFor="let view of views" 
+    [ngSwitch]="view.type">
+    <ng-container *ngSwitchCase="'SINGLE_VIEW'">
+      <ibm-header-item 
+        *isPageAllowed="view?.component" 
+        [route]="view?.route">
+        <aiap-icon-svg-v1 
+          icon 
+          [src]="view?.icon">
+        </aiap-icon-svg-v1>
+        {{ view?.name | translate }}
+      </ibm-header-item>
+    </ng-container>
+    <ng-container 
+      *ngSwitchCase="'MULTI_VIEW'">
+      <ibm-sidenav-menu 
+        [title]="view?.name | translate">
+        <aiap-icon-svg-v1 
+          icon 
+          [src]="view?.icon">
+        </aiap-icon-svg-v1>
+        <ng-container 
+          *ngFor="let childView of view?.views">
+          <ibm-header-item 
+            *ngIf="childView" 
+            [route]="childView?.route">
+            <aiap-icon-svg-v1 
+              icon 
+              [src]="childView?.icon">
+            </aiap-icon-svg-v1>
+            {{ childView?.name | translate}}
+          </ibm-header-item>
+        </ng-container>
+      </ibm-sidenav-menu>
+    </ng-container>
+  </ng-container>
+</ibm-header-menu>
+
+<ng-template #viewIcon>
+  <aiap-icon-svg-v1 
+    class="bx--btn__icon"
+    [src]="'assets/carbon-icons/20/controls/settings.svg'">
+  </aiap-icon-svg-v1>
+</ng-template>

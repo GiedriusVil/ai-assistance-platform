@@ -1,0 +1,87 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aca-chat-app-button {
+  
+  .chat-button-wrapper {
+    position: fixed;
+    right: 2px;
+    bottom: 2px;
+    color: #f4f4f4;
+    z-index: 9999;
+  }
+
+  .chat-button {
+    align-items: center;
+    background: #161616;
+    color: #f4f4f4;
+    border: 0;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    flex: auto;
+    gap: 8px;
+    padding: 8px 16px;
+    justify-content: space-between;
+    min-width: 240px;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  .chat-button--expanded {
+    min-width: 600px;
+  }
+
+  .chat-icon {
+    background-color: #161616;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: text-bottom;
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  .chat-icon-logo {
+    height: 1.5em;
+    width: 1.5em;
+    background-image: url("../../../assets/logo.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+  }
+
+  .chat-icon-expand {
+    height: 1.5em;
+    width: 1.5em;
+    background-image: url("../../../assets/expand.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+  }
+
+  .chat-icon-expand--expanded {
+    transform: rotate(180deg);
+  }
+
+  @media screen and (max-width: 576px) {
+    .chat-button-wrapper--expanded {
+      right: 0;
+      bottom: 0;
+    }
+  
+    .chat-button {
+      transition: none;
+    }
+    
+    .chat-button--expanded {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+}

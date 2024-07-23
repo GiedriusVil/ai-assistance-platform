@@ -1,0 +1,41 @@
+<div class="float-start w-100 clearfix">
+    <div class="header-actions">
+        <div class="row">
+            <div class="col-3 button-box" *ngIf="isFeatureEnabled('chat')" (click)="onClick('chat')" [ngClass]="isActive('chat') ? 'btn-active' : 'btn-default'">
+                <button routerLink="/">
+                    <div class="chat-icon"></div>
+                    <p>{{'header-actions.chat'| translate}}</p>
+                </button>
+            </div>
+            <div class="col-3 button-box" *ngIf="isFeatureEnabled('basket') && !showFilledCart()" (click)="onClick('buyingRequest')" [ngClass]="isActive('buyingRequest') ? 'btn-active' : 'btn-default'">
+                <button routerLink="/basket" >
+                    <div class="cart-icon"></div>
+                    <p>{{'header-actions.buying-request'| translate}}</p>
+                </button>
+            </div>
+            <div class="col-3 button-box" *ngIf="isFeatureEnabled('basket') && showFilledCart()" (click)="onClick('buyingRequest')" [ngClass]="isActive('buyingRequest') ? 'btn-active' : 'btn-default'">
+                <button routerLink="/basket">
+                    <div class="filled-cart-icon"></div>
+                    <p>{{'header-actions.buying-request'| translate}}</p>
+                </button>
+            </div>
+            <div class="col-3 button-box" *ngIf="isFeatureEnabled('survey')" (click)="onClick('survey')" [ngClass]="isActive('survey') ? 'btn-active' : 'btn-default'">
+                <button (click)="showSurvey()">
+                    <div class="survey-icon"></div>
+                    <p>{{'header-actions.survey'| translate}}</p>
+                </button>
+            </div>
+            <div class="col-3 button-box" *ngIf="isFeatureEnabled('profile')" (click)="onClick('profile')" [ngClass]="isActive('profile') ? 'btn-active' : 'btn-default'">
+                <button disabled routerLink="/#">
+                    <div class="profile-icon"></div>
+                    <p>{{'header-actions.profile'| translate}}</p>
+                </button>
+            </div>
+            <div class="button-box identification-button" *ngIf="isFeatureEnabled('identification')" (click)="onClick('profile')">
+                <button (click)="requestIdentification()">
+                    <p>{{'header-actions.identification'| translate}}</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

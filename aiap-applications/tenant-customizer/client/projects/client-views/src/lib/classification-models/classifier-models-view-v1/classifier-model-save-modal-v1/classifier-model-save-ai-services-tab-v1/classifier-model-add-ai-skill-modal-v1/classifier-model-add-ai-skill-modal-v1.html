@@ -1,0 +1,32 @@
+<ibm-modal 
+  size='sm'
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      Select AI Skills
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <div class="combo-box-container">
+      <aca-ai-services-skills-combo-box
+        name="ai_services_skills" 
+        [label]="'AI service / AI skill*'"
+        [placeholder]="'Select AI skills'"
+        [type]="'multi'"
+        [(value)]="selections.aiServices"
+        (valuesChanged)="updateSelection($event)">
+      </aca-ai-services-skills-combo-box>
+    </div>
+  </section>
+  <ibm-modal-footer>
+    <button
+      ibmButton="secondary"
+      (click)="close()">Cancel
+    </button>
+    <button
+      ibmButton="primary"
+      (click)="handleAddAiSkillsEvent($event)">Add
+    </button>
+  </ibm-modal-footer>
+</ibm-modal>

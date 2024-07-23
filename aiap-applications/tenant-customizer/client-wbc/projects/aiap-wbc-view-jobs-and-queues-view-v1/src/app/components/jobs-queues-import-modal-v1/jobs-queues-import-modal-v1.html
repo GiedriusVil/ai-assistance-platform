@@ -1,0 +1,22 @@
+<aiap-modal-v1 [open]="isOpen" (overlaySelected)="close()" size='sm'>
+    <aiap-modal-v1-header-v1 (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues' | translate }}</h3>
+    </aiap-modal-v1-header-v1>
+    <div class="bx--modal-content bx--modal-content--with-form">
+        <aiap-file-uploader-v2 #fileUploader
+            [title]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues.title' | translate"
+            [description]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues.description' | translate"
+            [accept]="['.json']"
+            [multiple]="false"
+            drop="true"
+            [dropText]="'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues.dropText' | translate"
+            [disabled]="false"
+            [(files)]="files"
+            (filesChange)="onFileAdd($event)">
+        </aiap-file-uploader-v2>
+    </div>
+    <aiap-modal-v1-footer-v1>
+        <button ibmButton="secondary" (click)="close()">{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues.cancel' | translate }}</button>
+        <button ibmButton="primary" (click)="import()" [disabled]="uploadButtonDisabled">{{ 'jobs_and_queues.jobs_queues_view_v1.jobs_queues_import_modal_v1.importQueues.import' | translate }}</button>
+    </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

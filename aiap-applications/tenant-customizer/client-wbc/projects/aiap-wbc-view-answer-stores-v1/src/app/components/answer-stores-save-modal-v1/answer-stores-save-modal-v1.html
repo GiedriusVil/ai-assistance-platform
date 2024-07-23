@@ -1,0 +1,85 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'answer_stores_view_v1.save_modal.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 4, 'sm': 6}">
+          <aiap-field-input-v1
+            [label]="'answer_stores_view_v1.save_modal.fld_name.label' | translate"
+            [labelHelp]="'answer_stores_view_v1.save_modal.fld_name.helper_text' | translate"
+            [(value)]="answerStore.name">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol class="custom-class-example" [columnNumbers]="{'md': 4, 'sm': 6}">
+          <ibm-dropdown
+            [placeholder]="'answer_stores_view_v1.save_modal.fld_select_assistant.placeholder' | translate"
+            [label]="'answer_stores_view_v1.save_modal.fld_select_assistant.label' | translate"
+            [skeleton]="selections?.isPullOptionsSkeletonVisible"
+            [(ngModel)]="selections.assistant"
+            (selected)="onAssistantSelected()">
+            <ibm-dropdown-list [items]="selections?.assistants"></ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol class="custom-class-example" [columnNumbers]="{'md': 8, 'sm': 12}">
+          <aiap-field-dropdown-v1
+            [placeholder]="'answer_stores_view_v1.save_modal.fld_pull_source.placeholder' | translate"
+            [type]="'single'"
+            [skeleton]="selections?.isPullOptionsSkeletonVisible"
+            [isDisabled]="isPullOptionsDisabled()"
+            [label]="'answer_stores_view_v1.save_modal.fld_pull_source.label' | translate"
+            [items]="selections?.pullOptions"
+            [(value)]="selections.pullOption"
+            (onSelected)="onPullOptionSelected($event)">
+          </aiap-field-dropdown-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'md': 8, 'sm': 12}">
+          <aiap-field-combo-box-singular-v1
+            [name]="'languages'" 
+            [type]="'single'"
+            [skeleton]="selections?.isPullOptionsSkeletonVisible"
+            [label]="'answer_stores_view_v1.save_modal.fld_select_default_language.label' | translate"
+            [placeholder]="'answer_stores_view_v1.save_modal.fld_select_default_language.placeholder' | translate"
+            (onSelected)="onLanguageSelected($event)"
+            [(items)]="selections.languages">
+          </aiap-field-combo-box-singular-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+          <div ibmCol class="custom-class-example" [columnNumbers]="{'md': 8, 'sm': 12}">
+            <aiap-field-input-v1
+              [label]="'answer_stores_view_v1.save_modal.fld_reference_id' | translate"
+              [labelHelp]="'answer_stores_view_v1.save_modal.fld_reference_id.helper_text' | translate"
+              [(value)]="answerStore.reference">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.save_modal.btn_close.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="isSaveDisabled()"
+      [type]="'primary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.save_modal.btn_save.text' | translate"
+      (click)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

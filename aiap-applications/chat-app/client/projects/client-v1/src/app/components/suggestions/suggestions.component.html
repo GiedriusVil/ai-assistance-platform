@@ -1,0 +1,9 @@
+<div *ngIf="isSuggestionsEnabled()" class="float-start w-100 clearfix">
+  <div class="suggestions fade-in">
+    <ul class="autocomplete">
+      <li *ngFor="let suggestion of suggestions; let i = index" (click)="postMessage(suggestions[i])">
+        {{suggestion.text}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-context-var-toggle",
+  "version": "0.0.1",
+  "main": "index.js"
+}

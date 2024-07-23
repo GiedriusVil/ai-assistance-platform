@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-watson-discovery-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Marekas Molis",
+      "email": "marekas.molis@ibm.com",
+      "url": "https://www.linkedin.com/in/marekas-molis-918295168/"
+    }
+  ]
+}

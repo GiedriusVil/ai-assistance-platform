@@ -1,0 +1,25 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-ai-skills-table-v1
+      [isPullConfigurationExists]="pullConfiguration"
+      [aiServiceId]="aiService.id"
+      [config]="tableConfig"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowDialogTreeModalEvent($event)"
+      (onShowManageAiSkillPlace)="handleShowSavePlace($event)"
+      (onShowSyncPlace)="handleShowSyncPlaceEvent($event)"
+      (onShowSyncByFilePlace)="handleShowSyncByFilePlaceEvent($event)"
+      (onShowPullPlace)="handleShowPullPlaceEvent($event)"
+      (onShowRemovePlace)="handleShowDeletePlace($event)"
+      (onFilterPanelOpenEvent)="emitFilterPanelOpen()">
+    </aiap-ai-skills-table-v1>
+  </div>
+</div>
+
+<aiap-ai-skill-delete-modal-v1 #aiSkillDeleteModal></aiap-ai-skill-delete-modal-v1>
+<aiap-ai-skill-manage-modal-v1 #aiSkillManageModal></aiap-ai-skill-manage-modal-v1>
+<aiap-ai-skill-dialog-tree-modal-v1 #aiSkillDialogTreeModal></aiap-ai-skill-dialog-tree-modal-v1>
+<aiap-ai-skill-pull-modal-v1 #aiSkillPullModal></aiap-ai-skill-pull-modal-v1>
+<aiap-ai-skill-sync-by-file-modal-v1 #aiSkillSyncByFileModal></aiap-ai-skill-sync-by-file-modal-v1>
+<aiap-ai-skill-sync-modal-v1 #aiSkillSyncModal></aiap-ai-skill-sync-modal-v1>

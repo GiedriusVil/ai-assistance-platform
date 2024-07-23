@@ -1,0 +1,10 @@
+{
+  "applications.breadcrumb": "[GB] Applications",
+  "applications_changes.breadcrumb": "[GB] Applications Changes",
+  "tenants.breadcrumb": "[GB] Tenants",
+  "tenants_changes.breadcrumb": "[GB] Tenants Changes",
+  "access_groups.breadcrumb": "[GB] Access Groups",
+  "access_groups_changes.breadcrumb": "[GB] Access Groups Changes",
+  "users.breadcrumb": "[GB] Users",
+  "users_changes.breadcrumb": "[GB] Users"
+}

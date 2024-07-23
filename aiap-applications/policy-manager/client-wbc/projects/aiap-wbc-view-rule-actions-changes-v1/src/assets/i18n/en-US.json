@@ -1,0 +1,26 @@
+{
+  "rule_action_changes_v1.change_modal.header_title": "Rule change",
+  "rule_action_changes_v1.change_modal.action_id_label": "Action Id",
+  "rule_action_changes_v1.change_modal.action_label": "Action",
+  "rule_action_changes_v1.change_modal.doc_id_label": "Document ID",
+  "rule_action_changes_v1.change_modal.doc_type_label": "Document Type",
+  "rule_action_changes_v1.change_modal.changed_by_label": "Changed By",
+  "rule_action_changes_v1.change_modal.instructions_strong": "docChanges -> kind",
+  "rule_action_changes_v1.change_modal.instructions" : " - indicates the kind of change; will be one of the following:",
+  "rule_action_changes_v1.change_modal.instructions_list_1" : "N - indicates a newly added property/element",
+  "rule_action_changes_v1.change_modal.instructions_list_2" : "D - indicates a property/element was deleted",
+  "rule_action_changes_v1.change_modal.instructions_list_3" : "E - indicates a property/element was edited",
+  "rule_action_changes_v1.change_modal.instructions_list_4" : "A - indicates a change occurred within an array",
+  "rule_action_changes_v1.change_modal.close_button_text": "Close",
+  "rule_action_changes_v1.view.action_label_text": "Action",
+
+  "rule_actions_changes_table_v1.export_button" : "Export",
+  "rule_actions_changes_table_v1.export_button_tooltip" : "Export",
+  "rule_actions.actions_changes_table_v1.action_id_header" : "Action Id",
+  "rule_actions.actions_changes_table_v1.action_header" : "Action",
+  "rule_actions.actions_changes_table_v1.document_id_header" : "Document ID",
+  "rule_actions.actions_changes_table_v1.document_type_header" : "Document Type",
+  "rule_actions.actions_changes_table_v1.changed_header" : "Changed",
+  "rule_action_changes_v1.change_modal.close_button_tooltip": "Close",
+  "rule_actions_changes_table_v1.search_placeholder" : "Enter search value"
+}

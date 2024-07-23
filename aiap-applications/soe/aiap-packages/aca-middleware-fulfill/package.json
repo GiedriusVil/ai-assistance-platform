@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-middleware-fulfill",
+  "version": "3.27.0",
+  "description": "Declarative markup API and engine to integrate internal or external APIs with botmaster",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0"
+  }
+}

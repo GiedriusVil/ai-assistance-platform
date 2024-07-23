@@ -1,0 +1,24 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol 
+      [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+      <aca-catalog-rules-outcome-type 
+        [(value)]="rule.outcome">
+      </aca-catalog-rules-outcome-type>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <aca-catalog-rules-catalogs-table 
+        showSelectionColumn="true"
+        (onShowSavePlace)="handleShowOutcomeCatalogSaveModal($event)"
+        (onShowDeletePlace)="handleShowCatalogRuleCatalogsDeleteModal($event)" 
+        [ruleId]="rule.id">
+      </aca-catalog-rules-catalogs-table>
+    </div>
+  </div>
+</div>
+
+<aca-catalog-rules-catalog-save-modal #catalogRulesCatalogsSaveModal></aca-catalog-rules-catalog-save-modal>
+<aca-catalog-rules-catalog-delete-modal #catalogRulesCatalogsDeleteModal></aca-catalog-rules-catalog-delete-modal>

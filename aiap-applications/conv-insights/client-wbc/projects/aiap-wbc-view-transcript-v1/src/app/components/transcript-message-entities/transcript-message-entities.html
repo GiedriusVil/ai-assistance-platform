@@ -1,0 +1,100 @@
+<div ibmGrid 
+  *ngIf="!hasEntities() && isUserMessage()">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{xlg: 12, lg: 12, md: 8, sm: 4}">
+      <ibm-label>
+        {{ 'transcript_view_v1.transcript_message_entities.no_entities.label' | translate }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+
+<div ibmGrid 
+  *ngIf="hasEntities() && isUserMessage() && checkAiServiceType('WA')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveEntities()"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}">
+      <ibm-tooltip-definition
+        [content]="'@' + item.entity">
+        <ibm-label class="entity-label">
+          @{{ item.entity }}
+        </ibm-label>
+      </ibm-tooltip-definition>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}">
+      <ibm-tooltip-definition
+        [content]="item.value">
+        <ibm-label class="entity-label">
+          {{ item.value }}
+        </ibm-label>
+      </ibm-tooltip-definition>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 2, 'lg': 2, 'md': 8, 'sm': 4}">
+      <ibm-label>{{ item.confidence | number: '1.3-3' }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+
+
+<div ibmGrid 
+  *ngIf="hasEntities() && isUserMessage() && checkAiServiceType('ms')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveEntities()"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>@{{ item.type }}
+      </ibm-label>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>{{ item.entity }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+
+<div ibmGrid 
+  *ngIf="hasEntities() && isUserMessage() && checkAiServiceType('df')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveEntities()"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>@{{ item.key }}
+      </ibm-label>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>{{ item.value }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+
+<div ibmGrid 
+  *ngIf="hasEntities() && isUserMessage() && checkAiServiceType('lex')"
+  [condensed]="true">
+  <div ibmRow
+    *ngFor="let item of retrieveEntities()"
+    [condensed]="true"
+    [leftGutter]="false"
+    [rightGutter]="false">
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>@{{ item.key }}
+      </ibm-label>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+      <ibm-label>{{ item.value }}
+      </ibm-label>
+    </div>
+  </div>
+</div>
+

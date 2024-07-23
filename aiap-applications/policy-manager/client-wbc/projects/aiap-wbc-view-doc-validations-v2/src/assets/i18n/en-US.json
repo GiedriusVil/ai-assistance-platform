@@ -1,0 +1,23 @@
+{
+  "doc_validation_modal_v2.header_text" : "Transaction",
+  "doc_validation_modal_v2.action_id_label_text" : "Action ID",
+  "doc_validation_modal_v2.action_label_text" : "Action",
+  "doc_validation_modal_v2.document_id_label_text" : "Document ID",
+  "doc_validation_modal_v2.document_type_label_text" : "Document Type",
+  "doc_validation_modal_v2.created_by_label_text" : "Created By",
+  "doc_validation_modal_v2.created_date_label_text" : "Created",
+  "doc_validation_modal_v2.close_button_text" : "Close",
+  "view_doc_validations_v2.view.actions_label_text" : "Action",
+  "doc_validations.doc_validation_table_v2.export_button" : "Export",
+  "doc_validations.doc_validation_table_v2.refresh_button_tooltip" : "Refresh",
+  "doc_validations.doc_validation_table_v2.export_button_tooltip" : "Export",
+
+  "doc_validations.table_v2.action_id_header" : "Action ID",
+  "doc_validations.table_v2.action_header" : "Action",
+  "doc_validations.table_v2.document_id_header" : "Document ID",
+  "doc_validations.table_v2.document_type_header" : "Document Type",
+  "doc_validations.table_v2.created_header" : "Created",
+  "doc_validation_modal_v2.close_button_tooltip" : "Close",
+  "doc_validations.doc_validation_table_v2.search_placeholder" : "Enter search value"
+
+}

@@ -1,0 +1,8 @@
+<div *ngIf="multimedia" 
+  id="box-container"
+  [ngClass]="getBoxContainerClassNames()">
+  <div 
+    *ngIf="state.isLoading" 
+    class="spinner-border spinner-primary">
+</div>
+</div>

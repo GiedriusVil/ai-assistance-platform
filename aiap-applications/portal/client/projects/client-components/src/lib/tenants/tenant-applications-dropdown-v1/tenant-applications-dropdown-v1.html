@@ -1,0 +1,10 @@
+<aiap-field-dropdown-v1
+  [isDisabled]="disabled"
+  [type]="'single'"
+  [name]="'tenant_applications_dropdown_V1'"
+  [label]="'tenants_view_v1.save_modal_v1.application_dropdown_v1.label' | translate"
+  [placeholder]="'tenants_view_v1.save_modal_v1.application_dropdown_v1.placeholder' | translate"
+  [items]="selection?.applications"
+  (onSelected)="handleSelectionEvent($event)"
+  [(value)]="selection.application">
+</aiap-field-dropdown-v1>

@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aiap/aiap-secrets-manager-adapter-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-mustache": "0.0.1",
+    "@ibm-aiap/aiap-ibm-secrets-manager-client-provider": "0.0.1"
+  }
+}

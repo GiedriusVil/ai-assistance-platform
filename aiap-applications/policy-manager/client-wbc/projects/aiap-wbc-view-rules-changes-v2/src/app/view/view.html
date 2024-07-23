@@ -1,0 +1,37 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+    <div ibmGrid class="page-filters" >
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aiap-date-range-picker-v1 
+            [value]="state.dateRange" 
+            (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <ibm-search 
+            [placeholder]="'rules_changes_v2.view.search_placeholder' | translate" 
+            [autocomplete]="'on'" 
+            [value]="state.search"
+            (search)="handleSearchEvent($event)" 
+            (clear)="hanleClearSearchEvent($event)">
+          </ibm-search>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-wbc-rules-changes-table-v2 
+      (onShowSavePlace)="handleShowTransactionEvent($event)">
+    </aiap-wbc-rules-changes-table-v2>
+  </div>
+</div>
+
+<aiap-wbc-rules-changes-modal-v2 #rulesChangesModalV2></aiap-wbc-rules-changes-modal-v2>

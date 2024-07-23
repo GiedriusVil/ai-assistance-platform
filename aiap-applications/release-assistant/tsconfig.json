@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "../../aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-mongo-client-provider"
+    }
+  ]
+}

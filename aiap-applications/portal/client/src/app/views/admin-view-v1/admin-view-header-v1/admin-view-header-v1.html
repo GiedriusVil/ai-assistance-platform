@@ -1,0 +1,23 @@
+<ibm-header>
+  <aiap-header-hamburger-menu-v1></aiap-header-hamburger-menu-v1>
+  <ibm-header-navigation>
+    <ibm-header-item 
+      (click)="handleExitAdministratorModeEvent($event)">
+      <b>Administrator Mode [EXIT]</b>
+    </ibm-header-item>
+  </ibm-header-navigation>
+  <ibm-header-global>
+    <ibm-header-navigation 
+      class="bx--header__global">
+      <aiap-header-language-menu-v1>
+      </aiap-header-language-menu-v1>
+      <aiap-header-zoom-menu-v1>
+      </aiap-header-zoom-menu-v1>
+      <aiap-header-admin-menu-v1>
+      </aiap-header-admin-menu-v1>
+      <aiap-header-user-menu-v1
+        [user]="user">
+      </aiap-header-user-menu-v1>
+    </ibm-header-navigation>
+  </ibm-header-global>
+</ibm-header>

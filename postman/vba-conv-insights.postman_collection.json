@@ -1,0 +1,1418 @@
+{
+	"info": {
+		"_postman_id": "ce2114bd-824b-460a-81d6-77c16d115a35",
+		"name": "vba-conv-insights",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "aca-surgeon-express-routes",
+			"item": [
+				{
+					"name": "datasources",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/datasources",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"datasources"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mongo-clients",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/mongo-clients",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"mongo-clients"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "redis-clients",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/redis-clients",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"redis-clients"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "event-streams",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/event-streams",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"event-streams"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tenant-event-stream-handlers",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/tenant-event-stream-handlers",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"tenant-event-stream-handlers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "lambda-modules",
+					"item": [
+						{
+							"name": "retrieve-many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/surgeon/lambda-modules",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"surgeon",
+										"lambda-modules"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "aca-ai-services-express-routes",
+			"item": [
+				{
+					"name": "ai-services",
+					"item": [
+						{
+							"name": "find-many-by-query",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/ai/services?size=100000&page=1",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"ai",
+										"services"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "100000"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ai-skills",
+					"item": [
+						{
+							"name": "find-one-by-id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/ai/services/{{aiServiceId}}/skills/{{aiSkillId}}?addEntities=true&addIntents=true",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"ai",
+										"services",
+										"{{aiServiceId}}",
+										"skills",
+										"{{aiSkillId}}"
+									],
+									"query": [
+										{
+											"key": "addEntities",
+											"value": "true"
+										},
+										{
+											"key": "addIntents",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "aca-classification-catalogs-express-routes",
+			"item": [
+				{
+					"name": "segments",
+					"item": [
+						{
+							"name": "findManyByQuery",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"catalogId\": \"{{catalogId}}\"\n    },\n    \"filterOptions\": {\n        \"strict\": {\n            \"catalogId\": true\n        }\n    },\n    \"pagination\": {\n        \"page\": 1, \n        \"size\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/classification-catalog/segments/find-many-by-query",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"classification-catalog",
+										"segments",
+										"find-many-by-query"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"catalogId\": \"{{catalogId}}\"\n    },\n    \"filterOptions\": {\n        \"strict\": {\n            \"catalogId\": true\n        }\n    },\n    \"pagination\": {\n        \"page\": 1, \n        \"size\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/classification-catalog/segments/find-many-by-query",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"classification-catalog",
+										"segments",
+										"find-many-by-query"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-lite-one-by-id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/segments/94000000/lite?language=asdfasdf",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"segments",
+										"94000000",
+										"lite"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "asdfasdf"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "families",
+					"item": [
+						{
+							"name": "find-lite-one-by-id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/families/94100000/lite?includeParent=true&language=fr",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"families",
+										"94100000",
+										"lite"
+									],
+									"query": [
+										{
+											"key": "includeParent",
+											"value": "true"
+										},
+										{
+											"key": "language",
+											"value": "fr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findManyByQuery",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"catalogId\": \"{{catalogId}}\"\n    }, \n    \"filterOptions\": {\n        \"strict\": {\n            \"catalogId\": true\n        }\n    },\n    \"sort\":{\n        \"field\": \"id\", \n        \"direction\": \"asc\"\n    },\n    \"pagination\": {\n        \"page\": 1, \n        \"size\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/classification-catalog/families/find-many-by-query",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"classification-catalog",
+										"families",
+										"find-many-by-query"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "classes",
+					"item": [
+						{
+							"name": "find-lite-one-by-id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/classes/94101500/lite?includeParent=true&language=en",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"classes",
+										"94101500",
+										"lite"
+									],
+									"query": [
+										{
+											"key": "includeParent",
+											"value": "true"
+										},
+										{
+											"key": "language",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findManyByQuery",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"catalogId\": \"{{catalogId}}\"\n    }, \n    \"filterOptions\": {\n        \"strict\": {\n            \"catalogId\": true\n        }\n    },\n    \"sort\":{\n        \"field\": \"id\", \n        \"direction\": \"asc\"\n    },\n    \"pagination\": {\n        \"page\": 1, \n        \"size\": 10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/classification-catalog/classes/find-many-by-query",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"classification-catalog",
+										"classes",
+										"find-many-by-query"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "commodities",
+					"item": [
+						{
+							"name": "find-lite-one-by-id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/classes/94101500/lite?includeParent=true&language=en",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"classes",
+										"94101500",
+										"lite"
+									],
+									"query": [
+										{
+											"key": "includeParent",
+											"value": "true"
+										},
+										{
+											"key": "language",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findManyByQuery",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"catalogId\": \"{{catalogId}}\"\n    }, \n    \"filterOptions\": {\n        \"strict\": {\n            \"catalogId\": true\n        }\n    },\n    \"sort\":{\n        \"field\": \"id\", \n        \"direction\": \"asc\"\n    },\n    \"pagination\": {\n        \"page\": 1, \n        \"size\": 100\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/classification-catalog/sub-classes/find-many-by-query",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"classification-catalog",
+										"sub-classes",
+										"find-many-by-query"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vectors",
+					"item": [
+						{
+							"name": "find-many-by-query",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/vectors?size=10&page=1",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"vectors"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-one-by-id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/vectors/aa",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"vectors",
+										"aa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save-one",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"aa\", \n    \"bb\": \"bb\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/vectors",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"vectors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save-many",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\n    \"id\": \"aa\", \n    \"bb\": \"bb\"\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/vectors/save-many",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"vectors",
+										"save-many"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "canonical-format",
+					"item": [
+						{
+							"name": "canonical-format",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": \"I want to buy a laptop\", \n    \"source\": \"SEMANTIC_SEARCH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/api/v1/unspsc/segments/retrieve-canonical-form-by-input",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"unspsc",
+										"segments",
+										"retrieve-canonical-form-by-input"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "catalogs",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "catalog-by-id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aca-classifier-express-routes",
+			"item": [
+				{
+					"name": "models",
+					"item": [
+						{
+							"name": "find-many-by-query",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/classifier/classifier-models?page=1&size=100",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"classifier",
+										"classifier-models"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-one-by-id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{vba_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-aca-tenant-id",
+										"value": "{{tenantId}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{conv-insights-hostname}}/api/v1/classifier/classifier-models/s2p-iw-dev-model",
+									"host": [
+										"{{conv-insights-hostname}}"
+									],
+									"path": [
+										"api",
+										"classifier",
+										"classifier-models",
+										"s2p-iw-dev-model"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "list classifiers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ai/services",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ai/services/serviceid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ai/services/serviceid/skills",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ai/services/serviceid/skills pull",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ai/services/serviceid/skills pull Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/classification-catalog/catalogs?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"classification-catalog",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aiap-app-express-routes",
+			"item": [
+				{
+					"name": "tenants",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{vba_token}}",
+								"type": "text"
+							},
+							{
+								"key": "x-aca-tenant-id",
+								"value": "{{tenantId}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/api/v1/app/tenants?size=100000&page=1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"app",
+								"tenants"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "100000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set('vba_token', pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\", \n    \"password\": \"minda\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{conv-insights-hostname}}/auth",
+					"host": [
+						"{{conv-insights-hostname}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

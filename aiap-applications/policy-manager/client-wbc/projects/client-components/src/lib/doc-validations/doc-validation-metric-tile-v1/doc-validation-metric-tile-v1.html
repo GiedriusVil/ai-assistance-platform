@@ -1,0 +1,17 @@
+<div style="padding: 10px;">
+  <ibm-tile 
+    class="metric-wrapper" 
+    (click)="hanleClickEvent()">
+    <ibm-tooltip-icon *ngIf="showTooltip" 
+      [placement]="placement" 
+      [alignment]="alignment" 
+      [content]="text">
+      <svg ibmIconInformation size="16"></svg>
+    </ibm-tooltip-icon>
+    <div class="metric-header">{{headerText}}</div>
+    <div class="metric-value">{{displayData}}</div>
+    <div *ngIf="!isSelected" class="target"></div>
+    <div *ngIf="isSelected" class="target-selected"></div>
+    <div class="metric-footer"><ng-content></ng-content></div>
+  </ibm-tile >
+</div>

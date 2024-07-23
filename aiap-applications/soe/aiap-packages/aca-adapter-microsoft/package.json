@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aca/aca-adapter-microsoft",
+  "version": "3.28.0",
+  "description": "ACA Microsoft Bot Framework Adapter for Teams",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aiap/aiap-soe-bot": "3.27.0",
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "botbuilder": "4.19.3",
+    "botframework-connector": "4.19.3"
+  }
+}

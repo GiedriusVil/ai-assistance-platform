@@ -1,0 +1,13 @@
+{
+  "view_doc_validation_metrics_v2.view.refresh_button_text" : "Aktualisieren",
+  "view_doc_validation_metrics_v2.view.total_validation_count_title" : "Vollständige Validierungen",
+  "view_doc_validation_metrics_v2.view.catalog_rules_frequency_title" : "Am häufigsten missachtete Katalogregeln",
+  "view_doc_validation_metrics_v2.view.classification_rules_frequency_title" : "Am häufigsten missachtete Klassifikationsregeln",
+  "view_doc_validation_metrics_v2.view.buy_rules_frequency_title" : "[DE] Most frequently violated Buy Rules",
+
+  "report_chart_v1.loading_text" : "[DE] Loading",
+  "report_chart_v1.header_label_name" : "[DE] Name",
+  "report_chart_v1.header_label_total" : "[DE] Total",
+  "report_chart_v1.data_retrieve_error" : "[DE] Error occured while retrieving data",
+  "view_doc_validation_metrics_v2.view.refresh_button_tooltip" : "[DE] Refresh"
+}

@@ -1,0 +1,42 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol class="filters">
+      <ibm-search
+        #datasourceSearch
+        class="search-bar-item"
+        [size]="'xl'"
+        [autocomplete]="'on'"
+        (valueChange)="handleSearchEvent($event)"
+        (clear)="hanleClearSearchEvent($event)">
+      </ibm-search>
+      <aiap-button-v1
+        [text]="'cards_panel_v1.btn_add.text' | translate"
+        [tooltip]="'cards_panel_v1.btn_add.tooltip' | translate"
+        [type]="'primary'"
+        [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+        (onClick)="handleDatasourceAdd($event)">
+      </aiap-button-v1>
+      <aiap-button-v1
+        [text]="('cards_panel_v1.btn_remove.text' | translate) + '(' + (state.selectedCards.length >= 0 ? state.selectedCards.length: 'all') + ')'"
+        [tooltip]="'cards_panel_v1.btn_remove.tooltip' | translate"
+        [type]="'danger'"
+        [disabled]="isRemoveDisabled()"
+        [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+        (onClick)="handleDatasourcesRemove()">
+      </aiap-button-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow class="cards-wrapper">
+    <ng-container *ngFor="let item of state.items">
+      <div ibmCol
+      [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm': 5}">
+        <aiap-tenant-datasource-card-v1
+         (onCardSelected)="handleCardToggle($event)"
+          (onShowSavePlace)="handleDatasourceAdd($event)"
+          [item]="item">
+        </aiap-tenant-datasource-card-v1>
+      </div>
+    </ng-container>
+  </div>
+</div>

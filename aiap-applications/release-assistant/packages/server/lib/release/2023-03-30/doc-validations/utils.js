@@ -1,0 +1,16 @@
+/*
+  © Copyright IBM Corporation 2023. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+
+const ACTIONS = {
+  REQUEST_RECEIVED: 'REQUEST_RECEIVED',
+  REQUEST_TRANSFORMED: 'REQUEST_TRANSFORMED',
+  RESPONSE_READY: 'RESPONSE_READY',
+  RESPONSE_TRANSFORMED: 'RESPONSE_TRANSFORMED',
+};
+
+module.exports = {
+  ACTIONS,
+};

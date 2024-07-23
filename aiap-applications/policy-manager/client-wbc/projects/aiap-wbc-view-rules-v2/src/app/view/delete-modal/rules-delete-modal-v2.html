@@ -1,0 +1,32 @@
+<ibm-modal 
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'rules_v2.view.delete_modal_v2.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <p class="mb-3">
+      {{'rules_v2.view.delete_modal_v2.confirm_message' | translate}}
+    </p>
+    <ul ibmList>
+      <li ibmListItem *ngFor="let rule of rules">{{rule.key}}</li>
+    </ul>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'rules_v2.view.delete_modal_v2.cancel_button' | translate"
+      [tooltip]="'rules_v2.view.delete_modal_v2.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'" 
+      [text]="'rules_v2.view.delete_modal_v2.delete_button' | translate"
+      [tooltip]="'rules_v2.view.delete_modal_v2.delete_button_tooltip' | translate"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

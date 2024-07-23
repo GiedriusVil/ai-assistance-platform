@@ -1,0 +1,29 @@
+<div ibmGrid
+  *ngIf="state.files.size > 0">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg':11, 'lg':11, 'md':7, 'sm':3}">
+      {{ state?.file?.name }}
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg':1, 'lg':1, 'md':1, 'sm':1}">
+      <aiap-button-v1
+        [tooltip]="tooltipRemove"
+        [type]="'ghost'"
+        [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+        (onClick)="handleEventSoftFileRemove($event)">
+      </aiap-button-v1>
+    </div>
+  </div>
+</div>
+
+<ibm-file-uploader 
+  *ngIf="state.files.size == 0"
+  drop="true" 
+  [title]="state.title" 
+  [description]="state.description" 
+  [dropText]="state.dropText" 
+  [accept]="state.accept"
+  [multiple]="false" 
+  [disabled]="state.isDisabled"
+  [(files)]="state.files"
+  (filesChange)="handleEventFilesChange($event)">
+</ibm-file-uploader>

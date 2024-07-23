@@ -1,0 +1,39 @@
+<div class="view-header-wrapper">
+    <div class="view-header-content">
+        <h4>
+          {{ 'test_workers_view_v1.header' | translate }}
+        </h4>
+        <br>
+        <ibm-label>
+          {{ 'test_workers_view_v1.description' | translate }}
+        </ibm-label>
+        <div ibmGrid>
+            <div ibmRow>
+                <div ibmCol>
+                    <ibm-toggle 
+                        [size]="'sm'"
+                        [onText]="'test_workers_view_v1.fld_audit_cols_flag.text_on' | translate" 
+                        [offText]="'test_workers_view_v1.fld_audit_cols_flag.text_off' | translate"
+                        [checked]="state.isAuditColumnsVisible"
+                        (checkedChange)="handleAuditColumnsVisibilityChange($event)">
+                    </ibm-toggle>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="view-body-wrapper">
+    <div class="view-body-content">
+        <aiap-test-workers-table-v1
+            (onShowSavePlace)="handleSaveActionEvent($event)"
+            (onShowRemovePlace)="handleDeleteActionEvent($event)" 
+            (onSearchPlace)="handleSearchChangeEvent($event)"
+            (onClearPlace)="handleSearchClearEvent($event)"
+            [isAuditColumnsVisible]="state.isAuditColumnsVisible">
+        </aiap-test-workers-table-v1>
+    </div>
+</div>
+
+<aiap-test-worker-save-modal-v1 #testWorkerSaveModal></aiap-test-worker-save-modal-v1>
+<aiap-test-worker-delete-modal-v1 #testWorkerDeleteModal></aiap-test-worker-delete-modal-v1>

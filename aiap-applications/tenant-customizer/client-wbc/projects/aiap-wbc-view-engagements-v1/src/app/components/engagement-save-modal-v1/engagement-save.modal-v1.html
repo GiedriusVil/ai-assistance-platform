@@ -1,0 +1,72 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <ibm-modal-header
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'engagements_save_modal_v1.header' | translate }}</p>
+  </ibm-modal-header>
+  <section class="margin-top-20">
+      <div ibmGrid>
+          <div ibmRow>
+              <div ibmCol>
+                  <ibm-tabs>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.general_tab.header' | translate">
+                        <aca-engagement-general-tab #generalTab
+                          [engagement]="engagement"
+                          (selectedAssistant)="handleSelectedAssistant($event)">
+                        </aca-engagement-general-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.styles_tab.header' | translate">
+                        <aca-engagement-styles-tab #stylesTab
+                          [engagement]="engagement">
+                        </aca-engagement-styles-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.chat_app_tab.header' | translate">
+                        <aca-engagement-chat-app-tab #chatAppTab
+                          [value]="engagement.chatApp">
+                        </aca-engagement-chat-app-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.chat_app_button_tab.header' | translate">
+                        <aca-engagement-chat-app-button-tab #chatAppButtonTab
+                          [value]="engagement.chatAppButton">
+                        </aca-engagement-chat-app-button-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.chat_app_server_tab.header' | translate">
+                        <aca-engagement-chat-app-server-tab #chatAppServerTab
+                          [value]="engagement.chatAppServer">
+                        </aca-engagement-chat-app-server-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.slack_server_provider_tab.header' | translate">
+                        <aca-engagement-slack-tab #slackTab
+                          [value]="engagement.slack">
+                        </aca-engagement-slack-tab>
+                      </ibm-tab>
+                      <ibm-tab [heading]="'engagements_save_modal_v1.soe_tab.header' | translate">
+                        <aca-engagement-soe-tab #soeTab
+                          [value]="engagement.soe">
+                        </aca-engagement-soe-tab>
+                      </ibm-tab>
+                  </ibm-tabs>
+              </div>
+          </div>
+      </div>
+  </section>
+  <ibm-modal-footer class="aca-modal-footer">
+    <aiap-button-v1
+      class="width50"
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'engagements_save_modal_v1.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [disabled]="isInvalid()"
+      [type]="'primary'"
+      [size]="'md'"
+      [text]="'engagements_save_modal_v1.btn_save.text' | translate"
+      (click)="save()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</aiap-modal-v1>

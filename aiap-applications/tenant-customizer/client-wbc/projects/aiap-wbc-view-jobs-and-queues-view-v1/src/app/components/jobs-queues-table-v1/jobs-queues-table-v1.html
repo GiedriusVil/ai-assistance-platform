@@ -1,0 +1,71 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)"
+      [placeholder]="'jobs_queues.jobs_queues_table.placeholder.search' | translate">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'jobs-queues.view.add'}"
+      [text]="'jobs_queues.jobs_queues_table.add' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/operations/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'jobs-queues.view.import'}"
+      [text]="'jobs_queues.jobs_queues_table.import' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/operations/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'jobs-queues.view.export'}"
+      [text]="'jobs_queues.jobs_queues_table.export' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/operations/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{ action: 'jobs-queues.view.delete' }"
+      [text]="'jobs_queues.jobs_queues_table.remove' | translate: { count: selectedRows.length }"
+      [type]="'danger'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    size="md"
+    [striped]="true"
+    [skeleton]="false"
+    [showSelectionColumn]="true"
+    [sortable]="true"
+    [stickyHeader]="false"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onAllDeselect)="handleEventAllDeselect()"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+</aiap-table-v1-container-v1>

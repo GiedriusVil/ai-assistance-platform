@@ -1,0 +1,33 @@
+{
+  "view_doc_validation_metrics_v1.view.refresh_button_text" : "Refresh",
+  "view_doc_validation_metrics_v1.view.dropdown_label_text" : "Organizations",
+  "view_doc_validation_metrics_v1.view.dropdown_placeholder_text" : "Filter by Organizations",
+  "view_doc_validation_metrics_v1.view.total_received_validations_header_text" : "Total Received Validations",
+  "view_doc_validation_metrics_v1.view.total_completed_validations_header_text" : "Total Completed Validations",
+  "view_doc_validation_metrics_v1.view.total_approved_validations_header_text" : "Total Approved Validations",
+  "view_doc_validation_metrics_v1.view.total_rejected_validations_header_text" : "Validations sent to Assistance",
+  "view_doc_validation_metrics_v1.view.total_failed_validations_header_text" : "Total Failed Validations",
+  "view_doc_validation_metrics_v1.view.total_validated_prs_header_text" : "Total validated purchase requests",
+  "view_doc_validation_metrics_v1.view.total_approved_prs_header_text" : "Total approved purchase requests",
+  "view_doc_validation_metrics_v1.view.total_rejected_prs_header_text" : "Purchase requests sent to Assistance",
+  "view_doc_validation_metrics_v1.view.unique_buyers_header_text" : "Unique Buyers",
+  "view_doc_validation_metrics_v1.view.dashboard.chart_title" : "Completed validations",
+  "view_doc_validation_metrics_v1.view.dashboard.summary_table_title" : "Most frequently violated Rules",
+  "view_doc_validation_metrics_v1.view.loading_text" : "Loading",
+  "view_doc_validation_metrics_v1.app.loading_text" : "Loading...",
+  
+  "doc_validations.doc_validation_summary_table_v1.header" : "Purchase request validation frequency",
+  "doc_validations.doc_validation_summary_table_v1.retrieve_data_error" : "Error occured while retrieving data",
+
+  "report_chart_v1.loading_text" : "Loading",
+  "report_chart_v1.header_label_name" : "Name",
+  "report_chart_v1.header_label_total" : "Total",
+  "report_chart_v1.data_retrieve_error" : "Error occured while retrieving data",
+
+  "doc_validations.summary_table_v1.buyer_header" : "Buyer",
+
+  "view_doc_validation_metrics_v1.view.apply_button_tooltip" : "Apply",
+  "view_doc_validation_metrics_v1.view.apply_button_text" : "Apply"
+
+}
+

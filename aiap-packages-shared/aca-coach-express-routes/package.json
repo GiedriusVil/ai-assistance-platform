@@ -1,0 +1,13 @@
+{
+    "name": "@ibm-aca/aca-coach-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "jevgenij.golobokin@ibm.com",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aiap/aiap-engagements-service": "0.0.1",
+        "@ibm-aiap/aiap-passport-provider": "0.0.1"
+    }
+}

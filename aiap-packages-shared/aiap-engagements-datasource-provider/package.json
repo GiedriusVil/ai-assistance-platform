@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aiap/aiap-engagements-datasource-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "martynas.pazusis@ibm.com",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1",
+    "@ibm-aca/aca-runtime-source-registry": "0.0.1"
+  }
+}

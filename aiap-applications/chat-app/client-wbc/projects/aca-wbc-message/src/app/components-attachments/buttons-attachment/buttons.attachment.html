@@ -1,0 +1,16 @@
+<div class="message--buttons message--content message--float w-100">
+  <span class="buttons--wrapper">
+    <span *ngFor="let button of message?.attachment?.attachments" class="button--wrapper">
+      <ng-template #tipContent>
+        <span>{{button.tooltip}}</span>
+      </ng-template>
+      <button class="btn btn-sm btn-outline-primary" 
+              type="button" 
+              [disabled]="isContentEnabled"
+              [ngbTooltip]="button?.tooltip ? tipContent : null"
+              (click)="onButtonClick($event, button)">
+        {{ button['title'] }}
+      </button>
+    </span>
+  </span>
+</div>

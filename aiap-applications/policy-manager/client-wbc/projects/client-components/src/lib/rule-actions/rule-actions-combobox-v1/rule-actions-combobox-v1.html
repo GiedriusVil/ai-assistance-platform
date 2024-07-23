@@ -1,0 +1,17 @@
+<ibm-combo-box
+    id="rule_actions_combo"
+    name="rule_actions_combo"
+    type="multi"
+    [autocomplete]="'none'"
+    [size]="state.size" 
+    [label]="state.label" 
+    [helperText]="state.helperText" 
+    [invalidText]="state.invalidText" 
+    [theme]="state.theme"
+    [items]="state.ruleActions"
+    [(ngModel)]="state.ruleActionsSelected"
+    (selected)="handleSelectedEvent($event)"
+    (submit)="handleSubmitEvent($event)"
+    (close)="handleCloseEvent($event)">
+    <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

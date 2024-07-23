@@ -1,0 +1,126 @@
+<ng-container>
+  <div ibmRow [leftGutter]="false">
+    <div ibmCol [columnNumbers]="{'md': 8}">
+      <ibm-search 
+        [placeholder]="'Search...'" 
+        name="search" 
+        (valueChange)="handleSearch($event)"
+        (clear)="hanleClearSearchEvent($event)">
+      </ibm-search>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <ibm-checkbox 
+      class="checkbox-margin checkbox-select-all" 
+      size="sm" [(checked)]="selectAll"
+      (change)="handleSelectAll($event)">
+      {{ 'checkbox_tree_v1.fld_all_selection.text' | translate }}
+    </ibm-checkbox>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div 
+    class="checkbox-tree-wrapper" 
+    [style.maxHeight.rem]="maxHeight">
+    <div *ngFor="let item of items; let viewIndex = index" 
+      [ngSwitch]="item.type">
+      <div class="checbox-tree-container" *ngSwitchDefault>
+        <div ibmRow>
+          <div class="view-checkbox-container">
+            <ibm-checkbox 
+              class="checkbox-margin view-checkbox" 
+              size="sm" 
+              [checked]="item.checked"
+              (change)="handleSelectItem($event, item)">
+              {{ item?.name | translate }}
+            </ibm-checkbox>
+          </div>
+          <div class="access-group-tooltip">          
+            <ibm-tooltip-icon 
+              *ngIf="hasDescription(item)"
+              [placement]="'right'"
+              [alignment]="'start'"
+              [content]="item?.description | translate">
+              <aiap-icon-svg-v1 [src]="'assets/carbon-icons/16/status/information.svg'"></aiap-icon-svg-v1>
+            </ibm-tooltip-icon>
+          </div>
+      </div>
+        <ng-container *ngFor="let action of item?.[actionsField]; let actionIndex = index">
+          <div ibmRow>
+            <div class="center-title action-checkbox-container">
+              <ibm-checkbox 
+                class="checkbox-margin action-checkbox" 
+                size="sm" 
+                [checked]="action.checked"
+                (change)="handleSelectItemAction($event, item, action)">
+                {{ action?.name | translate }}
+              </ibm-checkbox>
+            </div>
+            <div class="access-group-tooltip">
+              <ibm-tooltip-icon
+                *ngIf="hasDescription(action)"
+                [placement]="'right'"
+                [alignment]="'start'"
+                [content]="action?.description | translate">
+                <aiap-icon-svg-v1 
+                  [src]="'assets/carbon-icons/16/status/information.svg'">
+                </aiap-icon-svg-v1>
+              </ibm-tooltip-icon>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <ng-container *ngSwitchCase="viewType.multi">
+        <div class="checbox-tree-container"
+          *ngFor="let multiViewItem of item?.[viewsField]; let multiViewItemIndex = index">
+          <div ibmRow>
+            <div class="view-checkbox-container">
+              <ibm-checkbox 
+                class="checkbox-margin view-checkbox" 
+                size="sm" [checked]="multiViewItem.checked"
+                (change)="handleSelectMultiViewItem($event, item, multiViewItemIndex)">
+                {{ item?.name | translate }} / {{ multiViewItem?.name | translate }}
+              </ibm-checkbox>
+            </div>
+            <div class="access-group-tooltip">
+              <ibm-tooltip-icon 
+                *ngIf="hasDescription(multiViewItem)"
+                [placement]="'right'"
+                [alignment]="'start'"
+                [content]="multiViewItem?.description | translate">
+                <aiap-icon-svg-v1 
+                  [src]="'assets/carbon-icons/16/status/information.svg'">
+                </aiap-icon-svg-v1>
+              </ibm-tooltip-icon>
+            </div>
+          </div>
+          <div *ngFor="let action of multiViewItem?.[actionsField]; let multiViewItemActionIndex = index">
+            <div ibmRow>
+              <div 
+                class="center-title action-checkbox-container">
+                <ibm-checkbox 
+                  class="checkbox-margin action-checkbox" 
+                  size="sm" 
+                  [checked]="action.checked"
+                  (change)="handleSelectMultiViewItemAction($event, item, action, multiViewItemIndex)">
+                  {{ action?.name | translate }}
+                </ibm-checkbox>
+              </div>
+              <div class="access-group-tooltip">
+                <ibm-tooltip-icon 
+                  *ngIf="hasDescription(action)"
+                  [placement]="'right'"
+                  [alignment]="'start'"
+                  [content]="action?.description | translate">
+                  <aiap-icon-svg-v1 
+                    [src]="'assets/carbon-icons/16/status/information.svg'">
+                  </aiap-icon-svg-v1>
+                </ibm-tooltip-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

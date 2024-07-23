@@ -1,0 +1,1063 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "IBM CEA Bot Console is a web based application, provides interface for content manager, where they can see various reporting capabilities and get enhancement insights to improve conversation logic.",
+    "version": "1.0.0",
+    "title": "IBM CEA (Cognitive Employee Library & Integrated Advisor) Bot Console"
+  },
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "paths": {
+    "/reports/metrics": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "avgCount": {
+                  "type": "string"
+                },
+                "totalCount": {
+                  "type": "string"
+                },
+                "convCount": {
+                  "type": "string"
+                },
+                "transferCount": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/reports/messages": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "day": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "avg": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/watson/intents": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "integer"
+                  },
+                  "intent": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/watson/entities": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "integer"
+                  },
+                  "entity": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/conversations": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "conv_count": {
+                    "type": "string"
+                  },
+                  "day": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/transfers": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "transfer_count": {
+                    "type": "string"
+                  },
+                  "day": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/conversations": {
+      "get": {
+        "tags": [
+          "conversations"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Conversation"
+                  }
+                },
+                "total": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/feedbacks": {
+      "get": {
+        "tags": [
+          "feedbacks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Feedback"
+                  }
+                },
+                "total": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/surveys": {
+      "get": {
+        "tags": [
+          "surveys"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Survey"
+                  }
+                },
+                "avgNps": {
+                  "type": "integer"
+                },
+                "total": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entities": {
+      "get": {
+        "tags": [
+          "entities"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "avgNps": {
+                  "type": "integer"
+                },
+                "total": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audits": {
+      "get": {
+        "tags": [
+          "audits"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Start date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "End date of a query in format MM/DD/YYYY",
+            "required": true,
+            "type": "string",
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Audit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/answerstore": {
+      "get": {
+        "tags": [
+          "answerStore"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Answer"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "answerStore"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Answer"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/answerstore/{id}": {
+      "get": {
+        "tags": [
+          "answerStore"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Answer"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "answerStore"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Answer"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "answerStore"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Roles"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that needs to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Roles"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "description": "Two roles: user or administrator, if role is missing, then it is User"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      }
+    },
+    "Conversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string"
+        },
+        "started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ended": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "day": {
+          "type": "string",
+          "format": "date"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "survey": {
+          "type": "string"
+        }
+      }
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "conversationid": {
+          "type": "string"
+        },
+        "messageid": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "timestampt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "utterance": {
+          "type": "string"
+        },
+        "reply": {
+          "type": "string"
+        },
+        "intent": {
+          "type": "object",
+          "properties": {
+            "intent": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        },
+        "feedback": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            }
+          }
+        },
+        "survey": {
+          "type": "string"
+        }
+      }
+    },
+    "Answer": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "Roles": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Survey": {
+      "type": "object",
+      "properties": {
+        "conversationid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "score": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "Audit": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "action": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

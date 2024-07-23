@@ -1,0 +1,46 @@
+<div class="bx--pagination" data-pagination #paginationComponent>
+  <div class="bx--pagination__left">
+    <span class="bx--pagination__text">Items per page:</span>
+    <div class="bx--select bx--select--inline">
+      <label for="select-id-items" class="bx--visually-hidden">Number of items per page</label>
+      <select id="select-id-items" class="bx--select-input" data-items-per-page #dataItemsPerPageSelector>
+        <option *ngFor="let item of pagination.itemsPerPageList; let i = index" class="bx--select-option"
+          value="{{ item }}" [attr.selected]="setItemsPerPage(i)">{{ item }}</option>
+      </select>
+      <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
+        <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+      </svg>
+    </div>
+    <span class="bx--pagination__text">
+      <span>|&nbsp;</span>
+      <span data-displayed-item-range>{{ itemsPerPageCounter() }}</span> of
+      <span data-total-items>{{ pagination.totalItems }}</span> items</span>
+  </div>
+  <div class="bx--pagination__right bx--pagination--inline">
+    <span class="bx--pagination__text">
+      <span data-displayed-page-number>{{ selectedPage }}</span> of
+      <span data-total-pages>{{ pagination.totalPages }}</span> pages</span>
+    <button class="bx--pagination__button bx--pagination__button--backward" data-page-backward
+      aria-label="Backward button">
+      <svg class="bx--pagination__button-icon" width="7" height="12" viewBox="0 0 7 12">
+        <path fill-rule="nonzero" d="M1.45 6.002L7 11.27l-.685.726L0 6.003 6.315 0 7 .726z" />
+      </svg>
+    </button>
+    <div class="bx--select bx--select--inline">
+      <label for="select-id-pagination" class="bx--visually-hidden">Number of items per page</label>
+      <select id="select-id-pagination" class="bx--select-input" data-page-number-input #pageNumberSelector>
+        <option *ngFor="let item of pagination.pagesList; let i = index" class="bx--select-option" value="{{ item }}"
+          [attr.selected]="setPage(i)">{{ item }}</option>
+      </select>
+      <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
+        <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+      </svg>
+    </div>
+    <button class="bx--pagination__button bx--pagination__button--forward" data-page-forward
+      aria-label="Forward button">
+      <svg class="bx--pagination__button-icon" width="7" height="12" viewBox="0 0 7 12">
+        <path fill-rule="nonzero" d="M5.569 5.994L0 .726.687 0l6.336 5.994-6.335 6.002L0 11.27z" />
+      </svg>
+    </button>
+  </div>
+</div>

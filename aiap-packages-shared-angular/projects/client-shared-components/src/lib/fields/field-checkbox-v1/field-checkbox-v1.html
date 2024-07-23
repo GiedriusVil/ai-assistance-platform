@@ -1,0 +1,9 @@
+<fieldset class="cds--fieldset">
+  <legend class="ibm--label" *ngIf="state?.label">{{ state?.label }}</legend>
+  <ibm-checkbox
+    [disabled]="state?.isDisabled"
+    [value]="state?.value"
+    [(checked)]="state.checked"
+    (checkedChange)="handleCheckChanged($event)">{{ state?.text }}
+  </ibm-checkbox>
+</fieldset>

@@ -1,0 +1,16 @@
+{
+  "name": "@ibm-aca/aca-data-masking-provider",
+  "version": "3.28.1",
+  "description": "Service used for data masking in text messages and logs",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "fast-redact": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org"
+  }
+}

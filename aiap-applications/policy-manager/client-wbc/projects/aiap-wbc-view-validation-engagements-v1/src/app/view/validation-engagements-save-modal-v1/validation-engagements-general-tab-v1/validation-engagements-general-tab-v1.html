@@ -1,0 +1,29 @@
+<div ibmGrid>
+  <div ibmRow>
+    <ibm-label ibmCol [columnNumbers]="{'lg': 6}">
+      {{'validation_engagements_v1.view.general_tab_v1.key_label' | translate}}
+      <input
+        ibmText
+        required
+        name="key"
+        [(ngModel)]="validationEngagement.key">
+    </ibm-label>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <ibm-label>
+        {{'validation_engagements_v1.view.general_tab_v1.description_label' | translate}}
+        <textarea
+          ibmTextArea
+          [rows]="15"
+          name="description"
+          [placeholder]="'validation_engagements_v1.view.general_tab_v1.description_placeholder' | translate"
+          [(ngModel)]="validationEngagement.description">
+        </textarea>
+      </ibm-label>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+</div>

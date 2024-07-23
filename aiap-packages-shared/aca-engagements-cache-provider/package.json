@@ -1,0 +1,11 @@
+{
+    "name": "@ibm-aca/aca-engagements-cache-provider",
+    "author": "martynas.pazusis@ibm.com",
+    "private": true,
+    "version": "0.0.1",
+    "description": "aca-engagements-cache-provider",
+    "main": "index.js",
+    "dependencies": {
+        "@ibm-aiap/aiap-memory-store-provider": "0.0.1"
+    }
+}

@@ -1,0 +1,31 @@
+{
+  "rule_messages_v1.template_table_v1.header" : "Templates *",
+  "rule_messages_v1.template_table_v1.add_template_button" : "Add Template",
+  "rule_messages_v1.template_table_v1.remove_template_button" : "Remove Template",
+  "rule_changes_v1.modal_v1.header" : "Rule Change",
+  "rule_changes_v1.modal_v1.transaction_id_label" : "Transaction ID",
+  "rule_changes_v1.modal_v1.action_label" : "Action",
+  "rule_changes_v1.modal_v1.initiator_id_label" : "Initiator ID",
+  "rule_changes_v1.modal_v1.initiator_name_label" : "Initiator Name",
+  "rule_changes_v1.modal_v1.document_id_label" : "Document ID",
+  "rule_changes_v1.modal_v1.document_type_label" : "Document Type",
+  "rule_changes_v1.modal_v1.timestamp_label" : "Timestamp",
+  "rule_changes_v1.modal_v1.close_button" : "Close",
+
+  "rules.rules_changes_table_v1.export_button" : "Export",
+  "rules.rules_changes_table_v1.refresh_button_tooltip" : "Refresh",
+  "rules.rules_changes_table_v1.export_button_tooltip" : "Export",
+  "rules.rule_changes_table_v1.transaction_id_header" : "Transaction ID",
+  "rules.rule_changes_table_v1.document_id_header" : "Document ID",
+  "rules.rule_changes_table_v1.document_type_header" : "Document Type",
+  "rules.rule_changes_table_v1.action_header" : "Action",
+  "rules.rule_changes_table_v1.changed_header" : "Changed",
+  "difference_table_v1.table.field_header" : "Field",
+  "difference_table_v1.table.old_value_header" : "Old value",
+  "difference_table_v1.table.new_value_header" : "New value",
+  "rule_changes_v1.modal_v1.close_button_tooltip" : "Close",
+  "rules.rule_changes_table_v1.notification.error.title" : "Unable to retrieve rule changes!",
+  "rules.rule_changes_table_v1.notification.warning.title" : "Export rules changes",
+  "rules.rule_changes_table_v1.notification.warning.message" : "Nothing to export!"
+
+}

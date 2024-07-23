@@ -1,0 +1,7 @@
+<aiap-table-v1-container-v1 *ngIf="response.total > 0">
+  <aiap-table-v1
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+</aiap-table-v1-container-v1>

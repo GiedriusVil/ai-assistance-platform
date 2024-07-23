@@ -1,0 +1,23 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./components/components.scss";
+@use "./components-modals/components-modals.scss";
+@use "./layout/layout.scss";
+@use "./views/views.scss";
+
+@import "variables";
+
+aca-chat-app {
+  .chat--button, .chat--window {
+    z-index: 1000;
+  }
+
+  .chat--window {
+    top: 0;
+    left: 0;
+    position: fixed;
+  }
+}

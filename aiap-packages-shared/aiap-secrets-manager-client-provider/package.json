@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aiap/aiap-ibm-secrets-manager-client-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-ibm-cloud-secrets-manager": "0.0.1"
+  }
+}

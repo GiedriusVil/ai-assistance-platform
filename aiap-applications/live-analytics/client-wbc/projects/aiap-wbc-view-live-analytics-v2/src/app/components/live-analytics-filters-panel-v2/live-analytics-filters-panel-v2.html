@@ -1,0 +1,26 @@
+<div class="filters-panel">
+  <div class="filters-content">
+    <div ibmGrid class="page-filters">
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 8}">
+          <aiap-date-range-picker-v1
+          [value]="state?.dateRange"
+          (onChange)="handleDateRangeChange($event)">
+          </aiap-date-range-picker-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <ng-container *ngFor="let filter of configuration?.elements?.filters">
+          <div ibmCol [columnNumbers]="filter?.columns? filter.columns: {'xlg': 3, 'lg': 3, 'md': 3, 'sm': 3}">
+            <aca-live-analytics-filter
+            *ngIf="filter.ref"
+            [filterRef]="filter.ref"
+            [configuration]="configuration">
+            </aca-live-analytics-filter>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "../../aiap-packages-shared/aiap--types-server"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap--types-domain-app"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-errors"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-utils-metadata"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-audit"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-express-routes"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-utils-mongo"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-redis-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-event-stream-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-wrapper-async-retry"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-mongo-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-client-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-app-service"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-secrets-manager-adapter-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-passport-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aca-wrapper-joi"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-express-session-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-memory-store-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-datasource-provider"
+    },
+    {
+      "path": "../../aiap-packages-shared/aiap-lambda-modules-service"
+    },
+    {
+      "path": "./packages/server"
+    },
+    {
+      "path": "./packages/configuration"
+    }
+  ]
+}

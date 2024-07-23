@@ -1,0 +1,6 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-ai-service-ensure-default",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}

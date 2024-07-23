@@ -1,0 +1,26 @@
+<div *ngIf="isReady()"
+  [ngClass]="getActiveClassNames()">
+  <div class="aca-wbc-accordion card">
+    <div class="card-body">
+      <ng-container *ngFor="let answer of message?.attachment?.answersPrimary" >
+        <aca-wbc-accordion-answer
+          (onBtnClickEvent)="handleAnswerBtnClickEvent($event)"
+          [answer]="answer">
+        </aca-wbc-accordion-answer>
+      </ng-container>
+      <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel *ngFor="let answer of message?.attachment?.answersSecondary">
+          <ng-template ngbPanelTitle>
+            <span>{{answer?.title}}</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <aca-wbc-accordion-answer
+              (onBtnClickEvent)="handleAnswerBtnClickEvent($event)"
+              [answer]="answer">
+            </aca-wbc-accordion-answer>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+  </div>
+</div>

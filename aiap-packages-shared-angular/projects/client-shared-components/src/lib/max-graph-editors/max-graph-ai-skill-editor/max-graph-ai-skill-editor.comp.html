@@ -1,0 +1,57 @@
+<div ibmGrid [condensed]="true">
+  <div ibmRow [condensed]="true">
+    <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1,  'md': 1, 'sm': 1}">
+      <div ibmGrid [condensed]="true" style="padding-right: 1.5rem; padding-left: 1.5rem;">
+        <div ibmRow [condensed]="true">
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+            <ibm-label>Zoom & Scale</ibm-label>
+          </div>
+        </div>
+        <div ibmRow [condensed]="true">
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+            <button
+              ibmButton="ghost"
+              [iconOnly]="true"
+              [size]="'sm'"
+              (click)="handleZoomInClickEvent($event)">
+              <svg class="bx--btn__icon" ibmIcon="zoom--in" size="16"></svg>
+            </button>
+            <button 
+              ibmButton="ghost" 
+              [iconOnly]="true" 
+              [size]="'sm'"
+              (click)="handleZoomOutClickEvent($event)">
+              <svg class="bx--btn__icon" ibmIcon="zoom--out" size="16"></svg>
+            </button>
+          </div>
+        </div>
+        <div ibmRow [condensed]="true">
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+            <ibm-dropdown
+              [size]="'sm'"
+              (selected)="handleScaleSelectEvent($event)">
+              <ibm-dropdown-list 
+                [items]="state.graphScaleItems">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+        <div ibmRow [condensed]="true">&nbsp;</div>
+        <div ibmRow [condensed]="true">
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+            <ibm-label>Elements</ibm-label>
+          </div>
+        </div>
+        <div ibmRow [condensed]="true">
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}" 
+            style="min-height: 75vh; max-height: 75vh;" 
+            #maxToolbar></div>
+        </div>
+      </div>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 11, 'lg': 11,  'md': 7, 'sm': 3}" 
+      style="min-height: 90vh; max-height: 90vh; overflow: scroll;"
+      #maxGraph>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="message--video message--content message--float">
+  <iframe class="message--float"
+    #iframe
+    [height]="iframe.width"
+    [src]="message?.attachment?.attachments[0]?.url | safe: 'resourceUrl'"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>

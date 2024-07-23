@@ -1,0 +1,64 @@
+<footer #footer id="footer" class="float-start w-100 clearfix" [ngClass]="userTyping ? 'animation--focus' : 'animation--focusout'">
+  <form [formGroup]="form">
+  <div #container class="container-lg clearfix">
+    <table class="float-start w-100">
+      <tr #row>
+        <td>
+          <textarea
+            attr.aria-label="{{'footer.input-aria-label'| translate}}"
+            tabindex="0"
+            formControlName="input"
+            #textarea
+            [class]="isChattingWith()"
+            maxlength="280"
+            rows="1"
+            placeholder="{{'footer.input-placeholder'| translate}}"
+            [disabled]="isInputDisabled()"
+            (keyup)="keyUp($event)"
+            (keydown)="keyDown($event)"
+            (input)="onInput()"
+            (focus)="setUserTyping(true)"
+            (focusout)="setUserTyping(false)"
+            (keydown.enter)="postMessage($event, true)">
+          </textarea>
+        </td>
+        <!-- Button to end session when live chat is happening -->
+        <td
+          *ngIf="isLiveChatInitiated()"
+        >
+          <input
+            tabindex="0" 
+            type="image" 
+            title="{{'footer.button-title-end-session-with-agent'| translate}}" 
+            alt="{{'footer.alt-title-end-session-with-agent'| translate}}" 
+            [src]="endSessionIcon" 
+            class="float-start action--button end-session"
+            (click)="endLiveChatSession()"
+            (mouseover)="onMouseEndZendeskSessionOver()"
+            (mouseout)="onMouseEndZendeskSessionOut()">
+        </td>
+        <td>
+          <input
+            tabindex="0"
+            type="image"
+            title="{{'footer.button-title'| translate}}"
+            alt="{{'footer.button-alt'| translate}}"
+            src="../../../assets/send-alt-filled.svg"
+            class="float-start action--button send-message"
+            [disabled]="isInputDisabled() || !form.get('input').value?.trim()?.length"
+            [class.disabled]="isInputDisabled() || !form.get('input').value?.trim()?.length"
+            (click)="postMessage($event, false)">
+        </td>
+        <td>
+          <div *ngIf="isFeatureEnabled('transcript')"
+          (click)="downloadTranscript()">
+          <img class="float-start action--button download-transcript" tabindex="0" [src]="icons['downloadTranscript']"
+            title="{{'footer.button-title-download-transcript'| translate}}" alt="{{'footer.button-title-download-transcript-alt'| translate}}">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </form>
+</footer>
+

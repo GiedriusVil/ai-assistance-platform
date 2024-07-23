@@ -1,0 +1,93 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'utterances.table_toolbar.search_placeholder_for_utterances' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [size]="'md'"
+    [skeleton]="loading"
+    [isDataGrid]="true"
+    [model]="model"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleEventPageSelect($event)">
+  </aiap-table-v1-pagination-v1>
+
+  <ng-template 
+    #utteranceTemplate 
+    let-data="data">
+    <p (click)="navToTranscript(data)">
+      <a class="italic">{{ data.utterance }}
+      </a>
+    </p>
+    <span><strong>{{ data.created }}</strong></span>
+  </ng-template>
+
+  <ng-template 
+    #scoreTemplate 
+    let-data="data">
+    <ng-container [ngSwitch]="data.score">
+      <ng-container *ngSwitchCase="feedbackScores.POSITIVE">
+        <i class="fas fa-thumbs-up green"></i>
+      </ng-container>
+      <ng-container *ngSwitchCase="feedbackScores.NEGATIVE">
+        <i class="fas fa-thumbs-down red"></i>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #entityTemplate let-data="data">
+    <p>{{ data.entity }}{{ data.entity_value_trigger}} {{data.entity_confidence }}</p>
+   
+  </ng-template>
+
+  <ng-template #intentTemplate let-data="data">
+    <p *ngIf="data.intent">{{ data.intent}}</p>
+    <ibm-tag *ngIf="data.skillName" type="warm-gray">{{ data.skillName }}</ibm-tag>
+    <ibm-tag *ngIf="data.intent && data.confidence" [type]="data.confidence >= 0.5 ? 'green' : 'red'">{{data.confidence}}</ibm-tag>
+  </ng-template>
+
+  <ng-template #feedbackTemplate let-data="data">
+    <ng-container *ngIf="data.reason">
+      <p><strong>{{ data.reason }}</strong></p>
+      <a class="italic" (click)="showFeedbackModal(data)">
+        {{ data.strippedComment }}
+      </a>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #overflowMenuItemTemplate let-data="data">
+    <aiap-overflow-menu-v1>
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{ action: 'utterances.view.edit' }"
+        [disabled]="true"
+        [text]="'utterances.table_overflow_menu.btn_edit.text' | translate"
+        (onClick)="emitShowUtteranceIntentModal(data)">
+      </aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{ action: 'utterances.view.ignore' }"
+        [text]="'utterances.table_overflow_menu.btn_ignore.text' | translate"
+        (onClick)="emitShowIgnoreUtteranceModal(data)">
+      </aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{ action: 'utterances.view.view-audit'}"
+        [disabled]="true"
+        [text]="'utterances.table_overflow_menu.btn_view_audit.text' | translate"
+        (onClick)="emitShowUtteranceAuditModal(data)">
+      </aiap-overflow-menu-option-v1>
+    </aiap-overflow-menu-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

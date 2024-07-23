@@ -1,0 +1,42 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb [outlet]="outlet"></aca-breadcrumb>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-date-range-picker 
+            [value]="state.dateRange"
+            (onChange)="handleDateRangeChange($event)"></aca-date-range-picker>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+          <ibm-dropdown 
+            type="multi" 
+            placeholder="{{ 'surveys_view_v1.fld_assistants.placeholder' | translate }}" 
+            [label]="'surveys_view_v1.dropdown_filter_by_assistants.label' | translate"
+            [(ngModel)]="state.assistantsSelected" 
+            (selected)="handleAssistantSelectionEvent($event)">
+            <ibm-dropdown-list [items]="state.assistants"></ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="totals-content">
+  <aiap-surveys-metrics-v1>
+  </aiap-surveys-metrics-v1>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-surveys-table-v1
+      (onShowSavePlace)="handleSurveysRowClick($event)"
+      (onSearchEvent)="handleSearchEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent()">
+    </aiap-surveys-table-v1>
+  </div>
+</div>

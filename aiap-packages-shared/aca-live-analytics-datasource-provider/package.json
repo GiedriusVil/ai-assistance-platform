@@ -1,0 +1,20 @@
+{
+  "name": "@ibm-aca/aca-live-analytics-datasource-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Jevgenij Golobokin",
+      "email": "jevgenij.golobokin@ibm.com",
+      "url": "https://www.linkedin.com/in/jevgenij-golobokin/"
+    }
+  ],
+  "license": "IBM",
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1",
+    "@ibm-aca/aca-runtime-source-registry": "0.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "@ibm-aca/aca-json-rules-engine",
+  "version": "0.0.1",
+  "description": "Rules Engine expressed in simple json",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {},
+  "keywords": [
+    "rules",
+    "engine",
+    "rules engine"
+  ],
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/dist",
+      "/examples/node_modules"
+    ],
+    "globals": [
+      "context",
+      "xcontext",
+      "describe",
+      "xdescribe",
+      "it",
+      "xit",
+      "before",
+      "beforeEach",
+      "expect",
+      "factories"
+    ]
+  },
+  "mocha": {
+    "require": [
+      "babel-core/register",
+      "babel-polyfill"
+    ],
+    "file": "./test/support/bootstrap.js",
+    "checkLeaks": true,
+    "recursive": true,
+    "globals": [
+      "expect"
+    ]
+  },
+  "author": "Cache Hamm <cache.hamm@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cachecontrol/json-rules-engine/issues"
+  },
+  "homepage": "https://github.com/cachecontrol/json-rules-engine",
+  "devDependencies": {
+    "tsd": "^0.17.0"
+  },
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-jsonpath-plus": "0.0.1",
+    "@ibm-aca/aca-utils-errors": "0.0.1",
+    "@ibm-aca/aca-wrapper-uuid": "0.0.1",
+    "eventemitter2": "^6.4.4",
+    "hash-it": "^5.0.0"
+  }
+}

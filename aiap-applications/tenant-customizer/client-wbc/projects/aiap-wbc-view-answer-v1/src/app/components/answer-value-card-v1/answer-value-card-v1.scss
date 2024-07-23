@@ -1,0 +1,21 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-answer-value-card-v1 {
+  aca-json-editor .bx--row {
+    padding-right: 0;
+  }
+  .jsoneditor {
+    &.jsoneditor {
+      border-color: black;
+      height: 400px;
+
+      .jsoneditor-menu {
+        border-color: black;
+        background-color: black;
+      }
+    }
+  }
+}

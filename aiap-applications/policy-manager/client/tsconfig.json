@@ -1,0 +1,78 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false,
+    "enableI18nLegacyMessageIdFormat": false
+  },
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "useDefineForClassFields": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ES2022"
+    ],
+    "paths": {
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "client-shared-carbon": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-carbon/client-shared-carbon",
+        "../../../aiap-packages-shared-angular/dist/client-shared-carbon/",
+      ],
+      "client-shared-utils": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-utils/client-shared-utils",
+        "../../../aiap-packages-shared-angular/dist/client-shared-utils/",
+      ],
+      "client-shared-services": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-services/client-shared-services",
+        "../../../aiap-packages-shared-angular/dist/client-shared-services/",
+      ],
+      "client-shared-components": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-components/client-shared-components",
+        "../../../aiap-packages-shared-angular/dist/client-shared-components/",
+      ],
+      "client-shared-views": [
+        "../../../aiap-packages-shared-angular/dist/client-shared-views/client-shared-views",
+        "../../../aiap-packages-shared-angular/dist/client-shared-views/",
+      ],
+      "client-utils": [
+        "dist/client-utils/client-utils",
+        "dist/client-utils"
+      ],
+      "client-services": [
+        "dist/client-services/client-services",
+        "dist/client-services"
+      ],
+      "client-components": [
+        "dist/client-components/client-components",
+        "dist/client-components"
+      ],
+      "client-views": [
+        "dist/client-views/client-views",
+        "dist/client-views"
+      ]
+    },
+  }
+}

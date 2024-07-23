@@ -1,0 +1,101 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-login-view-v1 {
+  .bx--grid,
+  .bx--row,
+  .bx--col-sm-2,
+  .bx--content {
+    margin: 0;
+    padding: 0;
+  }
+
+  .bx--btn--primary {
+    margin-right: 16px;
+  }
+
+  .bx--inline-notification {
+    margin: 0;
+  }
+
+  .bottom-margin {
+    margin-bottom: 32px;
+  }
+
+  .content-padding {
+    padding: 0 90px;
+  }
+
+  .cover-image {
+    background-image: url("/assets/images/splashbg.svg");
+    background-position: right;
+    background-size: cover;
+    background-color: #040932;
+    position: relative;
+
+    .company-logo {
+      height: 40px;
+      position: absolute;
+      top: 40px;
+      left: 90px;
+    }
+
+    .promo-content {
+      padding: 0 90px;
+
+      p,
+      h3,
+      h2,
+      h1 {
+        color: #ffffff;
+      }
+
+      h2 {
+        font-size: 2em;
+        font-weight: 100;
+        line-height: normal;
+      }
+
+      h1 {
+        font-size: 3em;
+        line-height: normal;
+
+        span {
+          font-weight: bold;
+        }
+
+        .fas {
+          padding-right: 8px;
+        }
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 0.875em;
+        line-height: 1.5em;
+      }
+
+      h3 {
+        margin-top: 30px;
+        font-size: 1.125em;
+        font-weight: 900;
+      }
+    }
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  .svg-wrapper {
+    color: #ffffff;
+    padding-right: 8px;
+
+    svg {
+      width: 60px;
+      height: 40px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "6.6.2",
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.md"
+      ],
+      "message": "chore(release): publish"
+    },
+    "bootstrap": {}
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useNx": false
+}

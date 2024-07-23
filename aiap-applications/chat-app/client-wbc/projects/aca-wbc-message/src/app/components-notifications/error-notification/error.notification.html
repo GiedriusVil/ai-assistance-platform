@@ -1,0 +1,14 @@
+<div class="message--notification message--float w-100">
+  <p 
+    class="aca-chat-error-notification-text mb-0"
+    (click)="handleClickEvent($event)">{{ message?.text }}
+  </p>
+  <div 
+    *ngIf="isVisible"
+    class="aca-json-viewer">
+    <ngx-json-viewer 
+      [json]="message?.attachment" 
+      [depth]="1">
+    </ngx-json-viewer>
+  </div>
+</div>

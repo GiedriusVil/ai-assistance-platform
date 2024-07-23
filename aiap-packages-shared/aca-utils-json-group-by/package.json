@@ -1,0 +1,19 @@
+{
+  "name": "@ibm-aca/aca-utils-json-group-by",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-utils-errors": "0.0.1",
+    "@ibm-aca/aca-wrapper-lodash": "0.0.1"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    }
+  ]
+}

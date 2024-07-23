@@ -1,0 +1,99 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'access_groups_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="handleEventSearchChange($event)"
+      (onSearchClear)="handleEventSearchClear($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'access-groups.view.add'}"
+      [size]="'md'"
+      [text]="'access_groups_table_v1.btn_add.text' | translate"
+      [tooltip]="'access_groups_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'access-groups.view.import'}"
+      [size]="'md'"
+      [text]="'access_groups_table_v1.btn_import.text' | translate"
+      [tooltip]="'access_groups_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'access-groups.view.export'}"
+      [size]="'md'"
+      [text]="('access_groups_table_v1.btn_export.text' | translate) + '(' + (this.selectedRows.length > 0 ? this.selectedRows.length: 'all') + ')'"
+      [tooltip]="'access_groups_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'access-groups.view.delete'}"
+      [size]="'md'"
+      [text]="('access_groups_table_v1.btn_delete.text' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'access_groups_table_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #actionsOverFlowTemplate let-data="data">
+    <aiap-overflow-menu-v1
+      #overflowMenu
+      [tooltip]="'access_groups_table_v1.col_actions.tooltip' | translate"
+      (onClick)="_allowActionsClick($event, overflowMenu)">
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{action:'access-groups.view.edit'}"
+        [text]="'access_groups_table_v1.col_actions.btn_edit.text' | translate"
+        [tooltip]="'access_groups_table_v1.col_actions.btn_edit.tooltip'| translate"
+        (click)="emitShowSavePlace(data)">
+      </aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        *isActionAllowed="{action:'access-groups.view.copy'}"
+        [text]="'access_groups_table_v1.col_actions.btn_copy.text' | translate"
+        [tooltip]="'access_groups_table_v1.col_actions.btn_copy.tooltip'| translate"
+        (click)="showCopyPlace(data)">
+      </aiap-overflow-menu-option-v1>
+    </aiap-overflow-menu-v1>
+  </ng-template>
+  <ng-template 
+    #createdTemplate 
+    let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template 
+    #updatedTemplate 
+    let-data="data">
+    <aiap-table-cell-updated-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-updated-v1>
+  </ng-template>
+  <aiap-table-v1-container-v1>

@@ -1,0 +1,81 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      [type]="'ghost'" 
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'validation_engagements_v1.table_v1.search_placeholder' | translate" 
+      [search]="state.search"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'validation-engagements.view.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      [text]="'validation_engagements_v1.table_v1.add_button' | translate"
+      [tooltip]="'validation_engagements_v1.table_v1.add_button_tooltip' | translate"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'validation-engagements.view.import'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      [text]="'validation_engagements_v1.table_v1.import_button' | translate"
+      [tooltip]="'validation_engagements_v1.table_v1.import_button_tooltip' | translate"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'validation-engagements.view.export'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/file/export.svg'"
+      [text]="'validation_engagements_v1.table_v1.export_button' | translate"
+      [tooltip]="'validation_engagements_v1.table_v1.export_button_tooltip' | translate"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'validation-engagements.view.remove'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [text]="('validation_engagements_v1.table_v1.remove_button' | translate) + '(' + this.selectedRows.length + ')'"
+      [tooltip]="'validation_engagements_v1.table_v1.remove_button_tooltip' | translate"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #createdTemplate 
+    let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template 
+    #updatedTemplate 
+    let-data="data">
+    <aiap-table-cell-updated-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

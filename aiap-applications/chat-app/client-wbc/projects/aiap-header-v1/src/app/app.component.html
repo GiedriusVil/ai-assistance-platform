@@ -1,0 +1,133 @@
+<div class="header--wrapper">
+  <header [ngStyle]="styles" class="header" [ngClass]="{ 'pointer-cursor': isMinimized() }">
+    <div class="header--box" *ngIf="isFeatureEnabled('icon')">
+      <div class="header--logo">
+        <img class="header--logo--img" tabindex="0" title="{{'header.logo-title'| translate}}"
+          alt="{{'header.logo-alt'| translate}}" aria-hidden="true" [src]="getIcon('aiap-logo-white.svg', 'brandLogo')">
+      </div>
+    </div>
+    <div class="header--box" *ngIf="state?.title">
+      <div class="header--title">
+        <h1>{{ state?.title }}</h1>
+        <span *ngIf="state?.underTitleTextEnabled">{{ state?.underTitleTextEnabled }}</span>
+      </div>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('quickLinks')">
+      <div class="header--quick-links" *ngIf="state?.isFullscreen else quickLinksSmall">
+        <ul class="header--quick-links--list">
+          <li class="header--quick-links--list--item" *ngFor="let link of state?.quickLinks?.links">
+            <a class="header--quick-links--list--link" (click)="onQuickLinkClick(link)">{{ link.title }}</a>
+          </li>
+        </ul>
+      </div>
+      <ng-template #quickLinksSmall>
+        <div class="header--quick-links">
+          <div class="header--icon--box" role="button" (click)="openQuickLinksModal()">
+            <img class="img--quick-links" tabindex="0" [src]="getIcon('overflow-menu--vertical.svg', 'quickLinksDots')">
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('languageChange')">
+      <button
+        class="header--language-change--box"
+        (click)="handleLanguageChange()"
+        *ngIf="!isMultiLanguageChange()">
+        {{ displayLanguage }}
+      </button>
+      <div ngbDropdown *ngIf="isMultiLanguageChange()">
+        <button
+          ngbDropdownToggle
+          id="header--language--change"
+          class="header--language-change--box">
+          {{ displayLanguage }}
+        </button>
+        <div
+          ngbDropdownMenu
+          aria-labelledby="header--language--change"
+          class="header--language-change--items">
+          <button
+            ngbDropdownItem
+            class="header--language-change--item"
+            *ngFor="let language of state?.languageChange?.languages"
+            (click)="handleLanguageChange(language.iso2)">
+            {{ language.iso2 }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('rightIcon')">
+      <div class="header--icon--box">
+        <img class="img--right-icon" [src]="state?.rightIcon?.url" alt="{{'header.right-icon-alt'| translate}}" *ngIf="state?.rightIcon?.enabled">
+      </div>
+    </div>
+    <div class="header--buttons--box header--zoom" *ngIf="isFeatureEnabled('zoom')">
+      <div class="header--icon--box" role="button"
+        (keydown.enter)="headerZoom.toggleZoom()" (click)="headerZoom.toggleZoom()">
+        <img class="img--zoom" tabindex="0" [src]="getIcon('zoom--in.svg', 'zoom')"
+          title="{{'header.icon-zoom-title'| translate}}" alt="{{'header.icon-zoom-alt'| translate}}"/>
+      </div>
+      <aiap-header-zoom
+        [zoomInIcon]="getIcon('add.svg', 'zoom-in')"
+        [zoomOutIcon]="getIcon('subtract-black.svg', 'zoom-out')"
+        [resetZoomIcon]="getIcon('reset.svg', 'reset-zoom')"
+        [isFullscreen]="state?.isFullscreen"
+        (zoomEventEmitter)="onEventEmit($event, eventTypes.CHAT_ZOOM)">
+      </aiap-header-zoom>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('survey')">
+      <div class="header--icon--box" role="button"
+        (keydown.enter)="onEventEmit($event, eventTypes.SHOW_SURVEY_MODAL)" (click)="onEventEmit($event, eventTypes.SHOW_SURVEY_MODAL)">
+        <img class="img--survey" tabindex="0" role="button" [src]="getIcon('pen.svg', 'surveyPenIcon')"
+          title="{{'header.icon-survey-title'| translate}}" alt="{{'header.icon-survey-alt'| translate}}">
+      </div>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('transcriptTransform')">
+      <div class="header--icon--box" role="button"
+        (click)="onEventEmit($event, eventTypes.TEST_CASE_SHOW)">
+        <img class="img--transform" tabindex="0" [src]="getIcon('journal-plus.svg', 'transcriptTransform')"
+          title="{{'header.icon-test-cases-title'| translate}}" alt="{{'header.icon-test-cases-alt'| translate}}"/>
+      </div>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('audio')">
+      <div *ngIf="audioEnabled" class="header--icon--box" role="button"
+        (click)="onAudio($event)">
+        <img class="img--volume" tabindex="0" [src]="getIcon('volume-up-filled.svg', 'volumeUp')"
+          title="{{'header.icon-volume-up-title'| translate}}" alt="{{'header.icon-volume-up-alt'| translate}}">
+      </div>
+      <div *ngIf="!audioEnabled" class="header--icon--box" role="button"
+        (click)="onAudio($event)">
+        <img class="img--volume" tabindex="0" [src]="getIcon('volume-mute-filled.svg', 'volumeMute')"
+          title="{{'header.icon-volume-mute-title'| translate}}" alt="{{'header.icon-volume-mute-alt'| translate}}">
+      </div>
+    </div>
+    <div class="header--buttons--box" *ngIf="isFeatureEnabled('minimizeButton')">
+      <div
+        class="header--icon--box"
+        *ngIf="!isMinimized()"
+        role="button"
+        (keydown.enter)="onEventEmit($event, eventTypes.MINIMIZE_CHAT_WINDOW)"
+        (click)="onEventEmit($event, eventTypes.MINIMIZE_CHAT_WINDOW)">
+        <img class="img--minimize" [src]="getIcon('subtract.svg', 'minimize')" tabindex="0"
+          title="{{'header.icon-minimize-title' | translate}}" alt="{{'header.icon-minimize-alt' | translate}}">
+      </div>
+      <div
+        class="header--icon--box"
+        *ngIf="isMinimized()"
+        role="button"
+        (keydown.enter)="onEventEmit($event, eventTypes.MINIMIZE_CHAT_WINDOW)"
+        (click)="onEventEmit($event, eventTypes.MINIMIZE_CHAT_WINDOW)">
+        <img class="img--minimize" [src]="getIcon('maximize.svg', 'maximize')" tabindex="0"
+          title="{{'header.icon-maximize-title' | translate}}" alt="{{'header.icon-maximize-alt' | translate}}">
+      </div>
+    </div>
+    <div class="header--buttons--box">
+      <div class="header--icon--box" role="button" (click)="onEventEmit($event, eventTypes.CLOSE_CHAT_WINDOW)" *ngIf="isFeatureEnabled('closeButton')">
+        <img class="img--close" [src]="getIcon('close.svg', 'close')" tabindex="0"
+          title="{{'header.icon-cross-title'| translate}}" alt="{{'header.icon-cross-alt'| translate}}">
+      </div>
+    </div>
+  </header>
+</div>
+
+<aiap-quick-links-modal [closeIcon]="getIcon('close.svg', 'close')" [links]="state?.quickLinks?.links" [modalTitle]="state?.quickLinks?.title"></aiap-quick-links-modal>

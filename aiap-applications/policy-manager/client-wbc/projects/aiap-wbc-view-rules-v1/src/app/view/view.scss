@@ -1,0 +1,32 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./rules-export-modal-v1/rules-export-modal-v1.scss";
+@use "./rules-pull-modal-v1/rules-pull-modal-v1.scss";
+
+aiap-wbc-rules-view-v1 {
+  background: inherit;
+
+  .filters-wrapper {
+    .toggle-filter-wrapper {
+      margin-left: auto;
+    }
+
+    ibm-toggle {
+      .bx--label {
+        width: 100%;
+        text-align: end;
+      }
+
+      .bx--toggle-input__label {
+        margin-left: auto;
+      }
+      
+      .bx--toggle__switch {
+        margin-top: 0;
+      }
+    }
+  }
+}

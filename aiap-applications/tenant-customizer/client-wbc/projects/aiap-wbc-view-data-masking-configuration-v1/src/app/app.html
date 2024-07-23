@@ -1,0 +1,10 @@
+<div *ngIf="isReady()">
+  <aiap-data-masking-configuration-view-v1></aiap-data-masking-configuration-view-v1>
+</div>
+<div
+  *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

@@ -1,0 +1,40 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <div>
+      <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+      <div class="page-filters" ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+            <aiap-date-range-picker-v1 
+              [value]="state.dateRange" 
+              (onChange)="handleDateRangeChange($event)">
+            </aiap-date-range-picker-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'lg': 6}">
+            <ibm-dropdown
+              [label]="'view_doc_validations_v2.view.actions_label_text' | translate"
+              (selected)="onActionSelect($event)">
+              <ibm-dropdown-list 
+                [items]="state.actions">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+          <div ibmCol [columnNumbers]="{'lg': 6}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-doc-validations-table-v2
+      (onShowSavePlace)="handleShowChangeEvent($event)">
+    </aiap-doc-validations-table-v2>
+  </div>
+</div>
+
+<aiap-doc-validation-modal-v2 #docValidationModal></aiap-doc-validation-modal-v2>

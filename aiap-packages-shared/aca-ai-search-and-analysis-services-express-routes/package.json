@@ -1,0 +1,13 @@
+{
+    "name": "@ibm-aca/aca-ai-search-and-analysis-services-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "marekas.molis@ibm.com",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aiap/aiap-passport-provider": "0.0.1",
+        "@ibm-aiap/aiap-utils-data-import": "0.0.1"
+    }
+}

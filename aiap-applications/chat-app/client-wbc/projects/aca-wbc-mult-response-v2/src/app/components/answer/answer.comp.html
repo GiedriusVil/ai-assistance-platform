@@ -1,0 +1,38 @@
+<div class="aca-wbc-mult-response-v2--wrapper" #wrapper>
+  <div class="aca-wbc-mult-response-v2--main">
+    <div class="icon--wrapper">
+      <i aria-hidden="true" class="persona-icon icon--bot"></i>
+    </div>
+    <div>
+      <div *ngIf="answer?.multimedia" class="multimedia--wrapper" [ngStyle]="calculatePreviewSize()">
+        <aiap-multimedia-box #multimedia [multimedia]="answer?.multimedia" [options]="multimediaOptions">
+        </aiap-multimedia-box>
+        <div class="multimedia--actions">
+          <img 
+            role="button"
+            [src]="icons['print']"
+            (click)="printerClick()" />
+          <img 
+            role="button"
+            [src]="icons['download']"
+            (click)="downloadClick()" />
+        </div>
+      </div>
+      <h5 class="aca-wbc-mult-response-v2--title">{{answer?.title}}</h5>
+      <p class="aca-wbc-mult-response-v2--text" [innerHTML]="answer?.text | safe: 'html'"></p>
+      <br>
+      <button *ngFor="let button of answer?.buttons" type='button' class='btn btn-primary'
+        (click)='emitBtnClickEmitEvent(button?.value)'>{{button?.title}}
+      </button>
+    </div>
+    </div>
+    <div *ngIf="message" class="aca--wbc-mult-response-v2--feedback">
+      <i aria-hidden="true" class="persona-icon icon--bot"></i>
+      <p>{{answer?.feedbackQuestion || 'Did you find this information useful?'}}</p>
+      <aca-wbc-feedback
+        [assetsUrl]="assetsUrl"
+        [message]="message"
+        (onFeedbackClickEvent)="handleFeedbackClickEvent($event)">
+      </aca-wbc-feedback>
+    </div>
+  </div>

@@ -1,0 +1,54 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      [tooltip]="'rules_classification.table.refresh_button_tooltip' | translate"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'rules_classification.table.search_placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="handleSearchChangeEvent($event)"
+      (onSearchClear)="handleSearchClearEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'classification-rules.view.edit.classifications.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'rules_classification.table.add_button_text' | translate"
+      [tooltip]="'rules_classification.table.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'classification-rules.view.edit.classifications.remove'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [text]="('rule_actions_table_v1.remove_button' | translate) + '(' + this.model.selectedRowsCount() + ')'"
+      [tooltip]="'rule_actions_table_v1.remove_button_tooltip' | translate"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onRowSelect)="onSelectRow($event)"
+    (onRowDeselect)="onDeselectRow($event)"
+    (onAllDeselect)="onDeselectAll($event)"
+    (onAllSelect)="onSelectAll($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #classificationColumn 
+    let-data="data">
+    {{ data?.code }}<br/>{{ data?.title }}
+  </ng-template>
+</aiap-table-v1-container-v1>

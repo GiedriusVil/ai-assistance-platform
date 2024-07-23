@@ -1,0 +1,26 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+aiap-tenant-tab-integration-v1 {
+  .tenant-integration-grid {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 0px;
+  }
+
+  .aca-input-field-container {
+    width: 100%;
+
+    ::-ms-reveal {
+      display: none;
+    }
+  }
+
+  .aca-input-field-button {
+    position: absolute;
+    height: 100%;
+    right: 0%;
+  }
+}

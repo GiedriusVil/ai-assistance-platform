@@ -1,0 +1,8 @@
+<div class="expand--left--panel">
+  <button class="expand--left--panel--button" (click)="toggleLeftPanel()">
+    <img
+      class="expand--left--panel--button--icon"
+      [ngClass]="{ 'expand--left--panel--button--icon-close': isLeftPanelVisible() }"
+      [src]="icons['upArrow']"/>
+  </button>
+</div>

@@ -1,0 +1,53 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+// ai-search-and-analysis
+@use "./ai-search-and-analysis/ai-search-and-analysis-styles.scss";
+
+// ai-services
+@use "./ai-services/ai-services-styles.scss";
+
+// ai-tests
+@use "./ai-tests/ai-tests-styles.scss";
+
+// ai-translations
+@use "./ai-translations/ai-translations-styles.scss";
+
+// answers
+@use "./answers/answers-styles.scss";
+
+// audio-voice-services
+@use "./audio-voice-services/audio-voice-services-styles.scss";
+
+// classification catalogs
+@use "./classification-catalogs/classification-catalogs-styles.scss";
+
+// classification models
+@use "./classification-models/classification-models-styles.scss";
+
+// classification models changes
+@use "./classification-models/classifier-models-changes-view-v1/classifier-models-changes-view-v1.scss";
+
+// data-masking-configuration
+@use "./data-masking-configuration/data-masking-configuration-styles.scss";
+
+// diagram-editor
+@use "./diagram-editors/diagram-editors-styles.scss";
+
+// engagements
+@use "./engagements/engagements-styles.scss";
+
+// jobs-and-queues
+@use "./jobs-and-queues/jobs-and-queues-styles.scss";
+
+// lambda-modules
+@use "./lambda-modules/lambda-modules-styles.scss";
+
+// live-metrics-configurations
+@use "./live-metrics-configurations/live-configurations-styles.scss";
+
+// object-storages
+@use "./object-storages/object-storages-styles.scss";

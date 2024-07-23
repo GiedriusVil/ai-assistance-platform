@@ -1,0 +1,22 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-wbc-validation-engagements-table-v1
+      showSelectionColumn="true"
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowRemovePlace)="handleValidationEngagementsDeleteModal($event)"
+      (onSearchEvent)="handleSearchEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent($event)">
+    </aiap-wbc-validation-engagements-table-v1>
+  </div>
+</div>
+
+<aiap-wbc-validation-engagements-delete-modal-v1 #validationEngagementsDeleteModalV1></aiap-wbc-validation-engagements-delete-modal-v1>
+<aiap-wbc-validation-engagements-import-modal-v1 #validationEngagementsImportModalV1></aiap-wbc-validation-engagements-import-modal-v1>
+<aiap-wbc-validation-engagements-save-modal-v1 #validationEngagementsSaveModalV1></aiap-wbc-validation-engagements-save-modal-v1>

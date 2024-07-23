@@ -1,0 +1,29 @@
+<div 
+  class="card"
+  (click)="onCardClicked()">
+  <div class="card-body">
+    <div class="card-checkbox"
+      (click)="stopPropagation($event)">
+      <ibm-checkbox
+        [hideLabel]="true"
+        (change)="onChange($event)">
+      </ibm-checkbox>
+    </div>
+    <h5 class="card-title">{{item?.type}}</h5>
+    <div 
+      class="card-text">
+      <p 
+        class="card-text">
+        <b 
+          style="font-weight: bold;">Id:
+        </b>{{item?.id}}
+      </p>
+      <p
+        class="card-text">
+        <b 
+          style="font-weight: bold;">Client Id:
+        </b>{{item?.client}}
+      </p>
+    </div>
+  </div>
+</div>

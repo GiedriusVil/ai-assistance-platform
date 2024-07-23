@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-utils-xlsx",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts", 
+  "dependencies": {
+    "exceljs": "4.3.0"
+  }
+}

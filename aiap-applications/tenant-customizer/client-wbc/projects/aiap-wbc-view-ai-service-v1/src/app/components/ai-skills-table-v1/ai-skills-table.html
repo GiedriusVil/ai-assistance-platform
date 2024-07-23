@@ -1,0 +1,124 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [tooltip]="'ai_skills_table_v1.btn_refresh.tooltip' | translate"
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.query.filter.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)"
+      [placeholder]="'ai_skills_table_v1.toolbar_search.placeholder' | translate">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *ngIf="config.filterConfigEnabled"
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      [icon]="filterIcon"
+      (onClick)="emitFilterPanelOpen()">
+    </aiap-button-v1>
+    <button
+      *isActionAllowed="{action: 'ai-service.view.sync-by-file'}"
+      [ibmButton]="'primary'"
+      [iconOnly]="true"
+      [hasAssistiveText]="true"
+      [assistiveTextPlacement]="'top'"
+      [assistiveTextAlignment]="'center'"
+      [disabled]="isSyncByFileDisabled()"
+      (click)="emitShowSyncByFilePlaceEvent($event)">
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/file/upload.svg'">
+      </aiap-icon-svg-v1>
+      <span class="bx--assistive-text">{{ 'ai_skills_table_v1.btn_sync_by_file.assistive_text' | translate }}</span> 
+    </button>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'ai-service.view.synchronise'}"
+      [tooltip]="'ai_skills_table_v1.btn_synchronize.tooltip' | translate"
+      [text]="'ai_skills_table_v1.btn_synchronize.text' | translate: { count: selectedRows.length }"
+      [type]="'primary'"
+      [disabled]="isSyncDisabled()"
+      [icon]="'assets/carbon-icons/16/operations/repeat.svg'"
+      (onClick)="emitShowSyncPlaceEvent()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'ai-service.view.pull'}"
+      [tooltip]="'ai_skills_table_v1.btn_pull.tooltip' | translate"
+      [text]="'ai_skills_table_v1.btn_pull.text' | translate: { count: selectedRows.length }"
+      [type]="'primary'"
+      [disabled]="isPullDisabled()"
+      [icon]="'assets/carbon-icons/16/operations/redo.svg'"
+      (onClick)="emitShowPullPlaceEvent()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{ action: 'ai-service.view.delete' }"
+      [tooltip]="'ai_skills_table_v1.btn_delete.tooltip' | translate"
+      [text]="'ai_skills_table_v1.btn_delete.text' | translate: { count: selectedRows.length }"
+      [type]="'danger'"
+      [disabled]="isRemoveDisabled()"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    size="md" 
+
+    [striped]="true"
+    [skeleton]="skeleton"
+    [showSelectionColumn]="true"
+    [sortable]="true"
+    [stickyHeader]="false"
+     
+    (onSort)="handleSortEvent($event)"
+    (onRowClick)="emitShowManageAiSkillPlace($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    
+    [model]="model">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1 
+    [model]="model" 
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #overflowActionsTemplate let-data="data">
+    <button
+      class="bx--overflow-menu center-style"
+      (click)="emitShowSavePlace(data)">
+      <aiap-icon-svg-v1 
+        class="bx--btn__icon"
+        [src]="'assets/carbon-icons/16/data/tree-view.svg'">
+      </aiap-icon-svg-v1>
+    </button>
+  </ng-template>
+  <ng-template #skillTemplate let-data="data">
+    <div ibmGrid [condensed]="true" class="margin-top-5">
+      <div ibmRow [leftGutter]="false" [rightGutter]="false">
+        <div ibmCol>
+          <ibm-label>{{data?.name}}</ibm-label>
+        </div>
+      </div>
+      <div ibmRow [leftGutter]="false" [rightGutter]="false">
+        <div ibmCol>
+          <ibm-label>{{data?.id}}</ibm-label>
+        </div>
+      </div>
+      <div ibmRow [leftGutter]="false" [rightGutter]="false">
+        <div ibmCol>
+          <ibm-label>{{data?.external?.workspace_id}} (External)</ibm-label>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 [value]="data?.created"></aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aiap-table-cell-updated-v1 [value]="data?.updated"></aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

@@ -1,0 +1,40 @@
+<aiap-modal-v1 
+  [size]="'xs'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'ai_search_and_analysis_projects_view_v1.import_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <div class="bx--modal-content bx--modal-content--with-form">
+      <ibm-file-uploader 
+        #fileUploader
+        drop="true" 
+        [title]="'ai_search_and_analysis_projects_view_v1.import_modal_v1.fld_file_uploader.title' | translate"
+        [description]="'ai_search_and_analysis_projects_view_v1.import_modal_v1.fld_file_uploader.description' | translate"
+        [dropText]="'ai_search_and_analysis_projects_view_v1.import_modal_v1.fld_file_uploader.dropText' | translate"
+        [accept]="['.json']"
+        [multiple]="false" 
+        [disabled]="false"
+        (filesChange)="onFileAdd($event)"
+        [(files)]="files">
+      </ibm-file-uploader>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_projects_view_v1.import_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'ai_search_and_analysis_projects_view_v1.import_modal_v1.btn_import.text' | translate"
+      [type]="'danger'"
+      [disabled]="uploadButtonDisabled"
+      (onClick)="handleEventImport($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,50 @@
+<ibm-modal 
+  size="lg" 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>Save Configuration {{ value?.name }}</h3>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #configurationModal="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+            <ibm-label>
+              <label 
+                for="Name" 
+                required>Name*
+              </label>
+              <input 
+                required 
+                ibmText 
+                name="Name" 
+                [(ngModel)]="value.name" 
+                [autocomplete]="'off'">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+            <json-editor 
+              [options]="jsonEditorOptions" 
+              [data]="value?.configuration">
+            </json-editor>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <button 
+      ibmButton="secondary" 
+      (click)="close()">Close
+    </button>
+    <button 
+      ibmButton="primary" 
+      [disabled]="configurationModal.invalid" 
+      (click)="save()">Save
+    </button>
+  </ibm-modal-footer>
+</ibm-modal>

@@ -1,0 +1,37 @@
+<aiap-modal-v1 
+[size]="'sm'"
+[open]="isOpen" 
+(overlaySelected)="close()">
+    <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p ibmModalHeaderHeading>
+        {{ 'tiles_configuration_view_v1.tile_import_modal_v1.fld_import.header' | translate }}
+    </p>
+    </aiap-modal-v1-header-v1>
+    <aiap-modal-v1-content-v1>
+      <ibm-file-uploader #fileUploader
+            drop="true" 
+            [title]="'tiles_configuration_view_v1.tile_import_modal_v1.fld_import.title' | translate" 
+            [description]="'tiles_configuration_view_v1.tile_import_modal_v1.fld_import.description'| translate" 
+            [dropText]="'tiles_configuration_view_v1.tile_import_modal_v1.fld_import.droptext' | translate"
+            [accept]="['.json']"
+            [multiple]="false" 
+            [disabled]="false"
+            [(files)]="files"
+            (filesChange)="onFileAdd($event)">
+      </ibm-file-uploader>
+    </aiap-modal-v1-content-v1>
+    <aiap-modal-v1-footer-v1>
+        <aiap-button-v1
+          [text]="'tiles_configuration_view_v1.tile_import_modal_v1.btn_cancel' | translate"
+          [type]="'secondary'"
+          (onClick)="close()">
+        </aiap-button-v1>
+        <aiap-button-v1
+          [text]="'tiles_configuration_view_v1.tile_import_modal_v1.btn_import' | translate"
+          [type]="'primary'"
+          [disabled]="uploadButtonDisabled"
+          (onClick)="import()">
+          </aiap-button-v1>
+      </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

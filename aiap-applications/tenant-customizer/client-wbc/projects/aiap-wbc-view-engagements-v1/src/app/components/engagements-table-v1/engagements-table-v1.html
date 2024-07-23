@@ -1,0 +1,98 @@
+<aiap-table-container>
+  <ibm-table-toolbar-content>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="true"
+      [tooltip]="'engagements_table_v1.refresh.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (click)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      [placeholder]="'engagements_table_v1.btn_refresh.text' | translate"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'engagements.view.add'}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'engagements_table_v1.btn_add.text' | translate"
+      [tooltip]="'engagements_table_v1.btn_add.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (click)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'engagements.view.import'}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'engagements_table_v1.btn_import.text' | translate"
+      [tooltip]="'engagements_table_v1.btn_import.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (click)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'engagements.view.export'}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'engagements_table_v1.btn_export.text' | translate"
+      [tooltip]="'engagements_table_v1.btn_export.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (click)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'engagements.view.delete'}"
+      [disabled]="isRemoveDisabled()"
+      [size]="'md'"
+      [type]="'danger'"
+      [text]="('engagements_table_v1.btn_remove.text' | translate) + '(' +(this.selectedRows.length) + ')'"
+      [tooltip]="'engagements_table_v1.btn_remove.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (click)="emitRemovePlace()">
+    </aiap-button-v1>
+  </ibm-table-toolbar-content>
+  <ibm-table
+    class="cursor-pointer"
+    size="md"
+    [striped]="true"
+    [skeleton]="skeleton"
+    [showSelectionColumn]="true"
+    [sortable]="true"
+    [stickyHeader]="false"
+    [model]="model"
+    (deselectAll)="deselectAllRows()"
+    (selectAll)="selectAllRows($event)"
+    (selectRow)="rowSelect($event)"
+    (deselectRow)="rowDeselect($event)"
+    (rowClick)="emitShowSavePlace($event)"
+    (sort)="handleSortEvent($event)">
+  </ibm-table>
+  <ibm-pagination
+    [model]="model"
+    [showPageInput]="true"
+    (selectPage)="handleSelectPageEvent($event)">
+  </ibm-pagination>
+  <ng-template #testEngagementTemplate let-data="data">
+    <div
+      class="test-engagement-cell">
+      <button
+        ibmButton="ghost"
+        size="sm"
+        iconOnly="true"
+        (click)="_allowActionsClick($event, button)"
+        class="bx--btn--test-engagement">
+        <aiap-icon-svg-v1
+          class="bx--btn__icon"
+          [src]="'assets/carbon-icons/16/operations/chat.svg'"
+          (click)="handleOpenEngagementChatInNewTab(data)">
+        </aiap-icon-svg-v1>
+      </button>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+</aiap-table-container>

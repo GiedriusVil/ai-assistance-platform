@@ -1,0 +1,89 @@
+<aca-intent-slider 
+  *ngIf="intentSlider" 
+  [title]="title" 
+  (confidenceChanged)="onConfidenceChange($event)">
+</aca-intent-slider>
+
+<h4 
+  *ngIf="!intentSlider" 
+  class="bx--graph-header">{{ title }}
+</h4>
+<div 
+  class="bx--graph-container" 
+  style="height: 300px; margin-bottom: 32px; display: flex; justify-content: center; align-items: center;">
+  <div 
+    *ngIf="!showData && !error" 
+    data-loading-small class="bx--loading bx--loading--small">
+    <svg class="bx--loading__svg" viewBox="-37.5 -37.5 75 75">
+      <title>
+        {{'report_chart_v1.loading_text' | translate}}
+      </title>
+      <circle class="bx--loading__background" cx="0" cy="0" r="26.8125" />
+      <circle class="bx--loading__stroke" cx="0" cy="0" r="26.8125" />
+    </svg>
+  </div>
+  <canvas 
+    *ngIf="showData" 
+    id="canvas" 
+    #canvas 
+    height="300">
+  </canvas>
+  <p *ngIf="error">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{ errorMessage ? errorMessage : 'report_chart_v1.data_retrieve_error' | translate }}
+    <i class="fas fa-exclamation-triangle"></i>
+  </p>
+</div>
+<div 
+  *ngIf="dataTable" 
+  class="bx--graph-container transparent-container" 
+  data-table 
+  #datatablev2>
+  <table class="bx--data-table">
+    <thead>
+    <tr>
+      <th>
+        <button class="bx--table-sort">
+          <span class="bx--table-header-label">
+            {{'report_chart_v1.header_label_name' | translate}}
+          </span>
+        </button>
+      </th>
+      <th>
+        <button class="bx--table-sort" data-event="sort" data-path="total">
+          <span class="bx--table-header-label">
+            {{'report_chart_v1.header_label_total' | translate}}
+          </span>
+          <svg class="bx--table-sort__icon" width="10" height="5" viewBox="0 0 10 5">
+            <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+          </svg>
+        </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngIf="!data && !error">
+      <tr>
+        <td [attr.colspan]="2">
+          {{'report_chart_v1.loading_text' | translate}}
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="error">
+      <tr>
+        <td [attr.colspan]="2">
+          <i class="fas fa-exclamation-triangle"></i>
+          {{'report_chart_v1.data_retrieve_error' | translate}}
+          <i class="fas fa-exclamation-triangle"></i>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="data">
+      <tr *ngFor="let item of data" >
+        <td *ngIf="dataTable == 'intents'">#{{ item.intent }}</td>
+        <td *ngIf="dataTable == 'entities'">@{{ item.entity }}</td>
+        <td *ngIf="dataTable == 'entities'">{{ item.value }}</td>
+        <td>{{ item.total }}</td>
+      </tr>
+  </tbody>
+  </table>
+</div>

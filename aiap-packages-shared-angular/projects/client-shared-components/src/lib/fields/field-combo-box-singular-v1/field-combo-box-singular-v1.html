@@ -1,0 +1,21 @@
+<ibm-combo-box
+  name="{{ state?.name }}"
+  type="{{ state?.type }}"
+  [required]="state.isRequired"
+  [disabled]="state.isDisabled"
+  [dropUp] ="state.isDropUp"
+  [autocomplete]="'off'"
+  [placeholder]="state.placeholder"
+  [size]="state.size" 
+  [label]="state.label" 
+  [helperText]="state.labelHelp" 
+  [items]="state.items"
+  (selected)="handleEventSelected($event)"
+  (submit)="handleEventSubmit($event)"
+  (close)="handleEventClose($event)"
+  (search)="handleEventSearch($event)"
+  [(ngModel)]="state.value">
+  <ibm-dropdown-list 
+    (scroll)="handleEventScroll($event)">
+  </ibm-dropdown-list>
+</ibm-combo-box>

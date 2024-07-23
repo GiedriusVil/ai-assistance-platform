@@ -1,0 +1,35 @@
+<aiap-modal-v1 
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="isOpen = false">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'ai_translation_model_examples_v1.delete_modal_v1.header.title' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <div>
+      <p>{{ 'ai_translation_model_examples_v1.delete_modal_v1.content.text' | translate }}</p>
+      <ul ibmList>
+        <ng-container *ngFor="let id of ids">
+          <li ibmListItem>{{id}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.delete_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.delete_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.delete_modal_v1.btn_delete.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.delete_modal_v1.btn_delete.tooltip' | translate"
+      [type]="'danger'"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

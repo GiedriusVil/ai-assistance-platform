@@ -1,0 +1,83 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "../../projects/client-components/src/lib/client-components-module-styles.scss";
+@use "../../projects/client-views/src/lib/client-views-module-styles.scss";
+
+@use "../../../../../aiap-packages-shared-angular/projects/client-shared-components/src/lib/client-shared-components-module-styles.scss";
+@use "../../../../../aiap-packages-shared-angular/styles/shared-styles.scss";
+
+@use "./views/login-view-v1/login-view-v1.scss";
+
+@use "./views/admin-view-v1/admin-view-v1.scss";
+@use "./views/admin-view-v1/admin-view-header-v1/admin-view-header-v1.scss";
+@use "./views/admin-view-v1/admin-view-body-v1/admin-view-body-v1.scss";
+
+@use "./views/main-view-v1/main-view-v1.scss";
+@use "./views/main-view-v1/main-view-native-body-v1/main-view-native-body-v1.scss";
+@use "./views/main-view-v1/main-view-native-header-v1/main-view-native-header-v1.scss";
+
+@use "./components/portal-header-v1/portal-header-v1.scss";
+
+.bx--body {
+  overflow-x: hidden !important;
+}
+
+.bx--modal-shown {
+  overflow: hidden !important;
+}
+
+.bx--overflow-menu-options {
+  z-index: 9999;
+}
+
+.bx--overflow-menu-options__option:first-child {
+  border-top: 0 solid #dfe3e6 !important;
+}
+
+aiap-portal-v1 {
+  aiap-main-view-wbc-body main.bx--content {
+    padding: 2rem;
+  }
+
+  aca-wbc-main-view main.bx--content {
+    padding: 0rem;
+  }
+
+  .bx--table-column-checkbox .bx--checkbox-label {
+    min-width: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .app-graph-header-icon {
+    vertical-align: middle;
+  }
+
+  .full-width {
+    width: 100vw;
+  }
+
+  .full-height {
+    height: 100vh;
+  }
+
+  .center-vertically {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+ibm-overflow-menu-pane {
+  ul {
+    padding-left: 0;
+  }
+}

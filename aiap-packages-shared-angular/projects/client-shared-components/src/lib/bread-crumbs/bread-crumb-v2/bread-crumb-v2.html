@@ -1,0 +1,8 @@
+<ibm-breadcrumb 
+    [items]="breadcrumbItems" 
+    [noTrailingSlash]="true">
+</ibm-breadcrumb>
+
+<ng-template #breadcrumbItemTemplate let-data>
+  <a class="bx--link" (click)="navigateByUrl(data)">{{data.content}}</a>
+</ng-template>

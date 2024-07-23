@@ -1,0 +1,12 @@
+<ibm-modal [open]="isOpen" (overlaySelected)="close()" size='md'>
+    <ibm-modal-header (closeSelect)="isOpen = false">
+        <p class="bx--modal-header__heading bx--type-beta">Delete Test?</p>
+    </ibm-modal-header>
+    <div class="bx--modal-content">
+        <p class="mb-3">Are you sure want to delete <strong>{{test.skillId}}</strong> test ?</p>
+      </div>
+    <ibm-modal-footer>
+        <button class="bx--btn bx--btn--secondary" (click)="close()">Cancel</button>
+        <button class="bx--btn bx--btn--danger" modal-primary-focus (click)="delete()">Delete</button>
+      </ibm-modal-footer>
+</ibm-modal>

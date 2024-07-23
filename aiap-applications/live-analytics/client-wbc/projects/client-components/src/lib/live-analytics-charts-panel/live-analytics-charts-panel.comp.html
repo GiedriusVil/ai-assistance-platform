@@ -1,0 +1,18 @@
+<div class="chart-panel">
+  <div class="chart-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <ng-container *ngFor="let chart of configuration?.elements?.charts">
+          <div ibmCol [columnNumbers]="chart?.columns? chart.columns: {'xlg': 6, 'lg': 6, 'md': 4, 'sm': 4}">
+            <aca-live-analytics-chart
+              *ngIf="chart.ref"
+              class="graph-placeholder"
+              [chartRef]="chart.ref"
+              [configuration]="configuration">
+            </aca-live-analytics-chart>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

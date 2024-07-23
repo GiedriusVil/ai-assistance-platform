@@ -1,0 +1,19 @@
+{
+  "name": "@ibm-aca/aca-ai-search-and-analysis-services-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "IBM",
+  "contributors": [
+    {
+      "name": "Marekas Molis",
+      "email": "marekas.molis@ibm.com"
+    }
+  ],
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-ramda": "0.0.1",
+    "@ibm-aca/aca-wrapper-lodash": "0.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol>
+          <aca-date-range-picker 
+            [value]="state.dateRange"
+            (onChange)="handleDateRangeChange($event)"></aca-date-range-picker>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}">
+          <ibm-label>{{ 'ai_tests_view_v1.fld_search_test_id.label' | translate }}</ibm-label>
+          <ibm-search
+            [placeholder]="'ai_tests_view_v1.fld_search_test_id.placeholder' | translate"
+            [value]="state.testId"
+            (search)="handeAiTestsSearchByIdEvent($event)"
+            (clear)="handeAiTestsSearchByIdEvent()">
+          </ibm-search>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}" >
+          <ibm-label>{{ 'ai_tests_view_v1.fld_search_test_name.label' | translate }}</ibm-label>
+          <ibm-search
+            [placeholder]="'ai_tests_view_v1.fld_search_test_name.placeholder' | translate"
+            [value]="state.testName"
+            (search)="handeAiTestsSearchByNameEvent($event)"
+            (clear)="handeAiTestsSearchByNameEvent()">
+          </ibm-search>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}"></div>
+        <div ibmCol [columnNumbers]="{'xlg': 5, 'lg': 5, 'md': 4, 'sm': 4}"></div>
+        <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 4, 'sm': 4}"></div>
+        <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1, 'md': 4, 'sm': 4}">
+          <aiap-button-v1
+            [text]="'ai_tests_view_v1.btn_refresh.text' | translate"
+            [size]="'sm'"
+            [type]="'primary'"
+            (onClick)="refresh()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-ai-tests-table
+      (onShowDeletePlace)="showDeleteTestModal($event)"
+      (onShowSavePlace)="handleRowClick($event)">
+    </aca-ai-tests-table>
+  </div>
+</div>
+
+<aca-aitest-delete-modal #aiTestDeleteModal ></aca-aitest-delete-modal>

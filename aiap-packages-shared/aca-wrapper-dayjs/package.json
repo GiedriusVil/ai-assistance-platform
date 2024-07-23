@@ -1,0 +1,17 @@
+{
+  "name": "@ibm-aca/aca-wrapper-dayjs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM",
+  "dependencies": {
+    "dayjs": "1.11.1"
+  },
+  "contributors": [
+    {
+      "name": "Marekas Molis",
+      "email": "marekas.molis@ibm.com",
+      "url": "https://www.linkedin.com/in/marekas-molis-918295168"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@ibm-aca/aca-catalog-rules-engine-provider",
+  "version": "0.0.1",
+  "description": "",
+  "license": "IBM",
+  "main": "index.js",
+  "dependencies": {},
+  "author": {
+    "name": "Andrius Bertasius",
+    "email": "andrius.bertasius@ibm.com",
+    "url": "https://www.linkedin.com/in/andrius-berta%C5%A1ius-1392321b1"
+  },
+  "contributors": [
+    {
+      "name": "[LEGO] Oleg Lukasonok",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376"
+    }
+  ]
+}

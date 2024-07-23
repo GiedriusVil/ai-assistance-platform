@@ -1,0 +1,18 @@
+{{- if default false .Values.route.enabled -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ template "app.fullname" . }}
+  labels:
+    app: {{ template "app.fullname" . }}
+    chart: "{{ template "isaidt.chart" . }}"
+    release: "{{ .Release.Name }}"
+spec:
+  host: {{ .Values.route.host }}
+  path: /
+  to:
+    kind: Service
+    name: {{ template "app.fullname" . }}
+  tls:
+    termination: edge
+{{- end }}

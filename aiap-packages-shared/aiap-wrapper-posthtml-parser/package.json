@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aiap/aiap-wrapper-posthtml-parser",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "posthtml-parser": "0.4.2"
+  }
+}

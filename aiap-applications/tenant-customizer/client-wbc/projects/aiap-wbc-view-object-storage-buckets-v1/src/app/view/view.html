@@ -1,0 +1,27 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-object-storage-buckets-table-v1
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)"
+      (onShowSavePlace)="handleShowSavePlaceEvent($event)"
+      (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+      (onShowRowClickPlace)="handleShowSavePlaceEvent($event)">
+    </aiap-object-storage-buckets-table-v1>
+  </div>
+</div>
+
+<aiap-object-storage-bucket-save-modal-v1
+  #objectStorageBucketSaveModal>
+</aiap-object-storage-bucket-save-modal-v1>
+
+<aiap-object-storage-buckets-delete-modal-v1
+  #objectStorageBucketsDeleteModal>
+</aiap-object-storage-buckets-delete-modal-v1>

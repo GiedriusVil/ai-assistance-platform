@@ -1,0 +1,18 @@
+{
+  "name": "@ibm-aca/aca-wrapper-ibm-cloud-secrets-manager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-cloud/secrets-manager": "2.0.0"
+  },
+  "author": "IBM",
+  "license": "IBM",
+  "contributors": [
+    {
+      "name": "Domantas Girtavicius",
+      "email": "domantas.girtavicius@ibm.com",
+      "url": "https://www.linkedin.com/in/domantas-girtavicius/"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<div id="chat-app-button-wrapper" class="chat-button-wrapper">
+  <button
+    id="chat-app-button"
+    class="chat-button"
+    (click)="handleChatAppOpenEvent()">
+      <div 
+        id="chat-app-button-icon-logo"
+        class="chat-icon chat-icon-logo">
+      </div>
+      <span
+        class="chat-app-button-display-name">
+        {{text?.displayName}}
+      </span>
+      <div 
+        id="chat-app-button-icon-expand"
+        class="chat-icon chat-icon-expand">
+      </div>
+  </button>
+  <aiap-language-selection-form #languageSelectionForm
+    *ngIf="state?.isLanguageSelectionFormEnabled"
+    (onLanguageSelectionEvent)="handleLanguageSelectionEvent($event)">
+  </aiap-language-selection-form>
+  <aca-consent-form #consentForm
+    *ngIf="state?.isUIConsentFormEnabled"
+    (onConsentEvent)="handleConsentEvent($event)">
+  </aca-consent-form>
+</div>

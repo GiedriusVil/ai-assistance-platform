@@ -1,0 +1,28 @@
+{
+  "rule_messages_changes_v1.table_v1.export_button_text": "Export",
+  "rule_messages_changes_v1.table_v1.notification.error.title": "nable to retrieve messages changes!",
+  "view_rule_messages_changes_v1.changes_table_v1.transaction_id_header" : "Transaction ID",
+  "view_rule_messages_changes_v1.changes_table_v1.document_id_header" : "Document ID",
+  "view_rule_messages_changes_v1.changes_table_v1.document_type_header" : "Document Type",
+  "view_rule_messages_changes_v1.changes_table_v1.action_header" : "Action",
+  "view_rule_messages_changes_v1.changes_table_v1.changed_header" : "Changed",
+  "rule_messages_changes_v1.table_v1.export_button_tooltip": "Export",
+
+  "rule_actions_v1.view.modal_v1.header" : "Message change",
+  "rule_actions_v1.view.modal_v1.transaction_id_label" : "Transaction ID",
+  "rule_actions_v1.view.modal_v1.action_label" : "Action",
+  "rule_actions_v1.view.modal_v1.initiator_id_label" : "Initiator ID",
+  "rule_actions_v1.view.modal_v1.initiator_name_label" : "Initiator name",
+  "rule_actions_v1.view.modal_v1.document_id_label" : "Document ID",
+  "rule_actions_v1.view.modal_v1.document_type_label" : "Document type",
+  "rule_actions_v1.view.modal_v1.timestamp_label" : "Timestamp",
+  "rule_actions_v1.view.modal_v1.close_button_text" : "Close",
+  "rule_actions_v1.view.modal_v1.close_button_tooltip" : "Close",
+
+  "difference_table_v1.table.field_header" : "Field",
+  "difference_table_v1.table.old_value_header" : "Old value",
+  "difference_table_v1.table.new_value_header" : "New value"
+ 
+
+  
+}

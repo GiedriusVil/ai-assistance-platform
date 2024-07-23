@@ -1,0 +1,16 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-header-applications-menu-v1 {
+  height: 100%;
+
+  .bx--header__submenu {
+    white-space: nowrap;
+
+    .bx--header__menu-title[aria-expanded="true"] + .bx--header__menu {
+      width: min-content;
+    }
+  }
+}

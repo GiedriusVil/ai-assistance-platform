@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aca/aca-ai-search-and-analysis-service-adapter-provider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "marekas.molis@ibm.com",
+  "license": "IBM",
+  "dependencies": { }
+}

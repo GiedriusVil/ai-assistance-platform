@@ -1,0 +1,380 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": false
+        },
+        "@schematics/angular:class": {
+          "skipTests": false
+        },
+        "@schematics/angular:directive": {
+          "skipTests": false
+        },
+        "@schematics/angular:guard": {
+          "skipTests": false
+        },
+        "@schematics/angular:module": {
+          "skipTests": false
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": false
+        },
+        "@schematics/angular:service": {
+          "skipTests": false
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist/client",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "preserveSymlinks": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "src/styles.scss"
+            ],
+            "inlineStyleLanguage": "scss",
+            "scripts": [
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-json.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "aot": true,
+              "buildOptimizer": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "30mb",
+                  "maximumError": "50mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "20kb"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "client:build:production"
+            },
+            "development": {
+              "browserTarget": "client:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "client:build"
+          }
+        }
+      }
+    },
+    "client-shared-carbon": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-carbon",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-utils": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-utils",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-utils/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-services": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-services",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-services/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-services/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-services/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-components": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-components",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-components/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-views": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-views",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-views/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-views/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-views/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-utils": {
+      "projectType": "library",
+      "root": "projects/client-utils",
+      "sourceRoot": "projects/client-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/client-utils/tsconfig.lib.json",
+            "project": "projects/client-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-utils/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/client-utils/src/test.ts",
+            "tsConfig": "projects/client-utils/tsconfig.spec.json",
+            "karmaConfig": "projects/client-utils/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-services": {
+      "projectType": "library",
+      "root": "projects/client-services",
+      "sourceRoot": "projects/client-services/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/client-services/tsconfig.lib.json",
+            "project": "projects/client-services/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-services/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/client-services/src/test.ts",
+            "tsConfig": "projects/client-services/tsconfig.spec.json",
+            "karmaConfig": "projects/client-services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-components": {
+      "projectType": "library",
+      "root": "projects/client-components",
+      "sourceRoot": "projects/client-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/client-components/tsconfig.lib.json",
+            "project": "projects/client-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/client-components/src/test.ts",
+            "tsConfig": "projects/client-components/tsconfig.spec.json",
+            "karmaConfig": "projects/client-components/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-views": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/client-views",
+      "sourceRoot": "projects/client-views/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/client-views/tsconfig.lib.json",
+            "project": "projects/client-views/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-views/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/client-views/src/test.ts",
+            "tsConfig": "projects/client-views/tsconfig.spec.json",
+            "karmaConfig": "projects/client-views/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<div 
+  *ngIf="isDisplayedInChat(message) && isReady() && message"
+  class="aca--wbc--message message--row message--float clearfix w-100"
+  [class.message--break]="messagesService.isLastOfType(index)" 
+  [ngClass]="[message ? message['type'] : '', state.iconsEnabled ? 'sender-icon' : '']"
+  >
+
+  
+  <!-- Native Messages -->
+  <aca-chat-message
+    *ngIf="!isWbcMessage(message)"
+    [message]="message"
+    [index]="index"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-message>
+
+  <!-- WBC Messages -->
+  <aca-chat-wbc-message
+    *ngIf="isWbcMessage(message)"
+    [message]="message"
+    [index]="index"
+    (userActionEvent)="handleUserActionEvent($event)">
+  </aca-chat-wbc-message>
+
+  <!-- Timestamp -->
+  <span 
+    *ngIf="messagesService.isLastOfType(index) && messagesService.checkForMessageSender(message) || state.isTranscript" 
+    class="message--timestamp message--float">
+    {{ message['timestamp'] | date: state.isTranscript ? 'M/d/yyyy, h:mm a' : 'HH:mm' }}
+  </span>
+</div>
+<aca-chat-pi-agreement-modal [ready]="isReady()" (userActionEvent)="handleUserActionEvent($event)"></aca-chat-pi-agreement-modal>

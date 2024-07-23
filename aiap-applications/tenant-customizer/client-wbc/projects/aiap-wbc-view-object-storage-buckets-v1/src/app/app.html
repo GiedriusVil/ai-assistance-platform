@@ -1,0 +1,10 @@
+<div 
+  *ngIf="isReady()">
+  <aiap-object-storage-buckets-view-v1></aiap-object-storage-buckets-view-v1>
+</div>
+<div *ngIf="!isReady()">
+  <aiap-inline-loader-v1
+    [status]="'active'"
+    [textLoading]="'Loading...'">
+  </aiap-inline-loader-v1>
+</div>

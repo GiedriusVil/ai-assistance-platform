@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aiap/aiap-policy-engine-configuration",
+  "version": "0.0.1",
+  "description": "ACA custom configuration files",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "private": true,
+  "scripts": {},
+  "dependencies": {}
+}

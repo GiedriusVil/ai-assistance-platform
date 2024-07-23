@@ -1,0 +1,44 @@
+<div class="aca--modal--header">
+  <h5 class="aca--modal--title">{{parameters?.title}}</h5>
+  <div class="aca--header--icon--box">
+    <img 
+      class="img--close" 
+      [src]="assetsUrl + '/close.svg'" 
+      tabindex="0" 
+      role="button"
+      title="{{parameters?.close}}"
+      (keydown.enter)="onCloseModal()"
+      (click)="onCloseModal()">
+  </div>
+</div>
+<div class="aca--modal--body">
+  <div class="aca--modal--description">
+    <p class="w-100">{{parameters?.description}}</p>
+  </div>
+  <form [formGroup]="feedbackForm">
+    <div class="form--group--box">
+      <div class="text-center row--center-align select--wrapper">
+        <select class="form-select" formControlName="reason">
+            <option value="" disabled selected *ngIf="parameters?.placeholder?.dropdown">{{parameters?.placeholder?.dropdown}}</option>
+            <option *ngFor="let value of parameters?.values" value="{{value}}">{{value}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form--group--box">
+      <textarea 
+        formControlName="comment" 
+        class="form-control textareaExpand" 
+        rows="2" 
+        maxlength="1000"
+        placeholder="{{parameters?.placeholder?.comment}}" (input)="onInput()"></textarea>
+    </div>
+  </form>
+</div>
+<div class="modal-footer" title="{{parameters?.submit}}">
+  <button 
+    type="button" 
+    class="btn btn-primary btn--color"
+    [disabled]="!isValid()"
+    (click)="submitNegativeFeedback()">{{parameters?.submit?.value}}
+  </button>
+</div>

@@ -1,0 +1,41 @@
+{
+    "items": [
+        {
+            "id": "1",
+            "segmentId": "1",
+            "code": "10100000",
+            "title": "Fam1"
+        },
+        {
+            "id": "2",
+            "segmentId": "2",
+            "code": "11100000",
+            "title": "Fam2"
+        },
+        {
+            "id": "3",
+            "segmentId": "3",
+            "code": "20100000",
+            "title": "Fam3"
+        },
+        {
+            "id": "4",
+            "segmentId": "4",
+            "code": "21100000",
+            "title": "Fam4"
+        },
+        {
+            "id": "5",
+            "segmentId": "5",
+            "code": "30100000",
+            "title": "Fam5"
+        },
+        {
+            "id": "6",
+            "segmentId": "5",
+            "code": "30200000",
+            "title": "Fam6"
+        }
+    ],
+    "total": 6
+  }

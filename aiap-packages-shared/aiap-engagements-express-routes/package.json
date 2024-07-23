@@ -1,0 +1,15 @@
+{
+    "name": "@ibm-aiap/aiap-engagements-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {},
+    "author": "martynas.p",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aiap/aiap-engagements-service": "0.0.1",
+        "@ibm-aiap/aiap-express-session-provider": "0.0.1",
+        "@ibm-aiap/aiap-passport-provider": "0.0.1"
+    }
+}

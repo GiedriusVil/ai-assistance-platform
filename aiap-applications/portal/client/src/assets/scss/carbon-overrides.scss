@@ -1,0 +1,24 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+$backgroundColorTheme: #f4f4f4;
+
+.bx--btn--primary:hover {
+  background-color: #133980;
+  color: white;
+}
+
+.bx--btn--primary {
+  background-color: #01579b;
+  color: white;
+}
+
+.bx--toggle-input:disabled + .bx--toggle-input__label > .bx--toggle__switch::before {
+  background-color: darken($backgroundColorTheme, 50%);
+}
+
+.bx--file-browse-btn {
+  max-width: 100%;
+}

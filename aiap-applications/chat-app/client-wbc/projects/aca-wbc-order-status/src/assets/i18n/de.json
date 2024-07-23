@@ -1,0 +1,10 @@
+{
+  "title": "Auftragsstatus",
+  "pr-number": "PR Nummer",
+  "pr-number-description": "Wenn Sie hier Ihre Bestellnummer eingeben, erhalten Sie den aktuellen Status.",
+  "po-number": "PO Nummer",
+  "po-number-description": "Geben Sie hier Ihre Bestellnummer ein, um den Status und die Lieferinformationen zu sehen.",
+  "invoice-number": "Rechnungsnummer",
+  "invoice-number-description": "Geben Sie hier Ihre Rechnungsnummer ein, um den Status der Rechnung zu sehen.",
+  "send": "Senden"
+}

@@ -1,0 +1,14 @@
+apiVersion: v2
+name: vbapp-policy-gateway
+version: 1.0.0
+description: VBAPP Gateway
+type: application
+home: https://pages.github.ibm.com/cognitivecare/docs/
+sources:
+  - https://github.ibm.com/virtual-buy-assistant/vba-policy-platform
+keywords:
+  - aca
+  - ibm
+maintainers:
+- name: IBM ACA DevOps
+  email: aca.devops@lt.ibm.com

@@ -1,0 +1,12 @@
+<ibm-combo-box
+  type={{type}}
+  required
+  label={{label}}
+  placeholder={{placeholder}}
+  theme="light"
+  [autocomplete]="'off'"
+  [dropUp]="false"
+  (selected)="handleSelectedEvent($event)"
+  [(items)]="value">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

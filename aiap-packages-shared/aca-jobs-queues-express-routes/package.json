@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aca/aca-jobs-queues-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-jobs-queues-service": "0.0.1",
+    "@ibm-aiap/aiap-express-session-provider": "0.0.1",
+    "@ibm-aiap/aiap-passport-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-express-routes": "0.0.1"
+  }
+}

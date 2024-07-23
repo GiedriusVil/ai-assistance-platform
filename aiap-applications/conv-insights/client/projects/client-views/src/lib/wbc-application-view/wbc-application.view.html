@@ -1,0 +1,34 @@
+<ng-template #loading>
+    <div class="dashboard-wrapper"> 
+        <div class="dashboard-content">
+          <ibm-inline-loading
+			      [state]="'active'"
+			      [loadingText]="applicationLoadingText()">
+	        </ibm-inline-loading>
+        </div>
+    </div>
+</ng-template>
+
+<div class="dashboard-wrapper"> 
+  <div class="dashboard-content">
+    <ibm-inline-loading
+      [state]="'active'"
+      [loadingText]="applicationLoadingText()">
+    </ibm-inline-loading>
+  </div>
+</div>
+
+<ng-template #error>
+    <div class="dashboard-wrapper"> 
+        <div class="dashboard-content color-red">
+          {{ 'wbc_view.unable_to_load' | translate: { wbcTag: state?.wbc?.tag, wbcHost: state?.wbc?.host, wbcPath: state?.wbc?.path} }}
+        </div>
+    </div>
+</ng-template>
+
+
+<ax-lazy-element 
+    [host]="state.host"
+    [path]="state.path"
+    *axLazyElementDynamic="state.component, url: url(); loadingTemplate: loading; errorTemplate: error;">
+</ax-lazy-element>

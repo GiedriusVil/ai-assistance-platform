@@ -1,0 +1,22 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'md': 8, 'sm': 4}">
+      <aca-buy-rules-channel-type
+        [rule]="rule"
+        showSelectionColumn="true"
+        (onShowBuyRuleSupplierSaveModal)="handleShowBuyRuleSupplierSaveModal($event)"
+        (onShowBuyRuleSupplierDeleteModal)="handleShowBuyRuleSuppliersDeleteModal($event)">
+      </aca-buy-rules-channel-type>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <aca-rule-actions-combobox [(value)]="rule.actions"></aca-rule-actions-combobox>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+</div>
+
+<aca-buy-rules-suppliers-save-modal #buyRulesSuppliersSaveModal></aca-buy-rules-suppliers-save-modal>
+<aca-buy-rules-suppliers-delete-modal #buyRulesSuppliersDeleteModal ></aca-buy-rules-suppliers-delete-modal>

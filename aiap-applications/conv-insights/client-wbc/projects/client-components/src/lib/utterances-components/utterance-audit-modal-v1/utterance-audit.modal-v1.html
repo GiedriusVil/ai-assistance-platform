@@ -1,0 +1,41 @@
+<aiap-modal-v1
+  size='md'
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'utterances.utterance_audit_modal.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content">
+    <div class="bx--form-item">
+    <section class="bx--structured-list">
+      <div class="bx--structured-list-thead">
+      <div class="bx--structured-list-row bx--structured-list-row--header-row">
+        <div class="bx--structured-list-th">
+          {{ 'utterances.utterance_audit_modal.content_user' | translate }}
+        </div>
+        <div class="bx--structured-list-th">
+          {{ 'utterances.utterance_audit_modal.content_timestamp' | translate }}
+        </div>
+        <div class="bx--structured-list-th">
+          {{ 'utterances.utterance_audit_modal.content_comment' | translate }}
+        </div>
+      </div>
+      </div>
+      <div class="bx--structured-list-tbody">
+      <div *ngFor="let row of data" class="bx--structured-list-row">
+        <div class="bx--structured-list-td bx--structured-list-content--nowrap">{{ row.userId }}</div>
+        <div class="bx--structured-list-td">{{ timezoneService.getTimeByUserTimezone(row.timestamp) }}</div>
+        <div class="bx--structured-list-td">{{ row?.comment?.initiator }}</div>
+      </div>
+      </div>
+    </section>
+    </div>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <button class="bx--btn bx--btn--secondary" (click)="close()">
+      {{ 'utterances.utterance_audit_modal.btn_close.text' | translate }}
+    </button>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

@@ -1,0 +1,10 @@
+<aiap-field-dropdown-v1
+  [skeleton]="isLoading"
+  [type]="'single'"
+  [name]="'tenants_dropdown'"
+  [label]="'tenants_dropdown_v1.label' | translate"
+  [placeholder]="'tenants_dropdown_v1.placeholder' | translate"
+  [items]="selection?.tenants"
+  (onSelected)="handleSelectionEvent($event)"
+  [(value)]="selection.tenant">
+</aiap-field-dropdown-v1>

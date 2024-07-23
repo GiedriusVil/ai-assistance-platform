@@ -1,0 +1,110 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aiap-main-view-v1 {
+  .aiap-wbc-view-loader-wrapper {
+    border-bottom: 1px solid #d8d8d8;
+    min-width: 660px;
+    .aiap-wbc-view-loader-content {
+      padding: 1rem 3%;
+      background-color: white;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .filters-wrapper {
+    border-bottom: 1px solid #d8d8d8;
+    min-width: 660px;
+    .filters-content {
+      padding: 1rem 3%;
+      background-color: white;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      &.no-filters {
+        padding: 1rem 3%;
+      }
+      .page-filters {
+        padding: 0.6875rem 0;
+        .height-25 {
+          height: 2.5rem;
+        }
+      }
+      .custom-details {
+        font-size: 0.875rem;
+        padding-top: 0.8rem;
+        color: #152935;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .dashboard-wrapper {
+    border-bottom: 1px solid #d8d8d8;
+    min-width: 660px;
+    .dashboard-content {
+      margin-top: 3vh;
+      padding: 2vh;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .page-filters {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bx--header__global .bx--header__menu {
+    right: 0;
+    left: auto !important;
+    padding-left: 1px;
+    padding-right: 1px;
+    z-index: 9999;
+  }
+
+  .bx--side-nav {
+    background-color: #000000;
+  }
+
+  .bx--side-nav__icon > svg {
+    fill: #ffffff;
+  }
+
+  .bx--header__menu-bar .bx--header__submenu {
+    .bx--header__menu-item > svg {
+      fill: #fdfcfc;
+    }
+  }
+
+  a.bx--side-nav__link > .bx--side-nav__link-text,
+  .bx--side-nav a.bx--header__menu-item .bx--text-truncate-end {
+    color: #ffffff;
+  }
+
+  .bx--side-nav__footer {
+    background-color: #000000;
+  }
+
+  .bx--side-nav__submenu-title {
+    color: #fff;
+  }
+
+  .bx--header__menu-arrow {
+    margin-left: 0.5rem;
+    transition:
+      transform 110ms,
+      fill 110ms;
+    fill: #c6c6c6;
+  }
+
+  .bx--header__nav {
+    right: 0;
+    width: 100%;
+  }
+
+  .bx--header__global .bx--header__menu-bar {
+    float: right;
+  }
+}

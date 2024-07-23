@@ -1,0 +1,16 @@
+<div class="title-wrapper">
+  <div class="title-content">
+    <h2>{{state?.configuration?.name | translate}}</h2>
+  </div>
+</div>
+<div>
+  <aiap-live-analytics-filters-panel-v2
+    [configuration]="state?.configuration">
+  </aiap-live-analytics-filters-panel-v2>
+  <aiap-live-analytics-tile-metrics-panel-v2
+    [configuration]="state?.configuration">
+  </aiap-live-analytics-tile-metrics-panel-v2>
+  <aiap-live-analytics-charts-panel-v2
+    [configuration]="state?.configuration">
+  </aiap-live-analytics-charts-panel-v2>
+</div>

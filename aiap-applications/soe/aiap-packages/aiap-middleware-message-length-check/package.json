@@ -1,0 +1,5 @@
+{
+  "name": "@ibm-aiap/aiap-middleware-message-length-check",
+  "version": "0.0.1",
+  "main": "index.js"
+}

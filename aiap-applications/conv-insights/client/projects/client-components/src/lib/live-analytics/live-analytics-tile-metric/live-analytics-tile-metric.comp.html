@@ -1,0 +1,30 @@
+<div class="loading-container">
+  <ibm-loading
+    *ngIf="state.isLoading"
+    [isActive]="state.isLoading" 
+    [size]="'normal'" 
+    [overlay]="false">
+  </ibm-loading>
+</div>
+
+<aiap-metrics-tile-v1
+  *ngIf="!state.isLoading && !tile.valueType"
+  [type]="tile?.id"
+  [displayData]="state?.response?.value"
+  [headerText]="tile?.name"
+  [showTooltip]="tile?.tooltip"
+  [tooltipText]="tile?.tooltip?.text"
+  [tooltipTextPlacement]="tile?.tooltip?.position"
+  [tooltipAlignment]="tile?.tooltip?.allignment">
+</aiap-metrics-tile-v1>
+
+<aiap-metrics-tile-v1
+  *ngIf="!state.isLoading && tile.valueType === 'percentage'"
+  [type]="tile?.id"
+  [displayData]="state?.response?.value/100 | percent"
+  [headerText]="tile?.name"
+  [showTooltip]="tile?.tooltip"
+  [tooltipText]="tile?.tooltip?.text"
+  [tooltipTextPlacement]="tile?.tooltip?.position"
+  [tooltipAlignment]="tile?.tooltip?.allignment">
+</aiap-metrics-tile-v1>

@@ -1,0 +1,56 @@
+<ibm-modal 
+  size="sm" 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <h2>
+      {{'purchase_rule_outcome.buy_rules_suppliers_save.header_text' | translate}}
+    </h2>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #ruleSupplierForm="ngForm" class="height-100">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aca-external-suppliers-combobox
+              #suppliersCombobox
+              [(value)]="value.external">
+            </aca-external-suppliers-combobox>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-number
+              required
+              [label]="'purchase_rule_outcome.buy_rules_suppliers_save.priority_label' | translate"
+              [min]="0"
+              [max]="9999"
+              [step]="1"
+              [(ngModel)]="value.priority">
+            </ibm-number>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'purchase_rule_outcome.buy_rules_suppliers_save.cancel_button_text' | translate"
+      [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_save.cancel_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'buy-rules.view.edit.suppliers.edit'}"
+      [type]="'primary'"
+      [text]="'purchase_rule_outcome.buy_rules_suppliers_save.save_button_text' | translate"
+      [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_save.save_button_tooltip' | translate"
+      [disabled]="ruleSupplierForm.invalid"
+      (onClick)="handleSaveClickEvent($event)">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

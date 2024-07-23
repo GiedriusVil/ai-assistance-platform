@@ -1,0 +1,58 @@
+<form #tenantPolicyForm="ngForm">
+  <!-- Cross-Site Request Forgery [START] -->
+  <input
+    type="hidden"
+    name="csrftoken"
+    value="1df93e1eafa42012f9a8aff062eeb1db0380b" />
+  <!-- Cross-Site Request Forgery [END] -->
+  <div ibmGrid>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow [leftGutter]="false">
+      <div ibmCol>
+        <aiap-tenant-applications-dropdown-v1
+          (valueChange)="handleApplicationsSelect($event)"
+          [value]="_selection.application">
+        </aiap-tenant-applications-dropdown-v1>
+      </div>
+    </div>
+    <div ibmRow>&nbsp;</div>
+    <aiap-checkbox-tree-v1
+      #policyApplicationCheckboxTree
+      [items]="value.views"
+      [searchableItems]="value?.allViews"
+      (onSearch)="handleSearch($event)">
+    </aiap-checkbox-tree-v1>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow [leftGutter]=" false" [rightGutter]="false">
+      <div ibmCol>
+        <aiap-button-v1
+          [size]="'md'"
+          [text]="'access_groups_view_v1.policy_application_v1.btn_clear.text' | translate"
+          [tooltip]="'access_groups_view_v1.policy_application_v1.btn_clear.tooltip' | translate"
+          [type]="'secondary'"
+          (onClick)="handleClearPolicies()">
+        </aiap-button-v1>
+      </div>
+      <div ibmCol>
+        <aiap-button-v1
+          [size]="'md'"
+          [disabled]="!selection?.application"
+          [text]="'access_groups_view_v1.policy_application_v1.btn_add_selected.text' | translate"
+          [tooltip]="'access_groups_view_v1.policy_application_v1.btn_add_selected.tooltip' | translate"
+          [type]="'primary'"
+          (onClick)="handleAddPolicies()">
+        </aiap-button-v1>
+      </div>
+      <div ibmCol>
+        <aiap-button-v1
+          [size]="'md'"
+          [disabled]="!selection?.application"
+          [text]="'access_groups_view_v1.policy_application_v1.btn_add_all.text' | translate"
+          [tooltip]="'access_groups_view_v1.policy_application_v1.btn_add_all.tooltip' | translate"
+          [type]="'primary'"
+          (onClick)="handleAddAllApplicationPolicies()">
+        </aiap-button-v1>
+      </div>
+    </div>
+  </div>
+</form>

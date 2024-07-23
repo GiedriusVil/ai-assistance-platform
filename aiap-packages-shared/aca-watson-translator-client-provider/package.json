@@ -1,0 +1,8 @@
+{
+  "name": "@ibm-aca/aca-watson-translator-client-provider",
+  "version": "0.0.1",
+  "description": "Watson Watson Translation support for Advanced Conversation Assets",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM"
+}

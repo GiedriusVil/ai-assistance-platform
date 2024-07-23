@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aiap/aiap-object-storage-service",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap-object-storage-datasource-provider": "0.0.1",
+    "@ibm-aiap/aiap-app-service": "0.0.1"
+  }
+}

@@ -1,0 +1,1 @@
+export const offset  = { x: -210, y: -33 };

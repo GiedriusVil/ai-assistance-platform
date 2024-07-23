@@ -1,0 +1,39 @@
+<div ibmGrid 
+  class="tenant-datasources-grid">
+  <div ibmRow>
+    <div ibmCol>
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.tenant_tab_datasources_v1.header_db_clients' | translate }}
+      </h3>
+      <aiap-tenant-db-clients-table-v1
+        [clients]="dbClients"
+        (onShowSavePlace)="handleDbClientSavePlaceShowEvent($event)"
+        (onShowDeletePlace)="handleDbClientDeleteEvent($event)">
+      </aiap-tenant-db-clients-table-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <h3 ibmModalHeaderHeading>
+        {{ 'tenants_view_v1.save_modal_v1.tenant_tab_datasources_v1.header_datasources' | translate }}
+      </h3>
+      <aiap-cards-panel-v1
+        [items]="datasources"
+        (onShowDeletePlace)="handleDatasourceDeleteEvent($event)"
+        (onShowSavePlace)="handleDatasourceSavePlaceShowEvent($event)">
+      </aiap-cards-panel-v1>
+    </div>
+  </div>
+</div>
+
+<aiap-tenant-db-clients-save-modal-v1
+  #dbClientsSaveModal
+  (onAddDbClient)="handleDbClientAddEvent($event)">
+</aiap-tenant-db-clients-save-modal-v1>
+
+<aiap-tenant-datasources-save-modal-v1
+  #datasourcesSaveModal
+  [datasources]="datasources"
+  (onAddDatasource)="handleDatasourceAddEvent($event)">
+</aiap-tenant-datasources-save-modal-v1>

@@ -1,0 +1,23 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+// Applications
+@use "./applications-view-v1/applications-view-v1.scss";
+@use "./applications-changes-view-v1/applications-changes-view-v1.scss";
+
+// Tenants
+@use "./tenants-view-v1/tenants-view-v1.scss";
+@use "./tenants-changes-view-v1/tenants-changes-view-v1.scss";
+
+// Access Groups
+@use "./access-groups-view-v1/access-groups-view-v1.scss";
+@use "./access-groups-changes-view-v1/access-groups-changes-view-v1.scss";
+
+// Users
+@use "./users-view-v1/users-view-v1.scss";
+@use "./users-changes-view-v1/users-changes-view-v1.scss";
+
+// Wbc Application
+@use "./wbc-application-view-v1/wbc-application-view-v1.scss";

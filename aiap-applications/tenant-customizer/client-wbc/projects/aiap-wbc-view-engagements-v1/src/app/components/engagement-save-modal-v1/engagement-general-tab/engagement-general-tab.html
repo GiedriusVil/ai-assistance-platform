@@ -1,0 +1,51 @@
+<div ibmGrid class="padding-0">
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 4, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'Id'"
+        [isRequired]="true"
+        [label]="'engagements_general_tab_v1.fld_engagement_id.label' | translate"
+        [labelHelp]="'engagements_general_tab_v1.fld_engagement_id.label_help' | translate"
+        [(value)]="generalData.id">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 4, 'sm': 4}">
+        <aiap-field-input-v1
+          [name]="'Name'"
+          [isRequired]="true"
+          [label]="'engagements_general_tab_v1.fld_engagement_name.label' | translate"
+          [labelHelp]="'engagements_general_tab_v1.fld_engagement_name.label_help' | translate"
+          [(value)]="generalData.name">
+        </aiap-field-input-v1>
+      </div>
+    </div>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 4, 'sm': 4}">
+          <ibm-dropdown
+              required
+              name="Assistant"
+              placeholder="Select"
+              [label]="'engagements_general_tab_v1.fld_assistant.label' | translate"
+              (selected)="handleAssistantSelect($event)"
+              [(ngModel)]="selections.selectedAssistant">
+              <ibm-dropdown-list [items]="selections.assistants"></ibm-dropdown-list>
+          </ibm-dropdown>
+      </div>
+    </div>
+    <div ibmRow>&nbsp;</div>
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'assistantDisplayName'"
+            [isRequired]="true"
+            [label]="'engagements_general_tab_v1.fld_assistant_display_name.label' | translate"
+            [labelHelp]="'engagements_general_tab_v1.fld_assistant_display_name.label_help' | translate"
+            [(value)]="generalData.assistantDisplayName">
+          </aiap-field-input-v1>
+        </div>
+    </div>
+</div>

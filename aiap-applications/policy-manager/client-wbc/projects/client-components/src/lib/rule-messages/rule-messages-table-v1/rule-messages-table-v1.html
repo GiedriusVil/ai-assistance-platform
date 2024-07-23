@@ -1,0 +1,85 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      [type]="'ghost'" 
+      [iconOnly]="'true'" 
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      [tooltip]="'rule_messages.table_v1.refresh_button_tooltip' | translate"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      (onSearchChange)="emitSearchPlace($event)" 
+      (onSearchClear)="emitClearPlace($event)" 
+      [search]="state.search">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1 
+      *isActionAllowed="{ action: 'messages.view.add' }" 
+      [type]="'primary'" 
+      [text]="'rule_messages.table_v1.add_button' | translate"
+      [tooltip]="'rule_messages.table_v1.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      *ngIf="!isImport" 
+      [type]="'primary'" 
+      [size]="'sm'" 
+      [disabled]="!isPullAllowed"
+      [text]="'rule_messages.table_v1.pull_button' | translate"
+      [tooltip]="'rule_messages.table_v1.pull_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="emitShowPullPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      *ngIf="!isImport" 
+      [type]="'primary'" 
+      [size]="'sm'" 
+      [text]="'rule_messages.table_v1.export_button' | translate"
+      [tooltip]="'rule_messages.table_v1.export_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/export.svg'"
+      (onClick)="handleExport()"
+      [disabled]="!isExportAllowed">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      *isActionAllowed="{action:'messages.view.delete'}" 
+      [type]="'danger'" 
+      [size]="'sm'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [text]="('rule_messages.table_v1.remove_button' | translate) + '(' + selectedRows.length + ')'"
+      [tooltip]="'rule_messages.table_v1.remove_button_tooltip' | translate"
+      [disabled]="isRemoveDisabled()" 
+      (onClick)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <div>
+    <aiap-table-v1
+      [model]="model"
+      (onRowClick)="emitShowSavePlace($event)"
+      (onSort)="handleSortEvent($event)" 
+      (onAllDeselect)="deselectAllRows()" 
+      (onAllSelect)="selectAllRows($event)"
+      (onRowSelect)="rowSelect($event)" 
+      (onRowDeselect)="rowDeselect($event)">
+    </aiap-table-v1>
+  </div>
+  <aiap-table-v1-pagination-v1
+    [model]="model" 
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template 
+  #createdTemplate 
+  let-data="data">
+  <aiap-table-cell-created-v1
+    [value]="data?.created">
+  </aiap-table-cell-created-v1>
+</ng-template>
+<ng-template 
+  #updatedTemplate 
+  let-data="data">
+  <aiap-table-cell-updated-v1
+    [value]="data?.updated">
+  </aiap-table-cell-updated-v1>
+</ng-template>

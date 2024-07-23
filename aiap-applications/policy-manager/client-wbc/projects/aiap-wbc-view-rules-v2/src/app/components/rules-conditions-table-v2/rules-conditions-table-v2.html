@@ -1,0 +1,63 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="'true'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="refreshTable()">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'rules_v2.conditions_table_v2.search_placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="handleSearchChangeEvent($event)"
+      (onSearchClear)="handleSearchClearEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'rules-v2.view.edit.conditions.add'}"
+      [type]="'primary'"
+      [size]="'sm'"
+      [text]="'rules_v2.conditions_table_v2.add_button' | translate"
+      [tooltip]="'rules_v2.conditions_table_v2.add_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'rules-v2.view.edit.conditions.remove'}"
+      [type]="'danger'"
+      [size]="'sm'"
+      [text]="('rules_v2.conditions_table_v2.remove_button' | translate) + '(' + this.model.selectedRowsCount() + ')'"
+      [tooltip]="'rules_v2.conditions_table_v2.remove_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #createdTemplate 
+    let-data="data">
+    <aiap-table-cell-created-v1 
+      [value]="data?.created">
+    </aiap-table-cell-created-v1 >
+  </ng-template>
+  <ng-template 
+    #updatedTemplate 
+    let-data="data">
+    <aiap-table-cell-updated-v1 
+      [value]="data?.updated">
+    </aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

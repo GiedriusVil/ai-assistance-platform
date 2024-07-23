@@ -1,0 +1,40 @@
+<aiap-modal-v1 
+    [open]="isOpen" 
+    (overlaySelected)="close()" 
+    size='sm'>
+    <aiap-modal-v1-header-v1 
+        (closeSelect)="close()">
+        <h3 ibmModalHeaderHeading>{{ 'ai_translation_prompts_v1.import_modal_v1.header.title' | translate }}</h3>
+    </aiap-modal-v1-header-v1>
+    <div class="bx--modal-content bx--modal-content--with-form">
+        <aiap-file-uploader-v2
+          #fileUploader
+          [title]="'ai_translation_prompts_v1.import_modal_v1.file_uploader.title' | translate" 
+          [description]="'ai_translation_prompts_v1.import_modal_v1.file_uploader.description' | translate"
+          [accept]="['.json']"
+          [multiple]="false" 
+          [drop]="true" 
+          [dropText]="'ai_translation_prompts_v1.import_modal_v1.file_uploader.dropText' | translate"
+          [disabled]="false"
+          [(files)]="files"
+          (filesChange)="onFileAdd($event)">
+        </aiap-file-uploader-v2>
+    </div>
+    <aiap-modal-v1-footer-v1>
+      <aiap-button-v1
+        class="width50"
+        [text]="'ai_translation_prompts_v1.import_modal_v1.btn_close.text' | translate"
+        [tooltip]="'ai_translation_prompts_v1.import_modal_v1.btn_close.tooltip' | translate"
+        [type]="'secondary'"
+        (onClick)="close()">
+      </aiap-button-v1>
+      <aiap-button-v1
+        class="width50"
+        [text]="'ai_translation_prompts_v1.import_modal_v1.btn_import.text' | translate"
+        [tooltip]="'ai_translation_prompts_v1.import_modal_v1.btn_import.tooltip' | translate"
+        [disabled]="uploadButtonDisabled"
+        [type]="'primary'"
+        (onClick)="import()">
+      </aiap-button-v1>
+    </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

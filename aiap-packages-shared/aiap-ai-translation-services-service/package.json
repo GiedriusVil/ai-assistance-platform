@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aiap/aiap-ai-translation-services-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "author": "marekas.molis@ibm.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-ramda": "0.0.1",
+    "@ibm-aca/aca-wrapper-lodash": "0.0.1"
+  }
+}

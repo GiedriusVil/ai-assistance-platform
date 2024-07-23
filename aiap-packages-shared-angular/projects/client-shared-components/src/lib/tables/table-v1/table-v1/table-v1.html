@@ -1,0 +1,17 @@
+<ibm-table
+  [size]="'md'"
+  [striped]="true"
+  [skeleton]="skeleton"
+  [showSelectionColumn]="showSelectionColumn"
+  [sortable]="true"
+  [stickyHeader]="false"
+  [enableSingleSelect]="enableSingleSelect"
+  [isDataGrid]="isDataGrid"
+  [model]="model"
+  (selectAll)="handleEventAllSelect($event)"
+  (deselectAll)="handleEventAllDeselect($event)"
+  (selectRow)="handleEventRowSelect($event)"
+  (deselectRow)="handleEventRowDeselect($event)"
+  (rowClick)="handleEventRowClick($event)"
+  (sort)="handleEventSort($event)">
+</ibm-table>

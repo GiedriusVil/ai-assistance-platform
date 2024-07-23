@@ -1,0 +1,8 @@
+<ibm-header-menu 
+  trigger="mouseover"
+  title="{{selectedLanguage.label}}">
+  <ibm-header-item 
+    *ngFor="let language of languages" 
+    (click)="handleLanguageSelectionEvent(language)">{{language.label}}
+  </ibm-header-item>
+</ibm-header-menu>

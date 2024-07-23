@@ -1,0 +1,88 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "postinstall": "NODE_OPTIONS=--max-old-space-size=4096 ngcc",
+    "client:build:libs:shared": "../../../scripts/client/build-libs-shared.sh --skipLibsShared",
+    "client:build:libs": "../../../scripts/client/build-libs.sh --skipLibsShared",
+    "client:build:wbc": "../../../scripts/client/build-wbc.sh --skipLibsShared",
+    "client:build": "../../../scripts/client/build.sh --skipLibsShared",
+    "client:watch": "../../../scripts/client/watch.sh"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular-extensions/elements": "13.0.0",
+    "@angular/elements": "15.0.1",
+    "@angular/animations": "15.0.1",
+    "@angular/common": "15.0.1",
+    "@angular/compiler": "15.0.1",
+    "@angular/core": "15.0.1",
+    "@angular/forms": "15.0.1",
+    "@angular/localize": "15.0.1",
+    "@angular/platform-browser": "15.0.1",
+    "@angular/platform-browser-dynamic": "15.0.1",
+    "@angular/router": "15.0.1",
+    "ngx-build-plus": "15.0.0",
+    "@ng-bootstrap/ng-bootstrap": "12.1.2",
+    "bootstrap": "5.1.3",
+    "bootstrap-icons": "1.10.5",
+    "popper.js": "^1.16.1",
+    "@ngx-translate/core": "13.0.0",
+    "@ngx-translate/http-loader": "6.0.0",
+    "ngx-json-viewer": "3.0.2",
+    "@popperjs/core": "2.10.2",
+    "core-js": "^3.21.1",
+    "detect-browser": "^5.2.0",
+    "file-saver": "2.0.5",
+    "hds-core": "1.12.0",
+    "howler": "2.1.2",
+    "jquery": "^3.4.1",
+    "jspdf": "2.3.1",
+    "moment": "2.29.4",
+    "moment-timezone": "0.5.43",
+    "process": "^0.11.10",
+    "lodash": "4.17.21",
+    "ramda": "0.27.2",
+    "rxjs": "7.5.5",
+    "socket.io-client": "4.5.4",
+    "tslib": "^2.3.1",
+    "url-search-params-polyfill": "^8.1.0",
+    "uuid": "^8.3.2",
+    "buffer": "6.0.3",
+    "watson-speech": "^0.36.6",
+    "zone.js": "0.11.4",
+    "zendesk-web-sdk": "file:./external/zendesk-web-sdk"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "15.2.4",
+    "@angular/cli": "15.2.4",
+    "@angular/compiler-cli": "15.0.1",
+    "@angular/language-service": "15.0.1",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@types/node": "17.0.23",
+    "ts-node": "10.7.0",
+    "typescript": "4.8.4",
+    "wait-on": "^5.2.0",
+    "ng-packagr": "15.0.0"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    },
+    {
+      "name": "Andrius Bertasius",
+      "email": "andrius.bertasius@ibm.com",
+      "url": "https://www.linkedin.com/in/andrius-berta%C5%A1ius-1392321b1/"
+    },
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis/"
+    }
+  ]
+}

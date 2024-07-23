@@ -1,0 +1,23 @@
+<form 
+  #formRuleOutcome="ngForm">
+  <!-- Cross-Site Request Forgery [START] -->
+  <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+  <!-- Cross-Site Request Forgery [END] -->
+  <div ibmGrid>
+    <div ibmRow>
+      <div ibmCol [columnNumbers]="{'md': 4, 'sm': 2}">
+        <aiap-rule-actions-combobox-v1 
+          [value]="value.actions"
+          (valueChange)="handleActionsValueChange($event)">
+        </aiap-rule-actions-combobox-v1>
+      </div>
+      <div ibmCol [columnNumbers]="{'md': 4, 'sm': 4}">
+        <aiap-rule-messages-combobox-v1
+          [label]="'Rule message'"
+          [value]="value.message"
+          (valueChange)="handleMessageValueChange($event)">
+        </aiap-rule-messages-combobox-v1>
+      </div>
+    </div>
+  </div>
+</form>

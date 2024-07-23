@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-topic-modeling-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Martynas Pazusis",
+      "email": "martynas.pazusis@ibm.com",
+      "url": "https://www.linkedin.com/in/martynas-pazusis"
+    }
+  ]
+}

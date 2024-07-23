@@ -1,0 +1,34 @@
+<ng-template #loading>
+  <div class="aiap-wbc-form-loader-wrapper">
+      <div class="aiap-wbc-form-loader-content">
+        <ibm-inline-loading
+          [state]="'active'"
+          [loadingText]="loadingText()">
+        </ibm-inline-loading>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="aiap-wbc-form-loader-wrapper">
+      <div class="aiap-wbc-form-loader-content">
+        <ibm-notification 
+          [notificationObj]="wbcLoadingError()">
+        </ibm-notification>
+      </div>
+  </div>
+</ng-template>
+
+<ng-container #lazyElementContainer></ng-container>
+
+<ng-template
+  #lazyElementTemplate>
+  <ax-lazy-element
+    *axLazyElementDynamic="context?.wbc?.tag, url: url(); loadingTemplate: loading; errorTemplate: error;"
+    [context]="context"
+    (contextChange)="handleContextChange($event)"
+    [value]="value"
+    (valueChange)="handleValueChange($event)">
+  </ax-lazy-element>
+</ng-template>
+

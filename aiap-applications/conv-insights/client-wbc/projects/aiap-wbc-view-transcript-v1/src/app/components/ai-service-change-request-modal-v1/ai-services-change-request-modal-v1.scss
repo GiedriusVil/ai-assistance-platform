@@ -1,0 +1,159 @@
+ai-services-change-request-modal-v1 {
+
+  .bx--modal-container {
+    section {
+      overflow: auto;
+    }
+  }
+
+  ibm-accordion {
+    ibm-accordion-item {
+      display: unset;
+      .bx--accordion__content {
+        padding-right: 0px;
+      }
+    }
+  }
+  .intent-label {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .intent-name {
+    font-size: 12px;
+    color: gray;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+  .examples-label {
+    padding-left: 20px;
+    font-size: 12px;
+    color: gray;
+  }
+  .intents-examples {
+    padding-left: 30px;
+    padding-bottom: 20px;
+
+    .new-examples-div {
+      justify-content: space-between;
+
+      .button-div {
+        justify-content: end;
+      }
+    }
+
+    .deleted-examples-div {
+      justify-content: space-between;
+
+      .button-div {
+        justify-content: end;
+      }
+    }
+
+    .existing-examples-div {
+      display: flex;
+      aiap-field-input-v1 {
+        width: 100%;
+      }
+
+      .button-div {
+        .change-example-button {
+          padding-right: 10px;
+        }
+      }
+    }
+
+    .will-change-to-div {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      .button-div {
+        justify-content: end;
+        padding-right: 0px;
+      }
+
+      .will-change-to-text {
+        padding-right: 10px;
+        text-wrap: nowrap;
+      }
+
+      aiap-field-input-v1 {
+        width: 80%;
+      }
+    }
+
+    .add-button-div {
+      padding-left: 0px;
+      margin-top: 10px;
+
+      .add-example-button {
+        font-size: 12px;
+        color: #01579b;
+        font-weight: 400;
+        border-bottom: 1px #01579b;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .will-change-to-text {
+      font-size: 12px;
+      color: gray;
+      font-weight: 400;
+      border-bottom: 1px gray;
+    }
+
+    .button-div {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .delete-existing-example-button {
+        font-size: 12px;
+        color: red;
+        font-weight: 400;
+        border-bottom: 1px red;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      .cancel-deleted-example-button {
+        font-size: 12px;
+        color: gray;
+        font-weight: 400;
+        border-bottom: 1px gray;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      .change-example-button {
+        font-size: 12px;
+        color: #01579b;
+        font-weight: 400;
+        border-bottom: 1px #01579b;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      .cancel-change-button {
+        font-size: 12px;
+        color: gray;
+        font-weight: 400;
+        border-bottom: 1px gray;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

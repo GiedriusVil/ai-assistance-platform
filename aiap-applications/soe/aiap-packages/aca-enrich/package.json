@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-enrich",
+  "version": "3.27.0",
+  "description": "Enrich middleware for Advanced Conversational Asset",
+  "main": "lib/index.js",
+  "scripts": {},
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-common-logger": "3.27.0",
+    "node-cache": "4.2.0"
+  }
+}

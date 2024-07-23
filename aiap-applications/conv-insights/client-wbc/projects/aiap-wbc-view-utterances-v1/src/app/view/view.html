@@ -1,0 +1,68 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aca-breadcrumb [outlet]="outlet"></aca-breadcrumb>
+    <div class="page-filters" ibmGrid>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+          <aca-date-range-picker
+            [value]="state.dateRange"
+            (onChange)="handleDateRangeChange($event)"></aca-date-range-picker>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm':4}">
+          <ibm-dropdown
+              type="multi"
+              placeholder="{{ 'utterances_view_v1.dropdown_filter_by_assistants.placeholder' | translate }}"
+              [label]="'utterances_view_v1.dropdown_filter_by_assistants.label' | translate"
+              [disabled]="false"
+              [(ngModel)]="state.assistantsSelected"
+              (selected)="handleAssistantSelectionEvent($event)">
+            <ibm-dropdown-list [items]="state.assistants"></ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 4, 'sm':4}">
+          <ibm-dropdown
+            placeholder="{{ 'utterances_view_v1.dropdown_filter_by_intents.placeholder' | translate }}"
+            [label]="'utterances_view_v1.dropdown_filter_by_intents.label' | translate"
+            (selected)="handleIntentSelectionEvent($event)">
+            <ibm-dropdown-list [items]="state.intents"></ibm-dropdown-list>
+          </ibm-dropdown>
+        </div>
+        <div class="utterance-system-messages-filter" ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 2, 'sm':2}">
+          <aiap-toggle-v1
+            size="sm"
+            [onText]="'utterances_view_v1.toggle_system_messages.text_on' | translate"
+            [offText]="'utterances_view_v1.toggle_system_messages.text_off' | translate"
+            [isChecked]="state.isSystemMessagesVisible"
+            (onChange)="handleSystemMessagesVisibility($event)">
+          </aiap-toggle-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="totals-content">
+  <aca-utterances-metrics-v1>
+  </aca-utterances-metrics-v1>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-utterances-table-v1
+    (onShowUtteranceIgnoreModal)="showIgnoreUtteranceModal($event)"
+    (onShowUtteranceIntentModal)="showUtteranceIntentModal($event)"
+    (onShowUtteranceAuditModal)="showUtteranceAuditModal($event)"
+    (onShowFeedbackModal)="showFeedbackModal($event)"
+    (onSearchEvent)="handleSearchEvent($event)"
+    (onSearchClearEvent)="handleSearchClearEvent()">
+    </aca-utterances-table-v1>
+  </div>
+</div>
+
+<aca-ignore-utterance-modal-v1 #ignoreUtteranceModal></aca-ignore-utterance-modal-v1>
+<aca-utterance-audit-modal-v1 #utteranceAuditModal></aca-utterance-audit-modal-v1>
+<aca-utterance-feedback-modal-v1 #utteranceFeedbackModal></aca-utterance-feedback-modal-v1>
+<aca-utterance-intent-modal-v1 #utteranceIntentModal></aca-utterance-intent-modal-v1>

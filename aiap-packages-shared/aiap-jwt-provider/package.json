@@ -1,0 +1,10 @@
+{
+  "name": "@ibm-aiap/aiap-jwt-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aca/aca-wrapper-jsonwebtoken": "0.0.1"
+  }
+}
+  

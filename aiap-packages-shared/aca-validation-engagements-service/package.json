@@ -1,0 +1,14 @@
+{
+  "name": "@ibm-aca/aca-validation-engagements-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-validation-engagements-datasource-provider": "0.0.1",
+    "@ibm-aca/aca-utils-json-group-by": "0.0.1",
+    "compromise": "13.11.2"
+  }
+}

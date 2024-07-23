@@ -1,0 +1,23 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-data-masking-configurations-table-v1
+      (onShowImportPlace)="handleShowImportQueue($event)"
+      (onShowSavePlace)="handleShowSaveModal($event)"
+      (onShowRemovePlace)="handleMaskingConfigurationDeleteModal($event)"
+      (onSearchEvent)="handleSearchEvent($event)"
+      (onSearchClearEvent)="handleSearchClearEvent($event)">
+    </aiap-data-masking-configurations-table-v1>
+  </div>
+</div>
+
+<aiap-data-masking-configuration-save-modal-v1 #MaskingConfigurationSaveModal></aiap-data-masking-configuration-save-modal-v1>
+<aiap-data-masking-configuration-delete-modal-v1 #MaskingConfigurationDeleteModal></aiap-data-masking-configuration-delete-modal-v1>
+<aiap-data-masking-configuration-import-modal-v1 #MaskingConfigurationImportModal></aiap-data-masking-configuration-import-modal-v1>

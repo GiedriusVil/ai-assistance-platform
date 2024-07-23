@@ -1,0 +1,26 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-chat-video-attachment {
+  .message--video {
+    margin-top: 4px;
+
+    @media screen and (max-width: 575px) {
+      max-width: 75%;
+    }
+
+    @media screen and (min-width: 576px) {
+      max-width: 50%;
+    }
+
+    iframe {
+      clear: both;
+      float: left;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+}

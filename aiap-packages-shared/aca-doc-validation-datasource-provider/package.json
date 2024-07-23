@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-doc-validation-datasource-provider",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aiap/aiap-mongo-client-provider": "0.0.1",
+    "@ibm-aiap/aiap-utils-mongo": "0.0.1"
+  }
+}

@@ -1,0 +1,127 @@
+<ibm-modal
+  [open]="isOpen"
+  size="lg"
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">
+      {{'rule_actions_v1.view.modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #auditViewForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid style="margin-bottom: 30px;">
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.transaction_id_label' | translate}}
+              </label>
+              <input
+                name="transactionId"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.id">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.action_label' | translate}}
+              </label>
+              <input
+                name="action"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.action">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.initiator_id_label' | translate}}
+              </label>
+              <input
+                name="userId"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.context.user.id">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.initiator_name_label' | translate}}
+              </label>
+              <input
+                name="userName"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.context.user.username">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.document_id_label' | translate}}
+              </label>
+              <input
+                name="docId"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.docId">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.document_type_label' | translate}}
+              </label>
+              <input
+                name="docType"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.docType">
+            </ibm-label>
+          </div>
+          <div ibmCol>
+            <ibm-label>
+              <label>
+                {{'rule_actions_v1.view.modal_v1.timestamp_label' | translate}}
+              </label>
+              <input
+                name="timestamp"
+                ibmText
+                [disabled]="true"
+                [(ngModel)]="transaction.timestamp">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+            <div ibmCol>
+                <aiap-differences-table-v1 
+                  [transaction]="transaction">
+                </aiap-differences-table-v1>
+            </div>
+        </div>
+    </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'sm'"
+      [text]="'rule_actions_v1.view.modal_v1.close_button_text' | translate"
+      [tooltip]="'rule_actions_v1.view.modal_v1.close_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

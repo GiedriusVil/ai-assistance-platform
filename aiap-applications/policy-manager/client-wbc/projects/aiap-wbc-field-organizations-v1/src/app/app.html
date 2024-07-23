@@ -1,0 +1,13 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-organizations-field-v1
+    [(context)]="state.context"
+    [(value)]="state.value"
+    (valueChange)="handleValueChange($event)">
+  </aiap-wbc-organizations-field-v1>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

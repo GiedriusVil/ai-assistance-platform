@@ -1,0 +1,83 @@
+{
+  "rule_messages_v1.template_table_v1.header" : "Vorlagen *",
+  "rule_messages_v1.template_table_v1.add_template_button" : "Vorlage hinzufügen",
+  "rule_messages_v1.template_table_v1.remove_template_button" : "Vorlage entfernen",
+
+
+  "rule_messages.delete_modal_v1.header" : "Nachricht löschen",
+  "rule_messages.delete_modal_v1.delete_confirmation" : "Soll die Nachricht gelöscht werden?",
+  "rule_messages.delete_modal_v1.delete_error" : "Die Nachricht kann nicht gelöscht werden. Bitte wählen Sie eine andere Nachricht aus.",
+  "rule_messages.delete_modal_v1.cancel_button" : "Abbrechen",
+  "rule_messages.delete_modal_v1.delete_button" : "Löschen",
+
+  "rule_messages.pull_modal_v1.header" : "Laden",
+  "rule_messages.pull_modal_v1.pull_confirmation" : "Sollen die Nachrichten geladen werden?",
+  "rule_messages.pull_modal_v1.cancel_button" : "Abbrechen",
+  "rule_messages.pull_modal_v1.pull_button" : "Laden",
+
+  "rule_messages.save_modal_v1.header" : "Nachricht speichern",
+  "rule_messages.save_modal_v1.id_label" : "ID*",
+  "rule_messages.save_modal_v1.name_label" : "Name*",
+  "rule_messages.save_modal_v1.code_label" : "Code",
+  "rule_messages.save_modal_v1.cancel_button" : "Abbrechen",
+  "rule_messages.save_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "rule_messages.save_modal_v1.save_button" : "Speichern",
+  "rule_messages.save_modal_v1.save_button_tooltip" : "Speichern",
+
+  "rule_messages.table_v1.add_button" : "Hinzufügen",
+  "rule_messages.table_v1.pull_button" : "Laden",
+  "rule_messages.table_v1.export_button" : "Exportieren",
+  "rule_messages.table_v1.remove_button" : "Entfernen",
+
+  "rule_messages.table_v1.refresh_button_tooltip" : "Aktualisieren",
+  "rule_messages.table_v1.add_button_tooltip" : "Hinzufügen",
+  "rule_messages.table_v1.pull_button_tooltip" : "Laden",
+  "rule_messages.table_v1.export_button_tooltip" : "Exportieren",
+  "rule_messages.table_v1.remove_button_tooltip" : "Entfernen",
+
+  "rule_messages.template_table_v1.add_button" : "Hinzufügen",
+  "rule_messages.template_table_v1.add_button_tooltip" : "Hinzufügen",
+
+  "rule_messages.pull_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "rule_messages.pull_modal_v1.pull_button_tooltip" : "Laden",
+
+  "rule_messages.delete_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "rule_messages.delete_modal_v1.delete_button_tooltip" : "Löschen",
+
+  "rule_messages.table_v1.name_header" : "Name",
+  "rule_messages.table_v1.created_header" : "Erstellt",
+  "rule_messages.table_v1.updated_header" : "Aktualisiert",
+
+  "view_rule_messages_v1.templates_table_v1.message.header" : "Nachricht",
+  "view_rule_messages_v1.templates_table_v1.language.header" : "Sprache",
+  "view_rule_messages_v1.templates_table_v1.action.header" : "Aktion",
+  "view_rule_messages_v1.templates_table_v1.notification.error" : "[DE] Unable to load message templates table data",
+
+  "rule_messages.templates_table_v1.message_header" : "Nachricht",
+  "rule_messages.templates_table_v1.language_header" : "Nachricht",
+  "rule_messages.templates_table_v1.action_header" : "Aktion",
+
+  "rule_messages.delete_modal.notification.success.title" : "[DE] Message deleted successfully",
+  "rule_messages.delete_modal.notification.error.title" : "[DE] Message delete error!",
+  "rule_messages.pul_modal.notification.success.title" : "[DE] Messages",
+  "rule_messages.pul_modal.notification.success.message" : "[DE] Messages pulled successfully",
+  "rule_messages.pul_modal.notification.error.message" : "[DE] Messages pull error!",
+  "rule_messages.save_modal_v1.name_placeholder" : "[DE] Enter message name",
+  "rule_messages.save_modal_v1.code_placeholder" : "[DE] Enter message code",
+  "rule_messages.save_modal.notification.error.load_title" : "[DE] Unable to load message save data!",
+  "rule_messages.save_modal.notification.success.save_title" : "[DE] Message saved successfully",
+  "rule_messages.save_modal.notification.error.save_title" : "[DE] Message save error!",
+
+  "rule_messages.template_table_v1.message_placeholder" : "[DE] Enter template message",
+  "rule_messages.template_table_v1.language_placeholder" : "[DE] Select template language",
+  "rule_messages.templates_table_v1.notification.error.title" : "[DE] Unable to load message templates table data",
+  "rule_messages.table_v1.notification.success.refresh_title" : "[DE] Messages refreshed successfully",
+  "rule_messages.table_v1.notification.error.refresh_title" : "[DE] Messages",
+  "rule_messages.table_v1.notification.error.refresh_message" : "[DE] Unable to retrieve messages!",
+  "rule_messages.table_v1.notification.error.export_message" : "[DE] Unable to export messages!",
+  "rule_messages.table_v1.notification.success.export_message" : "[DE] Messages exported successfully",
+  "rule_messages_v1.template_table_v1.template_message_placeholder" : "[DE] Enter template message",
+  "rule_messages_v1.template_table_v1.template_language_placeholder" : "[DE] Select template language"
+
+
+}

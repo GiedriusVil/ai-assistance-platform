@@ -1,0 +1,28 @@
+<aiap-modal-v1 
+  [size]="'xs'"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p ibmModalHeaderHeading>
+      {{ 'queries_configuration_view_v1.delete_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <span>
+      {{ 'queries_configuration_view_v1.delete_modal_v1.content' | translate }}
+    </span>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'queries_configuration_view_v1.delete_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="handleEventClose($event)">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'queries_configuration_view_v1.delete_modal_v1.btn_delete.text' | translate"
+      [type]="'danger'"
+      (onClick)="handleEventDelete($event)">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

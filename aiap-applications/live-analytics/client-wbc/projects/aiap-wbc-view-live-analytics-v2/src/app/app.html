@@ -1,0 +1,10 @@
+<div
+  *ngIf="isReady()">
+  <aiap-live-analytics-view-v2 [configs]="configs"></aiap-live-analytics-view-v2>
+</div>
+<div *ngIf="!isReady()">
+  <aiap-inline-loader-v1
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </aiap-inline-loader-v1>
+</div>

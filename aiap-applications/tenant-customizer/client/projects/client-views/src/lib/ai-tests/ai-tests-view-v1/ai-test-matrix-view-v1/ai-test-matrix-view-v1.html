@@ -1,0 +1,15 @@
+<div>
+    <div class="filters-wrapper">
+      <div class="filters-content no-filters">
+        <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+        <h2>Confusion Matrix Results Table</h2>
+      </div>
+    </div>
+  </div>
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-ai-test-matrix-table
+    [matrixData]="data?.matrix"
+    ></aca-ai-test-matrix-table>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+{
+    "items": [
+        {
+            "id": "1",
+            "segmentId": "1",
+            "familyId": "1",
+            "classId": "1",
+            "code": "10101010",
+            "title": "Com1"
+        },
+        {
+            "id": "2",
+            "segmentId": "2",
+            "familyId": "2",
+            "classId": "2",
+            "code": "11101111",
+            "title": "Com2"
+        },
+        {
+            "id": "3",
+            "segmentId": "3",
+            "familyId": "3",
+            "classId": "3",
+            "code": "20101010",
+            "title": "Com3"
+        },
+        {
+            "id": "4",
+            "segmentId": "4",
+            "familyId": "4",
+            "classId": "4",
+            "code": "21111010",
+            "title": "Com4"
+        },
+        {
+            "id": "5",
+            "segmentId": "5",
+            "familyId": "5",
+            "classId": "5",
+            "code": "30101010",
+            "title": "Com5"
+        },
+        {
+            "id": "6",
+            "segmentId": "5",
+            "familyId": "6",
+            "classId": "6",
+            "code": "30202010",
+            "title": "Com6"
+        },
+        {
+            "id": "7",
+            "segmentId": "5",
+            "familyId": "6",
+            "classId": "7",
+            "code": "30202111",
+            "title": "Com7"
+        },
+        {
+            "id": "8",
+            "segmentId": "5",
+            "familyId": "6",
+            "classId": "7",
+            "code": "30202120",
+            "title": "Com8"
+        },
+        {
+            "id": "9",
+            "segmentId": "5",
+            "familyId": "6",
+            "classId": "7",
+            "code": "30202121",
+            "title": "Com9"
+        }
+    ],
+    "total": 9
+  }

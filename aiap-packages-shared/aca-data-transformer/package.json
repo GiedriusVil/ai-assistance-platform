@@ -1,0 +1,15 @@
+{
+    "name": "@ibm-aca/aca-data-transformer",
+    "version": "0.0.1",
+    "description": "Aca utilities for error processing",
+    "main": "index.js",
+    "author": "IBM",
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {},
+    "publishConfig": {
+      "access": "restricted",
+      "registry": "https://registry.npmjs.org"
+    }
+  }
+  

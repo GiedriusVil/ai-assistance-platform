@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aca/aca-wrapper-mustache",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "4.2.0"
+  }
+}

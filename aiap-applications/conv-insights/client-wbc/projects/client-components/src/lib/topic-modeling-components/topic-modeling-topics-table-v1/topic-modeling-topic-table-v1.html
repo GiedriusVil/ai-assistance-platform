@@ -1,0 +1,35 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlaceEvent($event)"
+      (onSearchClear)="emitClearPlaceEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      [type]="'primary'"
+      [size]="'sm'"
+      [disabled]="isExportDisabled()"
+      [text]="('topic_modeling_view_v1.topic_table_v1.btn_export.text' | translate) + '(' + (this.selectedRows.length) + ')'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [size]="'md'"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)"
+    (onAllDeselect)="handleEventAllDeselect()"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)">
+  </aiap-table-v1>
+  <ng-template #clusterTags let-data="data">
+    <div class="tagsWrapper">
+      <p *ngFor="let clusterTag of data; let i = index;">
+        {{clusterTag?.tag}} 
+      </p>
+    </div>
+  </ng-template>
+</aiap-table-v1-container-v1>

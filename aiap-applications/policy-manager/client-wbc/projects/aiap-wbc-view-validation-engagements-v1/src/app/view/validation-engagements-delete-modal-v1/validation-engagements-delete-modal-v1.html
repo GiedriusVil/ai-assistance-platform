@@ -1,0 +1,32 @@
+<ibm-modal 
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'validation_engagements_v1.view.delete_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <p class="mb-3">
+      {{'validation_engagements_v1.view.delete_modal_v1.confirmation' | translate}}
+    </p>
+    <ul ibmList>
+      <li ibmListItem *ngFor="let key of engagementsKeys">{{key}}</li>
+    </ul>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [text]="'validation_engagements_v1.view.delete_modal_v1.cancel_button' | translate"
+      [tooltip]="'validation_engagements_v1.view.delete_modal_v1.cancel_button_tooltip' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1 
+      [type]="'danger'" 
+      [text]="'validation_engagements_v1.view.delete_modal_v1.delete_button' | translate"
+      [tooltip]="'validation_engagements_v1.view.delete_modal_v1.delete_button_tooltip' | translate"
+      (onClick)="delete()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

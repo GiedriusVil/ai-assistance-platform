@@ -1,0 +1,38 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+@use "./tenant-tab-applications-v1/tenant-tab-applications-v1.scss";
+@use "./tenant-tab-assistants-v1/tenant-tab-assistants-v1.scss";
+@use "./tenant-tab-configuration-v1/tenant-tab-configuration-v1.scss";
+@use "./tenant-tab-datasources-v1/tenant-tab-datasources-v1.scss";
+@use "./tenant-tab-event-streams-v1/tenant-tab-event-streams-v1.scss";
+@use "./tenant-tab-general-v1/tenant-tab-general-v1.scss";
+@use "./tenant-tab-integration-v1/tenant-tab-integration-v1.scss";
+@use "./tenant-tab-object-storage-v1/tenant-tab-object-storage-v1.scss";
+
+aiap-tenant-save-modal-v1 {
+  overflow: hidden;
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+
+    .bx--tab-content {
+      outline: none;
+      padding: 1pt;
+    }
+  }
+}

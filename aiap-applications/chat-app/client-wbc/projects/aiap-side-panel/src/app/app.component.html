@@ -1,0 +1,12 @@
+<div>
+  <div class="top">
+    <button *ngFor="let btn of params?.top" (click)="handleButtonClick(btn)">
+      <i [ngClass]="['bi', btn.icon]"></i>
+    </button>
+  </div>
+  <div class="bottom">
+    <button *ngFor="let btn of params?.bottom" (click)="handleButtonClick(btn)">
+      <i [ngClass]="['bi', btn.icon]"></i>
+    </button>
+  </div>
+</div>

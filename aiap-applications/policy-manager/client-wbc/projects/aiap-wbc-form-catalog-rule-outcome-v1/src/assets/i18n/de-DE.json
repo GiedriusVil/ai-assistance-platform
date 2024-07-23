@@ -1,0 +1,28 @@
+{
+  "catalog_rules.delete_modal.header_text" : "Regelkatalog löschen",
+  "catalog_rules.delete_modal.confirmation" : "Soll der Regelkatalog gelöscht werden?",
+  "catalog_rules.delete_modal.cancel" : "Abbrechen",
+  "catalog_rules.delete_modal.delete" : "Löschen",
+  "catalog_rules.delete_modal.cancel_tooltip" : "[DE] Cancel",
+  "catalog_rules.delete_modal.delete_tooltip" : "[DE] Delete",
+  "catalog_rules.delete_modal.notification.success.title" : "[DE] Catalog rule catalogs removed!",
+  "catalog_rules.delete_modal.notification.error.title" : "[DE] Unable delete catalog rule catalogs",
+  "catalog_rules.save_modal.header_text" : "Katalog auswählen",
+  "catalog_rules.save_modal.cancel_button_text" : "Abbrechen",
+  "catalog_rules.save_modal.save_button_text" : "Speichern",
+  "catalog_rules.save_modal.cancel_button_tooltip" : "[DE] Cancel",
+  "catalog_rules.save_modal.save_button_tooltip" : "[DE] Save",
+  "catalog_rules.outcome_type_comp.restrict_button_text" : "Katalog einschränken (Annahme alle erlaubt)",
+  "catalog_rules.outcome_type_comp.allow_button_text" : "Katalog freigeben (Annahme alle eingeschränkt)",
+  "catalog_rules.outcome_type_comp.restrict_button_tooltip" : "[DE] Restrict catalogs (Assume all allowed)",
+  "catalog_rules.outcome_type_comp.allow_button_tooltip" : "[DE] Allow catalogs (Assume all restricted)",
+  "catalog_rules.catalog_table.remove_button" : "Entfernen",
+  "catalog_rules.catalog_table.refresh_button_tooltip" : "[DE] Refresh",
+  "catalog_rules.catalog_table.add_button_tooltip" : "[DE] Add",
+
+  "form_catalog_rule_outcome_v1.rule_catalog_table.catalog_header" : "[DE] Catalog",
+  "form_catalog_rule_outcome_v1.rule_catalog_table.supplier_header" : "[DE] Supplier",
+
+  "rule_actions_table_v1.search_placeholder" : "[DE] Enter search value",
+  "rule_actions_table_v1.remove_button_tooltip" : "[DE] Remove"
+}

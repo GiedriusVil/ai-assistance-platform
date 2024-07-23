@@ -1,0 +1,16 @@
+{
+    "name": "@ibm-aca/aca-performance-manager",
+    "version": "0.0.1",
+    "description": "Utilities for mongo db!",
+    "main": "index.js",
+    "author": "IBM",
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {
+    },
+    "publishConfig": {
+      "access": "restricted",
+      "registry": "https://registry.npmjs.org"
+    }
+  }
+  

@@ -1,0 +1,17 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-classifier-model-add-ai-skill-modal {
+  overflow: hidden;
+
+  .combo-box-container {
+    padding: 10px;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 50%;
+  }
+}

@@ -1,0 +1,97 @@
+<aiap-modal-v1
+  size="lg"
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'ai_translation_model_examples_v1.save_modal_v1.header.title' | translate }}</h3>
+  </aiap-modal-v1-header-v1>
+  <section ibmModalContent>
+
+      <form #aiTranslationModelExampleSaveModal="ngForm">
+        <div ibmGrid>
+
+          <ng-container *ngFor="let example of aiTranslationModelExamples; let i = index">
+            <div ibmRow>
+              <div ibmCol [columnNumbers]="{'xlg': 11, 'lg': 11,  'md': 11, 'sm': 11}">
+                  <aiap-field-input-v1
+                    [isRequired]="true"
+                    [name]="'source_' + i"
+                    [label]="'ai_translation_model_examples_v1.save_modal_v1.fld_source.label' | translate"
+                    [labelHelp]="'ai_translation_model_examples_v1.save_modal_v1.fld_source.labelHelp' | translate"
+                    [(value)]="example.source"
+                    [isDisabled]="false"
+                    [placeholder]="'ai_translation_model_examples_v1.save_modal_v1.fld_source.placeholder' | translate"
+                    [skeleton]="isLoading">
+                  </aiap-field-input-v1>
+              </div>
+            </div>
+  
+            <div ibmRow>&nbsp;</div>
+  
+            <div ibmRow>
+              <div ibmCol [columnNumbers]="{'xlg': 11, 'lg': 11,  'md': 11, 'sm': 11}">
+                <aiap-field-input-v1
+                    [isRequired]="true"
+                    [name]="'target_' + i"
+                    [label]="'ai_translation_model_examples_v1.save_modal_v1.fld_target.label' | translate"
+                    [labelHelp]="'ai_translation_model_examples_v1.save_modal_v1.fld_target.labelHelp' | translate"
+                    [(value)]="example.target"
+                    [isDisabled]="false"
+                    [placeholder]="'ai_translation_model_examples_v1.save_modal_v1.fld_target.placeholder' | translate"
+                    [skeleton]="isLoading">
+                  </aiap-field-input-v1>
+              </div>
+
+              <div ibmCol [columnNumbers]="{'xlg': 1, 'lg': 1,  'md': 1, 'sm': 1}">
+                <button
+                  class="margin-top--1"
+                  ibmButton="tertiary"
+                  [size]="'sm'"
+                  [iconOnly]="true"
+                  (click)="delete(i)">
+                  <aiap-icon-svg-v1
+                    class="bx--btn__icon"
+                    [src]="'assets/carbon-icons/16/formatting/trash-can.svg'">
+                  </aiap-icon-svg-v1>
+                </button>
+              </div>
+            </div>
+
+            <div class="border-bottom" ibmRow>&nbsp;</div>
+          </ng-container>
+
+        </div>
+      </form>
+
+      <button
+        class="add-button"
+        ibmButton="primary"
+        [size]="'sm'"
+        [iconOnly]="true"
+        (click)="add()">{{ 'ai_translation_model_examples_v1.save_modal_v1.btn.add' | translate }}
+        <aiap-icon-svg-v1
+          class="bx--btn__icon"
+          [src]="'assets/carbon-icons/16/navigation/add.svg'">
+        </aiap-icon-svg-v1>
+      </button>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.save_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.save_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      class="width50"
+      [text]="'ai_translation_model_examples_v1.save_modal_v1.btn_save.text' | translate"
+      [tooltip]="'ai_translation_model_examples_v1.save_modal_v1.btn_save.tooltip' | translate"
+      [skeleton]="isLoading"
+      [disabled]="aiTranslationModelExampleSaveModal.invalid || isAiTranslationModelExamplesEmpty"
+      [type]="'primary'"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

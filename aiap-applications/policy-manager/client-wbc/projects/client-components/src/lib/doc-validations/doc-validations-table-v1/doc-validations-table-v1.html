@@ -1,0 +1,41 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1 
+      [type]="'ghost'" 
+      [iconOnly]="'true'"
+      [tooltip]="'doc_validations.doc_validation_table_v1.refresh_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'doc_validations.doc_validation_table_v1.search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="handleSearchChangeEvent($event)" 
+      (onSearchClear)="handleSearchClearEvent($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1 
+      *isActionAllowed="{action:'transaction-audits.view.export'}" 
+      [type]="'primary'"
+      [text]="'doc_validations.doc_validation_table_v1.download_button' | translate"
+      [tooltip]="'doc_validations.doc_validation_table_v1.download_button_tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/export.svg'"
+      (onClick)="generateReport()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <div>
+    <aiap-table-v1
+      [model]="model" 
+      (onRowClick)="emitShowSavePlace($event)"
+      (onSort)="handleSortEvent($event)">
+    </aiap-table-v1>
+  </div>
+  <aiap-table-v1-pagination-v1
+    [model]="model" 
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #createdAndChangedTime 
+    let-data="data">{{ data.user }}<br />{{ data.date | toUserLocale }}
+  </ng-template>
+</aiap-table-v1-container-v1>

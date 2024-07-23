@@ -1,0 +1,10 @@
+<div class="ibm-file-uploader-container">
+  <ibm-file-uploader
+    title="Upload file"
+    dropText="Drag and drop files here or upload"
+    description="only .json, .xlsx files. 500kb max file size."
+    drop="true"
+    [accept]="accept"
+    (filesChange)="onFilesAdded($event)">
+  </ibm-file-uploader>
+</div>

@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-validation-engagements-express-routes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-validation-engagements-service": "0.0.1",
+    "@ibm-aiap/aiap-utils-express-routes": "0.0.1"
+  }
+}

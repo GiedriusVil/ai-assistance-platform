@@ -1,0 +1,16 @@
+{
+    "name": "@ibm-aca/aca-topic-modeling-express-routes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "IBM",
+    "contributors": [
+      {
+        "name": "Martynas Pazusis",
+        "email": "martynas.pazusis@ibm.com",
+        "url": "https://www.linkedin.com/in/martynas-pazusis"
+      }
+    ],
+    "license": "ISC"
+}

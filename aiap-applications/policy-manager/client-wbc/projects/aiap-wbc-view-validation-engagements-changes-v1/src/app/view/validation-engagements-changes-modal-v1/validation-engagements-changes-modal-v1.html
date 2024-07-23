@@ -1,0 +1,106 @@
+<ibm-modal 
+  [open]="isOpen" 
+  size="lg" 
+  (overlaySelected)="close()">
+  <ibm-modal-header (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{'validation_engagements_changes_v1.view.changes_modal_v1.header' | translate}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #validationEngagementsChangesViewForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input type="hidden" name="csrftoken" value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid class="margin-bottom-30">
+        <div ibmRow>
+          <div ibmCol>
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.id_label' | translate}}
+              </label>
+              <input 
+                name="id" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.id">
+            </ibm-label>
+          </div>
+          <div ibmCol>
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.timestamp_label' | translate}}
+              </label>
+              <input 
+                name="timestamp" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.created.date">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.type_label' | translate}}
+              </label>
+              <input 
+                name="type" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.docType">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.action_label' | translate}}
+              </label>
+              <input 
+                name="action" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.action">
+            </ibm-label>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.user_id_label' | translate}}
+              </label>
+              <input 
+                name="userId" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.created.user.id">
+            </ibm-label>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <ibm-label>
+              <label>
+                {{'validation_engagements_changes_v1.view.changes_modal_v1.valid_engagement_key_label' | translate}}
+              </label>
+              <input 
+                name="userName" 
+                ibmText 
+                [disabled]="true" 
+                [(ngModel)]="changeLog.engagementKey">
+            </ibm-label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <aiap-button-v1 
+      [type]="'secondary'" 
+      [size]="'sm'" 
+      [text]="'validation_engagements_changes_v1.view.changes_modal_v1.close_button' | translate"
+      [tooltip]="'validation_engagements_changes_v1.view.changes_modal_v1.close_button_tooltip' | translate"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </ibm-modal-footer>
+</ibm-modal>

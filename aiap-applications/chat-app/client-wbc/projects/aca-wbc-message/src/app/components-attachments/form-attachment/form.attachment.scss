@@ -1,0 +1,95 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-form-attachment {
+  .aca-form .container {
+    @media screen and (min-width: 576px) {
+      max-width: 446px;
+      margin-left: -15px;
+    }
+  }
+
+  .btn {
+    &-secondary {
+      border: 1px solid #252525;
+      color: #252525;
+      background: white;
+
+      &:hover {
+        background: #252525;
+        border: 1px solid #252525;
+        color: white;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        background: #fff;
+        border: 1px solid #000000;
+        color: #000000;
+      }
+    }
+    &-link {
+      font-size: 12px;
+      background: none;
+      color: #252525;
+      letter-spacing: 0.26px;
+      text-align: center;
+      line-height: 30px;
+      text-decoration: underline;
+      border: none;
+
+      &:hover {
+        color: #252525;
+      }
+
+      &:disabled {
+        color: #252525;
+        opacity: 0.5;
+      }
+    }
+    &-light {
+      color: #000;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  input.has-error {
+    border: 1px solid #ff4136 !important;
+    color: #ff4136;
+  }
+
+  input:-ms-input-placeholder {
+    color: #000000 !important;
+    opacity: 0.5;
+  }
+
+  input::placeholder {
+    color: #000000;
+    opacity: 0.5;
+  }
+
+  textarea:-ms-input-placeholder {
+    color: #000000 !important;
+    opacity: 0.5;
+  }
+
+  textarea::placeholder {
+    color: $aca_secondary_color_blue;
+    opacity: 1;
+  }
+
+  input.btn {
+    margin-top: 4px;
+  }
+
+  button.btn {
+    line-height: 18px;
+  }
+}

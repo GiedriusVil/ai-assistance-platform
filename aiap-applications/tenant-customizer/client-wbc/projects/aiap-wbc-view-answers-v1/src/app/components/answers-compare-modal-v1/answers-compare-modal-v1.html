@@ -1,0 +1,28 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'answers_view_v1.compare_modal.header_part1' | translate }} {{state.sourceDisplayName}} {{ 'answers_view_v1.compare_modal.header_part2' | translate }} {{state.targetDisplayName}}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <section>
+      <form #moduleForm="ngForm">
+        <aca-json-difference #jsonDiff
+          class="answers-difference"
+          [source]="sourceArray"
+          [target]="targetArray"
+          [detailedDiff]="true"
+          [detailedDiffComparisonKey]="'key'">
+        </aca-json-difference>
+      </form>
+    </section>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answers_view_v1.compare_modal.btn_close.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

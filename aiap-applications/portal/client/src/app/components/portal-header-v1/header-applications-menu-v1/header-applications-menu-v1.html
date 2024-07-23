@@ -1,0 +1,15 @@
+<ibm-header-global>
+  <ibm-header-navigation>
+    <ibm-header-menu
+      trigger="mouseover" 
+      [title]="applicationName">
+      <div *ngFor="let application of applications">
+        <ibm-header-item
+          *ngIf="application?.enabled"
+          (click)="handleApplicationAuthorizationEvent(application)">
+          {{ application.name}}
+        </ibm-header-item>
+      </div>
+    </ibm-header-menu>
+  </ibm-header-navigation>
+</ibm-header-global>

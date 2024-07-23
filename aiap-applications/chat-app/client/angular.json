@@ -1,0 +1,884 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "cli": {
+    "analytics": false
+  },
+  "projects": {
+    "client-shared-carbon": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-carbon",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-carbon/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-utils": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-utils",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-utils/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-utils/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-services": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-services",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-services/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-services/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-services/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-components": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-components",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-components/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-components/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-shared-views": {
+      "projectType": "library",
+      "root": "../../../aiap-packages-shared-angular/projects/client-shared-views",
+      "sourceRoot": "../../../aiap-packages-shared-angular/projects/client-shared-views/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.lib.json",
+            "project": "../../../aiap-packages-shared-angular/projects/client-shared-views/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "../../../aiap-packages-shared-angular/projects/client-shared-views/src/test.ts",
+            "tsConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/tsconfig.spec.json",
+            "karmaConfig": "../../../aiap-packages-shared-angular/projects/client-shared-views/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-utils": {
+      "projectType": "library",
+      "root": "projects/client-utils",
+      "sourceRoot": "projects/client-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/client-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-utils/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/client-utils/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/client-utils/src/test.ts",
+            "tsConfig": "projects/client-utils/tsconfig.spec.json",
+            "karmaConfig": "projects/client-utils/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-services": {
+      "projectType": "library",
+      "root": "projects/client-services",
+      "sourceRoot": "projects/client-services/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/client-services/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-services/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/client-services/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/client-services/src/test.ts",
+            "tsConfig": "projects/client-services/tsconfig.spec.json",
+            "karmaConfig": "projects/client-services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-components": {
+      "projectType": "library",
+      "root": "projects/client-components",
+      "sourceRoot": "projects/client-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/client-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/client-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/client-components/src/test.ts",
+            "tsConfig": "projects/client-components/tsconfig.spec.json",
+            "karmaConfig": "projects/client-components/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client-views": {
+      "projectType": "library",
+      "root": "projects/client-views",
+      "sourceRoot": "projects/client-views/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/client-views/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/client-views/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/client-views/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/client-views/src/test.ts",
+            "tsConfig": "projects/client-views/tsconfig.spec.json",
+            "karmaConfig": "projects/client-views/karma.conf.js"
+          }
+        }
+      }
+    },
+    "client": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist/client",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "preserveSymlinks": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "20mb",
+                  "maximumError": "40mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "20kb",
+                  "maximumError": "40kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "20mb",
+                  "maximumError": "40mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "20kb",
+                  "maximumError": "40kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "client:build:production"
+            },
+            "development": {
+              "browserTarget": "client:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "client-v1": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/client-v1",
+      "sourceRoot": "projects/client-v1/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/client-v1",
+            "index": "projects/client-v1/src/index.html",
+            "main": "projects/client-v1/src/main.ts",
+            "polyfills": "projects/client-v1/src/polyfills.ts",
+            "tsConfig": "projects/client-v1/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/client-v1/src/favicon.ico",
+              "projects/client-v1/src/assets"
+            ],
+            "styles": [
+              "projects/client-v1/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/client-v1/src/styles",
+                "projects/client-v1/src/styles/components"
+              ]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/client-v1/src/assets/aca-jquery-plugin.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v1/src/environments/environment.ts",
+                  "with": "projects/client-v1/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v1/src/environments/environment.ts",
+                  "with": "projects/client-v1/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "prod-debug": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v1/src/environments/environment.ts",
+                  "with": "projects/client-v1/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": {
+                "hidden": false,
+                "scripts": true,
+                "styles": true
+              },
+              "optimization": false,
+              "outputHashing": "none",
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "client-v1:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-v1:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client-v1:build"
+          }
+        }
+      }
+    },
+    "client-v2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/client-v2",
+      "sourceRoot": "projects/client-v2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/client-v2",
+            "index": "projects/client-v2/src/index.html",
+            "main": "projects/client-v2/src/main.ts",
+            "polyfills": "projects/client-v2/src/polyfills.ts",
+            "tsConfig": "projects/client-v2/tsconfig.app.json",
+            "localize": true,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/jquery/dist",
+                "output": "./jquery"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/popper.js/dist",
+                "output": "./popper"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/bootstrap/dist/js",
+                "output": "./bootstrap"
+              },
+              "projects/client-v2/src/favicon.ico",
+              "projects/client-v2/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "projects/client-v2/src/styles.scss",
+                "bundleName": "styles"
+              },
+              {
+                "input": "projects/client-v2/src/styles-dependencies.scss",
+                "bundleName": "styles-dependencies"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/client-v2/src/styles",
+                "projects/client-v2/src/styles/components"
+              ]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/client-v2/src/assets/aca-jquery-plugin.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v2/src/environments/environment.ts",
+                  "with": "projects/client-v2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "aot": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v2/src/environments/environment.ts",
+                  "with": "projects/client-v2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "aot": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "prod-debug": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v2/src/environments/environment.ts",
+                  "with": "projects/client-v2/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": {
+                "hidden": false,
+                "scripts": true,
+                "styles": true
+              },
+              "optimization": false,
+              "outputHashing": "none",
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "client-v2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-v2:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client-v2:build"
+          }
+        }
+      }
+    },
+    "client-v3": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/client-v3",
+      "sourceRoot": "projects/client-v3/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/client-v3",
+            "index": "projects/client-v3/src/index.html",
+            "main": "projects/client-v3/src/main.ts",
+            "polyfills": "projects/client-v3/src/polyfills.ts",
+            "tsConfig": "projects/client-v3/tsconfig.app.json",
+            "localize": true,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/jquery/dist",
+                "output": "./jquery"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/popper.js/dist",
+                "output": "./popper"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/bootstrap/dist/js",
+                "output": "./bootstrap"
+              },
+              "projects/client-v3/src/favicon.ico",
+              "projects/client-v3/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "projects/client-v3/src/styles.scss",
+                "bundleName": "styles"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/client-v3/src/styles",
+                "projects/client-v3/src/styles/components"
+              ]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "aot": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "development": {
+              "fileReplacements": [],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "aot": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            },
+            "prod-debug": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-v3/src/environments/environment.ts",
+                  "with": "projects/client-v3/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": {
+                "hidden": false,
+                "scripts": true,
+                "styles": true
+              },
+              "optimization": false,
+              "outputHashing": "none",
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "client-v3:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "client-v3:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "client-v3:build"
+          }
+        }
+      }
+    }
+  }
+}

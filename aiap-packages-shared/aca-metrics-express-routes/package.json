@@ -1,0 +1,21 @@
+{
+  "name": "@ibm-aca/aca-metrics-express-routes",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "IBM",
+  "homepage": "",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:virtual-buy-assistant/vba-policy-manager.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "@ibm-aca/aca-conversations-service",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+    },
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC",
+    "dependencies": {
+        "@ibm-aca/aca-conversations-datasource-provider": "0.0.1"
+    }
+  }
+  

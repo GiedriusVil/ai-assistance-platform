@@ -1,0 +1,115 @@
+aca-wbc-table {
+  .table--card {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 2px #b8b8b8;
+
+    .pagination--box {
+      
+    }
+
+    .table--card--text {
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    table, th, td {
+      font-size: 13px;
+      border-left: none;
+      border-right: none;
+      // padding: 5px 15px;
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: rgb(47, 47, 47);
+    }
+    
+    thead {
+      background-color: rgb(224,224,224);
+      color: rgb(0, 0, 0);
+      th {
+        font-weight: bold;
+      }
+    }
+
+    .number {
+      width: 35px;
+    }
+  
+    tbody > tr.content:hover {
+      background-color: #2d75fd;
+      color: #fff;
+      cursor: pointer;
+    }
+  
+    .content--disabled {
+      cursor: not-allowed;
+      opacity: 0.25;
+    }
+  
+    ngb-pagination {
+      font-size: 13px;
+      &::ng-deep ul > li.active > a {
+        background-color: rgb(42,101,245);
+        background: rgb(42,101,245);
+        background: linear-gradient(0deg, rgba(42,101,245,1) 10%, rgba(255,255,255,0) 10%);
+        color: #000 !important;
+        background-repeat: no-repeat;
+        padding-left: 5px;
+        padding-right: 5px;
+
+      }
+      &::ng-deep ul > li {
+        &:first-child a {
+        span {
+        display: none;
+        }
+        &:before {
+        content: "\25c2";
+        font-size: 13px;
+        font-weight: 600;
+        }
+        }
+        &:last-child a {
+        span {
+        display: none;
+        }
+        &:before {
+        content: "\25b8";
+        font-size: 13px;
+        font-weight: 600;
+        }
+        }
+        }
+      &::ng-deep a {
+        color: #000;
+        text-decoration: none;
+      }
+      &::ng-deep .page-link {
+        border: 0px !important;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.attributes--button {
+  
+}
+
+.btn {
+  color: #2d75fd;
+  border: 1.5px solid #2d75fd;
+  background-color: #fff;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.25;
+  }
+
+  &:hover {
+    background-color: #2d75fd;
+    color: #fff;
+  }
+}

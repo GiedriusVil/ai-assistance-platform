@@ -1,0 +1,28 @@
+<div
+  class="aiap-right-side-filter--wrapper"
+  [ngClass]="{'aiap-right-side-filter--open': config?.isVisible}"
+  #filterPanel>
+  <div class="aiap-right-side-filter--content" *ngIf="config?.isVisible">
+    <div class="aiap-right-side-filter--content_reset">
+      <aiap-button-v1
+        [type]="'ghost'"
+        [size]="'sm'"
+        [text]="'Reset filters'"
+        (onClick)="handleFilterResetEvent()">
+      </aiap-button-v1>
+    </div>
+    <ng-content></ng-content>
+  </div>
+  <div class="aiap-right-side-filter--footer">
+    <aiap-button-v1
+      [type]="'secondary'"
+      [text]="'Close'"
+      (onClick)="closePanel()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [type]="'primary'"
+      [text]="'Apply filters'"
+      (onClick)="handleFilterApplyEvent()">
+    </aiap-button-v1>
+  </div>
+</div>

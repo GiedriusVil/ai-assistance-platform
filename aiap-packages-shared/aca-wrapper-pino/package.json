@@ -1,0 +1,15 @@
+{
+  "name": "@ibm-aca/aca-wrapper-pino",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "Jevgenij Golobokin",
+    "email": "jevgenij.golobokin@ibm.com"
+  },
+  "license": "IBM",
+  "dependencies": {
+    "pino": "8.7.0",
+    "pino-noir": "2.2.1",
+    "pino-pretty": "9.1.1"
+  }
+}

@@ -1,0 +1,32 @@
+<ibm-modal
+  size='xs'
+  [open]="isOpen" 
+  (overlaySelected)="onClose()">
+  <ibm-modal-header (closeSelect)="onClose()">
+    <p 
+      class="bx--modal-header__heading bx--type-beta">{{title}}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <span>{{ description }}</span>
+    <span>
+      <ibm-checkbox
+        *ngIf="showCheckbox"
+        size="sm"
+        (change)="handleCheckbox($event)">{{ checkboxLabel }}
+      </ibm-checkbox>
+    </span>
+  </section>
+  <ibm-modal-footer>
+    <button
+      *ngIf="showCloseButton"
+      ibmButton="secondary"
+      (click)="onClose()">{{ cancelButtonLabel }}
+    </button>
+    <button
+      *ngIf="showConfirmationButton"
+      ibmButton="danger"
+      (click)="onYes()">{{ confirmButtonLabel }}
+    </button>
+  </ibm-modal-footer>
+</ibm-modal>

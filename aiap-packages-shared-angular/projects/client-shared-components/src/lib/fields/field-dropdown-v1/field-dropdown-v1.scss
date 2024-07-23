@@ -1,0 +1,17 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aiap-field-dropdown-v1 {
+  background: transparent;
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .bx--list-box {
+    background-color: white;
+  }
+}

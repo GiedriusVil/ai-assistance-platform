@@ -1,0 +1,21 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+      <aca-breadcrumb  [outlet]="outlet"></aca-breadcrumb>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aca-live-metrics-configuration-table
+      (onShowImportPlace)="handleShowImportModal($event)"
+      (onShowSavePlace)="handleLiveMetricsConfigurationSaveModal($event)"
+      (onShowRemovePlace)="handleLiveMetricsConfigurationDeleteModal($event)"
+      (onSearchPlace)="handleSearchChangeEvent($event)"
+      (onClearPlace)="handleSearchClearEvent($event)">
+    </aca-live-metrics-configuration-table>
+  </div>
+</div>
+
+<aca-live-metrics-configuration-save-modal #LiveMetricsConfigurationSaveModal></aca-live-metrics-configuration-save-modal>
+<aca-live-metrics-configuration-delete-modal #LiveMetricsConfigurationDeleteModal></aca-live-metrics-configuration-delete-modal>
+<aca-live-metrics-configuration-import-modal #LiveMetricsConfigurationImportModal></aca-live-metrics-configuration-import-modal>

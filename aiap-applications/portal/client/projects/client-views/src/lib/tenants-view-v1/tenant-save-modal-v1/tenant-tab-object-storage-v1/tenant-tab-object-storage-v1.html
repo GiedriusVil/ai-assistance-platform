@@ -1,0 +1,75 @@
+<div ibmGrid class="tenant-object-storage-grid">
+  <div ibmRow>
+    <div ibmCol>
+      <aiap-field-dropdown-v1
+        [isRequired]="false"
+        [type]="'single'"
+        [name]="'tenant_tab_object_storage_dropdown'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_type.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_type.placeholder' | translate"
+        [items]="selections?.objectStorageTypes"
+        (onSelected)="handleStorageTypeSelectionEvent($event)" 
+        [(value)]="selections.objectStorageType">
+      </aiap-field-dropdown-v1>
+    </div>
+    <div ibmCol>&nbsp;</div>
+    <div ibmCol>&nbsp;</div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow *ngIf="selections?.objectStorageType?.value === 'minio' else notSupported">
+    <div ibmCol>
+      <aiap-field-input-v1
+        [name]="'object_storage_end_point'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_end_point.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_end_point.placeholder' | translate"
+        [isRequired]="false"
+        [(value)]="objectStorage.endPoint">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol>
+      <ibm-number
+        required
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_port.label' | translate"
+        [(ngModel)]="objectStorage.port">
+      </ibm-number>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>
+      <aiap-field-input-v1
+        [name]="'object_storage_access_key'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_access_key.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_access_key.placeholder' | translate"
+        [isRequired]="false"
+        [(value)]="objectStorage.accessKey">
+      </aiap-field-input-v1>
+    </div>
+    <div ibmCol>
+      <aiap-field-input-v1
+        [name]="'object_storage_secret_key'"
+        [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_secret_key.label' | translate"
+        [placeholder]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_secret_key.placeholder' | translate"
+        [isRequired]="false"
+        [(value)]="objectStorage.secretKey">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol>      
+      <aiap-field-toggle-v1
+      [name]="'object_storage_ssl'"
+      [size]="'md'"
+      [label]="'tenants_view_v1.save_modal_v1.tenant_tab_object_storage_v1.fld_ssl.label' | translate"
+      [isRequired]="false"
+      [checked]="objectStorage.useSSL"
+      [(value)]="objectStorage.useSSL">
+    </aiap-field-toggle-v1>
+  </div>
+  </div>
+</div>
+
+<ng-template #notSupported >
+  This type is not supported yet!
+</ng-template>

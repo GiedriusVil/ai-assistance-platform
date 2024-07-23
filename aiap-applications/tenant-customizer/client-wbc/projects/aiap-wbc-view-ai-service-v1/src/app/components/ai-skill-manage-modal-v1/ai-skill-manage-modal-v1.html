@@ -1,0 +1,105 @@
+<aiap-modal-v1 
+  size='md' 
+  [open]="isOpen" 
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'ai_service_v1.manage_modal_v1.header.title' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <div ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_skill_id'"
+            [label]="'ai_service_v1.manage_modal_v1.fld_ai_skill_id.label' | translate"
+            [labelHelp]="'ai_service_v1.manage_modal_v1.fld_ai_skill_id.labelHelp' | translate"
+            [(value)]="aiSkill.id"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_v1.manage_modal_v1.fld_ai_skill_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_skill_external_id'"
+            [label]="'ai_service_v1.manage_modal_v1.fld_ai_skill_external_id.label' | translate"
+            [labelHelp]="'ai_service_v1.manage_modal_v1.fld_ai_skill_external_id.labelHelp' | translate"
+            [(value)]="aiSkill.external.workspace_id"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_v1.manage_modal_v1.fld_ai_skill_external_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_skill_ai_service_id'"
+            [label]="'ai_service_v1.manage_modal_v1.fld_ai_service_id.label' | translate"
+            [labelHelp]="'ai_service_v1.manage_modal_v1.fld_ai_service_id.labelHelp' | translate"
+            [(value)]="aiSkill.aiServiceId"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_v1.manage_modal_v1.fld_ai_service_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_skill_name'"
+            [label]="'ai_service_v1.manage_modal_v1.fld_ai_skill_name.label' | translate"
+            [labelHelp]="'ai_service_v1.manage_modal_v1.fld_ai_skill_name.labelHelp' | translate"
+            [(value)]="aiSkill.name"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_v1.manage_modal_v1.fld_ai_skill_name.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [name]="'ai_skill_version'"
+            [label]="'ai_service_v1.manage_modal_v1.fld_ai_skill_version.label' | translate"
+            [labelHelp]="'ai_service_v1.manage_modal_v1.fld_ai_skill_version.labelHelp' | translate"
+            [(value)]="aiSkill.version"
+            [isDisabled]="true"
+            [placeholder]="'ai_service_v1.manage_modal_v1.fld_ai_skill_version.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 4, 'sm': 4}">&nbsp;</div>
+        <div
+          *isActionAllowed="{action:'ai-service.view.run-test'}"
+          ibmCol
+          [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 4, 'sm': 4}"
+          class="aiap-execute-ai-test-cell">
+          <aiap-button-v1
+            class="min-width-100"
+            [text]="'ai_service_v1.manage_modal_v1.btn_execute_ai_test.text' | translate"
+            [tooltip]="'ai_service_v1.manage_modal_v1.btn_execute_ai_test.tooltip' | translate"
+            [type]="'primary'"
+            (onClick)="handleRunAiTestClickEvent($event)">
+          </aiap-button-v1>
+        </div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <aiap-ai-skills-releases-table-v1
+          class="flex-grow"
+          [aiSkill]="aiSkill"
+          (onShowDeployPlace)="handleShowDeployPlaceEvent($event)"
+          (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+          (onShowComparePlace)="handleShowComparePlaceEvent($event)">
+        </aiap-ai-skills-releases-table-v1>
+      </div>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'ai_service_v1.manage_modal_v1.btn_close.text' | translate"
+      [tooltip]="'ai_service_v1.manage_modal_v1.btn_close.tooltip' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>
+
+<aiap-ai-skill-release-delete-modal-v1 #aiSkillReleaseDeleteModal></aiap-ai-skill-release-delete-modal-v1>
+<aiap-ai-skill-release-deploy-modal-v1 #aiSkillReleaseDeployModal></aiap-ai-skill-release-deploy-modal-v1>
+<aiap-ai-skill-release-test-modal-v1 #aiSkillReleaseTestModal></aiap-ai-skill-release-test-modal-v1>
+<aiap-ai-skill-compare-modal-v1 #aiSkillCompareModal></aiap-ai-skill-compare-modal-v1>

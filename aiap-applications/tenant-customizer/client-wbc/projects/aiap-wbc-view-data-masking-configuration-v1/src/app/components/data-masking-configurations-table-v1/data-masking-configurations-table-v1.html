@@ -1,0 +1,91 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (click)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'data_masking_configurations_table_v1.fld_search.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'data-masking-configurations.view.add'}"
+      [text]="'data_masking_configurations_table_v1.btn_add.text' | translate"
+      [tooltip]="'data_masking_configurations_table_v1.btn_add.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (onClick)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'data-masking-configurations.view.import'}"
+      [text]="'data_masking_configurations_table_v1.btn_import.text' | translate"
+      [tooltip]="'data_masking_configurations_table_v1.btn_import.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (onClick)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'data-masking-configurations.view.export'}"
+      [text]="'data_masking_configurations_table_v1.btn_export.text' | translate"
+      [tooltip]="'data_masking_configurations_table_v1.btn_export.tooltip' | translate"
+      [type]="'primary'"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (onClick)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'data-masking-configurations.view.delete'}"
+      [text]="('data_masking_configurations_table_v1.btn_remove.text' | translate) + '(' + (this.selectedRows.length) + ')'"
+      [tooltip]="'data_masking_configurations_table_v1.btn_remove.tooltip' | translate"
+      [type]="'danger'"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      [disabled]="isRemoveDisabled()"
+      (onClick)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    class="cursor-pointer"
+    [striped]="true"
+    [skeleton]="false"
+    [showSelectionColumn]="true"
+    [model]="model"
+    (onAllDeselect)="deselectAllRows()"
+    (onAllSelect)="selectAllRows($event)"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [showPageInput]="true"
+    [itemsPerPageOptions]="itemsPerPageOptions"
+    (selectPage)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #isEnabledIcon let-data="data">
+    <div class="masking-status-icon">
+      <svg
+        *ngIf="!data.enabled"
+        ibmIcon="error"
+        class="disabled-svg"
+        size="20">
+        <title>{{ 'data_masking_configurations_table_v1.field_disabled.title' | translate }}</title>
+      </svg>
+      <svg
+        *ngIf="data.enabled"
+        ibmIcon="checkmark"
+        class="enabled-svg"
+        size="20">
+        <title>{{ 'data_masking_configurations_table_v1.field_enabled.title' | translate }}</title>
+      </svg>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aiap-table-cell-created-v1 [value]="data?.created"></aiap-table-cell-created-v1>
+  </ng-template>
+  <ng-template #updatedTemplate let-data="data">
+    <aiap-table-cell-updated-v1 [value]="data?.updated"></aiap-table-cell-updated-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

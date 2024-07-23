@@ -1,0 +1,7 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+export * from './classification-catalogs-view-v1';
+export * from './classification-category-view-v1';

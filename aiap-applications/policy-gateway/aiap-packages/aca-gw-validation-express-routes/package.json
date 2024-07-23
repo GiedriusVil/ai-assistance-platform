@@ -1,0 +1,20 @@
+{
+  "name": "@ibm-aca/aca-gw-validation-express-routes",
+  "version": "0.0.1",
+  "description": "ACA Gateway validation express routes",
+  "main": "index.js",
+  "author": "IBM",
+  "license": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    },
+    {
+      "name": "Domantas Girtavicius",
+      "email": "domantas.girtavicius@ibm.com",
+      "url": "https://www.linkedin.com/in/domantas-girtavicius/"
+    }
+  ]
+}

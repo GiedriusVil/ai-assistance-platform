@@ -1,0 +1,10 @@
+{
+    "name": "@ibm-aca/aca-middleware-message-source-detection",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "IBM",
+    "license": "MIT",
+    "dependencies": {}
+}

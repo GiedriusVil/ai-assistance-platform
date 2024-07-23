@@ -1,0 +1,104 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-live-metrics-view {
+
+  .renew-button {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .bx--accordion__item {
+    border-top: none;
+  }
+
+  .bx--accordion__item:last-child {
+    border-bottom: none;
+  }
+
+  .bx--list-box__menu {
+    z-index: 5999;
+  }
+
+  .bx--checkbox-wrapper .bx--checkbox-label-text {
+    line-height: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .bx--list-box__menu-item:hover.not-clickable {
+    background-color: initial;
+    outline: none;
+    text-decoration: none;
+    cursor: auto;
+  }
+
+  .bx--accordion__heading {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .download-arrow {
+    position: absolute;
+    padding: 0 16px;
+    right: 0;
+  }
+
+  .right-padding {
+    padding-right: 1rem !important;
+  }
+
+  .responsive-span {
+    overflow: hidden;
+    height: 2.5rem;
+    word-break: break-all;
+    line-height: 2.5rem;
+    font-weight: normal;
+    -webkit-font-smoothing: initial;
+  }
+
+  .graph {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .edge {
+      stroke: #666;
+      fill: none;
+
+      .edge-label {
+        stroke: none;
+        font-size: 12px;
+        fill: #666;
+      }
+    }
+
+    .panning-rect {
+      fill: transparent;
+      cursor: move;
+    }
+
+    .node-group {
+      .node:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .edge {
+    path {
+      stroke: #666 !important;
+    }
+  }
+
+  .center-title {
+    display: flex;
+    align-items: center;
+  }
+}

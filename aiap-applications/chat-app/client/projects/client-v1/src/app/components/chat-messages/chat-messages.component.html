@@ -1,0 +1,11 @@
+<ng-container 
+  *ngFor="let message of messages; let i = index;">
+  <ax-lazy-element
+    (onWbcEvent)="handleUserActionEvent($event)" 
+    [message]="message"
+    [session]="session"
+    [configs]="message.configs"
+    [index]="i"
+    *axLazyElementDynamic="'aca-wbc-message', url: message.wbc.js.host + message.wbc.js.path;">
+  </ax-lazy-element>
+</ng-container>

@@ -1,0 +1,21 @@
+/*
+   © Copyright IBM Corporation 2022. All Rights Reserved 
+    
+   SPDX-License-Identifier: EPL-2.0
+*/
+@use "./tenant-applications-dropdown-v1/tenant-applications-dropdown-v1.scss";
+@use "./tenant-applications-table-v1/tenant-applications-table-v1.scss";
+
+@use "./tenant-assistants-dropdown-v1/tenant-assistants-dropdown-v1.scss";
+@use "./tenant-assistants-table-v1/tenant-assistants-table-v1.scss";
+
+@use "./tenant-datasource-card-v1/tenant-datasource-card-v1.scss";
+@use "./tenant-datasources-table-v1/tenant-datasources-table-v1.scss";
+
+@use "./tenant-db-clients-table-v1/tenant-db-clients-table-v1.scss";
+@use "./tenant-event-streams-table-v1/tenant-event-streams-table-v1.scss";
+@use "./tenant-redis-clients-table-v1/tenant-redis-clients-table-v1.scss";
+
+@use "./tenants-changes-table-v1/tenants-changes-table-v1.scss";
+@use "./tenants-dropdown-v1/tenants-dropdown-v1.scss";
+@use "./tenants-table-v1/tenants-table-v1.scss";

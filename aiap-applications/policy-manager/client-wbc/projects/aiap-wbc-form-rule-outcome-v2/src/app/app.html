@@ -1,0 +1,14 @@
+<div *ngIf="isReady()">
+  <aiap-wbc-rule-outcome-form-v2
+    [context]="context"
+    (context)="handleContextChange($event)"
+    [value]="value"
+    (valueChange)="handleValueChange($event)">
+  </aiap-wbc-rule-outcome-form-v2>
+</div>
+<div *ngIf="!isReady()">
+  <ibm-inline-loading
+    [state]="'active'"
+    [loadingText]="'Loading...'">
+  </ibm-inline-loading>
+</div>

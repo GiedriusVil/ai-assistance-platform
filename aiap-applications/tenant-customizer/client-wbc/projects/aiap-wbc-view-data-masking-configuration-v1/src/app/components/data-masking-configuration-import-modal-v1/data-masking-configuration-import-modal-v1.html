@@ -1,0 +1,38 @@
+<aiap-modal-v1
+  [size]="'sm'"
+  [open]="isOpen"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>{{ 'data_masking_configuration_import_modal_v1.header' | translate }}</h3>
+  </aiap-modal-v1-header-v1 >
+  <aiap-modal-v1-content-v1>
+    <div class="bx--modal-content bx--modal-content--with-form">
+      <ibm-file-uploader
+        #fileUploader
+        drop="true"
+        [title]="'data_masking_configuration_import_modal_v1.file_uploader_import.title' | translate"
+        [description]="'data_masking_configuration_import_modal_v1.file_uploader_import.description' | translate"
+        [dropText]="'data_masking_configuration_import_modal_v1.file_uploader_import.fld_drop_text' | translate"
+        [accept]="['.json']"
+        [multiple]="false"
+        [disabled]="false"
+        [(files)]="files"
+        (filesChange)="onFileAdd($event)">
+      </ibm-file-uploader>
+    </div>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_import_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'data_masking_configuration_import_modal_v1.btn_import.text' | translate"
+      [type]="'primary'"
+      [disabled]="uploadButtonDisabled"
+      (onClick)="import()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

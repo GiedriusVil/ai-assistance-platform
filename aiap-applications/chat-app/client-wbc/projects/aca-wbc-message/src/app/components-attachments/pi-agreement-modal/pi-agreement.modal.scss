@@ -1,0 +1,79 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+
+aca-chat-pi-agreement-modal {
+}
+
+#aca-pi-agreement-modal {
+  .btn--color {
+    background-color: transparent;
+    &:hover {
+      background-color: blue;
+    }
+  }
+  .piButtons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .pi-storage-notifcation {
+    .pi-storage {
+      background-color: #f3f3f3;
+      border: 1px solid #042eb4;
+      padding: 5px 5px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  .pi-storage-notification-disabled {
+    .pi-storage {
+      pointer-events: none;
+      opacity: 0.3;
+      background-color: #f3f3f3;
+      border: 1px solid #042eb4;
+      padding: 5px 5px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  p {
+    margin: 0.2rem;
+    font-size: 0.7rem;
+    font-family: "IBM Plex Devanagari";
+    color: #042eb4;
+  }
+  .pi-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.5rem;
+  }
+  .confirm-pi-btn,
+  .deny-pi-btn {
+    cursor: pointer;
+    width: 5rem !important;
+    margin: auto 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 2px 0px;
+    p {
+      color: white;
+    }
+  }
+  .confirm-pi-btn {
+    background-color: #2ed028;
+    &:hover {
+      background-color: #1f931b;
+    }
+  }
+  .deny-pi-btn {
+    background-color: #ca383d07;
+    &:hover {
+      background-color: #972a2e;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-chat-basket-view {
+  grid-area: main;
+
+  .basket-view-container {
+    top: 100px;
+    position: fixed;
+    width: 100%;
+    padding-bottom: 10px;
+
+    //Override default product-list component style
+    ::ng-deep {
+      .product-box {
+        border-radius: 0px !important;
+        margin-bottom: 0 !important;
+        border-bottom: 1px solid rgb(223, 223, 223);
+        padding: 10px;
+
+        .image-box {
+          border-top-left-radius: 0px !important;
+          border-bottom-left-radius: 0px !important;
+
+          img {
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div ibmGrid>
+  <div ibmRow *ngIf="detailedDiff">
+    <div ibmCol [columnNumbers]="{'xlg':2, 'lg':2, 'md': 2}">
+      <legend class="bx--label">Unmodified ({{differences.unmodifiedCount}})</legend>
+      <ibm-toggle
+        name="show_unmodified"
+        [disabled]="isUnmodifiedToggleDisabled()"
+        [size]="'md'" 
+        [onText]="'Hide'" 
+        [offText]="'Show'"
+        [checked]="state.showUnmodified"
+        (checkedChange)="handleShowUnmodifiedToggle()">
+      </ibm-toggle>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg':2, 'lg':2, 'md': 2}">
+      <legend class="bx--label">Modified ({{differences.modifiedCount}})</legend>
+      <ibm-toggle
+        name="show_modified"
+        [disabled]="isModifiedToggleDisabled()"
+        [size]="'md'" 
+        [onText]="'Hide'" 
+        [offText]="'Show'"
+        [checked]="state.showModified"
+        (checkedChange)="handleShowModifiedToggle()">
+      </ibm-toggle>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg':2, 'lg':2, 'md': 2}">
+      <legend class="bx--label">Added ({{differences.addedCount}})</legend>
+      <ibm-toggle
+        name="show_added"
+        [disabled]="isAddedTogleDisabled()"
+        [size]="'md'" 
+        [onText]="'Hide'" 
+        [offText]="'Show'"
+        [checked]="state.showAdded"
+        (checkedChange)="handleShowAddedToggle()">
+      </ibm-toggle>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg':2, 'lg':2, 'md': 2}">
+      <legend class="bx--label">Removed ({{differences.removedCount}})</legend>
+      <ibm-toggle
+        name="show_removed"
+        [disabled]="isRemovedToggleDisabled()"
+        [size]="'md'" 
+        [onText]="'Hide'" 
+        [offText]="'Show'"
+        [checked]="state.showRemoved"
+        (checkedChange)="handleShowRemovedToggle()">
+      </ibm-toggle>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol class="aca-monaco-editor-col">
+      <ng-container #monacoContainer>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #monacoEditor>
+  <ngx-monaco-diff-editor
+    [options]="monacoOptions ? monacoOptions : state.monacoOptions"
+    [originalModel]="monacoDiffOriginal"
+    [modifiedModel]="monacoDiffModified">
+  </ngx-monaco-diff-editor>
+</ng-template>

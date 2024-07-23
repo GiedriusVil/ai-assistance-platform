@@ -1,0 +1,56 @@
+<ng-container *ngIf="show">
+  <div
+    class="bx--inline-notification"
+    [ngClass]="{
+      'bx--inline-notification--info': status === notificationClass.INFO,
+      'bx--inline-notification--error': status === notificationClass.ERROR,
+      'bx--inline-notification--success': status === notificationClass.SUCCESS,
+      'bx--inline-notification--warning': status === notificationClass.WARNING
+    }"
+    role="alert"
+  >
+    <div class="bx--inline-notification__details">
+      <svg
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        class="bx--inline-notification__icon"
+        width="20"
+        height="20"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+      >
+        <path
+          d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,7Zm4,17.12H12V21.88h2.88V15.12H13V12.88h4.13v9H20Z"
+        ></path>
+      </svg>
+      <div class="bx--inline-notification__text-wrapper">
+        <p class="bx--inline-notification__title">{{ title }}</p>
+        <p class="bx--inline-notification__subtitle">{{ subtitle }}</p>
+      </div>
+    </div>
+    <button
+      *ngIf="actionButton"
+      tabindex="0"
+      class="bx--inline-notification__action-button bx--btn bx--btn--sm bx--btn--ghost action-button"
+      type="button"
+      (click)="action()"
+    >
+      {{ actionButton.name }}
+    </button>
+    <button class="bx--inline-notification__close-button" type="button" aria-label="close" (click)="close()">
+      <svg
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        class="bx--inline-notification__close-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+      >
+        <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path>
+      </svg>
+    </button>
+  </div>
+</ng-container>

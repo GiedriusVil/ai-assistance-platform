@@ -1,0 +1,86 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+aiap-queries-configuration-table-v1 {
+  aiap-button-v1 {
+    button.bx--btn {
+      width: max-content;
+    }
+  }
+
+  .fill-gray {
+    aiap-icon-svg-v1 {
+      svg {
+        fill: gray;
+
+        &:hover {
+          fill: gray;
+        }
+      }
+    }
+  }
+
+  .fill-black {
+    fill: black;
+    aiap-icon-svg-v1 {
+      svg {
+        fill: black;
+
+        &:hover {
+          fill: black;
+        }
+      }
+    }
+  }
+
+  .fill-red {
+    aiap-icon-svg-v1 {
+      svg {
+        fill: red;
+
+        &:hover {
+          fill: red;
+        }
+      }
+    }
+  }
+
+  .fill-green {
+    fill: green;
+    aiap-icon-svg-v1 {
+      svg {
+        fill: green;
+
+        &:hover {
+          fill: green;
+        }
+      }
+    }
+  }
+
+  .bx--search--lg .bx--search-input,
+  .bx--search--sm .bx--search-input {
+    height: 3rem;
+  }
+
+  .bx--search--lg .bx--search-close,
+  .bx--search--sm .bx--search-close {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .bx--tooltip-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .positive-health-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

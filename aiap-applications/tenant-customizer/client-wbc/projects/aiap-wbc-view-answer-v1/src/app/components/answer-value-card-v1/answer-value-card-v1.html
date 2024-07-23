@@ -1,0 +1,108 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 8, 'sm': 6}">
+      <aca-languages-combo-box
+        [label]="'answers_view_v1.answers_value_card_v1.fld_select_language.label' | translate"
+        [placeholder]="'answers_view_v1.answers_value_card_v1.fld_select_language.placeholder' | translate"
+        [(value)]="value">
+      </aca-languages-combo-box>
+    </div>
+    <div ibmCol [columnNumbers]="{'xlg': 6, 'lg':6, 'md': 8, 'sm': 6}">
+      <ibm-dropdown 
+        [placeholder]="'answers_view_v1.answers_value_card_v1.fld_select_type.placeholder' | translate"
+        name="type"
+        [size]="'lg'"
+        [label]="'answers_view_v1.answers_value_card_v1.fld_select_type.label' | translate"
+        [appendInline]="true"
+        [(ngModel)]="value.type">
+        <ibm-dropdown-list 
+          [items]="state.types">
+        </ibm-dropdown-list>
+      </ibm-dropdown>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow *ngIf="isValuesValid()">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+      <aiap-button-v1
+        class="float-start"
+        [type]="'tertiary'"
+        [disabled]="isTranslationDisabled()"
+        [size]="'sm'"
+        [tooltip]="'answers_view_v1.answers_value_card_v1.btn_translate.tooltip' | translate"
+        [text]="'answers_view_v1.answers_value_card_v1.btn_translate.text' | translate"
+        (click)="translate()">
+      </aiap-button-v1>
+    </div>
+  </div>
+  <div ibmRow *ngIf="isTextTypeSelected()">&nbsp;</div>
+  <div ibmRow *ngIf="isTextTypeSelected()">
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [autocomplete]="false"
+        [placeholder]="'answers_view_v1.answers_value_card_v1.fld_intent.placeholder' | translate "
+        [name]="'assistantId'"
+        [label]="'answers_view_v1.answers_value_card_v1.fld_intent.label' | translate"
+        [labelHelp]="'answers_view_v1.answers_value_card_v1.fld_intent.helper_text' | translate"
+        [(value)]="state.intentName"
+        (valueChange)="updateIntentNameInValue()">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div *ngIf="isTextTypeSelected() else jsonEditor" ibmCol [columnNumbers]="{'xlg': 12, 'lg':12, 'md': 8, 'sm': 4}">
+      <aiap-field-textarea-v1
+        [isRequired]="true"
+        [placeholder]="'answers_view_v1.answers_value_card_v1.fld_translation_text.placeholder' | translate"
+        [name]="'answer_values_text'"
+        [label]="'answers_view_v1.answers_value_card_v1.fld_translation_text.label' | translate"
+        [labelHelp]="'answers_view_v1.answers_value_card_v1.fld_translation_text.helper_text' | translate"
+        [rows]="5"
+        [(value)]="value.output.text"
+        (valueChange)="handleValueChangeEvent($event)">
+      </aiap-field-textarea-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow class="justify-content-end">
+    <div
+      ibmCol
+      class="d-flex justify-content-end pl-0"
+      [columnNumbers]="{'xlg': 4, 'lg': 4, 'md': 4, 'sm': 4}">
+      <aiap-overflow-button-v1
+        class="btn-first"
+        [type]="'secondary'"
+        [tooltip]="'answers_view_v1.answers_value_card_v1.btn_preview.helper_text' | translate"
+        [size]="'sm'"
+        [text]="'answers_view_v1.answers_value_card_v1.btn_preview.text' | translate"
+        [overflowMenu]="engagementsRef"
+        [customPane]="true"
+        [offset]="overflowMenuOffset"
+        [disabled]="state.previewDisabled">
+      </aiap-overflow-button-v1>
+      <aiap-button-v1
+        [type]="'danger'"
+        [tooltip]="'answers_view_v1.answers_value_card_v1.btn_delete.helper_text' | translate"
+        [size]="'sm'"
+        [text]="'answers_view_v1.answers_value_card_v1.btn_delete.text' | translate"
+        (click)="handleRemoveValueClickEvent()">
+      </aiap-button-v1>
+    </div>
+  </div>
+</div>
+<ng-template #jsonEditor>
+  <div ibmCol>
+    <aca-json-editor
+      [(value)]="value.output"
+      (valueChange)="updateIntentNameInState()">
+    </aca-json-editor>
+  </div>
+</ng-template>
+<ng-template #engagementsRef>
+  <aiap-overflow-menu-option-v1
+    *ngFor="let engagement of engagements"
+    [text]="engagement?.name"
+    (onClick)="previewAnswer(engagement)">
+  </aiap-overflow-menu-option-v1>
+</ng-template>

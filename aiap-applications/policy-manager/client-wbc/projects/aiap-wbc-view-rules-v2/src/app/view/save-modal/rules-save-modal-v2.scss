@@ -1,0 +1,41 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "./rules-conditions-delete-modal-v2/rules-conditions-delete-modal-v2.scss";
+@use "./rules-conditions-save-modal-v2/rules-conditions-save-modal-v2.scss";
+
+@use "./rules-tab-conditions-v2/rules-tab-conditions-v2.scss";
+@use "./rules-tab-general-v2/rules-tab-general-v2.scss";
+@use "./rules-tab-outcome-v2/rules-tab-outcome-v2.scss";
+
+aiap-rules-save-modal-v2 {
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--text-input:disabled {
+    border: 1px solid #c6c6c6;
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+  }
+
+  .bx--tab-content:focus {
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+  }
+
+  .bx--modal-footer {
+    .bx--btn {
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}

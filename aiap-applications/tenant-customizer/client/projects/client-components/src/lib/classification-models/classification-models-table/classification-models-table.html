@@ -1,0 +1,151 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="true"
+      [tooltip]="'classifications_models_table_v1.btn_refresh.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (click)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      [placeholder]="'classifications_models_table_v1.search.placeholder' | translate"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'classifier-models.view.add'}"
+      [size]="'sm'"
+      [type]="'primary'"
+      [text]="'classifications_models_table_v1.btn_add.text' | translate"
+      [tooltip]="'classifications_models_table_v1.btn_add.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (click)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'classifier-models.view.import'}"
+      [size]="'sm'"
+      [type]="'primary'"
+      [text]="'classifications_models_table_v1.btn_import.text' | translate"
+      [tooltip]="'classifications_models_table_v1.btn_import.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (click)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'classifier-models.view.export'}"
+      [size]="'sm'"
+      [type]="'primary'"
+      [text]="'classifications_models_table_v1.btn_export.text' | translate"
+      [tooltip]="'classifications_models_table_v1.btn_export.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (click)="exportMany()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'classifier-models.view.delete'}"
+      [disabled]="isRemoveDisabled()"
+      [size]="'sm'"
+      [type]="'danger'"
+      [text]="('classifications_models_table_v1.btn_remove.text' | translate) + '(' +(this.selectedRows.length) + ')'"
+      [tooltip]="'classifications_models_table_v1.btn_remove.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'"
+      (click)="emitRemovePlace($event)">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    [skeleton]="skeleton"
+    (onAllSelect)="selectAllRows($event)"
+    (onAllDeselect)="deselectAllRows()"
+    (onRowSelect)="rowSelect($event)"
+    (onRowDeselect)="rowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template #modelTemplate let-data="data">
+    <div ibmGrid class="classifier-models-grid">
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="data?.name">
+          </aiap-label-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="data?.id">
+          </aiap-label-v1>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #statusTemplate let-data="data">
+    <div ibmGrid class="margin-top-5">
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="('classifications_models_table_v1.col_status.classifier' | translate) + ': ' +(data?.status?.classifierValue)">
+          </aiap-label-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="('classifications_models_table_v1.col_status.suggestions' | translate) + ': ' +(data?.status?.suggestionsValue)">
+          </aiap-label-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="formatTimestamp(data?.status?.date)">
+          </aiap-label-v1>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #urlList let-data="data">
+    <div ibmGrid class="classifier-models-grid">
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="('classifications_models_table_v1.col_url.trainer' | translate) + ': ' +(data.trainerUrl)">
+          </aiap-label-v1>
+        </div>
+      </div>
+      <div ibmRow>
+        <div ibmCol>
+          <aiap-label-v1
+            [label]="('classifications_models_table_v1.col_url.service' | translate) + ': ' +(data.serviceUrl)">
+          </aiap-label-v1>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #createdTemplate let-data="data">
+    <aca-table-cell-created [value]="data?.created"></aca-table-cell-created>
+  </ng-template>
+  
+  <ng-template #updatedTemplate let-data="data">
+    <aca-table-cell-updated [value]="data?.updated"></aca-table-cell-updated>
+  </ng-template>
+  
+  <ng-template #actionsTemplate let-data="data">
+    <aiap-overflow-menu-v1
+      [tooltip]="'classifications_models_table_v1.overflow_menu.tooltip' | translate"
+      (onClick)="_allowActionsClick($event)">
+      <aiap-overflow-menu-option-v1
+        [text]="'classifications_models_table_v1.overflow_menu_option_test.text' | translate"
+        (onClick)="emitShowTestPlace(data)">
+      </aiap-overflow-menu-option-v1>
+      <aiap-overflow-menu-option-v1
+        [text]="'classifications_models_table_v1.overflow_menu_option_train.text' | translate"
+        (onClick)="emitShowTrainPlace(data)">
+      </aiap-overflow-menu-option-v1>
+    </aiap-overflow-menu-v1>
+  </ng-template>
+</aiap-table-v1-container-v1>

@@ -1,0 +1,9 @@
+{
+    "name": "@ibm-aca/aca-utils-codec",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "oleg.lukasonok@lt.ibm.com",
+    "license": "ISC"
+}

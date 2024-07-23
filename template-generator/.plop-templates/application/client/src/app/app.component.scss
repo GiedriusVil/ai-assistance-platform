@@ -1,0 +1,45 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@use "../../projects/client-components/src/lib/client-components-module-styles.scss";
+@use "../../projects/client-views/src/lib/client-views-module-styles.scss";
+
+@use "./views/main-view/main.view.scss";
+
+.bx--modal-shown {
+  overflow: hidden !important;
+}
+
+.bx--overflow-menu-options {
+  z-index: 9999;
+}
+
+.bx--overflow-menu-options__option:first-child {
+  border-top: 0 solid #dfe3e6 !important;
+}
+
+// .bx--content {
+//   background-color: #f4f7fb;
+// }
+
+.bx--body {
+  overflow-x: hidden !important;
+}
+
+// Short term solution for selection column width
+.bx--data-table thead th.bx--table-column-checkbox,
+.bx--data-table tbody td.bx--table-column-checkbox {
+  width: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.bx--table-column-checkbox .bx--checkbox-label {
+  padding-left: 1rem;
+}
+
+.app-graph-header-icon {
+  vertical-align: middle;
+}

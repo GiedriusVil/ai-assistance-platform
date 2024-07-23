@@ -1,0 +1,18 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+aca-toggle-button {
+  .bx--toggle:checked+.bx--toggle__label .bx--toggle__appearance:before {
+    background-color: red;
+  }
+
+  .bx--toggle--small:checked+.bx--toggle__label .bx--toggle__check {
+    fill: red;
+  }
+
+  .toggle-button-margin {
+    margin: 0;
+  }
+}

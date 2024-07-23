@@ -1,0 +1,79 @@
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <aiap-field-input-v1
+        [name]="'ai_service_name'"
+        [label]="'ai_services_view_v1.save_modal_v1.tab_general.fld_name.label' | translate"
+        [labelHelp]="'ai_services_view_v1.save_modal_v1.tab_general.fld_name.labelHelp' | translate"
+        [(value)]="aiService.name"
+        [skeleton]="state.isLoading">
+      </aiap-field-input-v1>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <!-- TODO: move to wrapper -->
+      <ibm-dropdown 
+        required 
+        name="ai_service_assistant" 
+        placeholder="{{ 'ai_services_view_v1.save_modal_v1.tab_general.fld_assistant.placeholder' | translate }}" 
+        [label]="'ai_services_view_v1.save_modal_v1.tab_general.fld_assistant.label' | translate"
+        [skeleton]="state.isLoading" 
+        (selected)="handleAssistantSelectedEvent($event)"
+        [(ngModel)]="state.selections.assistant">
+        <ibm-dropdown-list 
+          [items]="state.selections?.assistants">
+        </ibm-dropdown-list>
+      </ibm-dropdown>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-dropdown 
+        required 
+        placeholder="Select type" 
+        name="ai_service_type" 
+        [label]="'Type*'"
+        [skeleton]="state.isLoading" 
+        (selected)="handleTypeSelectedEvent($event)" 
+        [(ngModel)]="state.selections.type">
+        <ibm-dropdown-list 
+          [items]="state.selections?.types">
+        </ibm-dropdown-list>
+      </ibm-dropdown>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <ibm-dropdown 
+        name="ai_service_pull_configuration"
+        [placeholder]="pullOptionsPlaceHolder()" 
+        [label]="'ai_services_view_v1.save_modal_v1.tab_general.fld_pull_options.label' | translate" 
+        [skeleton]="state.isLoading" 
+        [disabled]="isPullOptionsDisabled()"
+        (selected)="handlePullOptionSelectedEvent($event)" 
+        [(ngModel)]="state.selections.pullOption">
+        <ibm-dropdown-list 
+          [items]="state.selections?.pullOptions">
+        </ibm-dropdown-list>
+      </ibm-dropdown>
+    </div>
+  </div>
+  <div ibmRow>&nbsp;</div>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{'xlg': 12, 'lg': 12,  'md': 8, 'sm': 4}">
+      <!-- TODO: move to wrapper -->
+      <ibm-toggle 
+        label="{{ 'ai_services_view_v1.save_modal_v1.tab_general.fld_sync.label' | translate }}" 
+        onText="{{ 'ai_services_view_v1.save_modal_v1.tab_general.fld_sync.onText' | translate }}" 
+        offText="{{ 'ai_services_view_v1.save_modal_v1.tab_general.fld_sync.offText' | translate }}"
+        [disabled]="isSynchronisationOfAiSkillsDisabled()" 
+        [checked]="state.synchroniseAiSkills"
+        (checkedChange)="handleSynchroniseAiSkillsByAiProvider($event)">
+      </ibm-toggle>
+    </div>
+  </div>
+</div>

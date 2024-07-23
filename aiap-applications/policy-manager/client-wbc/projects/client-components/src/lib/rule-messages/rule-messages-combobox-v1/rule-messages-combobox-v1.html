@@ -1,0 +1,14 @@
+<ibm-combo-box
+  id="rule-messages-combobox"
+  name="rule-messages-combobox"
+  [size]="state.size" 
+  [type]="state.selectionType"
+  [label]="label" 
+  [autocomplete]="'none'"
+  [items]="state.selections"
+  [(ngModel)]="state.selected"
+  (selected)="handleSelectedEvent($event)"
+  (submit)="handleSubmitEvent($event)"
+  (close)="handleCloseEvent($event)">
+  <ibm-dropdown-list></ibm-dropdown-list>
+</ibm-combo-box>

@@ -1,0 +1,50 @@
+<aiap-modal-v1
+  [size]="'lg'"
+  [open]="answersSkillsModal.open"
+  (overlaySelected)="closeAnswersSkillsModal()">
+  <aiap-modal-v1-header-v1 (closeSelect)="closeAnswersSkillsModal()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'lambda_modules_usage_modal_v1.header.text' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <div class="bx--modal-content">
+    <ibm-tabs>
+      <ibm-tab
+        heading="Answers ({{answersSkillsModal.answers.total}})">
+        <aiap-table-v1-container-v1>
+          <aiap-table-v1-toolbar-v1>
+            <aiap-table-v1-toolbar-content-v1>
+              <aiap-table-v1-toolbar-search-v1
+                [(search)]="answersSkillsModal.answers.search"
+                (onSearchClear)="clearSearchValue(answersSkillsModal.answers)">
+              </aiap-table-v1-toolbar-search-v1>
+            </aiap-table-v1-toolbar-content-v1>
+          </aiap-table-v1-toolbar-v1>
+          <aiap-table-v1
+            [model]="answersSkillsModal.answers.model">
+          </aiap-table-v1>
+        </aiap-table-v1-container-v1>
+      </ibm-tab>
+      <ibm-tab 
+        heading="Skills ({{answersSkillsModal.skills.total}})">
+        <aiap-table-v1-container-v1>
+          <aiap-table-v1-toolbar-v1>
+            <aiap-table-v1-toolbar-content-v1>
+              <aiap-table-v1-toolbar-search-v1
+                [(search)]="answersSkillsModal.skills.search"
+                (onSearchClear)="clearSearchValue(answersSkillsModal.skills)">
+              </aiap-table-v1-toolbar-search-v1>
+            </aiap-table-v1-toolbar-content-v1>
+          </aiap-table-v1-toolbar-v1>
+          <aiap-table-v1
+            [model]="answersSkillsModal.skills.model">
+          </aiap-table-v1>
+        </aiap-table-v1-container-v1>
+      </ibm-tab>
+    </ibm-tabs>
+  </div>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'lambda_modules_usage_modal_v1.btn_close.text' | translate"
+      (onClick)="closeAnswersSkillsModal()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

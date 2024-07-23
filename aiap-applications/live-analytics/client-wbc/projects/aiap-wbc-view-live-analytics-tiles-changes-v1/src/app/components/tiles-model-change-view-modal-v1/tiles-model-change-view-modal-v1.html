@@ -1,0 +1,125 @@
+<!-- Engagement change -->
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'lg'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1
+    (closeSelect)="close()">
+    <h3 ibmModalHeaderHeading>
+      {{ 'tiles_models_changes_view_modal_v1.header' | translate }}
+    </h3>
+  </aiap-modal-v1-header-v1>
+  <section class="pr-0">
+    <form #auditViewForm="ngForm">
+      <div ibmGrid class="margin-bottom-30">
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+            [isDisabled]="true"
+            [name]="'transactionId'"
+            [label]="'tiles_models_changes_view_modal_v1.fld_transaction_id.label' | translate"
+            [labelHelp]="'tiles_models_changes_view_modal_v1.fld_transaction_id.labelHelp' | translate"
+            [(value)]="transaction.id">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'action'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_action.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.fld_action.labelHelp' | translate"
+              [(value)]="transaction.action">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'creator_user_id'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_initiator_id.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.fld_initiator_id.labelHelp' | translate"
+              [(value)]="transaction.created.user.id">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'creator_user_name'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_initiator_name.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.fld_initiator_name.labelHelp' | translate"
+              [(value)]="transaction.created.user.username">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'docId'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_document_id.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.fld_document_id.labelHelp' | translate"
+              [(value)]="transaction.docId">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol [columnNumbers]="{'xlg': 6, 'lg': 6, 'md': 4}">
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'docType'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_document_type.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.fld_document_type.labelHelp' | translate"
+              [(value)]="transaction.docType">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [isDisabled]="true"
+              [name]="'timestamp'"
+              [label]="'tiles_models_changes_view_modal_v1.fld_timestamp.label' | translate"
+              [labelHelp]="'tiles_models_changes_view_modal_v1.timestamp.labelHelp' | translate"
+              [(value)]="transaction.timestamp">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+            <div ibmCol>
+              <json-editor
+                [options]="jsonEditorOptions"
+                [data]="{ doc: transaction.doc, docChanges: transaction.docChanges }"></json-editor>
+            </div>
+            <div ibmCol [columnNumbers]="{'xlg': 3, 'lg': 3, 'md': 3}">
+              <div class="assist-text">
+                <p>
+                  <strong>
+                    {{ 'tiles_models_changes_view_modal_v1.fld_docChanges_kind' | translate }}
+                  </strong>
+                  {{ 'tiles_models_changes_view_modal_v1.fld_docChanges_type' | translate }}
+                </p>
+              <ul>
+                <br>
+                <li>{{ 'tiles_models_changes_view_modal_v1.fld_added_property' | translate }}</li>
+                <br>
+                <li>{{ 'tiles_models_changes_view_modal_v1.fld_deleted_property' | translate }}</li>
+                <br>
+                <li>{{ 'tiles_models_changes_view_modal_v1.fld_edited_property' | translate }}</li>
+                <br>
+                <li>{{ 'tiles_models_changes_view_modal_v1.fld_changed_array' | translate }}</li>
+              </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'tiles_models_changes_view_modal_v1.btn_close.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

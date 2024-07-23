@@ -1,0 +1,110 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+@import "variables";
+// @import "~bootstrap/scss/bootstrap";
+
+aca-chat-modal {
+  /* modals are hidden by default */
+  display: none;
+  z-index: 2147483000;
+
+  .aca--modal--box {
+    /* enables scrolling for tall modals */
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2147483001;
+    min-height: 600px;
+    min-width: 450px;
+
+    .aca--modal--content {
+      z-index: 2147483001;
+      background: #fff;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 3px;
+      box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.25);
+      /* margin exposes part of the modal background */
+
+      .aca--modal--header {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        background-color: $aca_primary_color_blue;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        .aca--modal--title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $aca_primary_color_white;
+          margin-left: 10px;
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+
+        .aca--header--icon--box {
+          &:hover {
+            background-color: $aca_secondary_color_blue;
+          }
+        }
+      }
+
+      .aca--modal--body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 15px;
+
+        .form-group {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .aca--modal--footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        border-top: 1px solid rgba(90, 90, 90, 0.25);
+        padding: 0.5rem;
+
+        button {
+          margin: 0.25rem;
+          :hover {
+            background-color: $aca_primary_background !important;
+          }
+        }
+      }
+    }
+  }
+
+  .aca--modal--background {
+    /* modal background fixed across whole screen */
+    position: fixed;
+    min-height: 600px;
+    min-width: 450px;
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.35;
+
+    /* z-index must be below .jw-modal and above everything else  */
+    z-index: 3000;
+  }
+  .aca--modal--open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+  }
+}

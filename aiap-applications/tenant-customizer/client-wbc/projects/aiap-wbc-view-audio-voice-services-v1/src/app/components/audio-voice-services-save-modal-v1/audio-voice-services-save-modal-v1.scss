@@ -1,0 +1,51 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+
+aiap-audio-voice-services-save-modal-v1 {
+
+  .audio-voice-service-col {
+    min-height: 60vh;
+    json-editor {
+      div {
+        .jsoneditor {
+          border-color: black;
+        height: 600px;
+
+        .jsoneditor-menu {
+          border-color: black;
+          background-color: black;
+        }
+        }
+      }
+    }
+  }
+
+  .bx--tab-content {
+    padding-left: 0;
+    padding-right: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .bx--grid {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    min-width: 100%;
+  }
+
+  .bx--modal-container {
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  .bx--btn {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,94 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2></aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmGrid>
+      <div ibmRow>
+        <div ibmCol></div>
+        <div ibmCol [columnNumbers]="{'lg': 4, 'md': 4, 'sm': 8}">
+          <ibm-progress-indicator 
+            [steps]="steps" 
+            [current]="current" 
+            [spacing]="'default'"
+            (stepSelected)="stepSelected($event)">
+          </ibm-progress-indicator>
+          <!-- Step 1 -->
+          <aiap-file-uploader-v1
+            *ngIf="current == 0" 
+            #organizationsImportStepOne
+            (onFileUploaded)="onFileUploadedSuccess($event)">
+          </aiap-file-uploader-v1>
+        </div>
+        <div ibmCol></div>
+      </div>
+      <div ibmRow>
+        <div ibmCol *ngIf="current == 1">
+          <!-- Step 2 -->
+          <aiap-organizations-table-v1
+            isImport="true" 
+            (onShowSavePlace)="showSaveModal($event)"
+            (onShowDeletePlace)="showDeleteModal($event)" 
+            (onSearchPlace)="handleSearchChangeEvent($event)"
+            (onClearPlace)="handleSearchClearEvent($event)"
+            (onShowRemovePlace)="handleShowOrganizationDeleteModal($event)">
+          </aiap-organizations-table-v1>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+        <div ibmCol *ngIf="current == 2">
+          <!-- Step 3 -->
+          <p>
+            {{'organizations_import_v1.view.success_text' | translate}}
+            <a (click)="routeToOrganizationView()">{{'organizations_import_v1.view.success_here_text' | translate}}</a>
+          </p>
+        </div>
+        <div ibmCol *ngIf="current == 2"></div>
+      </div>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow [leftGutter]="true" class="organizations-import-view-actions-container">
+        <div ibmCol [columnNumbers]="{'xlg':6, 'lg':8, 'md':4, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}"></div>
+        <div ibmCol *ngIf="current == 0" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'" 
+            [text]="'organizations_import_v1.view.next_button_text' | translate"
+            [tooltip]="'organizations_import_v1.view.next_button_tooltip' | translate"
+            (onClick)="next()">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'organizations_import_v1.view.back_button_text' | translate"
+            [tooltip]="'organizations_import_v1.view.back_button_tooltip' | translate"
+            (onClick)="back()">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'secondary'" 
+            [text]="'organizations_import_v1.view.clear_button_text' | translate"
+            [tooltip]="'organizations_import_v1.view.clear_button_tooltip' | translate"
+            (onClick)="showClearModal($event)">
+          </aiap-button-v1>
+        </div>
+        <div ibmCol *ngIf="current == 1" [columnNumbers]="{'xlg':2, 'lg':2, 'md':2, 'sm':4}">
+          <aiap-button-v1 
+            [type]="'primary'" 
+            [text]="'organizations_import_v1.view.submit_button_text' | translate"
+            [tooltip]="'organizations_import_v1.view.submit_button_tooltip' | translate"
+            (onClick)="import()" 
+            [disabled]="!state.ready">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aiap-organization-save-modal-v1 #organizationSaveModalV1 isImport="true"></aiap-organization-save-modal-v1>
+<aiap-organization-delete-modal-v1 #organizationDeleteModalV1 isImport="true"></aiap-organization-delete-modal-v1>
+<aiap-organization-clear-modal-v1 #organizationClearModalV1 (onClear)="back()" isImport="true"></aiap-organization-clear-modal-v1>

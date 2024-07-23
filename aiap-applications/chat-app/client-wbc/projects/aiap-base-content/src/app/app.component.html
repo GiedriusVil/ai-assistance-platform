@@ -1,0 +1,18 @@
+<div class="messages-wrapper">
+  <ng-container *ngFor="let message of messages">
+    <div *ngIf="message?.message?.text">
+      <div>{{ message?.message?.text }}</div>
+      <div>{{ message?.message?.timestamp | timestamp }}</div>
+    </div>
+  </ng-container>
+</div>
+<div class="input-wrapper">
+  <textarea type="text" [(ngModel)]="input"></textarea>
+  <button (click)="sendMessage($event)">Send</button>
+  <button 
+  *ngIf="session?.engagement?.chatApp?.voice"
+  (click)="toggleAudioRecording()">Mic</button>
+  <button
+    *ngIf="session?.engagement?.chatApp?.voice"
+   (click)="toggleAudioMute()">Mute</button>
+</div>

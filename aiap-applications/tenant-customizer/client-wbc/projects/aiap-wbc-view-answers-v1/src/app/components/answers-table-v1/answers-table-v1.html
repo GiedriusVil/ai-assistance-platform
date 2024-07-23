@@ -1,0 +1,171 @@
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [iconOnly]="true"
+      [tooltip]="'answers_table_v1.btn_refresh.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (click)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [search]="state.search"
+      (onSearchChange)="emitSearchPlace($event)"
+      (onSearchClear)="emitClearPlace($event)">
+    </aiap-table-v1-toolbar-search-v1>
+    <aiap-button-v1
+      *ngIf="config.filterConfigEnabled"
+      [type]="'ghost'" 
+      [iconOnly]="true" 
+      [icon]="filterIcon"
+      (onClick)="emitFilterPanelOpen()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'answers.view.add'}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'answers_table_v1.btn_add.text' | translate"
+      [tooltip]="'answers_table_v1.btn_add.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (click)="emitShowSavePlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'answers.view.pull', enabled: isPullEnabled()}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'answers_table_v1.btn_pull.text' | translate"
+      [tooltip]="'answers_table_v1.btn_pull.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/navigation/add.svg'"
+      (click)="emitShowPullPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'answers.view.rollback', enabled: isRollbackEnabled()}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'answers_table_v1.btn_rollback.text' | translate"
+      [tooltip]="'answers_table_v1.btn_rollback.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/operations/redo.svg'"
+      (click)="emitShowRollbackPlace()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action: 'answers.view.import'}"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'answers_table_v1.btn_import.text' | translate"
+      [tooltip]="'answers_table_v1.btn_import.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/file/document--import.svg'"
+      (click)="emitShowImportPlace()">
+    </aiap-button-v1>
+    <aiap-overflow-button-v1
+      *ngIf="isExportAllowed"
+      [overflowMenu]="exportRef"
+      [customPane]="true"
+      [offset]="{ x: 115, y: 61 }"
+      [size]="'md'"
+      [type]="'primary'"
+      [text]="'answers_table_v1.btn_export.text' | translate"
+      [tooltip]="'answers_table_v1.btn_export.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/technology/cloud--download.svg'">
+    </aiap-overflow-button-v1>
+    <aiap-button-v1
+      *isActionAllowed="{action:'answers.view.delete'}"
+      [disabled]="isRemoveDisabled()"
+      [size]="'md'"
+      [type]="'danger'"
+      [text]="('answers_table_v1.btn_remove.text' | translate) + '(' +(this.selectedRows.length) + ')'"
+      [tooltip]="'answers_table_v1.btn_remove.tooltip' | translate"
+      [icon]="'assets/carbon-icons/16/formatting/trash-can.svg'"
+      (click)="emitRemovePlace()">
+    </aiap-button-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [model]="model"
+    (onAllSelect)="handleEventAllSelect($event)"
+    (onAllDeselect)="handleEventAllDeselect($event)"
+    (onRowSelect)="handleEventRowSelect($event)"
+    (onRowDeselect)="handleEventRowDeselect($event)"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleEventSort($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+  <ng-template 
+    #languagesTemplate 
+    let-data="data">
+    <ng-container *ngFor="let value of data?.values; let i = index">
+      <ibm-tag type="blue" size="md">
+        <ibm-tooltip-definition
+          [content]="value?.text || value?.output?.text"
+          [placement]="'top'"
+          [alignment]="'start'">{{value?.language}}
+        </ibm-tooltip-definition>
+      </ibm-tag>
+    </ng-container>
+  </ng-template>
+</aiap-table-v1-container-v1>
+
+<ng-template #skillsTemplate let-data="data">
+  <div
+    *ngIf="!isSkillsCountPositive(data)"
+    class="answer-skills-amount-zero">
+    {{data?.count}}
+  </div>
+  <ibm-tag
+    *ngIf="isSkillsCountPositive(data)"
+    class="answer-skills-amount-tag"
+    (click)="_allowActionsClick($event)"
+    [ibmTooltip]="tooltipTemplate"
+    trigger="hover"
+    [placement]="'bottom'">
+    <div
+      class="answer-skills-amount-positive">
+      {{data?.count}}
+    </div>
+  </ibm-tag>
+  <ng-template #tooltipTemplate let-tooltip="tooltip">
+    <div
+      (mouseleave)="tooltip.doClose()"
+      id="answer-skills-tooltip">
+      <ul>
+        <p
+          *ngFor="let skill of data?.skills"
+          class="answer-skills-tooltip-row"
+          (click)="handleOpenAiServiceInNewTab(skill?.aiServiceId)">
+          {{skill?.name}}
+        </p>
+      </ul>
+    </div>
+  </ng-template>
+</ng-template>
+
+<ng-template #exportRef>
+  <aiap-overflow-menu-option-v1
+    *isActionAllowed="{action: 'answers.view.export.xlsx'}"
+    [text]="'answers_table_v1.overflow_menu_option_xlsx.text' | translate"
+    [tooltip]="'answers_table_v1.overflow_menu_option_xlsx.tooltip' | translate"
+    (onClick)="export('xlsx')">
+  </aiap-overflow-menu-option-v1>
+  <aiap-overflow-menu-option-v1
+    *isActionAllowed="{action: 'answers.view.export.json'}"
+    [text]="'answers_table_v1.overflow_menu_option_json.text' | translate"
+    [tooltip]="'answers_table_v1.overflow_menu_option_json.tooltip' | translate"
+    (onClick)="export('json')">
+  </aiap-overflow-menu-option-v1>
+</ng-template>
+
+<ng-template 
+  #createdTemplate
+  let-data="data">
+  <aiap-table-cell-created-v1 
+    [value]="data?.created">
+  </aiap-table-cell-created-v1>
+</ng-template>
+<ng-template 
+  #updatedTemplate 
+  let-data="data">
+  <aiap-table-cell-updated-v1 
+    [value]="data?.updated">
+  </aiap-table-cell-updated-v1>
+</ng-template>

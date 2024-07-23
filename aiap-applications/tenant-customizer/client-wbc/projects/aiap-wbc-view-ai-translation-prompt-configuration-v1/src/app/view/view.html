@@ -1,0 +1,89 @@
+<div class="filters-wrapper">
+  <div class="filters-content no-filters">
+    <aiap-bread-crumb-v2 [outlet]="outlet"></aiap-bread-crumb-v2>
+    <div class="pl-0" ibmGrid>
+      <div ibmRow>&nbsp;</div>
+      <div ibmRow>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_prompt_configuration_id'"
+            [label]="'ai_translation_prompt_configuration_v1.fld_id.label' | translate"
+            [labelHelp]="'ai_translation_prompt_configuration_v1.fld_id.labelHelp' | translate"
+            [(value)]="value.promptId"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_prompt_configuration_v1.fld_id.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2, 'sm': 2}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_prompt_configuration_source'"
+            [label]="'ai_translation_prompt_configuration_v1.fld_source.label' | translate"
+            [labelHelp]="'ai_translation_prompt_configuration_v1.fld_source.labelHelp' | translate"
+            [(value)]="value.sourceLanguage"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_prompt_configuration_v1.fld_source.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 2, 'lg':2, 'md': 2, 'sm': 2}">
+          <aiap-field-input-v1
+            [isRequired]="true"
+            [name]="'ai_translation_prompt_configuration_target'"
+            [label]="'ai_translation_prompt_configuration_v1.fld_target.label' | translate"
+            [labelHelp]="'ai_translation_prompt_configuration_v1.fld_target.labelHelp' | translate"
+            [(value)]="value.targetLanguage"
+            [isDisabled]="true"
+            [placeholder]="'ai_translation_prompt_configuration_v1.fld_target.placeholder' | translate">
+          </aiap-field-input-v1>
+        </div>
+        <div ibmCol [columnNumbers]="{'xlg': 4, 'lg':4, 'md': 4, 'sm': 4}" class="filter-content-button">
+          <aiap-button-v1
+            [text]="'ai_translation_prompt_configuration_v1.btn_test.text' | translate"
+            [tooltip]="'ai_translation_prompt_configuration_v1.btn_test.tooltip' | translate"
+            [type]="'secondary'"
+            (onClick)="handleTestPrompt()">
+          </aiap-button-v1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <div ibmRow>
+      <div ibmCol>
+        <ibm-tile>
+          <ibm-notification
+            *ngIf="isPromptTypeDeployment()"
+            [notificationObj]="state.notification.promptTypeDeployment">
+          </ibm-notification>
+          <json-editor
+            [hidden]="isPromptTypeDeployment()"
+            class="aca-override" 
+            [options]="jsonEditorOptions"
+            [ngModel]="jsonEditor"
+            [data]="state.promptExternal">
+          </json-editor>
+        </ibm-tile>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aiap-modal-v1-footer-v1>
+  <aiap-button-v1
+    class="width50"
+    [text]="'ai_translation_prompt_configuration_v1.btn_save.text' | translate"
+    [tooltip]="'ai_translation_prompt_configuration_v1.btn_save.tooltip' | translate"
+    [type]="'primary'"
+    [disabled]="isSaveButtonDisabled()"
+    (onClick)="save()">
+  </aiap-button-v1>
+</aiap-modal-v1-footer-v1>
+
+
+<aiap-translation-prompt-test-modal-v1 
+  #aiTranslationPromptTestModal>
+</aiap-translation-prompt-test-modal-v1>

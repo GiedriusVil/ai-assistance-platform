@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "name": "@ibm-aiap/aiap-health-check-configuration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "dependencies": {},
+  "license": "IBM",
+  "author": "IBM"
+}

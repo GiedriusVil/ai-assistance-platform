@@ -1,0 +1,30 @@
+<aiap-modal-v1
+  [open]="isOpen"
+  [size]="'md'"
+  (overlaySelected)="close()">
+  <aiap-modal-v1-header-v1 (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">{{ 'answer_stores_view_v1.pull_modal.header' | translate }}</p>
+  </aiap-modal-v1-header-v1>
+  <aiap-modal-v1-content-v1>
+    <p class="mb-3">{{ 'answer_stores_view_v1.pull_modal.fld_confirm' | translate }}</p>
+    <ul ibmList>
+      <li ibmListItem *ngFor="let answerStore of selectedAnswerStores">{{answerStore | AnswerStoreId}}</li>
+    </ul>
+  </aiap-modal-v1-content-v1>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [type]="'secondary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.pull_modal.btn_cancel.text' | translate"
+      (click)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [disabled]="isPullDisabled()"
+      [type]="'primary'"
+      [size]="'md'"
+      [text]="'answer_stores_view_v1.pull_modal.btn_pull.text' | translate"
+      [skeleton]="isLoading"
+      (click)="pull()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

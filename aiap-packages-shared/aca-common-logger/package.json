@@ -1,0 +1,9 @@
+{
+  "name": "@ibm-aca/aca-common-logger",
+  "version": "3.27.0",
+  "description": "Logger for the chatbot",
+  "main": "index.js",
+  "dependencies": {},
+  "author": "IBM",
+  "license": "IBM"
+}

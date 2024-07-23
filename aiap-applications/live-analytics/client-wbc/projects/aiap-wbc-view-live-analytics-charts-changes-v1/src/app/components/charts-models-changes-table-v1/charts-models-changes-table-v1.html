@@ -1,0 +1,47 @@
+
+<aiap-table-v1-container-v1>
+  <aiap-table-v1-toolbar-content-v1>
+    <aiap-button-v1
+      [type]="'ghost'"
+      [icon]="'assets/carbon-icons/16/operations/renew.svg'"
+      (onClick)="handleRefreshClickEvent($event)">
+    </aiap-button-v1>
+    <aiap-table-v1-toolbar-search-v1
+      [placeholder]="'charts_models_changes_table_v1.fld_search_for_change.placeholder' | translate"
+      [search]="state.search"
+      (onSearchChange)="emitSearchChangeEvent($event)"
+      (onSearchClear)="emitSearchClearEvent()">
+    </aiap-table-v1-toolbar-search-v1>
+  </aiap-table-v1-toolbar-content-v1>
+  <aiap-table-v1
+    [sortable]="true"
+    [stickyHeader]="false"
+    [showSelectionColumn]="false"
+    [skeleton]="skeleton"
+    [striped]="true"
+    [model]="model"
+    (onRowClick)="emitShowSavePlace($event)"
+    (onSort)="handleSortEvent($event)">
+  </aiap-table-v1>
+  <aiap-table-v1-pagination-v1
+    [model]="model"
+    [options]="itemsPerPageOptions"
+    (onPageSelect)="handleSelectPageEvent($event)">
+  </aiap-table-v1-pagination-v1>
+</aiap-table-v1-container-v1>
+
+<ng-template
+  #createdTemplate
+  let-data="data">
+  <aca-table-cell-created
+    [value]="data?.created">
+  </aca-table-cell-created>
+</ng-template>
+
+<ng-template
+  #updatedTemplate
+  let-data="data">
+  <aca-table-cell-updated
+    [value]="data?.updated">
+  </aca-table-cell-updated>
+</ng-template>

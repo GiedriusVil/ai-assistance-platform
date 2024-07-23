@@ -1,0 +1,13 @@
+{
+  "name": "@ibm-aca/aca-rules-service-v2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM",
+  "license": "MIT",
+  "dependencies": {
+    "@ibm-aca/aca-rules-datasource-provider-v2": "0.0.1",
+    "compromise": "13.11.2"
+  }
+}

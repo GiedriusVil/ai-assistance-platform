@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aiap/aiap-ai-service-client-provider",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@ibm-aiap/aiap-wrapper-aws-sdk-client-lex-model-building-service": "0.0.1",
+    "@ibm-aiap/aiap-wrapper-aws-sdk-client-lex-models-v2": "0.0.1",
+    "@ibm-aiap/aiap-wrapper-aws-sdk-client-lex-runtime-v2": "0.0.1",
+    "@ibm-aiap/aiap-wrapper-ibm-watson": "0.0.1"
+  }
+}

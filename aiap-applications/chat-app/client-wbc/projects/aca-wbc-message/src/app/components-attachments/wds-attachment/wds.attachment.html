@@ -1,0 +1,39 @@
+<!-- WDS -->
+<div class="message--bubble message--content message--float">
+  <ul class="message--list">
+    <li *ngFor="let doc of message['attachment']['payload']">
+      {{ doc?.title }} <span class="wrap-text text--underline" (keydown.enter)="openWdsModal(doc)"
+      (click)="openWdsModal(doc)">Read&nbsp;more</span>
+    </li>
+  </ul>
+  <!-- WDS Modal -->
+  <aca-wbc-base-modal [id]="modalId" [attr.id]="modalId">
+    <ng-container>
+      <div class="aca--modal--header">
+        <h4 class="aca--modal--title">Query Result</h4>
+        <div class="aca--header--icon--box">
+          <img 
+          class="img--close" 
+          [src]="wbcAssetsUrl + '/close.svg'" 
+          tabindex="0" 
+          role="button" 
+          title="{{'wds.modal-button-close'| translate}}"
+          alt="{{'wds.modal-button-close'| translate}}"
+          (keydown.enter)="closeWdsModal()"
+          (click)="closeWdsModal()">
+        </div>
+      </div>
+      <div class="aca--modal--body">
+        <p class="w-100">{{ wdsDoc?.text }}</p>
+        <p *ngIf="wdsDoc?.url" class="w-100">{{'wds.modal-article'| translate}} <a href="{{ wdsDoc?.url }}" target="_blank" rel=""><span
+            class="wrap-text">{{ wdsDoc?.url }}</span></a></p>
+        <p *ngIf="wdsDoc?.filename" class="w-100">{{'wds.modal-document'| translate}} {{ wdsDoc?.filename }}</p>
+      </div>
+      <div class="aca--modal--footer">
+        <button type="button" class="btn btn-primary btn-block btn--color"
+          (keydown.enter)="closeWdsModal()"
+          (click)="closeWdsModal()">{{'wds.modal-button-close'| translate}}</button>
+      </div>
+    </ng-container>
+  </aca-wbc-base-modal>
+</div>

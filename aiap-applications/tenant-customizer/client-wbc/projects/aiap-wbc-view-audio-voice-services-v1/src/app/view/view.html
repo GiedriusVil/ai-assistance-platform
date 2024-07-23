@@ -1,0 +1,24 @@
+<div class="filters-wrapper">
+  <div class="filters-content">
+    <aiap-bread-crumb-v2  
+      [outlet]="outlet">
+    </aiap-bread-crumb-v2>
+  </div>
+</div>
+
+<div class="dashboard-wrapper">
+  <div class="dashboard-content">
+    <aiap-audio-voice-services-table-v1
+    (onShowSavePlace)="handleShowSaveModal($event)"
+    (onSearchPlace)="handleSearchChangeEvent($event)"
+    (onShowRemovePlace)="handleShowRemovePlaceEvent($event)"
+    (onShowImportPlace)="handleShowImportPlaceEvent($event)"
+    (onClearPlace)="handleSearchClearEvent($event)">
+  </aiap-audio-voice-services-table-v1>
+  </div>
+</div>
+
+<aiap-audio-voice-services-save-modal-v1 #aiapAudioVoiceServicesSaveModal></aiap-audio-voice-services-save-modal-v1>
+<aiap-audio-voice-services-delete-modal-v1 #aiapAudioVoiceServicesDeleteModal></aiap-audio-voice-services-delete-modal-v1>
+<aiap-audio-voice-services-import-modal-v1 #aiapAudioVoiceServicesImportModal></aiap-audio-voice-services-import-modal-v1>
+

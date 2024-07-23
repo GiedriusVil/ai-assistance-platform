@@ -1,0 +1,39 @@
+/*
+	© Copyright IBM Corporation 2022. All Rights Reserved 
+	 
+	SPDX-License-Identifier: EPL-2.0
+*/
+
+@import "../../../client-components/src/lib/components/base-modal/base-modal.comp.scss";
+
+aca-wbc-mult-response-v2 {
+  //
+  @import "../../../client-components/src/lib/client-components-module-styles.scss";
+  @import "./components/components.scss";
+  //
+
+  .aca-wbc-mult-response.card {
+    background-color: unset;
+  }
+
+  ngb-accordion {
+    .accordion-item {
+      background-color: unset;
+      border-left: unset;
+      border-right: unset;
+      .accordion-body {
+        background-color: #fff;
+      }
+      .accordion-button:not(.collapsed) {
+        background-color: #e8e8e8;
+      }
+      .accordion-button.collapsed {
+        background-color: unset;
+      }
+      .accordion-button {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+}

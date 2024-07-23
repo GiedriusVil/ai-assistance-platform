@@ -1,0 +1,71 @@
+{
+  "version": "0.0.1",
+  "name": "@ibm-aiap/aiap-policy-manager-client",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "postinstall": "NODE_OPTIONS=--max-old-space-size=4096 ngcc",
+    "client:build:libs:shared": "../../../scripts/client/build-libs-shared.sh",
+    "client:build:libs": "../../../scripts/client/build-libs.sh",
+    "client:build:wbc": "../../../scripts/client/build-wbc.sh",
+    "client:build": "../../../scripts/client/build.sh",
+    "client:watch": "../../../scripts/client/watch.sh"
+  },
+  "dependencies": {
+    "@angular-extensions/elements": "13.0.0",
+    "@angular/animations": "15.0.1",
+    "@angular/cdk": "13.3.9",
+    "@angular/common": "15.0.1",
+    "@angular/compiler": "15.0.1",
+    "@angular/core": "15.0.1",
+    "@angular/elements": "15.0.1",
+    "@angular/forms": "15.0.1",
+    "@angular/platform-browser": "15.0.1",
+    "@angular/platform-browser-dynamic": "15.0.1",
+    "@angular/router": "15.0.1",
+    "@carbon/colors": "11.12.0",
+    "@carbon/icons": "11.15.0",
+    "@carbon/icons-angular": "11.2.2",
+    "@carbon/themes": "11.16.0",
+    "@ngx-translate/core": "14.0.0",
+    "@ngx-translate/http-loader": "7.0.0",
+    "ang-jsoneditor": "^1.10.5",
+    "jsoneditor": "^9.5.7",
+    "carbon-components": "10.50.0",
+    "carbon-components-angular": "4.69.1",
+    "jwt-decode": "^3.1.2",
+    "localstorage-slim": "^2.2.0",
+    "lodash": "4.17.21",
+    "moment": "2.29.4",
+    "moment-timezone": "0.5.43",
+    "ngx-build-plus": "15.0.0",
+    "ngx-json-viewer": "^3.0.2",
+    "monaco-editor": "0.34.1",
+    "ngx-monaco-editor-v2": "14.0.4",
+    "ramda": "0.28.0",
+    "rxjs": "7.5.5",
+    "tslib": "2.5.0",
+    "xlsx": "0.18.5",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "typescript": "4.8.4",
+    "ts-node": "^8.8.1",
+    "@types/node": "^12.19.5",
+    "ng-packagr": "15.0.1",
+    "@angular-devkit/build-angular": "15.2.4",
+    "@angular/cli": "15.2.4",
+    "@angular/compiler-cli": "15.0.1",
+    "@angular/language-service": "15.0.1",
+    "@fortawesome/fontawesome-free": "6.1.1"
+  },
+  "license": "IBM",
+  "author": "IBM",
+  "contributors": [
+    {
+      "name": "Oleg Lukasonok [LEGO]",
+      "email": "oleg.lukasonok@lt.ibm.com",
+      "url": "https://www.linkedin.com/in/oleg-luka%C5%A1onok-45a37376/"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+<ibm-modal 
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='lg'>
+  <ibm-modal-header 
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'test_executions_view_v1.generate_many_modal_v1.header' | translate }}
+    </p>
+  </ibm-modal-header>
+  <section ibmModalContent>
+    <form #executionForm="ngForm">
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{ 'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+            <ibm-dropdown 
+              name="execution_test_case"
+              placeholder="{{ 'test_executions_view_v1.generate_many_modal_v1.fld_test_case.placeholder' | translate }}" 
+              required 
+              [label]="'test_executions_view_v1.generate_many_modal_v1.fld_test_case.label' | translate"
+              [(ngModel)]="selections.testCase">
+              <ibm-dropdown-list 
+                [items]="selections.testCases">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{ 'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+            <ibm-number
+              required
+              [label]="'test_executions_view_v1.generate_many_modal_v1.fld_quantity.label' | translate"
+              [min]="1"
+              [step]="1"
+              [(ngModel)]="selections.quantity">
+			      </ibm-number>
+          </div>
+        </div>
+        <div ibmRow>&nbsp;</div>
+        <div ibmRow>
+          <div ibmCol [columnNumbers]="{ 'xlg': 12, 'lg': 12, 'md': 8, 'sm': 4}">
+            <ibm-dropdown 
+              name="execution_worker" 
+              placeholder="{{ 'test_executions_view_v1.generate_many_modal_v1.fld_worker.placeholder' | translate }}"
+              type="multi"
+              required 
+              [label]="'test_executions_view_v1.generate_many_modal_v1.fld_worker.label' | translate"
+              [(ngModel)]="selections.workersSelected">
+              <ibm-dropdown-list 
+                [items]="selections.workers">
+              </ibm-dropdown-list>
+            </ibm-dropdown>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <ibm-modal-footer>
+    <button 
+      ibmButton="secondary" 
+      (click)="close()">
+      {{ 'test_executions_view_v1.generate_many_modal_v1.btn_cancel.text' | translate }}
+    </button>
+    <button 
+      ibmButton="primary" 
+      [disabled]="executionForm.invalid" 
+      (click)="generate()">
+      {{ 'test_executions_view_v1.generate_many_modal_v1.btn_generate.text' | translate }}
+    </button>
+  </ibm-modal-footer>
+</ibm-modal>

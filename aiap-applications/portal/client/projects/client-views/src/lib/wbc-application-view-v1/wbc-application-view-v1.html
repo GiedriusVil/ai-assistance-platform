@@ -1,0 +1,24 @@
+<ng-template #loading>
+    <div class="filters-wrapper"> 
+        <div class="filters-content">
+            <ibm-inline-loading
+			    [state]="'active'"
+			    [loadingText]="applicationLoadingText()">
+	        </ibm-inline-loading>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #error>
+    <div class="filters-wrapper"> 
+        <div class="filters-content color-red">
+            Sorry, we are unable to load application {{state?.component}} from {{state?.host}}{{state?.path}}!
+        </div>
+    </div>
+</ng-template>
+
+<ax-lazy-element 
+    [host]="state.host"
+    [path]="state.path"
+    *axLazyElementDynamic="state.component, url: url(); loadingTemplate: loading; errorTemplate: error;">
+</ax-lazy-element>

@@ -1,0 +1,90 @@
+{
+  "organizations_import_v1.clear_modal_v1.header_title" : "[DE] Clear Organizations",
+  "organizations_import_v1.clear_modal_v1.clear_confirmation" : "[DE] Do you want to clear organizations import?",
+  "organizations_import_v1.clear_modal_v1.cancel_button_text" : "Abbrechen",
+  "organizations_import_v1.clear_modal_v1.clear_button_text" : "[DE] Clear",
+  "organizations_import_v1.view.success_text" : "[DE] Completed! You can view all organization set",
+  "organizations_import_v1.view.success_here_text" : "[DE] here",
+  "organizations_import_v1.view.next_button_text" : "Weiter",
+  "organizations_import_v1.view.back_button_text" : "Zurück",
+  "organizations_import_v1.view.clear_button_text" : "[DE] Clear",
+  "organizations_import_v1.view.submit_button_text" : "Senden",
+
+  "organizations.organization_delete_modal_v1.header" : "Organisationen löschen",
+  "organizations.organization_delete_modal_v1.delete_confirmation" : "Sollen diese Organisationen gelöscht werden?",
+  "organizations.organization_delete_modal_v1.cancel_button" : "Abbrechen",
+  "organizations.organization_delete_modal_v1.delete_button" : "Löschen",
+
+  "organizations.organization_save_modal_v1.header" : "Organisationsdetails speichern",
+  "organizations.organization_save_modal_v1.id_label" : "ID*",
+  "organizations.organization_save_modal_v1.external_id_label" : "Externe ID*",
+  "organizations.organization_save_modal_v1.organization_name_label" : "Name*",
+  "organizations.organization_save_modal_v1.is_buyer_checkbox" : "[DE] Is Buyer",
+  "organizations.organization_save_modal_v1.is_seller_checkbox" : "[DE] Is Seller",
+  "organizations.organization_save_modal_v1.is_authorized_checkbox" : "Authorisierung",
+  "organizations.organization_save_modal_v1.cancel_button" : "Abbrechen",
+  "organizations.organization_save_modal_v1.save_button" : "Speichern",
+
+  "organizations.organizations_table_v1.add_button" : "Hinzufügen",
+  "organizations.organizations_table_v1.pull_button" : "Laden",
+  "organizations.organizations_table_v1.export_button" : "Exportieren",
+
+  "organizations.organization_delete_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "organizations.organization_delete_modal_v1.delete_button_tooltip" : "Löschen",
+  "organizations.organization_save_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "organizations.organization_save_modal_v1.save_button_tooltip" : "Speichern",
+
+  "organizations.organizations_table_v1.refresh_button_tooltip" : "Aktualisieren",
+  "organizations.organizations_table_v1.add_button_tooltip" : "Hinzufügen",
+  "organizations.organizations_table_v1.pull_button_tooltip" : "Laden",
+  "organizations.organizations_table_v1.export_button_tooltip" : "Exportieren",
+  "organizations.organizations_table_v1.remove_button" : "Entfernen",
+  "organizations.organizations_table_v1.remove_button_tooltip" : "Entfernen",
+  "organizations.organizations_table_v1.id_header" : "ID",
+  "organizations.organizations_table_v1.external_id_header" : "Externe ID",
+  "organizations.organizations_table_v1.name_header" : "Name",
+  "organizations.organizations_table_v1.is_buyer_header" : "[DE] Is Buyer",
+  "organizations.organizations_table_v1.is_seller_header" : "[DE] Is Seller",
+  "organizations.organizations_table_v1.is_authorized_header" : "Authorisierung",
+  "organizations.organizations_table_v1.created_header" : "Erstellt",
+  "organizations.organizations_table_v1.updated_header" : "Aktualisiert",
+
+  "organizations_import_v1.view.next_button_tooltip" : "Weiter",
+  "organizations_import_v1.view.back_button_tooltip" : "Zurück",
+  "organizations_import_v1.view.clear_button_tooltip" : "[DE] Clear",
+  "organizations_import_v1.view.submit_button_tooltip" : "Senden",
+  "organizations_import_v1.view.notification.error.title" : "[DE] Unable to retrieve imported organizations!",
+  "organizations_import_v1.view.notification.success.title.file_upload" : "[DE] File uploaded",
+  "organizations_import_v1.view.notification.error.title.import" : "[DE] Organizations import error!",
+  "organizations_import_v1.view.notification.success.title.import" : "[DE] Organizations imported successfully",
+
+  "organizations_import_v1.clear_modal_v1.cancel_button_tooltip" : "Abbrechen",
+  "organizations_import_v1.clear_modal_v1.clear_button_tooltip" : "[DE] Clear",
+  "organizations_import_v1.clear_modal_v1.notification.success.title" : "[DE] Organizations cleared successfully",
+  "organizations_import_v1.clear_modal_v1.notification.error.title" : "[DE] Organizations clear import error!",
+
+  "organizations.organization_save_modal_v1.toggle.on" : "[DE] Freeze",
+  "organizations.organization_save_modal_v1.toggle.off" : "[DE] Edit",
+  "organizations.organization_save_modal_v1.organization_name_placeholder" : "[DE] Organization name",
+  "organizations_delete_modal_v1.notification.success.removed" : "[DE] Organization removed",
+  "organizations_delete_modal_v1.notification.error.delete" : "[DE] Organization delete error!",
+
+  "organization_save_modal_v1.notification.success.created" : "[DE] Organization created",
+  "organization_save_modal_v1.notification.error.title" : "[DE] SYSTEM ERROR",
+  "organization_save_modal_v1.notification.error.subtitle" : "[DE] Failed to create organization",
+
+  "organizations.organizations_table_v1.notification.success.refresh.title" : "[DE] Organizations",
+  "organizations.organizations_table_v1.notification.success.refresh.message" : "[DE] Organizations refreshed successfully",
+  "organizations.organizations_table_v1.notification.error.refresh.message" : "[DE] Unable to retrieve",
+  "organizations.organizations_table_v1.notification.success.export.message" : "[DE] Organizations exported successfully",
+  "organizations.organizations_table_v1.notification.error.export.message" : "[DE] Unable to export",
+
+  "organizations_import_v1.view.steps.import" : "[DE] Import",
+  "organizations_import_v1.view.steps.review" : "[DE] Review",
+  "organizations_import_v1.view.steps.submit" : "[DE] Submit",
+
+  "organizations.organization_save_modal_v1.external_id_placeholder" : "[DE] External ID"
+
+
+
+}

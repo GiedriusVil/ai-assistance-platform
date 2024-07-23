@@ -1,0 +1,31 @@
+<div>
+  <aca-wbc-base-modal [id]="modalId" [attr.id]="modalId">
+    <ng-container *ngIf="ready">
+      <div class="aca--modal--header">
+        <h4 class="aca--modal--title">PI Agreement</h4>
+      </div>
+      <div class="aca--modal--body">
+        <div class="pi-storage">
+          <div *ngIf="text" class="pi-notification-text-attachment" [innerHTML]="text | safe: 'html'"></div>
+          <div class="pi-btns">
+            <p *ngIf="state.error">{{state.error}}</p>
+            <div 
+              class="confirm-pi-btn" 
+              title="confirmPiStorage"
+              (click)="submit($event)">
+              <p title="confirmPiStorage">Agree</p>
+            </div>
+            <div 
+              class="deny-pi-btn" 
+              title="denyPiStorage"
+              (click)="submit($event)">
+              <p>Disagree</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aca--modal--footer">
+      </div>
+    </ng-container>
+  </aca-wbc-base-modal>
+</div>

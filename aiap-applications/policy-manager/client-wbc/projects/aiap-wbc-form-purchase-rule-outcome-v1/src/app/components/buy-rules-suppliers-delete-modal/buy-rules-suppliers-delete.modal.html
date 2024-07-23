@@ -1,0 +1,26 @@
+<ibm-modal [open]="isOpen" (overlaySelected)="close()" size='xs'>
+    <ibm-modal-header (closeSelect)="close()">
+      <p class="bx--modal-header__heading bx--type-beta">
+        {{'purchase_rule_outcome.buy_rules_suppliers_delete.header_text' | translate}}
+      </p>
+    </ibm-modal-header>
+    <section ibmModalContent>
+      <span>
+        {{'purchase_rule_outcome.buy_rules_suppliers_delete.confirmation_text' | translate}}
+      </span>
+    </section>
+    <ibm-modal-footer>
+      <aiap-button-v1
+          [type]="'secondary'"
+          [text]="'purchase_rule_outcome.buy_rules_suppliers_delete.cancel_button_text' | translate"
+          [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_delete.cancel_button_tooltip' | translate"
+          (onClick)="close()">
+        </aiap-button-v1>
+      <aiap-button-v1
+          [type]="'danger'"
+          [text]="'purchase_rule_outcome.buy_rules_suppliers_delete.delete_button_text' | translate"
+          [tooltip]="'purchase_rule_outcome.buy_rules_suppliers_delete.delete_button_tooltip' | translate"
+          (onClick)="delete()">
+        </aiap-button-v1>
+    </ibm-modal-footer>
+</ibm-modal>

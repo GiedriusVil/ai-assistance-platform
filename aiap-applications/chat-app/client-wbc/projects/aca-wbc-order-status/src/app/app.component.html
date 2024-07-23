@@ -1,0 +1,218 @@
+<div *ngIf="isReady()">
+  <div #multiCard id="multiCard" class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item" *ngIf="message?.showOrderStatus">
+          <button 
+            [ngClass]="isOrderStatusShow() ? 'nav-link wbc--tabs--text wbc--tab--active' : 'nav-link wbc--tabs--text wbc--tab--inactive'" 
+            (click)="setCardContent('orderStatus')">
+            Order Status
+          </button>
+        </li>
+        <li class="nav-item" id="compliance--selfcheck--tab" *ngIf="message?.showComplianceSelfcheck">
+          <button
+          [ngClass]="isComplianceSelfcheckShow() ? 'nav-link wbc--tabs--text wbc--tab--active' : 'nav-link wbc--tabs--text wbc--tab--inactive'" 
+          (click)="setCardContent('complianceSelfcheck')">
+          Compliance self-check
+        </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-body">
+      <form *ngIf="isOrderStatusShow()" class="order--status" (submit)="getOrderStatus($event)" #orderForm="ngForm">
+        <h4 class="order--status--component--name">{{'title'| translate}}</h4>
+        <div class="order--status--container">
+          <div class="order--status--description--container">
+            <h5 class="order--status--name">{{'pr-number'| translate}} 
+              <img [src]="assetsUrl + '/info-black.svg'"  placement="top" ngbTooltip="{{'pr-number-description'| translate}}"/>
+            </h5>
+          </div>
+          <textarea
+            rows="1"
+            class="order--status--input"
+            [name]="ORDER_TYPES['PR']"
+            [(ngModel)]="state[ORDER_TYPES['PR']]"
+            [disabled]="otherFieldsHaveData(ORDER_TYPES['PR'])">
+          </textarea>
+        </div>
+        <div class="order--status--container">
+          <div class="order--status--description--container">
+            <h5 class="order--status--name">
+              {{'po-number'| translate}} 
+              <img [src]="assetsUrl + '/info-black.svg'"  placement="top" ngbTooltip="{{'po-number-description'| translate}}"/>
+            </h5>
+          </div>
+          <textarea
+            rows="1"
+            class="order--status--input"
+            [name]="ORDER_TYPES['PO']"
+            [(ngModel)]="state[ORDER_TYPES['PO']]"
+            [disabled]="otherFieldsHaveData(ORDER_TYPES['PO'])">
+          </textarea>
+        </div>
+        <div class="order--status--container">
+          <div class="order--status--description--container">
+            <h5 class="order--status--name">
+              {{'invoice-number'| translate}} 
+              <img [src]="assetsUrl + '/info-black.svg'"  placement="top" ngbTooltip="{{'invoice-number-description'| translate}}"/>
+            </h5>
+          </div>
+          <textarea
+            rows="1"
+            class="order--status--input"
+            [name]="ORDER_TYPES['INVOICE']"
+            [(ngModel)]="state[ORDER_TYPES['INVOICE']]"
+            [disabled]="otherFieldsHaveData(ORDER_TYPES['INVOICE'])">
+          </textarea>
+        </div>
+        <button
+          class="order--status--button"
+          type="submit"
+          [disabled]="formHasData()">{{'send'| translate}}</button>
+      </form>
+
+      <div *ngIf="isComplianceSelfcheckShow()" class="aiap--wbc--contract--self--check">
+        <p class="aiap--wbc--contract--self--check--text">
+          Recreates SOX testing conditions in a safe environment. 
+          The user responds with YES or NO answers in order to cover the testing control points and gets a potential satisfactory/unsatisfactory testing result and related Blue Book guidance to the latest requirements for the respective control point.
+        </p>
+        <div class="separator"></div>
+        <p class="aiap--wbc--contract--self--check--text">
+          The final result of this test is not binding. The owner of the transaction should be in a position to procure acceptable documentation/evidence, supporting the statements provided as a result of this self-check. Subject of SOX Testing are only SOW/ SOW Amendment agreements.
+        </p>
+        <div class="aiap--wbc--contract--self--check--start--button--container">
+          <div class="aiap--wbc--contract--self--check--start--button" (click)="openSelfcheckModal()" type="button">
+            <p class="aiap--wbc--contract--self--check--start--button--text">Start</p>
+            <div class="bi bi-arrow-right aiap--wbc--contract--self--check--start--button--arrow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <aca-wbc-base-modal id="aiap-wbc-compliance-self-check-modal">
+    <div id="aiap-wbc-compliance-self-check-modal-container">
+      <div class="header--icon--box">
+        <img 
+          class="header--icon--box--img--close" 
+          [src]="assetsUrl + '/close.svg'" 
+          tabindex="0" 
+          role="button"
+          title="[CLOSE]" 
+          alt="[CLOSE]"
+          (keydown.enter)="onCloseModal('aiap-wbc-compliance-self-check-modal')"
+          (click)="onCloseModal('aiap-wbc-compliance-self-check-modal')">
+      </div>
+      <div class="aca--modal--body">
+        <form [formGroup]="complianceSelfcheckForm">
+          <div class="contract--id">
+            <label for="contract--id--input">Contract ID</label>
+            <input type="text" class="contract--id--input" (change)="updateContractId($event)"/>
+          </div>
+          <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span [className]="'kcfr--title ' + getTitleIconType('KCFR003-1')">KCFR003-1</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="kcfr--questions" *ngFor="let question of renderKCFR003_1Questions$ | async;">
+                  <p>{{question?.text}}</p>
+                  <aiap-answer-slider 
+                    [initValue]="question?.initValue"
+                    [refreshSlider]="refreshForm" 
+                    [questionDetails]="{details: question, kcfr: 'KCFR003-1'}" 
+                    (newAnswerEvent)="handleAnswerSliderEvent($event)">
+                  </aiap-answer-slider>
+                </div>
+                <div *ngIf="renderFinalMessage('KCFR003-1')">
+                  <div [className]="'alert d-flex align-items-start alert-dismissible fade show mt-4 p-0 ' + getFinalMessageType('KCFR003-1')" role="alert">
+                    <div class="final--message--border"></div>
+                    <span class="final--message--icon"></span>
+                    <div class="final--message--content">
+                      {{finalMessagesProps['KCFR003-1']?.message}}
+                    </div>
+                    <button type="button" class="btn-close close--icon" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span [className]="'kcfr--title ' + getTitleIconType('KCFR003-2')">KCFR003-2</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="kcfr--questions" *ngFor="let question of renderKCFR003_2Questions$ | async;">
+                  <p>{{question?.text}}</p>
+                  <aiap-answer-slider 
+                  [initValue]="question?.initValue"
+                  [refreshSlider]="refreshForm" 
+                  [questionDetails]="{details: question, kcfr: 'KCFR003-2'}" 
+                  (newAnswerEvent)="handleAnswerSliderEvent($event)">
+                  </aiap-answer-slider>
+                </div>
+                <div *ngIf="renderFinalMessage('KCFR003-2')">
+                  <div [className]="'alert d-flex align-items-start alert-dismissible fade show mt-4 p-0 ' + getFinalMessageType('KCFR003-2')" role="alert">
+                    <div class="final--message--border"></div>
+                    <span class="final--message--icon"></span>
+                    <div class="final--message--content">
+                      {{finalMessagesProps['KCFR003-2']?.message}}
+                    </div>
+                    <button type="button" class="btn-close close--icon" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span [className]="'kcfr--title ' + getTitleIconType('KCFR004')">KCFR004</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="kcfr--questions" *ngFor="let question of renderKCFR004Questions$ | async;">
+                  <p>{{question?.text}}</p>
+                  <aiap-answer-slider 
+                  [initValue]="question?.initValue"
+                  [refreshSlider]="refreshForm" 
+                  [questionDetails]="{details: question, kcfr: 'KCFR004'}" 
+                  (newAnswerEvent)="handleAnswerSliderEvent($event)">
+                  </aiap-answer-slider>
+                </div>
+                <div *ngIf="renderFinalMessage('KCFR004')">
+                  <div [className]="'alert d-flex align-items-start alert-dismissible fade show mt-4 p-0 ' + getFinalMessageType('KCFR004')" role="alert">
+                    <div class="final--message--border"></div>
+                    <span class="final--message--icon"></span>
+                    <div class="final--message--content">
+                      {{finalMessagesProps['KCFR004']?.message}}
+                    </div>
+                    <button type="button" class="btn-close close--icon" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </form>
+        <div class="form--control--buttons">
+          <button 
+            type="button" 
+            class="form--refresh--button"
+            (click)="refreshEvent()">
+            <p>Refresh</p>
+            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="18" height="16.7143" fill="transparent" style="mix-blend-mode:multiply"/>
+              <path class="refresh-icon-path" d="M14.625 9.40095C14.625 10.434 14.2951 11.4439 13.677 12.3028C13.0589 13.1618 12.1804 13.8312 11.1526 14.2266C10.1248 14.6219 8.99376 14.7253 7.90262 14.5238C6.81148 14.3223 5.8092 13.8248 5.02253 13.0943C4.23586 12.3638 3.70013 11.4332 3.48309 10.4199C3.26604 9.40674 3.37744 8.35653 3.80318 7.40211C4.22892 6.44769 4.94989 5.63194 5.87492 5.058C6.79995 4.48407 7.88748 4.17773 9 4.17773H12.4774L10.4612 6.05047L11.25 6.78934L14.625 3.65541L11.25 0.521484L10.4612 1.26005L12.4791 3.13309H9C7.66498 3.13309 6.35994 3.50069 5.2499 4.18942C4.13987 4.87814 3.27471 5.85704 2.76382 7.00234C2.25292 8.14764 2.11925 9.4079 2.3797 10.6237C2.64015 11.8396 3.28303 12.9564 4.22703 13.833C5.17104 14.7096 6.37377 15.3065 7.68314 15.5484C8.99252 15.7902 10.3497 15.6661 11.5831 15.1917C12.8165 14.7173 13.8707 13.9139 14.6124 12.8832C15.3541 11.8524 15.75 10.6406 15.75 9.40095H14.625Z" fill="#0F62FE" onmouseover="evt.target.setAttribute('fill', 'white');" onmouseout="evt.target.setAttribute('fill','#0F62FE');"/>
+            </svg>
+          </button>
+          <!--           
+          <button 
+            type="button" 
+            class="form--finish--button"
+            (click)="finishEvent()">
+            <p>Finish</p>
+            <i class="finish--icon"></i>
+          </button> 
+          -->
+        </div>
+      </div>
+    </div>
+  </aca-wbc-base-modal>
+</div>

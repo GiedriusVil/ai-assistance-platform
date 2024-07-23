@@ -1,0 +1,12 @@
+{
+  "name": "@ibm-aca/aca-botmaster-fulfill-actions",
+  "version": "0.0.1",
+  "description": "standard actions for botmaster-fulfill",
+  "main": "index.js",
+  "scripts": {},
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "botmaster": ">=2.3.0"
+  }
+}

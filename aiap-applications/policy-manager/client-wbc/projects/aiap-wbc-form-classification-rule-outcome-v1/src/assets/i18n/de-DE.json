@@ -1,0 +1,35 @@
+{
+  "rules_classification.delete_modal.header_text" : "[DE] Delete Classification Rule Classifications",
+  "rules_classification.delete_modal.delete_confirmation" : "[DE] Do you want to delete classification rule classifications?",
+  "rules_classification.delete_modal.cancel_button_text" : "[DE] Cancel",
+  "rules_classification.delete_modal.delete_button_text" : "[DE] Delete",
+  "rules_classification.delete_modal.cancel_button_tooltip" : "[DE] Cancel",
+  "rules_classification.delete_modal.delete_button_tooltip" : "[DE] Delete",
+
+  "rules_classification.save_modal.header_text" : "[DE] Save Classification",
+  "rules_classification.save_modal.cancel_button_text" : "[DE] Cancel",
+  "rules_classification.save_modal.save_button_text" : "[DE] Save",
+  "rules_classification.save_modal.cancel_button_tooltip" : "[DE] Cancel",
+  "rules_classification.save_modal.save_button_tooltip" : "[DE] Save",
+
+  "rules_classification.table.add_button_text" : "[DE] Add",
+  "rules_classification.table.search_placeholder" : "[DE] Enter search value",
+  "rules_classification.table.refresh_button_tooltip" : "[DE] Refresh",
+  "rules_classification.table.add_button_tooltip" : "[DE] Add",
+
+  "classification_rules.outcome_type.restrict_button_text" : "[DE] Restrict Classifications (Assume all allowed)",
+  "classification_rules.outcome_type.allow_button_text" : "[DE] Allow Classifications (Assume all restricted)",
+  "classification_rules.outcome_type.restrict_button_tooltip" : "[DE] Restrict Classifications",
+  "classification_rules.outcome_type.allow_button_tooltip" : "[DE] Allow Classifications",
+
+  "classification_rules.classification_table.remove_button" : "[DE] Remove",
+  "classification_rules.classification_table.segment_header" : "[DE] Segment",
+  "classification_rules.classification_table.family_header" : "[DE] Family",
+  "classification_rules.classification_table.class_header" : "[DE] Class",
+  "classification_rules.classification_table.commodity_header" : "[DE] Commodity",
+
+  "rule_actions_table_v1.remove_button_tooltip" : "[DE] Remove",
+
+  "classification_rules.delete_modal.notification.success.title" : "[DE] Classification rule classifications removed!",
+  "classification_rules.delete_modal.notification.error.title" : "[DE] Unable delete classification rule classifications"
+}

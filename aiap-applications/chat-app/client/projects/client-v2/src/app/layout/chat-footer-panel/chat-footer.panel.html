@@ -1,0 +1,80 @@
+<div 
+  #footer 
+  id="footer" 
+  class="footer--box"
+  [ngClass]="userTyping ? 'animation--focus' : 'animation--focusout'">
+  <form [formGroup]="form">
+    <div class="input--row">
+      <div class="text--area-wrapper">
+        <textarea
+          #textarea
+          attr.aria-label="{{'footer.input-aria-label'| translate}}" 
+          tabindex="0" 
+          formControlName="input"
+          class="text--area" 
+          maxlength="280" 
+          rows="1"
+          placeholder="{{'footer.input-placeholder'| translate}}" 
+          [disabled]="isInputDisabled()"
+          (keyup)="keyUp($event)" 
+          (keydown)="keyDown($event)" 
+          (input)="onInput()" 
+          (focus)="setUserTyping(true)"
+          (focusout)="setUserTyping(false)" 
+          (keydown.enter)="postMessage($event, true)">
+        </textarea>
+      </div>
+      <div *ngIf="isLiveChatInitiated()" class="send--button--wrapper">
+        <input 
+          class="float-start action--button end-session" 
+          tabindex="0" 
+          type="image" 
+          title="{{'footer.button-title-end-session-with-agent'| translate}}"
+          alt="{{'footer.alt-title-end-session-with-agent'| translate}}" 
+          [src]="icons['liveChatSessionClose']"
+          (click)="endLiveChatSession()"
+          (mouseover)="onMouseEndZendeskSessionOver()" 
+          (mouseout)="onMouseEndZendeskSessionOut()">
+      </div>
+      <div class="send--button--wrapper">
+        <button
+          [ngClass]="{'action--button send-message': isFeatureEnabled('buttonIcon'), 'btn btn-primary': !isFeatureEnabled('buttonIcon')}"
+          type="button"
+          title="{{'footer.button-title'| translate}}"
+          attr.aria-label="{{'footer.button-alt'| translate}}"
+          [disabled]="isInputDisabled() || !form.get('input').value?.trim()?.length"
+          [class.disabled]="isInputDisabled() || !form.get('input').value?.trim()?.length"
+          (click)="postMessage($event, false)"
+          >
+          <img *ngIf="isFeatureEnabled('buttonIcon') else buttonText" [src]="icons['sendMessage']" alt="{{'footer.button-alt'| translate}}">
+          <ng-template #buttonText>{{'footer.button-send'| translate}}</ng-template>
+        </button>
+      </div>
+      <div *ngIf="isFeatureEnabled('transcript')" class="download--button--wrapper"
+        (click)="downloadTranscript()">
+        <img class="download--button download-transcript" tabindex="0" [src]="icons['downloadTranscript']"
+          title="{{'footer.button-title-download-transcript'| translate}}" alt="{{'footer.button-title-download-transcript-alt'| translate}}">
+      </div>
+      <div *ngIf="isAudioMuted && isFeatureEnabled('voice')" class="sound--button--wrapper" role="button"
+      (click)="toggleAudioMute($event)">
+      <img class="img--volume" tabindex="0" [src]="icons['volumeMute']"
+        title="{{'header.icon-volume-up-title'| translate}}" alt="{{'header.icon-volume-up-alt'| translate}}">
+    </div>
+    <div *ngIf="!isAudioMuted && isFeatureEnabled('voice')" class="sound--button--wrapper" role="button"
+      (click)="toggleAudioMute($event)">
+      <img class="img--volume" tabindex="0" [src]="icons['volumeUp']"
+        title="{{'header.icon-volume-mute-title'| translate}}" alt="{{'header.icon-volume-mute-alt'| translate}}">
+    </div>
+    <div *ngIf="isMicMutted && isFeatureEnabled('voice')" class="sound--button--wrapper" role="button"
+    (click)="toggleAudioRecording($event)">
+    <img class="img--volume" tabindex="0" [src]="icons['microphoneOff']"
+      title="{{'header.icon-volume-up-title'| translate}}" alt="{{'header.icon-volume-up-alt'| translate}}">
+  </div>
+  <div *ngIf="!isMicMutted && isFeatureEnabled('voice')" class="sound--button--wrapper" role="button"
+    (click)="toggleAudioRecording($event)">
+    <img class="img--volume" tabindex="0" [src]="icons['microphone']"
+      title="{{'header.icon-volume-mute-title'| translate}}" alt="{{'header.icon-volume-mute-alt'| translate}}">
+  </div>
+    </div>
+  </form>
+</div>

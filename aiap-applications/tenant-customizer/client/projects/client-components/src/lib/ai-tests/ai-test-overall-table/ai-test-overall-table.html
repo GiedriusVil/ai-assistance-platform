@@ -1,0 +1,36 @@
+<ibm-table-container>
+    <ibm-table
+      class="cursor-pointer"
+      size="md"
+      [striped]="true"
+      [skeleton]="skeleton"
+      [showSelectionColumn]="false"
+      [sortable]="false"
+      [stickyHeader]="false"
+      [model]="model"
+      >
+  </ibm-table>
+  <ng-template #overflowMenuItemTemplate let-data="data">
+    <ibm-overflow-menu
+     [flip]="true"
+     (click)="_allowActionsClick($event,overflowMenu)" >
+        <ibm-overflow-menu-option
+          (click)="downloadTableInExcel()">
+          Download
+        </ibm-overflow-menu-option>
+    </ibm-overflow-menu>
+  </ng-template>
+</ibm-table-container>
+
+<ng-template #incorrectHigh let-data="data">
+  <span>{{((intents.failHigh/intents.totalTested))|percent:'1.2-2'}}</span>
+</ng-template>
+<ng-template #incorrectLow let-data="data">
+  <span>{{((intents.failLow/intents.totalTested))|percent:'1.2-2'}}</span>
+</ng-template>
+<ng-template #correctLow let-data="data">
+  <span>{{((intents.passLow/intents.totalTested))|percent:'1.2-2'}}</span>
+</ng-template>
+<ng-template #correctHigh let-data="data">
+  <span>{{((intents.passHigh/intents.totalTested))|percent:'1.2-2'}}</span>
+</ng-template>

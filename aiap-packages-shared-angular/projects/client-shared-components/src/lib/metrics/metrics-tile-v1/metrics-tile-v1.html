@@ -1,0 +1,20 @@
+<div class="tile-container">
+  <ibm-tile 
+    class="metric-wrapper" 
+    (click)="hanleClickEvent()">
+    <ibm-tooltip-icon *ngIf="showTooltip" 
+      [placement]="placement" 
+      [alignment]="alignment" 
+      [content]="text">
+      <aiap-icon-svg-v1
+        class="icon-tile-tooltip"
+        [src]="'assets/carbon-icons/16/status/information.svg'">
+      </aiap-icon-svg-v1>
+    </ibm-tooltip-icon>
+    <div class="metric-header">{{headerText}}</div>
+    <div class="metric-value">{{displayData}}</div>
+    <div *ngIf="!isSelected" class="target"></div>
+    <div *ngIf="isSelected" class="target-selected"></div>
+    <div class="metric-footer"><ng-content></ng-content></div>
+  </ibm-tile >
+</div>

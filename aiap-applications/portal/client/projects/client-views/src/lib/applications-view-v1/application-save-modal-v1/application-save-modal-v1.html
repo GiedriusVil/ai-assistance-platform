@@ -1,0 +1,68 @@
+<aiap-modal-v1
+  [open]="isOpen" 
+  (overlaySelected)="close()" 
+  size='xs'>
+  <aiap-modal-v1-header-v1 
+    (closeSelect)="close()">
+    <p class="bx--modal-header__heading bx--type-beta">
+      {{ 'applications_view_v1.save_modal_v1.header' | translate }}
+    </p>
+  </aiap-modal-v1-header-v1>
+  <section 
+    ibmModalContent>
+    <form 
+      #applicationForm="ngForm">
+      <!-- Cross-Site Request Forgery [START] -->
+      <input 
+        type="hidden" 
+        name="csrftoken" 
+        value="1df93e1eafa42012f9a8aff062eeb1db0380b">
+      <!-- Cross-Site Request Forgery [END] -->
+      <div ibmGrid>
+        <div ibmRow>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'application_id'"
+              [label]="'applications_view_v1.save_modal_v1.fld_id.label' | translate"
+              [labelHelp]="'applications_view_v1.save_modal_v1.fld_id.labelHelp' | translate"
+              [(value)]="application.name">
+            </aiap-field-input-v1>
+          </div>
+          <div ibmCol>
+            <aiap-field-input-v1
+              [name]="'application_name'"
+              [label]="'applications_view_v1.save_modal_v1.fld_name.label' | translate"
+              [labelHelp]="'applications_view_v1.save_modal_v1.fld_name.labelHelp' | translate"
+              [(value)]="application.id">
+            </aiap-field-input-v1>
+          </div>
+        </div>
+        <div class="configurations-container" ibmRow>
+          <div ibmCol>
+            <label>
+              {{ 'applications_view_v1.save_modal_v1.fld_configurations.label' | translate }}
+            </label>
+            <json-editor
+              class="aca-override"
+              [options]="jsonEditorOptions"
+              [data]="application.configuration">
+            </json-editor>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <aiap-modal-v1-footer-v1>
+    <aiap-button-v1
+      [text]="'applications_view_v1.save_modal_v1.btn_cancel.text' | translate"
+      [type]="'secondary'"
+      (onClick)="close()">
+    </aiap-button-v1>
+    <aiap-button-v1
+      [text]="'applications_view_v1.save_modal_v1.btn_save.text' | translate"
+      [type]="'primary'"
+      [disabled]="applicationForm.invalid"
+      (onClick)="save()">
+    </aiap-button-v1>
+  </aiap-modal-v1-footer-v1>
+</aiap-modal-v1>

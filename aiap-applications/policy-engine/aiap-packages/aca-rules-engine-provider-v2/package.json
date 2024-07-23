@@ -1,0 +1,11 @@
+{
+  "name": "@ibm-aca/aca-rules-engine-provider-v2",
+  "version": "0.0.1",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "@ibm-aca/aca-rules-service": "0.0.1",
+    "@ibm-aca/aca-wrapper-mustache": "0.0.1"
+  }
+}

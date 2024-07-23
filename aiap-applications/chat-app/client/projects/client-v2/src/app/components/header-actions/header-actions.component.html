@@ -1,0 +1,36 @@
+<div>
+    <div class="buy-header">
+        <div class="row">
+            <div class="col-3 button-box" (click)="onClick('app-main-view')" [ngClass]="isActive('chat') ? 'btn-active' : 'btn-default'">
+                <button>
+                    <div class="chat-icon"></div>
+                    <p>{{'header-actions.chat'| translate}}</p>
+                </button>
+            </div>
+            <div *ngIf="isFeatureEnabled('basket') && !showFilledCart()" (click)="onClick('aca-basket-view')" [ngClass]="isActive('buyingRequest') ? 'btn-active' : 'btn-default'" class="col-3 button-box">
+                <button>
+                    <div class="cart-icon"></div>
+                    <p>{{'header-actions.buying-request'| translate}}</p>
+                </button>
+            </div>
+            <div *ngIf="isFeatureEnabled('basket') && showFilledCart()" (click)="onClick('aca-basket-view')" [ngClass]="isActive('buyingRequest') ? 'btn-active' : 'btn-default'" class="col-3 button-box">
+                <button>
+                    <div class="filled-cart-icon"></div>
+                    <p>{{'header-actions.buying-request'| translate}}</p>
+                </button>
+            </div>
+            <div *ngIf="isFeatureEnabled('survey')" (click)="onClick('survey')" [ngClass]="isActive('survey') ? 'btn-active' : 'btn-default'" class="col-3 button-box">
+                <button (click)="showSurvey()">
+                    <div class="survey-icon"></div>
+                    <p>{{'header-actions.survey'| translate}}</p>
+                </button>
+            </div>
+            <div *ngIf="isFeatureEnabled('profile')" (click)="onClick('profile')" [ngClass]="isActive('profile') ? 'btn-active' : 'btn-default'" class="col-3 button-box">
+                <button disabled>
+                    <div class="profile-icon"></div>
+                    <p>{{'header-actions.profile'| translate}}</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

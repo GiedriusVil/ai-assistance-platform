@@ -1,0 +1,78 @@
+<ibm-table-container>
+    <ibm-table-toolbar-content>
+        <button
+            ibmButton="ghost"
+            [iconOnly]="true"
+            (click)="handleRefreshClickEvent($event)">
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/operations/renew.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+        <ibm-table-toolbar-search 
+            (search)="emitSearchPlace($event)" 
+            (clear)="emitClearPlace($event)"
+            [value]="state.search"
+            [autocomplete]="'off'"
+            >
+        </ibm-table-toolbar-search>
+        <button 
+            ibmButton="primary" 
+            (click)="emitShowSavePlace()">
+            {{ 'test_executions_table_v1.btn_execute.text' | translate }}
+        </button>
+        <button 
+            ibmButton="primary" 
+            (click)="emitGenerateManyPlace($event)">
+            {{ 'test_executions_table_v1.btn_generate.text' | translate }}
+        </button>
+        <button 
+            ibmButton="danger" 
+            [disabled]="isRemoveDisabled()"
+            (click)="emitRemovePlace()">
+            {{ 'test_executions_table_v1.btn_remove.text' | translate }}({{this.selectedRows.length}})
+            <aiap-icon-svg-v1
+              class="bx--btn__icon"
+              [src]="'assets/carbon-icons/20/formatting/trash-can.svg'">
+            </aiap-icon-svg-v1>
+        </button>
+    </ibm-table-toolbar-content>
+    <ibm-table
+        class="cursor-pointer"
+        size="md"
+        (rowClick)="emitShowSavePlace($event)"
+        (deselectAll)="deselectAllRows()" 
+        (selectAll)="selectAllRows($event)" 
+        (selectRow)="rowSelect($event)"
+        (deselectRow)="rowDeselect($event)"
+        (sort)="handleSortEvent($event)"
+        [striped]="true" 
+        [skeleton]="skeletonState" 
+        [showSelectionColumn]="true"
+        [sortable]="true" 
+        [stickyHeader]="false" 
+        [model]="model">
+    </ibm-table>
+    <ibm-pagination 
+        [model]="model" 
+        [showPageInput]="true" 
+        (selectPage)="handleSelectPageEvent($event)">
+    </ibm-pagination>
+    <ng-template #overflowMenuItemTemplate let-data="data">
+        <ibm-overflow-menu 
+            [flip]="true" 
+            (click)="_allowActionsClick($event)">
+            <ibm-overflow-menu-option 
+                (selected)="emitShowSavePlace(data)">
+                {{ 'test_executions_table_v1.btn_edit.text' | translate }}
+            </ibm-overflow-menu-option>
+            <ibm-overflow-menu-option 
+                (selected)="emitExecuteEvent(data)">
+                {{ 'test_executions_table_v1.btn_reexecute.text' | translate }}
+            </ibm-overflow-menu-option>
+        </ibm-overflow-menu>
+    </ng-template>
+    <ng-template #createdAndChangedTime let-data="data">
+        {{ timezoneService.getTimeByUserTimezone(data) }}
+    </ng-template>
+</ibm-table-container>

@@ -1,0 +1,111 @@
+/*
+  © Copyright IBM Corporation 2022. All Rights Reserved 
+   
+  SPDX-License-Identifier: EPL-2.0
+*/
+
+aca-live-analytics-chart {
+  .chart-wrapper {
+    min-height: 400px;
+    padding: 20px;
+    border: 1px solid #d8d8d8;
+
+    .bx--grid {
+      min-width: 100%;
+      padding: 0px;
+      margin: 0px;
+
+      .bx--row {
+        padding: 0px;
+        margin: 0px;
+
+        div {
+          padding: 0;
+        }
+
+        .bx--btn--icon-only.bx--btn.bx--btn--ghost.bx--btn--sm {
+          display: block;
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .separator {
+      grid-area: target;
+      padding-bottom: 12px;
+      font-size: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .loading {
+      min-width: 15%;
+      max-width: 15%;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jsoneditor {
+      &.jsoneditor-mode-code {
+        margin-top: 10px;
+      }
+
+      &.jsoneditor-mode-tree {
+        border-color: black;
+
+        .jsoneditor-menu {
+          border-color: black;
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  .bx--inline-notification__text-wrapper {
+    width: 100%;
+  }
+
+  .canvas-hidden {
+    display: none;
+  }
+
+  .canvas {
+    background: white;
+    border: 1px solid #d8d8d8;
+    padding: 20px;
+    max-height: 400px;
+  }
+
+  .aca-json-editor-hidden {
+    display: none;
+  }
+
+  aca-intent-slider {
+    .bx--accordion__heading {
+      margin-top: 0.5rem;
+    }
+
+    .bx--accordion__content {
+      padding: 0;
+    }
+
+    ibm-slider {
+      width: 100%;
+    }
+
+    .bx--slider-container {
+      width: 100%;
+    }
+
+    .bx--slider {
+      width: 100%;
+      min-width: 0px;
+    }
+
+    .bx--slider-text-input {
+      width: 30%;
+      max-width: 5rem;
+    }
+  }
+}

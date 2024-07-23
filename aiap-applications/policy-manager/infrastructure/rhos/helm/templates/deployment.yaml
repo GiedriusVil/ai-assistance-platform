@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "app.fullname" . }}
+  labels:
+    app: {{ template "app.fullname" . }}
+    chart: "{{ template "isaidt.chart" . }}"
+    release: "{{ .Release.Name }}"
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "app.fullname" . }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ template "app.fullname" . }}
+        allow-EGRESS-PUB-HIGHPORTS: "true"
+        allow-EGRESS-PUB-HTTP: "true"
+        allow-EGRESS-PUB-HTTPS: "true"
+        allow-INGRESS-PUB: "true"
+    spec:
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecretName }}
+      containers:
+      - workingDir: /home/node/app
+        image: "{{ .Values.imageRepository }}/{{ .Values.imageName }}:{{ .Values.imageTag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        name: {{ template "app.fullname" . }}
+        resources:
+          requests:
+            cpu: "{{ .Values.app.cpuRequest }}"
+            memory: "{{ .Values.app.memoryRequest }}"
+          limits:
+            cpu: "{{ .Values.app.cpuLimit }}"
+            memory: "{{ .Values.app.memoryLimit }}"
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        ports:
+        - name: bot-port
+          containerPort: {{ .Values.app.port }}
+          protocol: TCP
+        env:
+        - name: GIT_CONFIG_ENABLED
+          value: "{{ .Values.gitConfigEnabled }}"
+        - name: GIT_CONFIG_URL
+          value: "{{ .Values.gitConfigUrl }}"
+        - name: GIT_CONFIG_FILE
+          value: "{{ .Values.gitConfigFile }}"
+        - name: GIT_CONFIG_PERSONAL_TOKEN
+          value: "{{ .Values.gitConfigPersonalToken }}"

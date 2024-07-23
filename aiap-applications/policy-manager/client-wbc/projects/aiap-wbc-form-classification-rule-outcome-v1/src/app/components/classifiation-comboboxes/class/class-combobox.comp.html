@@ -1,0 +1,26 @@
+<ng-template #comboboxLable>
+  <div class="comboboxLabel">
+    <label>{{configs.label}}</label>
+    <ibm-loading *ngIf="queryState.loading" size="sm"></ibm-loading>
+  </div>
+</ng-template>
+
+<ibm-combo-box
+  id="external_classification_class"
+  name="external_class"
+  [disabled]="!segment || !family"
+  [autocomplete]="'none'"
+  [size]="configs.size" 
+  [label]="comboboxLable" 
+  [helperText]="configs.helperText" 
+  [invalidText]="configs.invalidText" 
+  [theme]="configs.theme"
+  [items]="state.items"
+  [(ngModel)]="state.selected"
+  (selected)="handleSelectedEvent($event)"
+  (submit)="handleSubmitEvent($event)"
+  (close)="handleCloseEvent($event)"
+  (search)="handleSearchEvent($event)">
+  <ibm-dropdown-list 
+  (scroll)="handleScrollEvent($event)"></ibm-dropdown-list>
+</ibm-combo-box>
