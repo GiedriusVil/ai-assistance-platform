@@ -19,17 +19,17 @@ RUN apt-get update && apt-get install -y git
 ARG GIT_REPO_URL_DOCS_BOOK
 RUN if [ ! -z "$GIT_REPO_URL_DOCS_BOOK" ]; then git clone $GIT_REPO_URL_DOCS_BOOK; fi
 
-COPY --chown=node:node scripts scripts
-COPY --chown=node:node .scripts .scripts
-COPY --chown=node:node lerna.json lerna.json
-COPY --chown=node:node package.json package.json
-COPY --chown=node:node yarn.lock yarn.lock
-COPY --chown=node:node tsconfig-base.json tsconfig-base.json
-COPY --chown=node:node aiap-libs-shared aiap-libs-shared
-COPY --chown=node:node aiap-client-assets aiap-client-assets
-COPY --chown=node:node aiap-packages-shared aiap-packages-shared
-COPY --chown=node:node aiap-packages-shared-angular aiap-packages-shared-angular
-COPY --chown=node:node aiap-applications/portal aiap-applications/portal
+COPY --chown=node:node ../scripts scripts
+COPY --chown=node:node ../.scripts .scripts
+COPY --chown=node:node ../lerna.json lerna.json
+COPY --chown=node:node ../package.json package.json
+COPY --chown=node:node ../yarn.lock yarn.lock
+COPY --chown=node:node ../tsconfig-base.json tsconfig-base.json
+COPY --chown=node:node ../aiap-libs-shared aiap-libs-shared
+COPY --chown=node:node ../aiap-client-assets aiap-client-assets
+COPY --chown=node:node ../aiap-packages-shared aiap-packages-shared
+COPY --chown=node:node ../aiap-packages-shared-angular aiap-packages-shared-angular
+COPY --chown=node:node . /home/node/app
 
 ##################################################################
 #  Section build_client
