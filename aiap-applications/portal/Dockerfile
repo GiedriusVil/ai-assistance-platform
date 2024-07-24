@@ -19,13 +19,12 @@ RUN apt-get update && apt-get install -y git
 ARG GIT_REPO_URL_DOCS_BOOK
 RUN if [ ! -z "$GIT_REPO_URL_DOCS_BOOK" ]; then git clone $GIT_REPO_URL_DOCS_BOOK; fi
 
-# Dummy ARG to force cache busting
-ARG CACHEBUST=1
 # Adding a non-cachable step to force Docker to re-run these commands
-RUN echo "Non-cachable step to force cache bust" && echo "Listing files in the working directory:" && ls -R /home/node/app
 RUN echo "Non-cachable step to force cache bust" && echo "Listing all files:" && find /home/node/app
-RUN echo "hello world"
-RUN ls
+RUN echo "Non-cachable step to force cache bust" && echo "Listing files in the working directory:" && ls -R /home/node/app
+
+RUN echo "Listing files in the root directory:" && ls -R /
+
 
 COPY --chown=node:node scripts scripts
 COPY --chown=node:node .scripts .scripts
@@ -36,8 +35,8 @@ COPY --chown=node:node tsconfig-base.json tsconfig-base.json
 COPY --chown=node:node aiap-libs-shared aiap-libs-shared
 COPY --chown=node:node aiap-client-assets aiap-client-assets
 COPY --chown=node:node aiap-packages-shared aiap-packages-shared
-COPY --chown=node:node ../../aiap-packages-shared-angular aiap-packages-shared-angular
-COPY --chown=node:node tsconfig.json ttsconfig.json
+COPY --chown=node:node aiap-packages-shared-angular aiap-packages-shared-angular
+COPY --chown=node:node client/src/app/components/portal-header-v1 client/src/app/components/portal-header-v1
 
 ##################################################################
 #  Section build_client
