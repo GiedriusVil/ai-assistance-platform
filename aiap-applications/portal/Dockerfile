@@ -24,6 +24,8 @@ ARG CACHEBUST=1
 # Adding a non-cachable step to force Docker to re-run these commands
 RUN echo "Non-cachable step to force cache bust" && echo "Listing files in the working directory:" && ls -R /home/node/app
 RUN echo "Non-cachable step to force cache bust" && echo "Listing all files:" && find /home/node/app
+RUN echo "hello world"
+RUN ls
 
 COPY --chown=node:node scripts scripts
 COPY --chown=node:node .scripts .scripts
