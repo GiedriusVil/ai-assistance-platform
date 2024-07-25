@@ -36,7 +36,7 @@ COPY --chown=node:node aiap-libs-shared aiap-libs-shared
 COPY --chown=node:node aiap-client-assets aiap-client-assets
 COPY --chown=node:node aiap-packages-shared aiap-packages-shared
 COPY --chown=node:node aiap-packages-shared-angular aiap-packages-shared-angular
-COPY --chown=node:node client/src/app/components/portal-header-v1 client/src/app/components/portal-header-v1
+COPY --chown=node:node aiap-applications/portal aiap-applications/portal
 
 ##################################################################
 #  Section build_client
